@@ -17,7 +17,7 @@
 * Open browser got to **http://localhost/phpmyadmin/**. Enter you password adn username (it should be root and root if you think you gave a different name and password please let me know i will help you in editing in project settings).
 * create a database name charityFoundation.
 * Go to your charityFoundation project folder using cmd and issue following command.
-**composer update**
+* **composer update** <br>:
 **php artisan migrate** --> if you put your put you database name and password as root and also your database name as **charityFoundation** you will find the table and data created for you.
 <<<<<<< HEAD
 **php artisan db:seed** ---> this will create deafult user for 
