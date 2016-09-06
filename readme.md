@@ -18,11 +18,13 @@
 * Go to your charityFoundation project folder using cmd and issue following command.
 **composer update**
 **php artisan migrate** --> if you put your put you database name and password as root and also your database name as **charityFoundation** you will find the table and data created for you.
- 
+**php artisan db:seed** ---> this will create deafult user for 
 * Next **php artisan serve** --> go to broswer and type **localhost:8000** you should see charity site up and running.
 
 
-
+###Use this to explore.
+*Default user name ->light@gmail.com<br>
+*Default password -> password.
 
 
 
