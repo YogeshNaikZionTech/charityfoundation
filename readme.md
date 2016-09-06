@@ -24,9 +24,7 @@
 =======
  
 * Next on cmd **php artisan serve** --> go to broswer and type **localhost:8000** you should see charity site up and running.
-
-
->>>>>>> e7f72c6097c7c69aac522bb9f58d3eeeccc4efac
+    
 
 
 ###Use this to explore.
