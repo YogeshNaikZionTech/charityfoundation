@@ -10,6 +10,7 @@
 
 ## Install Git and clone the repo to you directory.
 **https://github.com/YogeshNaikZionTech/charityfoundation.git**
+*change to a local branch once everything is done.
 
 
 ## Build commands after git clone
