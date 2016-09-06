@@ -1,27 +1,28 @@
-# Laravel PHP Framework
+# Chatity Foundation website build instructions.
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+## Pre-Requisites
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+# PHP, MySql, phpmyadmin, Apache.
+# Make sure your msql password and user name are "root" and "root" respectively.(dont worry if its different incase you dint chage.)
+* Above pre-req can be installed by following this <a href="https://www.youtube.com/watch?v=dfly7eNym4Y">video<a/>
+* Next, install **composer** by following this <a href="https://www.youtube.com/watch?v=ZocYVPP3nQY">Video</a> (you dont need to write any compose.json like show in the end of the video, Just make sure you get composer welcome test when you type "composer" on cmd.)
+* once your composer is working, issue cmd **composer global require "laravel/installer"** (type exact same.)
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+## Install Git and clone the repo to you directory.
+**https://github.com/YogeshNaikZionTech/charityfoundation.git**
 
-## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+## Build commands after git clone
+* Open browser got to **http://localhost/phpmyadmin/**. Enter you password adn username (it should be root and root if you think you gave a different name and password please let me know i will help you in editing in project settings.).
+* create a database name charityFoundation.
+* Go to your charityFoundation project folder using cmd and issue following command.
+**composer update**
+**php artisan migrate** --> if you put your put you database name and password as root and also your database name as **charityFoundation** you will find the table and data created for you.
+ 
+* Next **php artisan serve** --> go to broswer and type **localhost:8000** you should see charity site up and running.
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
 
-## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
