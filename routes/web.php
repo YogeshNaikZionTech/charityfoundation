@@ -15,6 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('events', 'EventController');
+Route::resource('donates', 'Donate');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');

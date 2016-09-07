@@ -14,7 +14,7 @@
                 <li class="active"><a href="/   ">Home</a></li>
                 <li><a href="">About Us</a></li>
                 <li><a href="">Projects</a></li>
-                <li><a href="">Events</a></li>
+                <li><a href="{{url('events/create')}}">Events</a></li>
                 <li><a href="">Contact Us</a></li>
                 @if (Auth::guest())
                     <li><a href={{url('/register')}}>Sign Up</a></li>
@@ -42,7 +42,7 @@
                 @endif
 
 
-                <li><a href="" ><button class="btn btn-success">Donate</button></a></li>
+                <li><a href="{{url('donates/create')}}" ><button class="btn btn-success">Donate</button></a></li>
             </ul>
         </div>
     </div>
