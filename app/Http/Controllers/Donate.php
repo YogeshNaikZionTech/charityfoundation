@@ -24,17 +24,18 @@ class Donate extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-    	if(Auth::check()){
+    public function create(Request $request) {
+	    if (!Auth::check() ) {
 
-		    return view('donates/create');
-	    }else{
-
-	    	return view('auth/login');
+		    return view ('auth/login');
 	    }
+		    return view( 'donates/create' );
+
+
 
     }
+
+
 
     /**
      * Store a newly created resource in storage.
