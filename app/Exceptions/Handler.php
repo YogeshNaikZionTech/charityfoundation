@@ -5,7 +5,6 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
-
 class Handler extends ExceptionHandler
 {
     /**
@@ -62,4 +61,13 @@ class Handler extends ExceptionHandler
 
         return redirect()->guest('login');
     }
+
+	/**
+	 * Create a Symfony response for the given exception.
+	 *
+	 * @param  \Exception  $e
+	 * @return mixed
+	 */
+
+	
 }

@@ -24,12 +24,12 @@ class Donate extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request) {
+    public function create() {
 	    if (!Auth::check() ) {
 
 		    return view ('auth/login');
 	    }
-		    return view( 'donates/create' );
+		    return view( 'donates/selectproject' );
 
 
 

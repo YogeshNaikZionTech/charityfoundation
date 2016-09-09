@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 trait AuthenticatesUsers
 {
@@ -105,6 +106,7 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request)
     {
+    	\Session::flash('successLogin', 'Great, you are loged-in');
 		return  Redirect::back();
     }
 

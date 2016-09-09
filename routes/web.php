@@ -17,6 +17,13 @@ Route::get('/', function () {
 
 Route::resource('events', 'EventController');
 Route::resource('donates', 'Donate');
+Route::resource('contact', 'ContactController');
+Route::get('/userprofile', function () {
+
+	return view( '/users/userprofile' );
+
+}
+);
 
 Auth::routes();
 
