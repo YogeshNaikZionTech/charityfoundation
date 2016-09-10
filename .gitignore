@@ -1,5 +1,4 @@
 .idea/
-storage/framework/*
 storage/framework/cache/*
 storage/framework/views/*
 storage/framework/sessions/*
