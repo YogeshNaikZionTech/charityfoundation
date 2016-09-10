@@ -1,3 +1,4 @@
-.idea/*
-storage/*
+.idea/
+storage/
+/vendor
 _ide_helper.php
