@@ -9,14 +9,21 @@ use Illuminate\Support\Facades\Auth;
 
 class Donate extends Controller
 {
-    /**
+	/**
+	 * Donate constructor.
+	 * author:Sandeep
+	 * Setting all the routes that come to donate page should be authenticated.
+	 */
+
+
+	/**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -25,15 +32,22 @@ class Donate extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-	    if (!Auth::check() ) {
 
-		    return view ('auth/login');
-	    }
-		    return view( 'donates/selectproject' );
-
-
+	return view('donates/create');
 
     }
+
+	/**
+	 * show the select project page to the user.
+	 */
+	public function showselectproject(){
+
+		if (!Auth::check() ) {
+			return view ('auth/login');
+		}
+		return view( 'donates/selectproject' );
+
+	}
 
 
 

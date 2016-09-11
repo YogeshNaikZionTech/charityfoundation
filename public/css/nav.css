@@ -1,0 +1,11 @@
+.navbar-nav > li > a {
+    padding-top:5px;
+    padding-bottom:5px;
+}
+
+.navbar {
+    position: relative;
+    min-height: 27px;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+}

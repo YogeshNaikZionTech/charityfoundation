@@ -96,9 +96,6 @@
                 </form>
             </div>
         </div>
-        <div class="checkbox container">
-            <label><input type="checkbox" value="">I'm interested in volunteering</label>
-            <button class="btn  btn-success pull-right">SUBMIT</button>
-        </div>
+
     </div>
     @endsection

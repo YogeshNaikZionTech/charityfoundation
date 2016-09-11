@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
-@section('title', '| New Post')
+@section('title', '| Donate')
 @section('stylesheets')
-    <link href="/public/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('/css/donateRedraft.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
 
