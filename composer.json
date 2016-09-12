@@ -8,7 +8,8 @@
         "php": ">=5.6.4",
         "laravel/framework": "5.3.*",
         "laravelcollective/html":"5.3.*",
-        "filp/whoops": "^2.1"
+        "filp/whoops": "^2.1",
+        "intervention/image": "^2.3"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -26,7 +27,7 @@
         }
     },
     "autoload-dev": {
-        "classmap": [
+        "classmap": [   
             "tests/TestCase.php"
         ]
     },

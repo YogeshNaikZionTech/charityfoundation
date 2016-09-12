@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -23,9 +24,9 @@ Route::resource('contact', 'ContactController');
 
 Route::resource('projects', 'ProjectController');
 
-Route::get('/userprofile', function () {
-	return view( '/users/userprofile' );
-})->middleware('auth');
+Route::get('/userprofile', 'userProfileController@profile');
+
+Route::post('/userprofile', 'userProfileController@updateUser' );
 
 Route::get('/select', 'Donate@showselectproject');
 
