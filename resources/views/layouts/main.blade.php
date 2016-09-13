@@ -6,14 +6,16 @@
 
 
 <body>
+
 <!-- Header from partials -->
     @include('partials._nav')
 <!-- content from any page -->
 
     @yield('content')
+    @include('partials._footer')
 
 <!-- content from partial footer. -->
-    @include('partials._footer')
+
 <!-- Add javascript of your own -->
     @yield('scripts')
 </body>

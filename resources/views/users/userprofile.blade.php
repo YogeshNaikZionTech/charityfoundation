@@ -2,10 +2,10 @@
 
 @section('title', '|Update Profile')
 @section('stylesheets')
-    <link rel="stylesheet"  type="text/css" href="/public/css/userprofile.css">
+
 @endsection
 @section('content')
-<div class="container">
+    <div class="container">
     @if(Session::has('profileUpdated'))
         <div class="alert alert-success" role="alert">
             <strong>{{\Session::get('profileUpdated')}}</strong>
@@ -100,5 +100,5 @@
             </form>
         </div>
     </div>
-</div>
+    </div>
     @endsection

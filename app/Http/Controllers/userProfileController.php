@@ -30,7 +30,7 @@ class userProfileController extends Controller {
 
 		$user = \Auth::user();
 		$user->avatar   = $filename;
-		$user->phonenum = $request->input( 'phonenum' );    
+		$user->phonenum = $request->input( 'phonenum' );
 		$user->street   = $request->input( 'street' );
 		$user->aptNo    = $request->input( 'aptNo' );
 		$user->state    = $request->input( 'state' );

@@ -2,10 +2,15 @@
 
 @section('title', '|Contact Us')
 @section('stylesheets')
-    <link rel="stylesheet"  type="text/css" href="{{ URL::asset('/public/css/style.css')}}" >
+
 @endsection
 @section('content')
     <div class="media1 container">
+        @if(Session::has('contact_Success'))
+            <div class="alert alert-success" role="alert">
+                <strong>Thank you {{$contactuser->lastname}} {{\Session::get('contact_Success')}}</strong>
+            </div>
+        @endif
         <div class="fa-header">
             <h2>Contact</h2>
             <hr class="container col-lg-11">
@@ -63,36 +68,32 @@
         </div>
         <div class="container " >
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11">
-                <form class="form-horizontal" name="contact">
+                <form class="form-horizontal" name="contact" action="{{url('contact')}}" method="post">
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-right:3px;">
-                        <input  id="firstname" required type="text" class="form-control col-lg-6 col-md-6 col-sm-6 col-xs-10" placeholder="First Name *" />
+                        <input  name="firstname" required type="text" class="form-control col-lg-6 col-md-6 col-sm-6 col-xs-10" placeholder="First Name *" />
                     </div>
 
                     <!--</form>-->
                     <!--<form class="form-horizontal">-->
                     <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12 " style="padding-right:3px;">
-                        <input id="lastname" required type="text" class="form-control col-lg-6 col-md-6 col-sm-6 col-xs-10" placeholder="Last Name *"  />
+                        <input name="lastname" required type="text" class="form-control col-lg-6 col-md-6 col-sm-6 col-xs-10" placeholder="Last Name *"  />
                     </div>
 
                     <!--</form>-->
                     <!--<form class="form-horizontal">-->
                     <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <input  id="email" required type="email" class="form-control col-lg-6 col-md-6 col-sm-6 col-xs-10" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email *" />
+                        <input  name="email" required type="email" class="form-control col-lg-6 col-md-6 col-sm-6 col-xs-10" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email *" />
                     </div>
 
-
-
-
-
-                </form>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-11">
-                <form class="form-horizontal" name="suggestion">
+
                     <div class="form-group col-lg-10 col-md-10 col-sm-12 col-xs-12">
-                    <textarea  id="message"  class="form-control col-lg-10 col-md-10 col-sm-10 col-xs-10" placeholder="Suggest a new project or event or share your availability timing for volunteer work" rows="9">
+                    <textarea  name="message"  class="form-control col-lg-10 col-md-10 col-sm-10 col-xs-10" placeholder="Suggest a new project or event or share your availability timing for volunteer work" rows="9">
                     </textarea>
                     </div>
-
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
+                <input type="submit" class="btn btn-success" value="Submit">
                 </form>
             </div>
         </div>

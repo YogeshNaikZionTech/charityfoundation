@@ -15,12 +15,16 @@
                 <li><a href="{{url('projects')}}">Projects</a></li>
                 <li><a href="{{url('events')}}">Events</a></li>
                 <li><a href="{{url('contact')}}">Contact Us</a></li>
+                <li><a href="{{url('/select')}}" >Donate</button></a></li>
                 @if (Auth::guest())
                     <li><a href={{url('/register')}}>Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>
                 @else
+
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
+                            <img src="/avatars/{{Auth::user()->avatar}}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
                             {{ Auth::user()->lastname }} <span class="caret"></span>
                         </a>
 
@@ -40,12 +44,14 @@
                             <li>
                                 <a href ="{{url('/userprofile')}}">Profile</a>
                             </li>
+
                         </ul>
+
                     </li>
                 @endif
 
 
-                <li><a href="{{url('/select')}}" >Donate</button></a></li>
+
             </ul>
         </div>
     </div>

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\contactus;
 use Illuminate\Http\Request;
-
+use App\contact;
 use App\Http\Requests;
+use Carbon\Carbon;
 
 class ContactController extends Controller
 {
@@ -36,7 +38,25 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+   	    $fname = $request->input('firstname');
+		$lname = $request->input('lastname');
+	    $email = $request->input('email');
+	    $msg = $request->input('message');
+
+
+	    $contactuser = new contactus();
+
+			$contactuser->firstname = $fname;
+	    $contactuser->lastname = $lname;
+	    $contactuser->email = $email;
+	    $contactuser->message = $msg;
+
+
+	    $contactuser->save();
+
+	    \Session::flash('contact_Success',',we will soon get in touch with you.');
+	    return view('contactus/create',array( 'contactuser' => $contactuser));
     }
 
     /**
