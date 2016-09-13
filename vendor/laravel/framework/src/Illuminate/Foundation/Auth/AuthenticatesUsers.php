@@ -5,8 +5,6 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Lang;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\Session;
 
 trait AuthenticatesUsers
 {
@@ -104,10 +102,9 @@ trait AuthenticatesUsers
      * @param  mixed  $user
      * @return mixed
      */
-    protected function authenticated(Request $request)
+    protected function authenticated(Request $request, $user)
     {
-    	\Session::flash('successLogin', 'Great, you are loged-in');
-		return  Redirect::back();
+        //
     }
 
     /**
