@@ -17,10 +17,10 @@
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="text-center">
                 <form enctype="multipart/form-data" action="{{url('/userprofile')}}" method="POST">
-                <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" id="profileimg"/>
+                <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg"/>
                 <h6>Upload New Picture</h6>
 
-                    <input type="file"   name="avatar" class="text-center btn tn-warning center-block well well-sm">
+                    <input type="file" name="avatar" class="text-center center-block well well-sm ">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
             </div>
