@@ -25,8 +25,8 @@
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
                     <p>
-                      <a href="#" class="btn btn-default" role="button">Volunteer</a>
-                      <a href="#" class="btn btn-primary pull-right" role="button">RSVP</a>
+                        <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                        <a href="#" class="btn btn-success pull-right" role="button">Volunteer</a>
                     </p>
                   </div>
                 </div>
@@ -38,9 +38,9 @@
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
                     <p>
-                      <a href="#" class="btn btn-default" role="button">Volunteer</a>
-                      <a href="#" class="btn btn-primary pull-right" role="button">RSVP</a>
-                    </p>
+                      <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                        <a href="#" class="btn btn-success pull-right" role="button">Volunteer</a>
+                         </p>
                   </div>
                 </div>
               </div>
@@ -50,10 +50,10 @@
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
-                    <p>
-                      <a href="#" class="btn btn-default" role="button">Volunteer</a>
-                      <a href="#" class="btn btn-primary pull-right" role="button">RSVP</a>
-                    </p>
+                   <p>
+                      <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                        <a href="#" class="btn btn-success pull-right" role="button">Volunteer</a>
+                         </p>
                   </div>
                 </div>
               </div><div class="eventDesc">
@@ -78,9 +78,9 @@
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
                     <p>
-                      <a href="#" class="btn btn-primary" role="button">View Gallery</a>
-                      <a href="#" class="btn btn-default pull-right" role="button">Read More</a>
-                    </p>
+                         <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                         <a href="#" class="btn btn-primary pull-right" role="button" id="read1">Read More</a>
+                        </p>
                   </div>
                 </div>
               </div>
@@ -91,9 +91,9 @@
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
                     <p>
-                      <a href="#" class="btn btn-primary" role="button">View Gallery</a>
-                      <a href="#" class="btn btn-default pull-right" role="button">Read More</a>
-                    </p>
+                         <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                         <a href="#" class="btn btn-primary pull-right" role="button" id="read1">Read More</a>
+                        </p>
                   </div>
                 </div>
               </div>
@@ -104,9 +104,9 @@
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
                     <p>
-                      <a href="#" class="btn btn-primary" role="button">View Gallery</a>
-                      <a href="#" class="btn btn-default pull-right" role="button">Read More</a>
-                    </p>
+                         <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                         <a href="#" class="btn btn-primary pull-right" role="button" id="read1">Read More</a>
+                        </p>
                   </div>
                 </div>
               </div>
