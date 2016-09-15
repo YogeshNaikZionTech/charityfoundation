@@ -1,0 +1,66 @@
+/*html,body{
+    height: 100%;
+}*/
+
+ }
+.navbar-inverse{
+    border-radius: 0px;
+}
+.thumbnail{
+    /*border: solid black 1px;*/
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+}
+hr{
+    border-top: 1px solid #ddd;
+}
+.main{
+    /*padding-top: 50px;
+    overflow: auto;
+    padding-bottom: 50px;     
+    background-blend-mode: unset;*/
+}
+/*.main img{
+    opacity: 0.3;
+}*/
+
+.main ul{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+/*.tab-pane {
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-radius: 0px 0px 5px 5px;
+    padding: 10px;
+}
+
+.nav-tabs {
+    margin-bottom: 0;
+}*/
+.eventDesc{
+   border: 1px solid #ddd; 
+}
+.h h2{
+    display: inline-block;
+    margin-top: 0px;
+}
+/*.h button{
+    margin-top: 20px;
+}*/
+.donors{
+    height: 300px;
+    overflow: scroll;
+    /*position: fixed;*/
+    /*background-color: red;*/
+  
+    /*float: right;*/
+
+}
+#dList{
+    margin-top:50px;
+    position: fixed;
+   width: 250px;
+}
+       

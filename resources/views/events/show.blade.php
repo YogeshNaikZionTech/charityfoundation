@@ -1,17 +1,56 @@
 @extends('layouts.main')
 
 @section('title', '| Events')
+@section('stylesheets')
+    <link href="{{URL::asset('/css/events.css')}}" rel="stylesheet" type="text/css"/>
+    @endsection
 @section('content')
 
   <div class="main">
+  <div class="h">
     <h2>Events</h2>
+        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">Add New Event +</button>
+        <div id="createEvent" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+                    <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add New Event</h4>
+              </div>
+              <form class="form-group" action="xyz.php" action="POST">
+                <div class="modal-body">
+                  <label>Event Name</label>
+                    <input type="text" class="form-control">
+                  <label>Venue</label>
+                    <input type="text" class="form-control">
+                  <label>Date</label>
+                    <input type="date" class="form-control">
+                  <label>Start Time</label>
+                    <input type="time" class="form-control">
+                     <label>End Time</label>
+                    <input type="time" class="form-control">
+                  <label>Event Description</label>
+                    <textarea placeholder="Description of the event" class="form-control"></textarea>
+                  <label>Upload an image</label>
+                    <input type="file" name="pic" accept="image/*">
+                </div>
+                <div class="modal-footer">
+                  <input type="submit" class="btn btn-success" data-dismiss="modal">
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+      
+
+
     <hr>
     <div class="row">
       <div class="col-md-9">
-
         <div class="container-fluid">
-          <!-- <h2>Events</h2> -->
-
           <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
             <li><a data-toggle="tab" href="#completed">Completed Events</a></li>
@@ -20,7 +59,7 @@
             <div id="upcoming" class="tab-pane fade in active">
               <div class="col-md-4">
                 <div class="thumbnail">
-                  <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
+                  <img src="{{URL::asset('/images/upcomingEvent.jpg')}}" alt="event1">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -33,7 +72,7 @@
               </div>
               <div class="col-md-4">
                 <div class="thumbnail">
-                  <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event2">
+                  <img src="{{URL::asset('/images/upcomingEvent.jpg')}}" alt="event2">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -46,7 +85,7 @@
               </div>
               <div class="col-md-4">
                 <div class="thumbnail">
-                  <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
+                  <img src="{{URL::asset('/images/upcomingEvent.jpg')}}" alt="event3">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -73,7 +112,7 @@
             <div id="completed" class="tab-pane fade">
               <div class="col-md-4">
                 <div class="thumbnail">
-                  <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
+                  <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event1">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -86,7 +125,7 @@
               </div>
               <div class="col-md-4">
                 <div class="thumbnail">
-                  <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event2">
+                  <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event2">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -99,7 +138,7 @@
               </div>
               <div class="col-md-4">
                 <div class="thumbnail">
-                  <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
+                  <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event3">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -151,6 +190,7 @@
   </div>
 
   </div>
+
     @endsection
 @section('scripts')
   <script type="text/javascript">
