@@ -1,4 +1,5 @@
-<footer>
+
+    <footer>
 
         <div class="row">
             <div class="col-md-4">
@@ -23,5 +24,5 @@
                 </ul>
             </div>
         </div>
-
 </footer>
+

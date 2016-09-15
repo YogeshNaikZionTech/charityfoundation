@@ -1,5 +1,6 @@
-        <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
+
+<nav class="navbar navbar-inverse">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -15,7 +16,7 @@
                 <li><a href="{{url('projects')}}">Projects</a></li>
                 <li><a href="{{url('events')}}">Events</a></li>
                 <li><a href="{{url('contact')}}">Contact Us</a></li>
-                <li><a href="{{url('/select')}}" >Donate</button></a></li>
+                <li><a href="{{url('/select')}}" >Donate</a></li>
                 @if (Auth::guest())
                     <li><a href={{url('/register')}}>Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>
@@ -43,6 +44,7 @@
                             </li>
                             <li>
                                 <a href ="{{url('/userprofile')}}">Profile</a>
+
                             </li>
 
                         </ul>
@@ -54,5 +56,5 @@
 
             </ul>
         </div>
-    </div>
+
 </nav>

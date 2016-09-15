@@ -1,8 +1,7 @@
-
 footer{
     padding:10px 0;
     text-align:center;
-    position: absolute;
+    position: relative;
     right: 0;
     bottom: 0;
     left: 0;
@@ -44,20 +43,4 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{
     outline:0
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.glyphicon,.glyphicon-map-marker{ font-size:50px; }

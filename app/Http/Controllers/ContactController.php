@@ -39,19 +39,17 @@ class ContactController extends Controller
     public function store(Request $request)
     {
 
-   	    $fname = $request->input('firstname');
-		$lname = $request->input('lastname');
+
+		$cname = $request->input('name');
 	    $email = $request->input('email');
 	    $msg = $request->input('message');
 
 
 	    $contactuser = new contactus();
-
-			$contactuser->firstname = $fname;
-	    $contactuser->lastname = $lname;
+	    $contactuser->name = $cname;
 	    $contactuser->email = $email;
 	    $contactuser->message = $msg;
-
+		$contactuser->tstamp = \Carbon\Carbon::now();
 
 	    $contactuser->save();
 
