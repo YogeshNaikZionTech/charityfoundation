@@ -13,7 +13,8 @@
 <!-- content from any page -->
 
     @yield('content')
-    @include('partials._footer')
+
+     @include('partials._footer')
 
 <!-- content from partial footer. -->
 

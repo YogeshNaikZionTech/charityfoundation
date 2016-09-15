@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -45,7 +46,9 @@ class Donate extends Controller
 		if (!Auth::check() ) {
 			return view ('auth/login');
 		}
-		return view( 'donates/selectproject' );
+
+		$events = Event::all();
+		return view( 'donates/selectproject')->withEvents($events);
 
 	}
 
