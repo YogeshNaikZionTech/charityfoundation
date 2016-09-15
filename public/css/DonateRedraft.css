@@ -1,52 +1,13 @@
  .btn{
             margin-top:8px;
         }
-        footer{
-            padding:10px 0;
-           
-
-            background-color: black;
-            text-align: center;
-        }
-        footer span.copyright{
-            line-height:40px;
-            font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-            color:white;
-
-        }
-        footer ul.quicklinks{
-            margin-bottom:0;
-            line-height:40px;
-            font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-
-        }
-        ul.social-buttons{
-            margin-bottom:0
-        }
-        ul.social-buttons li a{
-            display:block;
-            background-color:#222;
-            height:40px;
-            width:40px;
-            border-radius:100%;
-            font-size:20px;
-            line-height:40px;
-            color:#fff;
-            outline:0;
-            -webkit-transition:all .3s;
-            -moz-transition:all .3s;
-            transition:all .3s;
-        }
-        ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
-            background-color:#fed136
-        }
         .btn:focus,.btn:active,.btn.active,.btn:active:focus{
             outline:0
         }
 
-        #headline h1{
-        	
-        	font-size: 80px;
+                #headline h1{
+          
+          font-size: 80px;
             font-weight: 700;
         }
 
@@ -55,21 +16,21 @@
         }
 
         .caption{
-        	text-align: center;
+          text-align: center;
         }
 
         #main{
-        	margin-top: 1%;
+          margin-top: 1%;
         }
 
         .content{
-        	/*text-align: center;*/
-        	display: none;
+          /*text-align: center;*/
+          display: none;
         }
 
         #select{
-        	margin: 0 auto;
-        	width: 50%
+          margin: 0 auto;
+          width: 50%
         }
 
         
@@ -293,4 +254,10 @@ input:focus {
   padding: 10px;
 }
 
+#note,.payment,.review,.volform,.vol,.donatepay{
+    display: none;
+}
 
+#day,#amt{
+    color: red;
+}
