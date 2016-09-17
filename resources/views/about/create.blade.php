@@ -2,5 +2,6 @@
 
 @section('title', '| Abouts Us')
 @section('content')
-
+<div>
+</div>
     @endsection

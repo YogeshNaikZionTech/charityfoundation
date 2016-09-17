@@ -2,7 +2,7 @@
 
 @section('title', '| Projects')
 @section('content')
-    <div class="main">
+    <div class="container main">
         <h2>Events</h2>
         <hr>
         <div class="row">

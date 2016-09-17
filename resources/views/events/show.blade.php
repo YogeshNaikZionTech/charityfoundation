@@ -6,7 +6,7 @@
     @endsection
 @section('content')
 
-  <div class="main">
+  <div class="container main">
   <div class="h">
     <h2>Events</h2>
         <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">Add New Event +</button>

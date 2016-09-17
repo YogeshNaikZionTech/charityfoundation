@@ -1,7 +1,7 @@
 
     <title>Charity @yield('title')</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
     <link rel="stylesheet"  type="text/css" href="{{ URL::asset('css/footer.css')}}" >
     <link rel="stylesheet"  type="text/css" href="{{ URL::asset('css/nav.css')}}" >
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

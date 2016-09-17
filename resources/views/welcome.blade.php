@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/style.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
-    <div class="bs-example">
+    <div class="bs-example container">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
        
         <ol class="carousel-indicators">
