@@ -56,10 +56,6 @@ Route::get('/events', function (){
 	return view('events/show');
 });
 
-Route::get('/projects', function (){
-
-	return view('projects/show');
-});
 
 Auth::routes();
 

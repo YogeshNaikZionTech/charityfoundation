@@ -311,6 +311,7 @@ class ComposerStaticInitfec6f4327618dba96b3740a1df8d7f72
         'CreateDonatesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_07_194040_create_donates_table.php',
         'CreateEventsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_07_015718_create_events_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+        'CreateProjectTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_17_230247_create_Project_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'EventsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/EventsTableSeeder.php',
@@ -836,6 +837,7 @@ class ComposerStaticInitfec6f4327618dba96b3740a1df8d7f72
         'SebastianBergmann\\Version' => __DIR__ . '/..' . '/sebastian/version/src/Version.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
+        'projectTabelSeeder' => __DIR__ . '/../..' . '/database/seeds/projectTabelSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

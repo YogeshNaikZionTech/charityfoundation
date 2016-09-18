@@ -52,7 +52,8 @@
                     <label class="col-md-3 control-label">Password:</label>
                     <div class="col-md-8">
                         <span class="pwd pull-left">********</span>
-                        <span><a href="{{url('password/reset')}}"><input class="btn btn-info pull-right" value="Reset" type="button"/></a></span>
+                        <span><a href="{{url('/password/reset')}}"><input class="btn btn-info pull-right" value="Reset" type="button"/></a></span>
+                        {{ csrf_field() }}
                     </div>
                 </div>
 

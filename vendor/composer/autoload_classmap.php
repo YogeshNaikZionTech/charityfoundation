@@ -10,6 +10,7 @@ return array(
     'CreateDonatesTable' => $baseDir . '/database/migrations/2016_09_07_194040_create_donates_table.php',
     'CreateEventsTable' => $baseDir . '/database/migrations/2016_09_07_015718_create_events_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateProjectTable' => $baseDir . '/database/migrations/2016_09_17_230247_create_Project_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'EventsTableSeeder' => $baseDir . '/database/seeds/EventsTableSeeder.php',
@@ -535,4 +536,5 @@ return array(
     'SebastianBergmann\\Version' => $vendorDir . '/sebastian/version/src/Version.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
+    'projectTabelSeeder' => $baseDir . '/database/seeds/projectTabelSeeder.php',
 );

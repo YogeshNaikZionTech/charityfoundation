@@ -21,10 +21,13 @@
     <div class="tab-content">
         <div id="projects" class="tab-pane fade in active">
             @foreach($events as $event)
+
             <div class="col-md-3">
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn sel proj">
-                <input type="radio" name="project" value="{{$event->id}}"><img src="{{URL::asset('/images/thumb.jpg')}}" height="150px" width="150px"><br>{{substr($event->eventTitle, 0, 25)}}</label>
+
+
+                <input type="radio" name="project" value="{{$event->id}}"><img src="/images/{{$event->eventImage}}" height="150px" width="150px"><br>{{substr($event->eventTitle, 0, 25)}}</label>
             </div>
             </div>
             @endforeach

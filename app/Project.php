@@ -1,0 +1,13 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Project extends Model
+{
+	public $timestamps =false;
+	protected $fillable = [
+		'project_Title', 'project_Description', 'project_Date', 'project_StartTime','project_status', 'project_image', 'category', 'created_at', 'updated_at',
+	];
+}

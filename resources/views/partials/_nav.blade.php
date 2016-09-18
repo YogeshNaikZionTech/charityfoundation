@@ -31,6 +31,19 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href ="{{url('/userprofile')}}">Profile</a>
+
+
+                            </li>
+                            @if (Auth::check())
+                                <li>
+                                    <a href ="{{url('/')}}">Admin Panel</a>
+
+
+                                </li>
+                            @endif
+
+                            <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -42,10 +55,7 @@
                                 </form>
 
                             </li>
-                            <li>
-                                <a href ="{{url('/userprofile')}}">Profile</a>
 
-                            </li>
 
                         </ul>
 
