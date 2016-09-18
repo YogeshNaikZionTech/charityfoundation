@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Project;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -47,8 +48,9 @@ class Donate extends Controller
 			return view ('auth/login');
 		}
 
-		$events = Event::all();
-		return view( 'donates/selectproject')->withEvents($events);
+		$events = Event::where('event_Status','=','current')->orWhere('event_Status','=','future')->get();
+		$project = Project::where('project_Status','=','current')->orWhere('project_Status','=','future')->get();
+		return view( 'donates/selectproject')->withEvents($events)->withProjects($project);
 
 	}
 

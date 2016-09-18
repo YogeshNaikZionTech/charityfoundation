@@ -36,88 +36,48 @@
 </div>
 
         <div class="container div2">
-  <div class="row">
-    <div class="col-md-9">
-    <div class="row">
-            
-    
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                        @foreach($projects_c as $cproject)
+                            <div class="col-md-3">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{{$cproject->project_Status}}</div>
+                                    <div class="panel-body"><img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
-    <div class="col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">UPCOMING EVENTS</div>
-        <div class="panel-body"><img src="images/event2.png" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
-        <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-danger">
-        <div class="panel-heading">CURRENT EVENTS</div>
-        <div class="panel-body"><img src="images/event2.png" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-success">
-        <div class="panel-heading">PAST EVENTS</div>
-        <div class="panel-body"><img src="images/event2.png" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
-      </div>
-    </div>
+                                    <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
 
-    </div>
+                        @foreach($projects_f as $fproject)
+                            <div class="col-md-3">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">{{$fproject->project_Status}}</div>
+                                    <div class="panel-body"><img src="images/{{$fproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
+                                    <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
 
-    <div class="row">
-      
-    <div class="col-md-4">
-      <div class="panel panel-primary">
-        <div class="panel-heading">UPCOMING PROJECTS</div>
-        <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-danger">
-        <div class="panel-heading">CURRENT PROJECTS</div>
-        <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
-      </div>
-    </div>
-    <div class="col-md-4">
-      <div class="panel panel-success">
-        <div class="panel-heading">PAST PROJECTS</div>
-        <div class="panel-body"><img src="http://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image"></div>
-        <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
-      </div>
-    </div>
 
-    </div>
-  </div>
+                                @foreach($projects_p as $pproject)
+                                    <div class="col-md-3">
+                                        <div class="panel panel-primary">
+                                            <div class="panel-heading">{{$pproject->project_Status}}</div>
+                                            <div class="panel-body"><img src="images/{{$pproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
-     <div class="col-md-3">
-       <div class="container-fluid">
-          <div class="thumbnail" id="dList">
-            <div class="donors">
-               <div class="list-group">
-                    <a href="#" class="list-group-item active">Top Donors</a>
-                    <a href="#" class="list-group-item">Name One</a>
-                    <a href="#" class="list-group-item">Name Two</a>
-                    <a href="#" class="list-group-item">Name Three</a>
-                    <a href="#" class="list-group-item">Name Four</a>
-                    <a href="#" class="list-group-item">Name Five</a>
-                    <a href="#" class="list-group-item">Name Six</a>
-                    <a href="#" class="list-group-item">Name Seven</a>
-                    <a href="#" class="list-group-item">Name Eight</a>
-              </div>
+                                            <div class="panel-footer"><button class="btn btn-success btn-md">See more </button></div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                </div>
             </div>
-        </div>
-      </div>
     </div>
 
 
-
-
-
-  </div>
-</div><br>
 @endsection

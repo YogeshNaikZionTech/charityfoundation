@@ -17,7 +17,7 @@
                 <li><a href="{{url('events')}}">Events</a></li>
                 <li><a href="{{url('contact')}}">Contact Us</a></li>
                 <li><a href="{{url('/select')}}" >Donate</a></li>
-                @if (Auth::guest())
+                @if (!Auth::check())
                     <li><a href={{url('/register')}}>Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>
                 @else
@@ -35,14 +35,16 @@
 
 
                             </li>
-                            @if (Auth::check())
+                            @if (Auth::user()->isAdmin)
                                 <li>
                                     <a href ="{{url('/')}}">Admin Panel</a>
-
-
                                 </li>
                             @endif
-
+                               @if(Auth::check())
+                                <li>
+                                    <a href ="{{url('/')}}">History</a>
+                                </li>
+                            @endif
                             <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();

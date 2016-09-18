@@ -9,6 +9,7 @@
   <div class="main">
   <div class="h">
     <h2>Events</h2>
+    @if(Auth::check()&& Auth::user()->isAdmin)
     <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create Event</button>
       <div id="createEvent" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -17,12 +18,12 @@
               <button type="button" class="close" data-dismiss="modal">&times;</button>
               <h4 class="modal-title">Add New Event</h4>
             </div>
-              <form class="form-group" action="xyz.php" action="POST">
+              <form class="form-group" action="{{url('events')}}" method="post">
                 <div class="modal-body">
                   <label>Event Name</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="ename" class="form-control">
                   <label>Venue</label>
-                    <input type="text" class="form-control">
+                    <input type="text" name="Location" class="form-control">
                   <label>Date</label>
                     <input type="date" class="form-control">
                   <label>Start Time</label>
@@ -42,6 +43,7 @@
           </div>
         </div> 
       </div>
+    @endif
 <hr>
     <div class="row">
       <div class="col-md-12">

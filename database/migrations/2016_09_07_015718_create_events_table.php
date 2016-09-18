@@ -20,11 +20,11 @@ class CreateEventsTable extends Migration
 	        $table->date('event_Date');
 	        $table->dateTime('event_StartTime');
 	        $table->dateTime('event_EndTime');
+	        $table->string('event_location');
 	         $table->string('event_Status');
 	        $table->string('event_Image');
 	        $table->string('category_ID');
-	        $table->dateTime('updated_at');
-	        $table->dateTime('created_at');
+	        $table->timestamps();
         });
     }
 
