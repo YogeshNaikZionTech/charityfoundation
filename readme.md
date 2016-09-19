@@ -18,6 +18,8 @@
 * create a database name charityFoundation.
 * Go to your charityFoundation project folder using cmd and issue following command.
 * **composer update** <br>
+* In case if DB_PASSWORD is empty. Run below command before running any db commands.
+export DB_PASSWORD='';
 * **php artisan migrate** --> if you put your put you database name and password as root and also your database name as **charityFoundation** you will find the table and data created for you.
 **php artisan db:seed** ---> this will create default user for 
 * Next on cmd **php artisan serve** --> go to browser and type **localhost:8000** you should see charity site up and running.
