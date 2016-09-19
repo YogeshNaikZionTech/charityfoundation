@@ -18,11 +18,11 @@ class EventsTableSeeder extends Seeder {
 				'event_Description' => $Faker->paragraph( 2 ),
 				'event_Date'        => \Carbon\Carbon::today(),
 				'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-				'event_location'   =>'leafvillage',
+				'event_Location'   =>'leafvillage',
 				'event_EndTime' => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'   => 'colorfull.jpg',
 				'event_Status'  => 'future',
-				'Category_ID'   => '1',
+				'category_ID'   => '1',
 
 			] );
 			for ( $i = 0; $i < 10; $i ++ ) {
@@ -33,11 +33,11 @@ class EventsTableSeeder extends Seeder {
 					'event_Description' => $Faker->paragraph( 2 ),
 					'event_Date'        => \Carbon\Carbon::today(),
 					'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-					'event_location'   =>'landofsnow',
+					'event_Location'   =>'landofsnow',
 					'event_EndTime' => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 					'event_Image'   => 'thumb.jpg',
 					'event_Status'  => 'completed',
-					'Category_ID'   => '2',
+					'category_ID'   => '2',
 
 				] );
 
@@ -49,11 +49,11 @@ class EventsTableSeeder extends Seeder {
 						'event_Description' => $Faker->paragraph( 2 ),
 						'event_Date'        => \Carbon\Carbon::today(),
 						'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-						'event_location'   =>'landofFire',
+						'event_Location'   =>'landofFire',
 						'event_EndTime' => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 						'event_Image'   => 'upcoming.jpg',
 						'event_Status'  => 'current',
-						'Category_ID'   => '1',
+						'category_ID'   => '1',
 
 					] );
 				}
