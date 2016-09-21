@@ -7,7 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class contactus extends Model
 {
 	public $table = "contactus";
+	public $timestamps = false;
      protected $fillable = [
-	'firstname', 'lastname', 'email', 'message',
+	'name', 'email', 'message', 'tstamp',
 ];
 }

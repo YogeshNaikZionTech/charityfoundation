@@ -12,9 +12,7 @@
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WelcomeController@show');
 
 Route::resource('events', 'EventController');
 
@@ -56,10 +54,6 @@ Route::get('/events', function (){
 	return view('events/show');
 });
 
-Route::get('/projects', function (){
-
-	return view('projects/show');
-});
 
 Auth::routes();
 

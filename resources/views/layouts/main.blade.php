@@ -8,15 +8,18 @@
 <body>
 
 <!-- Header from partials -->
+
     @include('partials._nav')
 <!-- content from any page -->
-
+<div class="container">
     @yield('content')
-    <!-- @include('partials._footer') -->
+</div>
+     @include('partials._footer')
 
 <!-- content from partial footer. -->
 
 <!-- Add javascript of your own -->
     @yield('scripts')
+
 </body>
 </html>

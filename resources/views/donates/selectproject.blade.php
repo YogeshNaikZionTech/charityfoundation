@@ -20,24 +20,27 @@
 <form name="selectProj" action="{{url('donates/create')}}" method="get">
     <div class="tab-content">
         <div id="projects" class="tab-pane fade in active">
-            @for($i=0; $i<10;$i++)
+            @foreach($projects as $project)
+
             <div class="col-md-3">
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn sel proj">
-                <input type="radio" name="project" value="$"><img src="{{URL::asset('/images/thumb.jpg')}}" height="150px" width="150px"><br>Project Title</label>
+
+
+                <input type="radio" name="project" value="{{$project->id}}"><img src="/images/{{$project->project_Image}}" height="150px" width="150px"><br>{{substr($project->project_Title, 0, 25)}}</label>
             </div>
             </div>
-            @endfor
+            @endforeach
         </div>
          <div id="events" class="tab-pane fade">
-           @for($i=0; $i<10;$i++)
+             @foreach($events as $event)
             <div class="col-md-3">
             <div class="btn-group" data-toggle="buttons">
                 <label class="btn sel proj">
-                <input type="radio" name="project" value="$"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Project Title</label>
+                <input type="radio" name="project" value="{{$event->id}}"><img src="/images/{{$event->event_Image}}" height="150px" width="150px"><br>{{substr($event->event_Title, 0, 25)}}</label>
             </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>  <!--End of tab-content -->
     <div class="col-md-11">
@@ -46,43 +49,7 @@
         </div>
     </div>
 </form>
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $('.sel').on('click',function(){
-            $('.sel').removeClass('selected');
-            $(this).addClass('selected');
-        });
-
-
-$('.proj').click(function(){
-// sessionStorage.removeItem('event');
-if(Session::has('event')){
-    Session::forget('event');
-}
-
-    var projectValue = $("label.selected").find('input').attr('value');
-    // sessionStorage.setItem('project', projectValue);
-     Session::put("project", eventValue);
-
-});
-
-$('.eve').click(function(){
-// sessionStorage.removeItem('project');
-if(Session::has('project')){
-    Session::forget('project');
-}
-
-     var eventValue = $("label.selected").find('input').attr('value');
-     // sessionStorage.setItem('event', eventValue);
-     Session::put("event", eventValue);
-
-});
-       // $('input[type="radio"]:checked').parent().css('border', '1px solid black'); 
-
-    });
-</script>
-   <!--  </div>
     </div>
-</div> -->
-@endsection
+            @endsection
+
+

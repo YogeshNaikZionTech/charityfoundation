@@ -26,6 +26,7 @@ class CreateUsersTable extends Migration
 	        $table->string('state')->default('None');
 	        $table->string('country')->default('None');
 	        $table->integer('zipcode')->default(00000);
+	        $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });

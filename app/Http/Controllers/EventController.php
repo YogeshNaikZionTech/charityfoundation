@@ -36,19 +36,30 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, array(
 
-        	'eventName'=> 'required|max;255',
-	        'eventSummary'=> 'required'
+	                $event_Title       =  $request->input('ename');
+					$event_Description =  $request->input('edescriiption');
+	                $event_location    =  $request->input('location');
+					$event_Date        =  $request->input('edate');
+					$event_StartTime   =  $request->input('stime');
+	                $event_EndTime      = $request->input('etime');
+					$event_Image        = $request->input('eimage');
+					$event_Status       = $request->input('completed');
+					$Category_ID        = $request->input('etime');
+    	    $event = new Event();
 
-        ));
+	    $event->event_Title       -> event_Title;
+	    $event->event_Description -> $event_Description;
+	    $event->event_location    -> $event_location;
+	    $event->event_Date        -> $event_Date;
+	    $event->event_StartTime   -> $event_StartTime;
+	    $event->event_EndTime      -> $event_EndTime;
+	    $event->event_Image        -> $event_Image;
+	    $event->event_Status       -> $event_Status;
+	    $event->Category_ID        -> $Category_ID;
 
-	    $event = new Event;
-	    $event->eventName= $request->eventName;
-	    $event->eventSummary = $request->eventSummary;
-	    $event->save();
-
-	    return redirect()->route('event.show', $event->id);
+		$event->save();
+	    return view('welcome');
 
     }
 

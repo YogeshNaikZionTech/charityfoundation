@@ -1,5 +1,6 @@
-        <nav class="navbar navbar-inverse">
-    <div class="container-fluid">
+
+<nav class="navbar navbar-inverse">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -15,9 +16,9 @@
                 <li><a href="{{url('projects')}}">Projects</a></li>
                 <li><a href="{{url('events')}}">Events</a></li>
                 <li><a href="{{url('contact')}}">Contact Us</a></li>
-                <li><a href="{{url('/select')}}" >Donate</button></a></li>
-                @if (Auth::guest())
-                    <li><a href={{url('/register')}}>Sign Up</a></li>
+                <li><a href="{{url('/select')}}" >Donate</a></li>
+                @if (!Auth::check())
+                    <li><a href="{{url('/register')}}">Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>
                 @else
 
@@ -30,6 +31,21 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href ="{{url('/userprofile')}}">Profile</a>
+
+
+                            </li>
+                            @if (Auth::user()->isAdmin)
+                                <li>
+                                    <a href ="{{url('/')}}">Admin Panel</a>
+                                </li>
+                            @endif
+                               @if(Auth::check())
+                                <li>
+                                    <a href ="{{url('/')}}">History</a>
+                                </li>
+                            @endif
+                            <li>
                                 <a href="{{ url('/logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
@@ -41,9 +57,7 @@
                                 </form>
 
                             </li>
-                            <li>
-                                <a href ="{{url('/userprofile')}}">Profile</a>
-                            </li>
+
 
                         </ul>
 
@@ -54,5 +68,5 @@
 
             </ul>
         </div>
-    </div>
+
 </nav>

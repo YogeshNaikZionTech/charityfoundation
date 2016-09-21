@@ -2,7 +2,7 @@
 
 @section('title', '|Update Profile')
 @section('stylesheets')
-
+    <link href="{{URL::asset('/css/userprofile.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
     <div class="container">
@@ -11,25 +11,25 @@
             <strong>{{\Session::get('profileUpdated')}}</strong>
         </div>
     @endif
-    <h1 class="page-header" style="color: #d9534f;">Edit Profile</h1>
+    <h1 class="page-header">Edit Profile</h1>
     <div class="row">
         <!-- Profile Image -->
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="text-center">
                 <form enctype="multipart/form-data" action="{{url('/userprofile')}}" method="POST">
-                <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg"/>
+                <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg" id="profileimg"/>
                 <h6>Upload New Picture</h6>
 
-                    <input type="file" name="avatar" class="text-center center-block well well-sm ">
+                    <input type="file" name="avatar" class="text-center center-block well well-sm" onchange="readURL(this);">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-
+                </form>
             </div>
         </div>
         <!-- Personal Info -->
         <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
 
             <h3>Personal info</h3>
-
+            <form class="form-horizontal" role="form">
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Name:</label>
                     <div class="col-lg-8">
@@ -52,7 +52,8 @@
                     <label class="col-md-3 control-label">Password:</label>
                     <div class="col-md-8">
                         <span class="pwd pull-left">********</span>
-                        <span><a href="{{url('password/reset')}}"><input class="btn btn-info pull-right" value="Reset" type="button"/></a></span>
+                        <span><a href="{{url('/password/reset')}}"><input class="btn btn-info pull-right" value="Reset" type="button"/></a></span>
+                        {{ csrf_field() }}
                     </div>
                 </div>
 
@@ -101,4 +102,42 @@
         </div>
     </div>
     </div>
+    @endsection
+@section('scripts')
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#profileimg')
+                            .attr('src', e.target.result)
+                            .width(200)
+                            .height(200);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        $(
+                $(document).ready(
+                        function(){
+                            $('input:file').change(
+                                    function(){
+                                        if ($(this).val()) {
+                                            $('input:submit').attr('disabled',false);
+                                        }
+                                    }
+                            );
+                        }));
+        $(function()
+        {
+            $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
+
+            $(window).bind('resize', function(){
+                $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
+
+            });
+        });
+    </script>
     @endsection

@@ -2,7 +2,6 @@
 
 @section('title', '| Projects')
 @section('stylesheets')
-
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
@@ -192,6 +191,8 @@
 </div> 
 
     @endsection
+
+
 
 @section('scripts')
 

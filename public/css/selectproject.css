@@ -3,9 +3,9 @@ padding-top: 65px;
 min-height: 100%;
 min-width: 312px;
     }
-.wrapper{
-    min-height: calc(100vh - 125px);
-}
+/*.wrapper{*/
+    /*min-height: calc(100vh - 125px);*/
+/*}*/
 /*.btn{
         margin-top:8px;
     }*/
