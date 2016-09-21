@@ -1,0 +1,26 @@
+.navbar-inverse{
+    border-radius: 0px;
+}
+.thumbnail{
+    /*border: solid black 1px;*/
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+}
+hr{
+    border-top: 1px solid #ddd;
+}
+
+
+.main ul{
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+.projectDesc{
+   border: 1px solid #ddd; 
+}
+.h h2{
+    display: inline-block;
+    margin-top: 0px;
+}
+
+       
