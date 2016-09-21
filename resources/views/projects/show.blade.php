@@ -2,6 +2,7 @@
 
 @section('title', '| Projects')
 @section('stylesheets')
+
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
@@ -58,7 +59,7 @@
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
@@ -71,7 +72,7 @@
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event2">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
@@ -84,7 +85,7 @@
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
@@ -97,7 +98,7 @@
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
@@ -125,7 +126,7 @@
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event1">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Read More</a>
@@ -138,7 +139,7 @@
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event2">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Read More</a>
@@ -151,7 +152,7 @@
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Read More</a>
@@ -164,7 +165,7 @@
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
                                     <div class="caption">
                                         <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
-                                        <p>Short summary of event description.</p>
+                                        <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
                                             <a href="#" class="btn btn-primary pull-right" role="button">Read More</a>
@@ -185,16 +186,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-          
-        </div>
-    </div>
+             </div>
+       </div>
+   </div>
+</div> 
 
-    </div>
+    @endsection
 
-@endsection
 @section('scripts')
+
             <script type="text/javascript">
                 $(document).ready(function(){
 
@@ -208,3 +208,4 @@ $('.nav li:nth-child(3)').addClass('active');
                 });
             </script>
     @endsection
+
