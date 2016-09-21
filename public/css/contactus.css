@@ -9,7 +9,7 @@ body{
     margin-left:10px;
     font-weight: bold;
 }
-.navbar-inverse .navbar-nav>li>a {
+/*.navbar-inverse .navbar-nav>li>a {
     color: #9d9d9d;
     font-size:18px;
 
@@ -21,13 +21,13 @@ body{
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
     color: cornflowerblue;
     background-color: transparent;
-}
+}*/
 /*rgba(127, 201, 171, 0.4)*/
 
 .media1{background-color:rgba(43, 51, 39, 0.38) ;padding:5px;margin:10px;}
 .submit-form{position: relative;}
 
-footer{
+/*footer{
     padding:20px 0;
 
     position: relative;
@@ -74,15 +74,15 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{
     outline:0;
     text-align:center;
-}
-a{color:black}
+}*/
+
 .form-data{padding:20px;   text-align:center;}
-ol{
+/*ol{
     display: block;
     list-style-type: none;
 }
 ol>li>a{ color:ghostwhite;text-align: left;}
-ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}
+ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}*/
 
 .maps>iframe{height:280px;}
 .glyphicon,.glyphicon-map-marker{ font-size:50px; }
