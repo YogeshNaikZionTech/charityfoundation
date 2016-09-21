@@ -13,7 +13,7 @@
                 </div>
 
             <div class="col-md-2 col-lg-2 col-xs-10 col-sm-3">
-                <label class="footer-label">Projects</label>
+               
                 <ol>
                     <li>
                         <a href="#">Project 1</a>
@@ -24,7 +24,7 @@
                 </ol>
             </div>
              <div class="col-md-2 col-lg-2 col-xs-10 col-sm-3">
-                <label class="footer-label">Register</label>
+               
                 <ol>
                     <li>
                         <a href="#">Login</a>
@@ -41,7 +41,7 @@
                 </ol>
             </div>
             <div class="col-md-2 col-lg-2 col-xs-10 col-sm-3">
-                <label class="footer-label">Address</label>
+               
                 <p>
                     Charity Foundation<br/>
                     2665 N Frist St,<br/>

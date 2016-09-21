@@ -2,9 +2,8 @@
 
 @section('title', '|Contact Us')
 @section('stylesheets')
-	<link href="{{URL::asset('/css/contactus.css')}}" rel="stylesheet" type="text/css"/>
-
-@endsection
+    <link href="{{URL::asset('/css/contactus.css')}}" rel="stylesheet" type="text/css"/>
+    @endsection
 @section('content')
     <div class="media1 container">
         @if(Session::has('contact_Success'))

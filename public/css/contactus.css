@@ -23,6 +23,7 @@ body{
     background-color: transparent;
 }
 /*rgba(127, 201, 171, 0.4)*/
+
 .media1{background-color:rgba(43, 51, 39, 0.38) ;padding:5px;margin:10px;}
 .submit-form{position: relative;}
 
@@ -82,7 +83,7 @@ ol{
 }
 ol>li>a{ color:ghostwhite;text-align: left;}
 ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}
-.footer-label{font-size:23px;}
+
 .maps>iframe{height:280px;}
 .glyphicon,.glyphicon-map-marker{ font-size:50px; }
 
