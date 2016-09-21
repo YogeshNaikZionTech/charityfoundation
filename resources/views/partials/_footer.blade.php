@@ -16,10 +16,10 @@
                
                 <ol>
                     <li>
-                        <a href="#">Project 1</a>
+                        <a href="{{url('projects')}}">Projects</a>
                     </li>
                     <li>
-                        <a href="#">Event 1</a>
+                        <a href="{{url('events')}}">Events</a>
                     </li>
                 </ol>
             </div>
@@ -27,16 +27,16 @@
                
                 <ol>
                     <li>
-                        <a href="#">Login</a>
+                        <a href="{{url('/login')}}">Login</a>
                     </li>
                     <li>
-                        <a href="#">Sign Up</a>
+                        <a href="{{url('/register')}}">Sign Up</a>
                     </li>
                     <li>
-                        <a href="#">About Us</a>
+                        <a href="{{url('aboutus')}}">About Us</a>
                     </li>
                     <li>
-                        <a href="#">Contact US</a>
+                        <a href="{{url('contact')}}">Contact US</a>
                     </li>
                 </ol>
             </div>

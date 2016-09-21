@@ -1,19 +1,27 @@
-.container,.container-fluid{padding-left:0;padding-right:0;font-family: Calibri,cursive; font-style: italic; font-weight: bold;position:relative}
+.container,.container-fluid{font-family: Calibri,cursive; font-style: italic;}
 .navbar-inverse .navbar-nav>li>a {
+font-family: Calibri,cursive;
     color: #9d9d9d;
-    font-size:16px;
+    font-size:18px;
+    font-style:italic;
+font-weight:bold;
 }
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand {
     color: #fff;
     background-color: transparent;
+    font-size:25px;
+    font-style:italic;
+
 }
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
     color: cornflowerblue;
     background-color: transparent;
+    font-size:25px;
+    font-style:italic;
 }
-/*.navbar {
+.navbar {
     position: relative;
     min-height: 27px;
     margin-bottom: 5px;
     border: 1px solid transparent;
-}*/
+}

@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/contactus.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
-    <div class="media1 container">
+    <div class="container media1">
         @if(Session::has('contact_Success'))
             <div class="alert alert-success" role="alert">
                 <strong>Thank you {{$contactuser->name}} {{\Session::get('contact_Success')}}</strong>
@@ -13,7 +13,7 @@
         @endif
         <div>
             <h2>Contact</h2>
-            <hr class="container col-lg-11">
+            <hr class="container col-lg-11 col-xs-11 col-sm-11 col-md-11">
         </div>
         <div class="container" style="margin-bottom: 5px;">
             <div class="col-lg-6 col-md-6 col-xs-12 col-sm-6">

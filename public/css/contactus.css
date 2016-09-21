@@ -1,8 +1,7 @@
 body{
-
-    color: ghostwhite;
+	    color: ghostwhite;
 }
-.container,.container-fluid{ color: ghostwhite;;font-family: Calibri,cursive; font-style: italic; font-weight: bold;position:relative}
+.container,.container-fluid{color: ghostwhite;;font-family: Calibri,cursive; font-style: italic; font-weight: bold;}
 .para{font-size: 18px;
     font-style: italic;
     color: ghostwhite;
@@ -12,7 +11,8 @@ body{
 }
 .navbar-inverse .navbar-nav>li>a {
     color: #9d9d9d;
-    font-size:16px;
+    font-size:18px;
+
 }
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand {
     color: #fff;
@@ -38,14 +38,14 @@ footer{
 }
 footer span.copyright{
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive; ;
     color:white;
 
 }
 footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive; 
     text-align:center;
 
 }
