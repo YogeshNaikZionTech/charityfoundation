@@ -9,6 +9,12 @@ body{
     margin-top:8px;
         }
 .form-group{
+    padding: 3px;
+}
+.page-header{
+    color: #d9534f;
+}
+input[type=file]{
 
-    padding: 14px;
+  color:lightgrey;
 }
