@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/userprofile.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-    <div class="container">
+    <div class="container" id="content">
     @if(Session::has('profileUpdated'))
         <div class="alert alert-success" role="alert">
             <strong>{{\Session::get('profileUpdated')}}</strong>

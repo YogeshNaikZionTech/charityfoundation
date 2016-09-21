@@ -4,3 +4,6 @@
 @section('content')
 
     @endsection
+<div id="content">
+
+</div>

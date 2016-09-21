@@ -1,5 +1,4 @@
-
- <footer>
+ <footer id="footer">
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xs-10 col-sm-3">
@@ -62,3 +61,8 @@
         </div>
     </div>
 </footer>
+ @section('scripts')
+     <script>
+ $('#footer').css('margin-top',$(document).height() - $('#content').height()- $('#footer').height());
+     </script>
+     @endsection
