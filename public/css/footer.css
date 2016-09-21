@@ -1,4 +1,4 @@
-footer{
+/*footer{
     padding:10px 0;
     text-align:center;
     position: relative;
@@ -10,14 +10,14 @@ footer{
 }
 footer span.copyright{
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive;
     color:white;
 
 }
 footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive;
 
 }
 ul.social-buttons{
@@ -43,4 +43,65 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{
     outline:0
 }
-.glyphicon,.glyphicon-map-marker{ font-size:50px; }
+*/
+footer{
+    padding:20px 0;
+	color:white;
+    position: relative;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+}
+footer span.copyright{
+    line-height:40px;
+    font-family:Calibri,cursive;
+    color:white;
+font-size:18px;
+
+
+}
+footer ul.quicklinks{
+    margin-bottom:0;
+    line-height:40px;
+    font-family:Calibri,cursive;
+    text-align:center;
+
+}
+ul.social-buttons{
+    margin-bottom:0
+}
+ul.social-buttons li a{
+    text-align:center;
+    display:block;
+    background-color:#222;
+    height:40px;
+    width:40px;
+    border-radius:100%;
+    font-size:20px;
+    line-height:40px;
+    color:#fff;
+    outline:0;
+    -webkit-transition:all .3s;
+    -moz-transition:all .3s;
+    transition:all .3s;
+}
+ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
+    background-color:#fed136;
+    text-align:center;
+}
+.btn:focus,.btn:active,.btn.active,.btn:active:focus{
+    outline:0;
+    text-align:center;
+}
+a{color:black}
+.form-data{padding:20px;   text-align:center;}
+ol{
+    display: block;
+    list-style-type: none;
+}
+ol>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
+ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}
+
+.footerpara{font-size:18px;}
+

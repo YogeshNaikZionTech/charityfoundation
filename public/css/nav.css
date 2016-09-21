@@ -1,8 +1,24 @@
-.navbar-nav > li > a {
-    padding-top:5px;
-    padding-bottom:5px;
+.container,.container-fluid{font-family: Calibri,cursive; font-style: italic;}
+.navbar-inverse .navbar-nav>li>a {
+font-family: Calibri,cursive;
+    color: #9d9d9d;
+    font-size:18px;
+    font-style:italic;
+font-weight:bold;
 }
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand {
+    color: #fff;
+    background-color: transparent;
+    font-size:25px;
+    font-style:italic;
 
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: cornflowerblue;
+    background-color: transparent;
+    font-size:25px;
+    font-style:italic;
+}
 .navbar {
     position: relative;
     min-height: 27px;
