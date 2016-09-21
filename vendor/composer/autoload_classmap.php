@@ -618,6 +618,7 @@ return array(
     'Illuminate\\Auth\\Events\\Lockout' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Events/Lockout.php',
     'Illuminate\\Auth\\Events\\Login' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Events/Login.php',
     'Illuminate\\Auth\\Events\\Logout' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Events/Logout.php',
+    'Illuminate\\Auth\\Events\\Registered' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Events/Registered.php',
     'Illuminate\\Auth\\GenericUser' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/GenericUser.php',
     'Illuminate\\Auth\\GuardHelpers' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/GuardHelpers.php',
     'Illuminate\\Auth\\Middleware\\Authenticate' => $vendorDir . '/laravel/framework/src/Illuminate/Auth/Middleware/Authenticate.php',
