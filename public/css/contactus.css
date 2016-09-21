@@ -1,52 +1,35 @@
-/*footer{
-    padding:10px 0;
-    text-align:center;
-    position: relative;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background-color: black;
+body{
+	    color: ghostwhite;
+}
+.container,.container-fluid{color: ghostwhite;;font-family: Calibri,cursive; font-style: italic; font-weight: bold;}
+.para{font-size: 18px;
+    font-style: italic;
+    color: ghostwhite;
+    padding:5px;
+    margin-left:10px;
+    font-weight: bold;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: #9d9d9d;
+    font-size:18px;
 
 }
-footer span.copyright{
-    line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    color:white;
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand {
+    color: #fff;
+    background-color: transparent;
+}
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: cornflowerblue;
+    background-color: transparent;
+}
+/*rgba(127, 201, 171, 0.4)*/
 
-}
-footer ul.quicklinks{
-    margin-bottom:0;
-    line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+.media1{background-color:rgba(43, 51, 39, 0.38) ;padding:5px;margin:10px;}
+.submit-form{position: relative;}
 
-}
-ul.social-buttons{
-    margin-bottom:0
-}
-ul.social-buttons li a{
-    display:block;
-    background-color:#222;
-    height:40px;
-    width:40px;
-    border-radius:100%;
-    font-size:20px;
-    line-height:40px;
-    color:#fff;
-    outline:0;
-    -webkit-transition:all .3s;
-    -moz-transition:all .3s;
-    transition:all .3s;
-}
-ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
-    background-color:#fed136
-}
-.btn:focus,.btn:active,.btn.active,.btn:active:focus{
-    outline:0
-}
-*/
 footer{
     padding:20px 0;
-	color:white;
+
     position: relative;
     right: 0;
     bottom: 0;
@@ -55,14 +38,14 @@ footer{
 }
 footer span.copyright{
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive; ;
     color:white;
 
 }
 footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive; 
     text-align:center;
 
 }
@@ -101,5 +84,7 @@ ol{
 ol>li>a{ color:ghostwhite;text-align: left;}
 ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}
 
+.maps>iframe{height:280px;}
+.glyphicon,.glyphicon-map-marker{ font-size:50px; }
 
 

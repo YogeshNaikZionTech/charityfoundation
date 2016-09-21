@@ -8,7 +8,7 @@
 <body>
 
 <!-- Header from partials -->
-<div class="container-fluid">
+
     @include('partials._nav')
 <!-- content from any page -->
 
@@ -20,6 +20,6 @@
 
 <!-- Add javascript of your own -->
     @yield('scripts')
-</div>
+
 </body>
 </html>

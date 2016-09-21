@@ -109,6 +109,19 @@
                                     </div>
                                 </div>
                             </div>
+			<div class="col-md-4">
+                                <div class="thumbnail">
+                                    <img src="IMG/event.jpg" alt="event2">
+                                    <div class="caption">
+                                        <a href="#" class="eNAme"><h3>Project Name</h3></a>
+                                        <p>Short summary of event description.</p>
+                                        <p>
+                                            <a href="#" class="btn btn-primary" role="button">View Gallery</a>
+                                            <a href="#" class="btn btn-default pull-right" role="button">Read More</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="eventDesc">
                                 <h2>Event Name</h2>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -124,28 +137,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="container-fluid">
-                    <div class="thumbnail" id="dList">
-                        <div class="donors">
-                            <div class="list-group">
-                                <a href="#" class="list-group-item active">Top Donors</a>
-                                <a href="#" class="list-group-item">Name One</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                                <a href="#" class="list-group-item">Name Two</a>
-                            </div>
-                        </div>
-
-
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 
