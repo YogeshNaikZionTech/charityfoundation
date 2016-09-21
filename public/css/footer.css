@@ -10,14 +10,14 @@
 }
 footer span.copyright{
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive;
     color:white;
 
 }
 footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive;
 
 }
 ul.social-buttons{
@@ -55,14 +55,16 @@ footer{
 }
 footer span.copyright{
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive;
     color:white;
+font-size:18px;
+
 
 }
 footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
-    font-family:Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family:Calibri,cursive;
     text-align:center;
 
 }
@@ -98,8 +100,8 @@ ol{
     display: block;
     list-style-type: none;
 }
-ol>li>a{ color:ghostwhite;text-align: left;}
+ol>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
 ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}
 
-
+.footerpara{font-size:18px;}
 

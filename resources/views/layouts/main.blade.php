@@ -11,9 +11,9 @@
 
     @include('partials._nav')
 <!-- content from any page -->
-
+<div class="container">
     @yield('content')
-
+</div>
      @include('partials._footer')
 
 <!-- content from partial footer. -->

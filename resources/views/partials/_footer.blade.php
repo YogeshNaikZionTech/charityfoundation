@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-2 col-lg-2 col-xs-10 col-sm-3">
                
-                <p>
+                <p class="footerpara">
                     Charity Foundation<br/>
                     2665 N Frist St,<br/>
                     San Jose, CA, 95134
