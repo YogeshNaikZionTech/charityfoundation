@@ -1,5 +1,7 @@
 body{
 	    color: ghostwhite;
+            margin:0px;
+            padding:0px;
 }
 .container,.container-fluid{color: ghostwhite;;font-family: Calibri,cursive; font-style: italic; font-weight: bold;}
 .para{font-size: 18px;

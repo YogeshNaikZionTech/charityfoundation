@@ -63,6 +63,9 @@
 </footer>
  @section('scripts')
      <script>
- $('#footer').css('margin-top',$(document).height() - $('#content').height()- $('#footer').height());
+         $(document).ready(function() {
+
+             $('#footer').css('margin-top', $(document).height() - $('#content').height() - $('#footer').height());
+         });
      </script>
      @endsection

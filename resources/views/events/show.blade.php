@@ -6,7 +6,7 @@
     @endsection
 @section('content')
 
-  <div class="main">
+  <div class="main" id="content">
   <div class="h">
     <h2>Events</h2>
     @if(Auth::check()&& Auth::user()->isAdmin)

@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-    <div class="main content">
+    <div class="main content" id="content">
     <div class="h">
         <h2>Projects</h2>
          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>

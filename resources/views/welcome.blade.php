@@ -5,6 +5,7 @@
     <link href="{{URL::asset('/css/style.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
+    <div id="content">
     <div class="bs-example">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
        
@@ -78,6 +79,6 @@
                 </div>
             </div>
     </div>
-
+    </div>
 
 @endsection

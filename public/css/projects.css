@@ -22,5 +22,8 @@ hr{
     display: inline-block;
     margin-top: 0px;
 }
-
+body{
+ margin: 0px;
+ padding: 0px;
+}
        

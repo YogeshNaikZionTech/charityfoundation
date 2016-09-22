@@ -4,7 +4,7 @@
 
 
 @section('content')
-    <div class="container">
+    <div class="container" id="content">
         @if(Session::has('successLogin'))
             <div class="alert alert-success" role="alert">
             <strong>{{\Session::get('successLogin')}}</strong>
