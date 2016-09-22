@@ -195,6 +195,7 @@ $(document).ready(function(){
 
 $(".volform").hide();
 $(".payment").hide();
+$("#note").hide();
 
                 $(".proevent").attr("style","display:none");
                 $("#dtype").attr("style","display:none");
