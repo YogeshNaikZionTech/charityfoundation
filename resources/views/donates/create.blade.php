@@ -193,6 +193,8 @@ $(document).ready(function(){
     $(".nav li:first").removeClass("active");
     $(".nav li:nth-child(6)").addClass("active");
 
+$(".volform").hide();
+$(".payment").hide();
 
                 $(".proevent").attr("style","display:none");
                 $("#dtype").attr("style","display:none");
