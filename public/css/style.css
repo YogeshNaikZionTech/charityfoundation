@@ -1,8 +1,10 @@
 body{
-    /*background:url("/images/bg_contacts.jpg") no-repeat;*/
+    background:url("/images/moutain.jpg") no-repeat;
     color: ghostwhite;
     margin:0px;
     padding:0px;
+    background-size: cover;
+    background-position: top;
 }
 .container{color: white;font-family: Calibri,cursive;}
 .para{font-size: 16px;

@@ -37,10 +37,25 @@ class userProfileController extends Controller {
 		$user->country  = $request->input( 'country' );
 		$user->zipcode  = $request->input( 'zipcode' );
 		$user->save();
-		\Session::flash( 'profileUpdated', 'Awesome, we have updated your profile' );
+			return view( '/users/userprofile', array( 'user' => \Auth::user() ) );
 
-		return view( '/users/userprofile', array( 'user' => \Auth::user() ) );
-	}
+
+
+	}else{
+
+			$user = \Auth::user();
+
+			$user->phonenum = $request->input( 'phonenum' );
+			$user->street   = $request->input( 'street' );
+			$user->aptNo    = $request->input( 'aptNo' );
+			$user->state    = $request->input( 'state' );
+			$user->country  = $request->input( 'country' );
+			$user->zipcode  = $request->input( 'zipcode' );
+			$user->save();
+			\Session::flash( 'profileUpdated', 'Awesome, we have updated your profile' );
+
+			return view( '/users/userprofile', array( 'user' => \Auth::user() ) );
+		}
 
 
 

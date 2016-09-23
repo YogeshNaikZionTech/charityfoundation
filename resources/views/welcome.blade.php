@@ -58,41 +58,43 @@ $(document).ready(function(){
             <div class="row">
                 <div class="col-md-9">
                     
-<!--                         @foreach($projects_c->slice(0,3) as $cproject)
+                 @foreach($projects_c as $cproject)
                             <div class="col-md-4">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">{{$cproject->project_Status}}</div>
                                     <div class="panel-body"><img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
-       <div class="panel-footer"><button class="btn btn-success btn-md"  title="Current Event title" data-toggle="popover" data-placement="right" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ">See more </button></div>                                
+                                    <div class="panel-footer"><button class="btn btn-success btn-md"  title={{$cproject->project_Title}} data-toggle="popover" data-placement="right" data-content={{$cproject->project_Description}}>See more </button></div>
                                 </div>
                             </div>
-                        @endforeach -->
-                    
+                    @endforeach
 
 
-                        @foreach($projects_f->slice(0,3) as $fproject)
-                            <div class="col-md-4">
-                                <div class="panel panel-primary">
-                                    <div class="panel-heading">{{$fproject->project_Status}}</div>
-                                    <div class="panel-body"><img src="images/{{$fproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
-       <div class="panel-footer"><button class="btn btn-success btn-md"  title="Future Event title" data-toggle="popover" data-placement="right" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ">See more </button></div>                                
-                                </div>
-                            </div>
-                        @endforeach
-                    
+                     <div class="text-center">
+                         {!! $projects_c->links() !!}
+                     </div>
+                        {{--@foreach($projects_f->slice(0,3) as $fproject)--}}
+                            {{--<div class="col-md-4">--}}
+                                {{--<div class="panel panel-primary">--}}
+                                    {{--<div class="panel-heading">{{$fproject->project_Status}}</div>--}}
+                                    {{--<div class="panel-body"><img src="images/{{$fproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>--}}
+       {{--<div class="panel-footer"><button class="btn btn-success btn-md"  title="Future Event title" data-toggle="popover" data-placement="right" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ">See more </button></div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
+                        {{--@endforeach--}}
 
 
-                                @foreach($projects_p->slice(0,3) as $pproject)
-                                    <div class="col-md-4">
-                                        <div class="panel panel-primary">
-                                            <div class="panel-heading">{{$pproject->project_Status}}</div>
-                                            <div class="panel-body"><img src="images/{{$pproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
-       <div class="panel-footer"><button class="btn btn-success btn-md"  title="Completed Event title" data-toggle="popover" data-placement="right" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ">See more </button></div>                                
-                                        </div>
-                                    </div>
-                                @endforeach
+                                {{--@foreach($projects_p->slice(0,3) as $pproject)--}}
+                                    {{--<div class="col-md-4">--}}
+                                        {{--<div class="panel panel-primary">--}}
+                                            {{--<div class="panel-heading">{{$pproject->project_Status}}</div>--}}
+                                            {{--<div class="panel-body"><img src="images/{{$pproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>--}}
+
+       {{--<div class="panel-footer"><button class="btn btn-success btn-md"  title="Completed Event title" data-toggle="popover" data-placement="right" data-content="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy ">See more </button></div>--}}
+                                        {{--</div>--}}
+                                    {{--</div>--}}
+                                {{--@endforeach--}}
 
                             </div>
 

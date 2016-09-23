@@ -25,7 +25,9 @@ class EventController extends Controller
      */
     public function create()
     {
-
+	    $events_f = Event::Where('event_Status','=','future')->paginate(8);
+	    $events_c = Event::Where('event_Status','=','completed')->paginate(8);
+	    return view('events/show')->withEvents_f($events_f)->withEvents_c($events_c);
     }
 
     /**

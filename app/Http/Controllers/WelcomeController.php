@@ -12,10 +12,11 @@ class WelcomeController extends Controller
 
 	public function show(){
 
-		$projectc = Project::Where('project_Status','=','current')->get();
-		$projectf =Project::Where('project_Status','=','future')->get();
-		$projectp =Project::Where('project_Status','=','completed')->get();
+		$projectc = Project::paginate(6);
+//		$projectf =Project::Where('project_Status','=','future')->paginate(3);
+//		$projectp =Project::Where('project_Status','=','completed')->paginate(3);
 
-		return view('welcome')->withProjects_c($projectc)->withProjects_f($projectf)->withProjects_p($projectp);
+
+		return view('welcome')->withProjects_c($projectc);
 	}
 }

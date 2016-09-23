@@ -49,10 +49,7 @@ Route::get('/aboutus', function (){
 /*
  * Resource for About us
  */
-Route::get('/events', function (){
-
-	return view('events/show');
-});
+Route::get('/events', 'EventController@create');
 
 
 Auth::routes();
