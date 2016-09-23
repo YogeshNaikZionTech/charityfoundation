@@ -30,7 +30,7 @@
                    --><label>Project Description</label>
                     <textarea placeholder="Description of the project" class="form-control"></textarea>
                   <label>Upload an image</label>
-                    <input type="file" name="pic" accept="image/*">
+                    <input type="file" Name="pic" accept="image/*">
                 </div>
                 <div class="modal-footer">
                   <input type="submit" class="btn btn-success" data-dismiss="modal">
@@ -57,11 +57,11 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName1"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
+                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 1" role="button">Donate</a>
                                         </p>
                                     </div>
                                 </div>
@@ -70,11 +70,11 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event2">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName2"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
+                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 2" role="button">Donate</a>
                                         </p>
                                     </div>
                                 </div>
@@ -83,11 +83,11 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName3"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
+                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 3" role="button">Donate</a>
                                         </p>
                                     </div>
                                 </div>
@@ -96,11 +96,11 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName4"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
-                                            <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="#" class="btn btn-primary pull-right" role="button">Donate</a>
+                                            <a href="{{url('/donates/create')}}" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                                            <button type="submit" href="#" class="btn btn-primary pull-right donate" id="Project 4" role="button">Donate</button>
                                         </p>
                                     </div>
                                 </div>
@@ -124,7 +124,7 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event1">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName1"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
@@ -137,7 +137,7 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event2">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName2"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
@@ -150,7 +150,7 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName3"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
@@ -163,7 +163,7 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
                                     <div class="caption">
-                                        <a href="#desc" class="eNAme"><h3>Project Name</h3></a>
+                                        <a href="#desc" class="eName4"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
@@ -202,8 +202,14 @@
 $('.nav li:first').removeClass('active');
 $('.nav li:nth-child(3)').addClass('active');
 
+$('.donate').on('click', function () {
+    sessionStorage.removeItem('event');
+    var projectValue = $(this).attr('id');
+    sessionStorage.setItem('project', projectValue);
+});
+
                     $(".projectDesc").hide();
-                    $(".eNAme").click(function(){
+                    $(".eName1").click(function(){
                         $(".projectDesc").toggle();
                     });
                 });
