@@ -102,13 +102,11 @@
                                         <a href="#desc" class="eName4"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
-<<<<<<< HEAD
+
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 4" role="button">Donate</a>
-=======
-                                            <a href="{{url('/donates/create')}}" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <button type="submit" href="#" class="btn btn-primary pull-right donate" id="Project 4" role="button">Donate</button>
->>>>>>> 3c1f6ad8d89859963887297e6dd63b3e213ead67
+
+
                                         </p>
                                     </div>
                                 </div>
@@ -338,12 +336,14 @@ $('#read3').click(function(){
 
   $(".eventDesc3").show();
 });
-$('#read4').click(function(){
-  $(".eventDesc1").hide();
-        $(".eventDesc2").hide();
-                $(".eventDesc3").hide();
-  $(".eventDesc4").show();
+$('#read4').click(function() {
+    $(".eventDesc1").hide();
+    $(".eventDesc2").hide();
+    $(".eventDesc3").hide();
+    $(".eventDesc4").show();
+    });
 });
+
 
             </script>
     @endsection
