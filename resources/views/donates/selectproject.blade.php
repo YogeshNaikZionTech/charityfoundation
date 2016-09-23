@@ -4,6 +4,7 @@
 
 
 @section('content')
+
     <div class="container" id="content">
         @if(Session::has('successLogin'))
             <div class="alert alert-success" role="alert">
@@ -131,9 +132,9 @@
 
 
     <div class="col-md-1 col-md-offset-5">
-        <div class="container">
+    
             <input type="submit" class="btn btn-success" value="Continue" style="margin-bottom:10px">
-        </div>
+        
     </div>
 </form>
     </div>
