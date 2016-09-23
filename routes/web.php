@@ -37,6 +37,7 @@ Route::get('/setproject', function (){
 
 
 });
+Route::post('/recipte', 'Donate@showRecipte');
 
 /*
  * Resource for About us

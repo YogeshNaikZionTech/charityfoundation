@@ -35,11 +35,11 @@
 
 
                             </li>
-                            @if (Auth::user()->isAdmin)
-                                <li>
-                                    <a href ="{{url('/')}}">Admin Panel</a>
-                                </li>
-                            @endif
+                            {{--@if (Auth::user()->isAdmin)--}}
+                                {{--<li>--}}
+                                    {{--<a href ="{{url('/')}}">Admin Panel</a>--}}
+                                {{--</li>--}}
+                            {{--@endif--}}
                                @if(Auth::check())
                                 <li>
                                     <a href ="{{url('/')}}">History</a>

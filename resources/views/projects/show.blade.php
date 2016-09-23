@@ -8,6 +8,7 @@
     <div class="main content" id="content">
     <div class="h">
         <h2>Projects</h2>
+        @if(Auth::check()&& Auth::user()->isAdmin)
          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
         <div id="createEvent" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -40,6 +41,8 @@
           </div>
         </div>
         </div>
+        @endif
+
         <hr>
         <div class="row">
             <div class="col-md-12">
@@ -99,8 +102,13 @@
                                         <a href="#desc" class="eName4"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
+<<<<<<< HEAD
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 4" role="button">Donate</a>
+=======
+                                            <a href="{{url('/donates/create')}}" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                                            <button type="submit" href="#" class="btn btn-primary pull-right donate" id="Project 4" role="button">Donate</button>
+>>>>>>> 3c1f6ad8d89859963887297e6dd63b3e213ead67
                                         </p>
                                     </div>
                                 </div>
@@ -249,6 +257,7 @@ $('.donate').on('click', function () {
     var projectValue = $(this).attr('id');
     sessionStorage.setItem('project', projectValue);
 });
+
  $(".eventDesc1").hide();
         $(".eventDesc2").hide();
         $(".eventDesc3").hide();
@@ -335,6 +344,6 @@ $('#read4').click(function(){
                 $(".eventDesc3").hide();
   $(".eventDesc4").show();
 });
-                });
+
             </script>
     @endsection

@@ -111,4 +111,10 @@ class Donate extends Controller
     {
         //
     }
+
+    public function showRecipte(){
+
+
+	return vieW ('donates/receipt');
+    }
 }
