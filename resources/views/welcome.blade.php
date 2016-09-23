@@ -70,9 +70,13 @@ $(document).ready(function(){
                     @endforeach
 
 
-                     <div class="text-center">
-                         {!! $projects_c->links() !!}
-                     </div>
+                     {{--<div class="text-center">--}}
+                         {{--{!! $projects_c->links() !!}--}}
+                     {{--</div>--}}
+
+
+
+
                         {{--@foreach($projects_f->slice(0,3) as $fproject)--}}
                             {{--<div class="col-md-4">--}}
                                 {{--<div class="panel panel-primary">--}}

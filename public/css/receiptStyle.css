@@ -1,0 +1,18 @@
+.msg{
+    text-align:center;
+    color:darkblue;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.pull-right{
+    text-align:right;
+}
+h2{
+    color:orange;
+}
+h4{
+    color:darkcyan;
+}
+.pull-right h3{
+    color:red;
+}

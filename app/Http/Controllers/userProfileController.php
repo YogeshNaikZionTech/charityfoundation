@@ -37,6 +37,7 @@ class userProfileController extends Controller {
 		$user->country  = $request->input( 'country' );
 		$user->zipcode  = $request->input( 'zipcode' );
 		$user->save();
+			\Session::flash( 'profileUpdated', 'Awesome, we have updated your profile' );
 			return view( '/users/userprofile', array( 'user' => \Auth::user() ) );
 
 

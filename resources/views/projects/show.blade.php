@@ -8,6 +8,7 @@
     <div class="main content" id="content">
     <div class="h">
         <h2>Projects</h2>
+        @if(Auth::check()&& Auth::user()->isAdmin)
          <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
         <div id="createEvent" class="modal fade" role="dialog">
           <div class="modal-dialog">
@@ -40,6 +41,8 @@
           </div>
         </div>
         </div>
+        @endif
+
         <hr>
         <div class="row">
             <div class="col-md-12">
