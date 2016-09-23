@@ -15,7 +15,7 @@
                         <p>How would you like to contribute?</p>
                         <div class="donate-method onetime">
                         <label>
-                            <input type="radio" name="donate" value="onetime"> One-Time Donation
+                            <input type="radio" name="donate" value="onetime" checked> One-Time Donation
                         </label>
                         </div>
 
@@ -194,7 +194,7 @@ $(document).ready(function(){
     $(".nav li:nth-child(6)").addClass("active");
 
 $(".volform").hide();
-$(".payment").hide();
+$(".payment").show();
 $("#note").hide();
 
                 $(".proevent").attr("style","display:none");

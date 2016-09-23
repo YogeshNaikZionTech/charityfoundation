@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/userprofile.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-    <div class="container">
+    <div class="container" id="content">
         @if(Session::has('profileUpdated'))
             <div class="alert alert-success" role="alert">
                 <strong>{{\Session::get('profileUpdated')}}</strong>
@@ -18,24 +18,25 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
-                        <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg"/>
+                        <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg" id="profileimg"/>
                         <h6>Upload New Picture</h6>
 
-                        <input type="file" name="avatar" class="text-center center-block well well-sm ">
+                        <input type="file" name="avatar" class="text-center center-block well well-sm" onchange="readURL(this);">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        {{--</form>--}}
+            </form>
                     </div>
                 </div>
                 <!-- Personal Info -->
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
 
                     <h3>Personal info</h3>
+                    <form class="form-horizontal" role="form">
 
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Name:</label>
                         <div class="col-lg-8">
                             <input class="form-control" name="username" value=" {{ Auth::user()->firstname }}  {{ Auth::user()->lastname }}" pattern="/^[a-zA-Z]+$/" type="text" disabled>
-                        </div>
+                    </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 control-label">Email:</label>
@@ -104,9 +105,36 @@
 
 @endsection
 @section('scripts')
-    <script>
-        $( function() {
-            $( document ).tooltip();
-        } );
-    </script>
+
+     <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+                 reader.onload = function (e) {
+                    $('#profileimg').attr('src', e.target.result)
+                     .width(200)
+                    .height(200);
+                 };
+
+                 reader.readAsDataURL(input.files[0])
+            }
+             }
+             $($(document).ready(function(){
+                             $('input:file').change(
+                                     function(){
+                                        if ($(this).val()) {
+                                            $('input:submit').attr('disabled',false);
+                                            }
+                                        }
+                                     );
+                            }));
+        $(function()
+                    {
+                        $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
+                        $(window).bind('resize', function(){
+                        $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
+                        });
+               });
+     </script>
+
 @endsection

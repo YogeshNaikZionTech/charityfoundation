@@ -11,7 +11,7 @@ section#banner{
         background-attachment: fixed;
     }
     section#banner p{
-        font-size: :30px;
+        font-size:30px;
         color:#fff;
     }
 
@@ -67,10 +67,11 @@ section#banner{
     }
     </style>
 </head>
+<div id="content">
 <header>
 <section id="banner" class="box">
     <div>
-        <span class='logo'<i class="fa fa-globe fa-5x"></i>
+        <span class='logo'><i class="fa fa-globe fa-5x"></i>
         </span>
         <h1>Be the change you want to see in the world</h1>
     </div>
@@ -96,13 +97,22 @@ section#banner{
     <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like). </p>
     <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. 
     </p>
-   
 
 
+</div>
 
 </section>
 
     @endsection
-<div id="content">
+@section('scripts')
+    <script type="text/javascript">
+        $(document).ready(
 
-</div>
+                function() {
+                    $('.nav li:first').removeClass('active');
+                    $('.nav li:nth-child(2)').addClass('active');
+                });
+    </script>
+    @endsection
+
+
