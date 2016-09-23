@@ -2,7 +2,7 @@
 
 @section('title', '|Update Profile')
 @section('stylesheets')
-
+    <link href="{{URL::asset('/css/userprofile.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
     <div class="container">
@@ -14,15 +14,16 @@
     <h1 class="page-header" style="color: #d9534f;">Edit Profile</h1>
     <div class="row">
         <!-- Profile Image -->
+        <form enctype="multipart/form-data" action="{{url('/userprofile')}}" method="POST">
         <div class="col-md-4 col-sm-6 col-xs-12">
             <div class="text-center">
-                <form enctype="multipart/form-data" action="{{url('/userprofile')}}" method="POST">
+
                 <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg"/>
                 <h6>Upload New Picture</h6>
 
                     <input type="file" name="avatar" class="text-center center-block well well-sm ">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-
+                {{--</form>--}}
             </div>
         </div>
         <!-- Personal Info -->
@@ -33,19 +34,19 @@
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Name:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" name="username" value=" {{ Auth::user()->firstname }}  {{ Auth::user()->lastname }}" type="text" disabled>
+                        <input class="form-control" name="username" value=" {{ Auth::user()->firstname }}  {{ Auth::user()->lastname }}" pattern="/^[a-zA-Z]+$/" type="text" disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Email:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" value=" {{ Auth::user()->email }}" type="text" disabled>
+                        <input class="form-control" value="{{ Auth::user()->email }}" pattern="^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$" type="email" disabled>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-lg-3 control-label">Phone Number:</label>
                     <div class="col-lg-8">
-                        <input class="form-control" name="phonenum" value="{{ Auth::user()->phonenum }}" type="text">
+                        <input class="form-control" required name="phonenum" maxlength="10"  placeholder="Enter your 10 digit phone number" pattern="\d+" value="{{ Auth::user()->phonenum }}" type="text">
                     </div>
                 </div>
                 <div class="form-group">
@@ -58,38 +59,36 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="col-md-3 control-label" >Address:</label>
+                    <label class="col-md-3 control-label" >Address* :</label>
                     <div class="col-md-8">
-                        <input class="form-control" name="street" value="{{ Auth::user()->street }}"  placeholder="Enter Your Street Name" type="text">
+                        <input class="form-control" required name="street" value="{{ Auth::user()->street }}"  placeholder="Enter Your Street Name" type="text">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Address2:</label>
+                    <label class="col-md-3 control-label">Address2* :</label>
                     <div class="col-md-8">
-                        <input class="form-control" name="aptNo" value="{{ Auth::user()->aptNo }}"  placeholder="Enter Your aptNo" type="text">
+                        <input class="form-control"  name="aptNo" value="{{ Auth::user()->aptNo }}"  placeholder="Enter Your aptNo" type="text">
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-md-3 control-label">State:</label>
                     <div class="col-md-8">
-                        <input class="form-control" name="state" value="{{ Auth::user()->state }}"  placeholder="Enter state" type="text">
+                        <input class="form-control" name="state" required value="{{ Auth::user()->state }}" pattern="[A-Za-z]{2}" placeholder="Enter state 2 letter state code" type="text">
                     </div>
                 </div>
-            <div class="form-group">
+                <div class="form-group" >
                 <label class="col-md-3 control-label">Country:</label>
-                <div class="col-md-8">
-                    <input class="form-control" name="country" value="{{ Auth::user()->country }}"  placeholder="Enter country" type="text">
+                <div class="col-md-8" data-tip="please input 3 digits of country code, ex:USA" >
+                    <input class="form-control" name="country" required value="{{ Auth::user()->country }}" pattern="[A-Za-z]{3}"  placeholder="Enter three letter country code" type="text">
                 </div>
             </div>
                 <div class="form-group">
-                    <label class="col-md-3 control-label">Zipcode:</label>
+                    <label for="zip" class="col-md-3 control-label">Zipcode:</label>
                     <div class="col-md-8">
-                        <input class="form-control" name="zipcode" value="{{ Auth::user()->zipcode }}" type="text" placeholder="Zipcode">
+                        <input id="zip" class="form-control" title="zipcode" name="zipcode" required minlength="5" value="{{ Auth::user()->zipcode }}" pattern="(\d{5}([\-]\d{4})?)" type="text" placeholder="Enter your 5 digit zipcode">
+
                     </div>
                 </div>
-
-
-
                 <div class="form-group">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-8">
@@ -98,8 +97,16 @@
                         <input class="btn btn-danger" value="Cancel" type="reset">
                     </div>
                 </div>
-            </form>
+            </div>
+        </form>
         </div>
     </div>
-    </div>
+
+    @endsection
+@section('scripts')
+<script>
+    $( function() {
+        $( document ).tooltip();
+    } );
+</script>
     @endsection

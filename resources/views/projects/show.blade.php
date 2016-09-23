@@ -2,7 +2,7 @@
 
 @section('title', '| Projects')
 @section('stylesheets')
-<<<<<<< HEAD
+
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
@@ -44,7 +44,6 @@
         <hr>
         <div class="row">
             <div class="col-md-12">
-
                 <div class="container-fluid">
                     <!-- <h2>Events</h2> -->
 
@@ -186,7 +185,7 @@
                             </div>
                         </div>
                     </div>
-=======
+
     <link href="{{URL::asset('/css/events.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
@@ -222,7 +221,7 @@
                 </div>
                 <div class="modal-footer">
                   <input type="submit" class="btn btn-success" value="Submit">
->>>>>>> contact_preethi
+
                 </div>
               </form>
             </div>
@@ -305,9 +304,7 @@
               </div>
               <!--  -->
             </div>
-<<<<<<< HEAD
-          
-=======
+
 
             <div id="completed" class="tab-pane fade">
               <div class="col-md-3">
@@ -375,22 +372,24 @@
               </div>
             </div>
           </div>
->>>>>>> contact_preethi
+
         </div>
       </div>
      </div>
   </div>
 
- </div> 
+ </div>
+            </div>
+        </div>
+    </div>
 
     @endsection
 @section('scripts')
-<<<<<<< HEAD
             <script type="text/javascript">
                 $(document).ready(function(){
 
-$('.nav li:first').removeClass('active');
-$('.nav li:nth-child(3)').addClass('active');
+                $('.nav li:first').removeClass('active');
+                $('.nav li:nth-child(3)').addClass('active');
 
                     $(".projectDesc").hide();
                     $(".eNAme").click(function(){
@@ -399,14 +398,4 @@ $('.nav li:nth-child(3)').addClass('active');
                 });
             </script>
     @endsection
-=======
-  <script type="text/javascript">
-    $(document).ready(function(){
-      $(".projectDesc").hide();
-      $(".eNAme").click(function(){
-        $(".projectDesc").toggle();
-      });
-    });
-  </script>
-  @endsection
->>>>>>> contact_preethi
+
