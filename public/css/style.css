@@ -1,5 +1,5 @@
 body{
-    background:url("/images/bg_contacts.jpg") no-repeat;
+    /*background:url("/images/bg_contacts.jpg") no-repeat;*/
     color: ghostwhite;
     margin:0px;
     padding:0px;
@@ -12,7 +12,7 @@ font-weight: 400;
     padding:5px;
 }
 /*rgba(127, 201, 171, 0.4)*/
-
+/*
 
 .carousel{
     background: #2f4357;
@@ -31,28 +31,94 @@ font-weight: 400;
 }
 .bs-example{
   margin: 10px;
+}*/
+
+blockquote {
+border:none;
+font-family:Georgia, "Times New Roman", Times, serif;
+margin-bottom:-30px;
+position: relative; 
+/*max-width: 600px; */
+margin: 0 auto; 
+padding-left: 0.4em; 
+}
+
+blockquote h2 {
+    font-size:48px;
+    color: black;
+}
+
+blockquote h2:before { 
+    content: "\201C";
+    font-weight: bold;
+    font-size:150px;
+    color:#ddd;
+    position: absolute; 
+    top: -0.2em;
+    left: -0.5em; 
+    font-family: 'Georgia'; 
+} 
+
+blockquote h2:after { 
+    content: "\201D";
+    font-weight: bold;
+    font-size:150px;
+    color:#ddd;
+    position: absolute; 
+    bottom: -0.8em;
+    right: -0.2em; 
+    font-family: 'Georgia'; 
+}
+
+#quotes{
+    /*border: 1px solid red;*/
 }
 
 
+#author{
+    text-align: right;
+    margin-top: 5%;
+}
 .div1{
     padding-bottom: 60px;
 }
    .div2{
     padding-top: 30px;
    }
-
-
+.divider{
+  margin-top: 75px;
+    width: 100%;
+    border-top: 1px solid #333;
+  }
 .donors{
-  /*  height: 300px;*/
-    /*overflow: scroll;*/
-    /*position: fixed;*/
-    /*background-color: red;*/
-  
-    /*float: right;*/
+height: 100px;
+/*background-color: black;*/
+font-size: 24px;
+text-align: center;
 
 }
-#dList{
-    margin-top:50px;
-   /* position: fixed;*/
-   width: 250px;
+.donor{
+height: 100px;
+background-color: black;
+font-size: 24px;
+text-align: center;
+}
+.suggest{
+  background-color: #081a29;
+  padding-bottom: 10px;
+  margin: 25px auto;
+  text-align: center;
+  
+  color: white;
+  border-radius: 4px;
+}
+
+.panel-primary>.panel-heading{
+  background-color: #081a29;
+  border-color: #081a29;
+}
+
+.panel-primary{
+ 
+  border-color: #081a29;
 }
