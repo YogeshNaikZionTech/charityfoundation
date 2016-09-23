@@ -18,7 +18,7 @@
                 <li><a href="{{url('contact')}}">Contact Us</a></li>
                 <li><a href="{{url('/select')}}" >Donate</a></li>
                 @if (!Auth::check())
-                    <li><a href={{url('/register')}}>Sign Up</a></li>
+                    <li><a href="{{url('/register')}}">Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>
                 @else
 

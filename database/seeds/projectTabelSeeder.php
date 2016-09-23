@@ -26,7 +26,7 @@ class projectTabelSeeder extends Seeder
 				    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				    'project_Image'   => 'charity.jpg',
 				    'project_Status'  => 'future',
-				    'Category_ID'        => '1',
+				    'category_ID'        => '1',
 
 			    ] );
 		    }
@@ -43,7 +43,7 @@ class projectTabelSeeder extends Seeder
 			    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 			    'project_Image'   => 'upcoming.jpg',
 			    'project_Status'  => 'current',
-			    'Category_ID'        => '2',
+			    'category_ID'        => '2',
 
 		    ] );
 	    }
@@ -59,7 +59,7 @@ class projectTabelSeeder extends Seeder
 			    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 			    'project_Image'   => 'Charity.jpg',
 			    'project_Status'  => 'completed',
-			    'Category_ID'        => '1',
+			    'category_ID'        => '1',
 
 		    ] );
 	    }

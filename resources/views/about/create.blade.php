@@ -103,3 +103,6 @@ section#banner{
 </section>
 
     @endsection
+<div id="content">
+
+</div>

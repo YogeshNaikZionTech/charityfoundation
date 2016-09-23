@@ -6,7 +6,7 @@
     @endsection
 @section('content')
 
-  <div class="main">
+  <div class="main" id="content">
   <div class="h">
     <h2>Events</h2>
     @if(Auth::check()&& Auth::user()->isAdmin)
@@ -121,7 +121,7 @@
             </div>
 
             <div id="completed" class="tab-pane fade">
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event1">
                   <div class="caption">
@@ -134,7 +134,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event2">
                   <div class="caption">
@@ -147,9 +147,22 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-3">
                 <div class="thumbnail">
                   <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event3">
+                  <div class="caption">
+                    <a href="#" class="eNAme"><h3>Event Name</h3></a>
+                    <p>Short summary of event description.</p>
+                    <p>
+                         <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
+                         <a href="#" class="btn btn-primary pull-right" role="button" id="read1">Read More</a>
+                        </p>
+                  </div>
+                </div>
+              </div>
+		<div class="col-md-3">
+                <div class="thumbnail">
+                  <img src="{{URL::asset('/images/completedEvent.jpg')}}" alt="event4">
                   <div class="caption">
                     <a href="#" class="eNAme"><h3>Event Name</h3></a>
                     <p>Short summary of event description.</p>
@@ -178,7 +191,7 @@
      </div>
   </div>
 
-  <!-- </div> -->
+ </div> 
 
     @endsection
 @section('scripts')

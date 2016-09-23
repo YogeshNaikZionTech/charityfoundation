@@ -19,7 +19,7 @@ class CreateProjectTable extends Migration
 			    $table->string('project_Title');
 			    $table->text('project_Description');
 			    $table->date('project_Date');
-			    $table->string('project_location');
+			    $table->string('project_Location');
 			    $table->dateTime('project_StartTime');
 			    $table->string('project_Status');
 			    $table->string('project_Image');
