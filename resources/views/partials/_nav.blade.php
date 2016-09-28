@@ -16,10 +16,10 @@
                 <li class="{{Request::path() == 'projects' ? 'active' : ''}}"><a href="{{url('projects')}}">Projects</a></li>
                 <li class="{{Request::path() == 'events' ? 'active' : ''}}"><a href="{{url('events')}}">Events</a></li>
                 <li class="{{Request::path() == 'contact' ? 'active' : ''}}"><a href="{{url('contact')}}">Contact Us</a></li>
-                <li class="{{Request::path() == '/select' ? 'active' : ''}}"><a href="{{url('/select')}}" >Donate</a></li>
+                <li class="{{Request::path() == 'select'? 'active' : Request::path() == 'donates/create'?'active':Request::path() == 'recipte'? 'active': ''}}"><a href="{{url('/select')}}" >Donate</a></li>
                 @if (!Auth::check())
-                    <li><a href="{{url('/register')}}">Sign Up</a></li>
-                    <li><a href="{{url('/login')}}" >Login</a></li>
+                    <li class="{{Request::path() == 'register' ? 'active' : ''}}"><a href="{{url('/register')}}">Sign Up</a></li>
+                    <li class="{{Request::path() == 'login' ? 'active' : ''}}"><a href="{{url('/login')}}" >Login</a></li>
                 @else
 
                     <li class="dropdown">
