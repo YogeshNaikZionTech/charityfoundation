@@ -11,12 +11,12 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav pull-right">
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="{{url('aboutus')}}">About Us</a></li>
-                <li><a href="{{url('projects')}}">Projects</a></li>
-                <li><a href="{{url('events')}}">Events</a></li>
-                <li><a href="{{url('contact')}}">Contact Us</a></li>
-                <li><a href="{{url('/select')}}" >Donate</a></li>
+                <li class="{{Request::path() == '/' ? 'active' : ''}}"><a href="/">Home</a></li>
+                <li class="{{Request::path() == 'aboutus' ? 'active' : ''}}"><a href="{{url('aboutus')}}">About Us</a></li>
+                <li class="{{Request::path() == 'projects' ? 'active' : ''}}"><a href="{{url('projects')}}">Projects</a></li>
+                <li class="{{Request::path() == 'events' ? 'active' : ''}}"><a href="{{url('events')}}">Events</a></li>
+                <li class="{{Request::path() == 'contact' ? 'active' : ''}}"><a href="{{url('contact')}}">Contact Us</a></li>
+                <li class="{{Request::path() == '/select' ? 'active' : ''}}"><a href="{{url('/select')}}" >Donate</a></li>
                 @if (!Auth::check())
                     <li><a href="{{url('/register')}}">Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>

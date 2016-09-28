@@ -247,8 +247,8 @@
             <script type="text/javascript">
                 $(document).ready(function(){
 
-$('.nav li:first').removeClass('active');
-$('.nav li:nth-child(3)').addClass('active');
+// $('.nav li:first').removeClass('active');
+// $('.nav li:nth-child(3)').addClass('active');
 
 $('.donate').on('click', function () {
     sessionStorage.removeItem('event');
