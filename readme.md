@@ -1,6 +1,6 @@
 ##Chatity Foundation website build instructions.
 
-##Step 1:
+###Step 1:
 **Pre-Requisites : PHP, MySql, phpmyadmin, Apache Installation.**
 * Make sure your msql password and user name are "root" and "root" respectively.(dont worry if its different incase you dint chage.)
 * Above pre-req can be installed by following this <a href="https://www.youtube.com/watch?v=dfly7eNym4Y">video<a/>
