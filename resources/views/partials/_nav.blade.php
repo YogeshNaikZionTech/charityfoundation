@@ -16,7 +16,6 @@
                 <li><a href="{{url('projects')}}">Projects</a></li>
                 <li><a href="{{url('events')}}">Events</a></li>
                 <li><a href="{{url('/select')}}" >Donate</a></li>
-                @if (!Auth::check())
                     <li><a href="{{url('/register')}}">Sign Up</a></li>
                     <li><a href="{{url('/login')}}" >Login</a></li>
                 @else
@@ -29,6 +28,7 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            @if (!Auth::check())
                             <li>
                                 <a href ="{{url('/userprofile')}}">Profile</a>
 
