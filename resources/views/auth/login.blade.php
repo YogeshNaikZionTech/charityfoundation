@@ -73,7 +73,7 @@
 
                 function() {
                     $('.nav li:first').removeClass('active');
-                    $('.nav li:nth-child(8)').addClass('active');
+                    $('.nav li:nth-child(7)').addClass('active');
                 });
     </script>
 @endsection

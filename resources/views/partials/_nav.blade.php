@@ -7,15 +7,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Charity Foundation</a>
+            <a class="navbar-brand" href="/">AA Foundation</a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav pull-right">
                 <li class="active"><a href="/">Home</a></li>
-                <li><a href="{{url('aboutus')}}">About Us</a></li>
+                <li><a href="{{url('education')}}">Education</a></li>
                 <li><a href="{{url('projects')}}">Projects</a></li>
                 <li><a href="{{url('events')}}">Events</a></li>
-                <li><a href="{{url('contact')}}">Contact Us</a></li>
                 <li><a href="{{url('/select')}}" >Donate</a></li>
                 @if (!Auth::check())
                     <li><a href="{{url('/register')}}">Sign Up</a></li>

@@ -144,7 +144,7 @@
     $(document).ready(function(){
 
 $('.nav li:first').removeClass('active');
-$('.nav li:nth-child(6)').addClass('active');
+$('.nav li:nth-child(5)').addClass('active');
 
 
         $('.sel').on('click',function(){
