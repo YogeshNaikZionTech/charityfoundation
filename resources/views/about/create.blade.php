@@ -7,7 +7,7 @@
 section#banner{
         padding-top: 110px;
         padding-bottom: 100px;
-        background: url(http://placeimg.com/1300/800/arch);
+        background: url("images/aboutus.png");
         background-attachment: fixed;
     }
     section#banner p{
@@ -71,16 +71,14 @@ section#banner{
 <header>
 <section id="banner" class="box">
     <div>
-        <span class='logo'><i class="fa fa-globe fa-5x"></i>
-        </span>
+        
+
         <h1>Be the change you want to see in the world</h1>
     </div>
 </section>
 </header>
 <section id="about" class="box">
-<!-- <div class="header">
-<img src="images/charity.png" alt="charity" style="width:1300px;height:300px;">
-</div> -->
+
 <div>
 
     <h2>About Us</h2>
