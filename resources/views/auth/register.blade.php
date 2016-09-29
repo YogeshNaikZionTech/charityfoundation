@@ -94,13 +94,4 @@
     </div>
 </div>
 @endsection
-@section('scripts')
-<!--     <script type="text/javascript">
-        $(document).ready(
 
-                function() {
-                    $('.nav li:first').removeClass('active');
-                    $('.nav li:nth-child(7)').addClass('active');
-                });
-    </script> -->
-@endsection
