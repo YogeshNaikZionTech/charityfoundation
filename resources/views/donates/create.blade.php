@@ -63,39 +63,39 @@
                     <div class="form-group">
                        <div class="input-group">
                           <span class="input-group-addon">$</span>
-                          <input type="text" class="form-control" id="other-amt" placeholder="Other Amount">
+                          <input type="text" class="form-control" id="other-amt" name="otheramt" placeholder="Other Amount">
                         </div>
                     </div>
 
                     <div class="form-group" id="cc_number">
                         <label for="CreditCardNumber">Card number</label>
-                        <input id="CreditCardNumber" class="null card-image form-control" type="text" required="">
+                        <input id="CreditCardNumber" class="null card-image form-control" type="text" name="CreditCardNumber">
                     </div>
 
                     <div class="form-group">
                         <label for="NameOnCard">Name on card</label>
-                        <input id="NameOnCard" class="form-control" type="text" maxlength="255" required="">
+                        <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
                     </div>
 
                     <div class="expiry-date-group form-group">
                         <label for="ExpiryDate">Expiry date</label>
-                        <input id="ExpiryDate" class="form-control" type="text" placeholder="MM / YY" maxlength="7" required="">
+                        <input id="ExpiryDate" class="form-control" type="text" placeholder="YYYY/MM" name="ExpiryDate">
                     </div>
 
                     <div class="security-code-group form-group">
                         <label for="SecurityCode">Security code</label>
-                        <div class="input-container" >
-                            <input id="SecurityCode" class="form-control" type="text" required="" >
+                        <!-- <div class="input-container" > -->
+                            <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
 
-                        </div>
+                        <!-- </div> -->
                     </div>
 
                     <div class="zip-code-group form-group">
                       <label for="ZIPCode">ZIP/Postal code</label>
-                      <div class="input-container">
-                        <input id="ZIPCode" class="form-control" type="text" maxlength="10" required="">
+                     <!--  <div class="input-container"> -->
+                        <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
 
-                      </div>
+                    <!--   </div> -->
                     </div>
                     <!-- </form> -->
                 </div>
@@ -139,22 +139,22 @@
                         <label>Volunteer Form</label>
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input id="name" class="form-control" type="text" maxlength="255" required="">
+                            <input id="name" class="form-control" type="text" maxlength="255" >
                         </div>
 
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input id="email" class="form-control" type="email" required="">
+                            <input id="email" class="form-control" type="email" >
                         </div>
 
                         <div class="form-group">
                             <label for="phone">Phone</label>
-                            <input type="text" name="phone" class="form-control" placeholder="+1 (999) 999 9999"  required="" />
+                            <input type="text" name="phone" class="form-control" placeholder="+1 (999) 999 9999"   />
                         </div>
 
                         <div class="form-group">
                           <label for="comment">Comment</label>
-                          <textarea class="form-control" rows="5" id="comment" required=""></textarea>
+                          <textarea class="form-control" rows="5" id="comment" ></textarea>
                         </div>
                     <!-- </form> -->
                 </div>
@@ -167,7 +167,7 @@
 
                     <div id="vol">
                     <p>Thank you for volunteering for <span class="title"></span>, We will get back to you</p>
-                    <button id="PayButton" class="btn btn-block btn-success submit-button" type="submit">
+                    <button id="volbutton" class="btn btn-block btn-success submit-button" type="submit">
                         <span class="submit-button-lock"></span>
                         <span class="align-middle">Volunteer</span>
                     </button>
@@ -311,7 +311,143 @@ $(this).addClass("active");
         $("#other-amt").on("keydown", function(){
             calamt();
         });
-    });
+
+
+
+
+}); //jQuery END
+
+$(document).ready(function(){
+
+
+$('#paymentform').bootstrapValidator({ 
+
+    feedbackIcons:{
+
+          valid:'glyphicon glyphicon-ok',
+          invalid:'glyphicon glyphicon-remove',
+          validating:'glyphicon glyphicon-refresh'
+    },
+
+    fields:{
+
+        CreditCardNumber: {
+                validators: {
+                    notEmpty:{
+                        message:"Enter Your 16 Digit Card Number"
+                        },
+
+                    creditCard:{
+                            message: 'The credit card number is not valid'
+                        }
+                    }
+                },
+                            
+        SecurityCode: {
+            validators: {
+                notEmpty:{
+                    message:"Enter Your CVV"
+                    },
+
+                cvv:{
+                    creditCardField: 'CreditCardNumber',
+                    message: 'The CVV number is not valid'
+                }
+            }
+        },
+     
+         ZIPCode: {
+            validators: {
+                notEmpty:{
+                    message: 'Enter your ZIP code'
+                },
+                regexp: {
+                    regexp: /^\d{5}$/,
+                    message: 'Zipcode must contain 5 digits'
+                }
+            }
+        }, //ZIPCode end
+
+        NameOnCard:{
+            validators:{
+                notEmpty:{
+                    message: 'Enter the name on your card'
+                },
+                regexp:{
+                    regexp:/^[A-Za-z\s]+$/,
+                    message: 'Name can have only alphabets'
+                }
+            }
+        }, //NameOnCard
+
+        otheramt:{
+            validators:{
+                notEmpty:{
+                    message: 'Enter the donation amount'
+                },
+                regexp:{
+                    regexp:/^([1-9][0-9]{0,2}|1000)$/
+                }
+            }
+            
+        },
+
+        ExpiryDate:{
+            verbose:false,
+                        validators:{
+            notEmpty:{
+                message:"Expiry date is required"
+            },
+        regexp: {
+                message: 'The expiration date must be YYYY/MM',
+                regexp: /^\d{4}\/\d{1,2}$/
+            },
+
+        callback:{
+                message: 'The entered date is expired',
+                callback: function(value, validator, $field) {
+                    var sections = value.split('/');
+                    if (sections.length !== 2) {
+                        return {
+                            valid: false,
+                            message: 'The entered date is not valid'
+                        };
+                    }
+
+                var year         = parseInt(sections[0], 10),
+                    month        = parseInt(sections[1], 10),
+                    currentMonth = new Date().getMonth() + 1,
+                    currentYear  = new Date().getFullYear();
+
+                if (month <= 0 || month > 12 || year > currentYear + 10) {
+                    return {
+                        valid: false,
+                        message: 'The entered date is not valid'
+                    };
+                }
+
+                if (year < currentYear || (year == currentYear && month < currentMonth)) {
+                    // The date is expired
+                    return {
+                        valid: false,
+                        message: 'The entered date is expired'
+                    };
+                }                                       
+
+                return true;
+
+            } //callback function end
+
+        } //end of callback
+        } //End of expiry validation
+
+        } //End of Expiry
+
+    } //End of Fields
+
+
+}); //End of Validation
+});
 
 </script>
 
