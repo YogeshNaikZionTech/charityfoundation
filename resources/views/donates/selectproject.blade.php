@@ -187,7 +187,6 @@
             sessionStorage.removeItem('project');
             sessionStorage.removeItem('event');
 
-
         $('.option').on('click',function(){
             $('.option').removeClass('selected');
             $(this).addClass('selected');
