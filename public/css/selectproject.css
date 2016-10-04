@@ -1,55 +1,34 @@
-body{
-min-height: 100%;
-min-width: 312px;
-margin: 0px;
-padding: 0px;
-    }
-/*.wrapper{*/
-    /*min-height: calc(100vh - 125px);*/
-/*}*/
-/*.btn{
-        margin-top:8px;
-    }*/
-
-.sel{
-height: 180px;
-width: 100%;
-background-color: white;
-border-radius: none;
-border: 1px solid #e8e8e8;
-
-    }   
-    .sel:hover{
-        background-color: lightgrey;
-    }
-input[type="radio"]:checked{
-   border: 5px solid blue; 
+#support{
+	text-align: center;
+	/*background-color: lightgrey;*/
 }
-
-/* body{
-padding-top: 65px;
-min-height: 100%;
-min-width: 312px;
-    }
-.wrapper{
-    min-height: calc(100vh - 125px);
+a>p{
+color: black;
 }
-.btn{
-        margin-top:8px;
-    }
-
-.sel{
-height: 45px;
-width: 100%;
-background-color: white;
-border-radius: none;
-border: 1px solid #e8e8e8;
-
-    }   
-    .sel:hover{
-        background-color: lightgrey;
-    }
-.selected{
-   border: 1px solid darkblue; 
+.option:hover{
+    background-color: lightgrey;
+    cursor: pointer;
 }
-*/
+.option p{
+    text-align: center;
+}
+.option img{
+    height: 160px;
+    width: 100%;
+}
+#sub{
+	margin: 10px auto;
+	display: block;
+}
+.selected, .selected:hover{
+    background-color: #5cb85c;
+	border: 1px solid black;
+}
+.selected img {
+    -webkit-filter: grayscale(75%); /* Chrome, Safari, Opera */
+    filter: grayscale(75%);
+}
+#error{
+	text-align: center;
+	color: red;
+}
