@@ -398,17 +398,17 @@ $(document).ready(function(){
                             regexp: /^\d{4}\/\d{1,2}$/
                     },
 
-                    callback:{
+                    callback: {
                         message: 'The expiration date is expired',
                         callback: function(value, validator, $field) {
                             var sections = value.split('/');
                             if (sections.length !== 2) {
                                 return {
                                     valid: false,
-                                    message: 'The expiration date is not valid'
+                                    message: 'The date is not valid'
                                 };
                             }
-                        
+
                             var year         = parseInt(sections[0], 10),
                                 month        = parseInt(sections[1], 10),
                                 currentMonth = new Date().getMonth() + 1,
@@ -417,12 +417,22 @@ $(document).ready(function(){
                             if (month <= 0 || month > 12 || year > currentYear + 10) {
                                 return {
                                     valid: false,
-                                    message: 'The expiration date is not valid'
+                                    message: 'The date is not valid'
                                 };
                             }
+
+                            if (year < currentYear || (year == currentYear && month < currentMonth)) {
+                                // The date is expired
+                                return {
+                                    valid: false,
+                                    message: 'The date is expired'
+                                };
+                            }
+
+                            return true;
                         }
                     }
-                }
+                } //End of validators
             } //End of expiry    
         } //End of Fields
     }); //End of Validation
