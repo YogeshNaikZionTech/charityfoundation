@@ -25,3 +25,6 @@ font-weight:bold;
     margin-bottom: 5px;
     border: 1px solid transparent;
 }
+#content{
+    margin-bottom:0;
+}

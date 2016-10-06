@@ -50,15 +50,15 @@ class EventController extends Controller
 					$Category_ID        = $request->input('etime');
     	    $event = new Event();
 
-	    $event->event_Title       -> event_Title;
-	    $event->event_Description -> $event_Description;
-	    $event->event_location    -> $event_location;
-	    $event->event_Date        -> $event_Date;
-	    $event->event_StartTime   -> $event_StartTime;
-	    $event->event_EndTime      -> $event_EndTime;
-	    $event->event_Image        -> $event_Image;
-	    $event->event_Status       -> $event_Status;
-	    $event->Category_ID        -> $Category_ID;
+	    $event->event_Title       = $event_Title;
+	    $event->event_Description = $event_Description;
+	    $event->event_location    = $event_location;
+	    $event->event_Date        = $event_Date;
+	    $event->event_StartTime   = $event_StartTime;
+	    $event->event_EndTime     = $event_EndTime;
+	    $event->event_Image        = $event_Image;
+	    $event->event_Status       = $event_Status;
+	    $event->Category_ID        = $Category_ID;
 
 		$event->save();
 	    return view('welcome');

@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xs-10 col-sm-3">
-                <span class="copyright">Copyright &copy; Charity Foundation 2016</span>
+                <span class="copyright">Copyright &copy; AA Foundation 2016</span>
                     <ul class="list-inline quicklinks">
                         <li><a href="#">Privacy Policy</a>
                         </li>
@@ -42,7 +42,7 @@
             <div class="col-md-2 col-lg-2 col-xs-10 col-sm-3">
                
                 <p class="footerpara">
-                    Charity Foundation<br/>
+                    AA Foundation<br/>
                     2665 N Frist St,<br/>
                     San Jose, CA, 95134
                 </p>

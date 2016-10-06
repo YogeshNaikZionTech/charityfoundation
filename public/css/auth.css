@@ -1,0 +1,89 @@
+@import url(http://fonts.googleapis.com/css?family=Vibur);
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    font-family: arial;
+}
+
+body {
+    background: url('https://hd.unsplash.com/photo-1430132594682-16e1185b17c5');
+    background-size:cover;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    color: #ccc;
+    text-align: center;
+    font-family: 'Vibur', cursive;
+    font-size: 50px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+
+}
+label{
+    color:	navy;
+}
+.panelbody{
+    text-align: center;
+    line-height: 1.5em;
+    padding: 2em;
+   }
+.panel-heading{
+    font-weight: bolder;
+    font-size: 25px;
+    text-align: left;
+}
+.form-control {
+    width: 100%;
+    height: 50px;
+    border: none;
+    padding: 5px 7px 5px 15px;
+    background: #fff;
+    color: #666;
+    border: 2px solid #ddd;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+.form-control:focus, .form-control:focus + .fa {
+    border-color: navy;
+    color: navy;
+}
+.formspacing{
+    padding:3px;
+}
+
+.form-group .fa {
+    position: absolute;
+    right: 25px;
+    top: 17px;
+    color: #999;
+}
+.log-btn {
+    background: #0AC986;
+    dispaly: inline-block;
+    width: 35%;
+    font-size: 16px;
+    height: 50px;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.link {
+    text-decoration: none;
+    color: #C6C6C6;
+    float: right;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+.link:hover {
+    text-decoration: underline;
+    color: #8C918F;
+}

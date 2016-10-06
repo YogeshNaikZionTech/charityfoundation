@@ -16,7 +16,10 @@ Route::get('/', 'WelcomeController@show');
 
 Route::resource('events', 'EventController');
 
+Route:: resource('education', 'EducationController');
+
 Route::resource('donates', 'Donate');
+
 
 Route::resource('contact', 'ContactController');
 
