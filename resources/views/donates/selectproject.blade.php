@@ -100,43 +100,58 @@
             
         </div>
         <div id="events" class="tab-pane fade">
-            <div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve1"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
+  <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/bg_contacts.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 1</p>
+                </a>
             </div>
-            <div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve2"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/event.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 2</p>
+                </a>
             </div>
-            <div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve3"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/event2.png')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 3</p>
+                </a>
             </div>
-            <div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve4"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/upcoming.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 4</p>
+                </a>
             </div>
-            <div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve5"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
-            </div><div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve6"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
-            </div><div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve7"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
-            </div><div class="col-md-3">
-                <div class="btn-group" data-toggle="buttons">
-                    <label class="btn sel eve"><input type="radio" name="event" value="Eve8"><img src="{{URL::asset('/images/event.jpg')}}" height="150px" width="150px"><br>Event Name</label>
-                </div>
-            </div>  
+            </div>
+            <div class="row">
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/upcomingEvent.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 5</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/shutterstock.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 6</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/thumb.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 7</p>
+                </a>
+            </div>
+            <div class="col-md-3 col-sm-4 col-xs-6">
+                <a class="thumbnail option project">
+                    <img src="{{URL::asset('/images/background.jpg')}}" class="img-thumbnail img-responsive">
+                    <p value="id">Event Title 8</p>
+                </a>
+            </div>
+</div>
         </div>
     </div>  <!--End of tab-content -->
 
