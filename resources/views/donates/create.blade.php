@@ -8,101 +8,98 @@
 
     <div class="container" id="content">
         <div class="row">
-        
-                <div class="col-md-3">
-                    
-                        <div class="contri-method">
-                            <p>How would you like to contribute?</p>
-                            <div class="donate-method onetime">
-                            <label>
-                                <input type="radio" name="donate" value="onetime" checked> One-Time Donation
-                            </label>
-                            </div>
+            <div class="col-md-3">
+                <div class="contri-method">
+                    <p>How would you like to contribute?</p>
+                    <div class="donate-method onetime">
+                    <label>
+                        <input type="radio" name="donate" value="onetime" checked> One-Time Donation
+                    </label>
+                    </div>
 
-                            <div class="donate-method monthly">
-                            <label>
-                                <input type="radio" name="donate" value="monthly" id="monthly"> Monthly Donation
-                            </label>
-                            <div id="note">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
-                            </div>
+                    <div class="donate-method monthly">
+                    <label>
+                        <input type="radio" name="donate" value="monthly" id="monthly"> Monthly Donation
+                    </label>
+                    <div id="note">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
+                    </div>
 
-                            <div class="donate-method volunteer">
-                            <label>
-                                <input type="radio" name="donate" value="volunteer"> Volunteer
-                            </label>
-                            </div>
-                        </div>
+                    <div class="donate-method volunteer">
+                    <label>
+                        <input type="radio" name="donate" value="volunteer"> Volunteer
+                    </label>
+                    </div>
                 </div>
+            </div>
 
-                <div class="payment">
-                    
-                    <form id="paymentform" action="{{url('/recipte')}}" method="post">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
-                        <input id="proevent" class="form-control proevent" type="text"> <!--Event/Project from select page-->
-                        <input id="dtype" class="form-control" type="text"><!--Donate Type-->
-                        <div class="col-md-3 col-md-offset-1">
-                            <div class="payment1">
-                                <div class="form-group">
-                                    <label for="PaymentAmount">Donate Amount</label>
-                                        <div class="amount-placeholder">
-                                          <div class="btn-group" role="group">
-                                            <button type="button" class="btn btn-default" name="inputbtn" value="10">$10</button>
-                                            <button type="button" class="btn btn-default" name="inputbtn" value="15">$15</button>
-                                            <button type="button" class="btn btn-default" name="inputbtn" value="20">$20</button>
-                                            <button type="button" class="btn btn-default" name="inputbtn" value="25">$25</button>
-                                            <button type="button" class="btn btn-default" name="inputbtn" value="30">$30</button>
-                                          </div>
-                                        </div>
+            <div class="payment">   
+                <form id="paymentform" action="{{url('/recipte')}}" method="post">
+                    <input type="hidden" name="_token" value="{{csrf_token()}}">
+                    <input id="proevent" class="form-control proevent" type="text"> <!--Event/Project from select page-->
+                    <input id="dtype" class="form-control" type="text"><!--Donate Type-->
+                    <div class="col-md-3 col-md-offset-1 middle">
+                        <div class="payment1">
+                            <div class="form-group">
+                                <label for="PaymentAmount">Donate Amount</label>
+                                <div class="amount-placeholder">
+                                  <div class="btn-group" role="group">
+                                    <button type="button" class="btn btn-default" name="inputbtn" value="10">$10</button>
+                                    <button type="button" class="btn btn-default" name="inputbtn" value="15">$15</button>
+                                    <button type="button" class="btn btn-default" name="inputbtn" value="20">$20</button>
+                                    <button type="button" class="btn btn-default" name="inputbtn" value="25">$25</button>
+                                    <button type="button" class="btn btn-default" name="inputbtn" value="30">$30</button>
+                                  </div>
                                 </div>
-
-                                <div class="form-group">
-                                   <div class="input-group">
-                                      <span class="input-group-addon">$</span>
-                                      <input type="text" class="form-control" id="other-amt" name="otheramt" placeholder="Other Amount">
-                                    </div>
-                                </div>
-
-                                <div class="form-group" id="cc_number">
-                                    <label for="CreditCardNumber">Card number</label>
-                                    <input id="CreditCardNumber" class="null card-image form-control" type="text" name="CreditCardNumber">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="NameOnCard">Name on card</label>
-                                    <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
-                                </div>
-
-                                <div class="expiry-date-group form-group">
-                                    <label for="ExpiryDate">Expiry date</label>
-                                    <input id="ExpiryDate" class="form-control" type="text" placeholder="YYYY/MM" name="ExpiryDate">
-                                </div>
-
-                                <div class="security-code-group form-group">
-                                    <label for="SecurityCode">Security code</label>
-                                    <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
-                                </div>
-
-                                <div class="zip-code-group form-group">
-                                    <label for="ZIPCode">ZIP/Postal code</label>
-                                    <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
-                                </div>   
                             </div>
-                        </div>
-                    
 
-                        <div class="col-md-3 col-md-offset-1">
-                            <p>Review/Summary</p>
-
-                            <div id="donatepay">
-                                <p>You have decided to donate <span id="amt"></span> dollars for the <span class="title"></span></p>
-                                <button id="PayButton" class="btn btn-block btn-success submit-button" type="submit">
-                                    <span class="submit-button-lock"></span>
-                                    <span class="align-middle">Donate</span>
-                                </button>
+                            <div class="form-group">
+                               <div class="input-group">
+                                  <span class="input-group-addon">$</span>
+                                  <input type="text" class="form-control" id="other-amt" name="otheramt" placeholder="Other Amount">
+                                </div>
                             </div>
+
+                            <div class="form-group" id="cc_number">
+                                <label for="CreditCardNumber">Card number</label>
+                                <input id="CreditCardNumber" class="null card-image form-control" type="text" name="CreditCardNumber">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="NameOnCard">Name on card</label>
+                                <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
+                            </div>
+
+                            <div class="expiry-date-group form-group">
+                                <label for="ExpiryDate">Expiry date</label>
+                                <input id="ExpiryDate" class="form-control" type="text" placeholder="YYYY/MM" name="ExpiryDate">
+                            </div>
+
+                            <div class="security-code-group form-group">
+                                <label for="SecurityCode">Security code</label>
+                                <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
+                            </div>
+
+                            <div class="zip-code-group form-group">
+                                <label for="ZIPCode">ZIP code</label>
+                                <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
+                            </div>   
                         </div>
-                    </form>
-                </div>
+                    </div>
+                
+
+                    <div class="col-md-3 col-md-offset-1 right">
+                        <p>Review/Summary</p>
+
+                        <div id="donatepay">
+                            <p>You would like to donate <span id="amt"></span> dollars <br> for <span class="title"></span> from <br> card number: <span id="ccnum"></span> <br> with the name: <span id="ccname"></span><br></p>
+                            <button id="PayButton" class="btn btn-block btn-success submit-button" type="submit">
+                                <span class="submit-button-lock"></span>
+                                <span class="align-middle">Donate</span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
 
             <div class="volform">
@@ -121,7 +118,7 @@
 
                                 <div class="form-group">
                                     <label for="Email">Email</label>
-                                    <input id="Email" name="Email" class="form-control" type="email" maxlength="255">
+                                    <input id="Email" name="Email" class="form-control" type="text" maxlength="255">
                                 </div>
 
                                 <div class="form-group">
@@ -151,8 +148,6 @@
             </div>
         </div>
     </div>
-    
-
 @endsection
 
 @section('scripts')
@@ -161,134 +156,158 @@
 
     $(document).ready(function(){
 
-                    var damt=0;
-                    $("#amt").html(damt);
+        var damt=0;
+        $("#amt").html(damt);
 
-                    $(".volform").hide();
-                    $(".payment").show();
-                    $("#note").hide();
+        $(".volform").hide();
+        $(".payment").show();
+        $("#note").hide();
 
-                    $(".proevent").attr("style","display:none");
-                    $("#dtype").attr("style","display:none");
-                    $("#vtype").attr("style","display:none");
+        $(".proevent").attr("style","display:none");
+        $("#dtype").attr("style","display:none");
+        $("#vtype").attr("style","display:none");
 
+        if(sessionStorage.getItem('project') != null){
 
-                    if(sessionStorage.getItem('project') != null){
+            var p = sessionStorage.getItem('project');
+             $('.proevent').val(p);
+             $(".title").html(p);
+        } 
 
-                        var p = sessionStorage.getItem('project');
-                         $('.proevent').val(p);
-                         $(".title").html(p);
-                    } 
+        else if(sessionStorage.getItem('event') != "null"){
 
-                    else if(sessionStorage.getItem('event') != "null"){
+            var e = sessionStorage.getItem('event');
+            $(".monthly").attr("style","display:none")
+             // $("#proj").html(e.key);
+             $('.proevent').val(e);
+             $(".title").html(e);
+        }
 
-                        var e = sessionStorage.getItem('event');
-                        $(".monthly").attr("style","display:none")
-                         // $("#proj").html(e.key);
-                         $('.proevent').val(e);
-                         $(".title").html(e);
-                    }
+        $('button[name="inputbtn"]').click(function(){
 
+            $('button[name="inputbtn"]').removeClass("active");
+            $(this).addClass("active");
 
-                    // if (Session::has('project')) {
-                    //  p = Session::get('project');
-                    //  $("#title").html(p);
-                    // }
-                    // else if(Session::has('event')){
-                    //   e = Session::get('event');
-                    // $(".monthly").attr("style","display:none")
-                    //  // $("#proj").html(e.key);
-                    //  $("#title").html(e);
-                    // }
+        });
 
-                    $('button[name="inputbtn"]').click(function(){
+        $(".donate-method").click(function(){
 
-                        $('button[name="inputbtn"]').removeClass("active");
-                        $(this).addClass("active");
+            var a=$("input[name=donate]:checked").val();
+            var d= new Date();
 
-                    });
-
-
-                    $(".donate-method").click(function(){
-
-                        var a=$("input[name=donate]:checked").val();
-                        var d= new Date();
-
-                        $("#day").html(d.getDate()+"th");
+            $("#day").html(d.getDate()+"th");
 
 
 
-                        if(a==="monthly"){
+            if(a==="monthly"){
 
-                            $("#note").show();
-                            $(".payment").show();
-                            $(".volform").hide();
-                            $('#dtype').val(a);
-                            
-                        }
-                        else if(a==="onetime"){
+                $("#note").show();
+                $(".payment").show();
+                $(".volform").hide();
+                $('#dtype').val(a);
+                
+            }
+            else if(a==="onetime"){
 
-                            $("#note").hide();
-                            $(".payment").show();
-                            $(".volform").hide();
-                            $('#dtype').val(a);
-                            
-                        }
-                        else if(a==="volunteer"){
-                            
-                            $("#note").hide();
-                            $(".payment").hide();
-                            $(".volform").show();
-                            $('#vtype').val(a);
-                            
-                            
+                $("#note").hide();
+                $(".payment").show();
+                $(".volform").hide();
+                $('#dtype').val(a);
+                
+            }
+            else if(a==="volunteer"){
+                
+                $("#note").hide();
+                $(".payment").hide();
+                $(".volform").show();
+                $('#vtype').val(a);
+                
+                
 
-                        }
-                    });
+            }
+        });
+        function calamt(){
 
-                    function calamt(){
+            if ($("#other-amt").val() == '') {
 
-                        if ($("#other-amt").val() == '') {
+                $("#amt").html(" ");
+                $("button[name=inputbtn]").click(function(e){
+                damt = e.target.value;
+                $("#other-amt").val(damt);
+                $("#amt").html(damt);
 
-                            $("button[name=inputbtn]").click(function(e){
-                            damt = e.target.value;
-                            $("#other-amt").val(damt);
-                            $("#amt").html(damt);
+                });
+            }
 
-                            });
-                        }
+            else{
 
-                        else{
-
-                            damt = $("#other-amt").val();
-                            $("#amt").html(damt);
-                            $('button[name="inputbtn"]').removeClass("active");
-
+                damt = $("#other-amt").val();
+                $("#amt").html(damt);
+                $('button[name="inputbtn"]').removeClass("active");
 
 
-                        }
 
-                    };
+            }
 
-                    calamt();
+        };
+        calamt();
 
-                    $("#other-amt").change(function(){
+        $("#other-amt").on("change",function(){
 
-                        calamt();
+            calamt();
 
-                    });
+        });
 
-                    $("#other-amt").on("keyup", function(){
+        $("#other-amt").on("keyup", function(){
 
-                        calamt();
-                    });
+            calamt();
 
-                    $("#other-amt").on("keydown", function(){
+        });
 
-                        calamt();
-                    });
+        // $("#other-amt").on("keydown", function(){
 
-    }); //jQuery END --- 1
+        //     calamt();
+
+        // });
+
+
+        $("button[name=inputbtn]").on("click",function(){
+
+            $("#paymentform").bootstrapValidator('revalidateField', "otheramt");
+
+        });
+
+        $("#CreditCardNumber").on("keyup",function(){
+
+            var cc = $("#CreditCardNumber").val();
+            $("#ccnum").html(cc);
+
+        });
+
+        $("#NameOnCard").on("keyup",function(){
+
+            var cname = $("#NameOnCard").val();
+            $("#ccname").html(cname);
+
+        });
+
+        // $('#paymentform').on("err.validator.fv",function(e,data){
+        //                 if (data.field === 'email') {
+        //         // The email field is not valid
+        //         data.element
+        //             .data('fv.messages')
+        //             // Hide all the messages
+        //             .find('.help-block[data-fv-for="' + data.field + '"]').hide()
+        //             // Show only message associated with current validator
+        //             .filter('[data-fv-validator="' + data.validator + '"]').show();
+        //     }
+
+        // });
+
+    }); // End of jQuery 1
+
+
+    
 
 $(document).ready(function(){
 
@@ -404,14 +423,10 @@ $(document).ready(function(){
                         }
                     }
                 }
-
-            } //End of expiry
-            
+            } //End of expiry    
         } //End of Fields
-
     }); //End of Validation
-
-});
+}); //End of jQuery 2
 
     $(document).ready(function(){
         $('#vform').bootstrapValidator({ 
@@ -437,44 +452,44 @@ $(document).ready(function(){
                         }
                     },
                                     
-                    Email: {
-                        validators: {
-                            emailAddress: {
-                                message: 'The value is not a valid email address'
-                            },
+                Email: {
+                    validators: {
+                        emailAddress: {
+                            message: 'The value is not a valid email address'
+                        },
 
-                            notEmpty:{
-                                message:'Email ID is required'
-                            },
-                            regexp: {
-                                regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
-                                message: 'The value is not a valid email address'
-                            }
+                        notEmpty:{
+                            message:'Email ID is required'
                         }
-                    },
-             
-                    Phone: {
-                        validators: {
-                            notEmpty:{
-                                message: 'Phone number is required'
-                            },
-                            regexp: {
-                                regexp: /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/,
-                                message: '(Area Code) 123-4567'
-                            }
+                        // regexp: {
+                        //     regexp: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                        //     message: 'The value is not a valid email address'
+                        //}
+                    }
+                },
+         
+                Phone: {
+                    validators: {
+                        notEmpty:{
+                            message: 'Phone number is required'
+                        },
+                        regexp: {
+                            regexp: /^(\([0-9]{3}\) |[0-9]{3}-)[0-9]{3}-[0-9]{4}$/,
+                            message: '(Area Code) 123-4567'
                         }
-                    }, //Phone end
+                    }
+                }, //Phone end
 
-                    Comments: {
-                        validators: {
-                            notEmpty: {
-                                message: "Are you sure? No comment?"
-                            } // notEmpty
-                        } // validators
-                    } 
+                Comments: {
+                    validators: {
+                        notEmpty: {
+                            message: "How would you like to volunteer?"
+                        } // notEmpty
+                    } // validators
+                } //End of comments
             } //End of Fields
         }); //End of Validation
-    });
+    });// End of jQuery 3
 
 </script>
 
