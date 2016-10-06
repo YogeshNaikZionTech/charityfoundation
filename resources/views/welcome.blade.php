@@ -107,10 +107,19 @@ $(document).ready(function(){
                                 <div class="col-md-3 donors btn btn-success">Total Number of Donations<hr style="margin:0px"> 
                                 <div style="padding-bottom:5px"><span style="font-size:40px; padding-bottom:5px"> 123,456,789</span></div>   
                                   </div>
-                                <div class="col-md-3 suggest"><h2>Suggestions</h2><hr style="margin:0px"> 
-                                <textarea style="border-radius:4px;color:black"rows="8" cols="40" placeholder="We would like to hear your ideas"></textarea> 
-                                <button class="btn btn-success" type="submit" id="suggest">Submit</button>  
+
+                                  
+                                      
+                                <div class="col-md-3 suggest"><h2>Suggestions</h2>
+
+                                <form id="suggestform" method="post">
+                                <div class="form-group">
+                                    
+                                <textarea style="border-radius:4px;color:black;margin-bottom: 5px" rows="8" cols="40" placeholder="We would like to hear your ideas" class="form-control" name="suggestarea"></textarea> 
+                                </div>
+                                <button class="btn btn-success submit-button" type="submit">Submit</button>  
                                   </div>
+                                  </form>
                                 </div>
                                 </div>
 
@@ -132,5 +141,49 @@ $(document).ready(function(){
             </div>
     </div>
     </div>
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $("#suggestform").bootstrapValidator({
+            feedbackIcons:{
+
+                  valid:'glyphicon glyphicon-ok',
+                  invalid:'glyphicon glyphicon-remove',
+                  validating:'glyphicon glyphicon-refresh'
+            },
+
+            fields:{
+
+                suggestarea:{
+                    validators:{
+                        notEmpty:{
+                            message: 'cannot submit empty suggestions'
+                        },
+
+                        stringLength:{
+                            max: 500,
+                            message: 'Suggestions should be less than 500 characters'
+                        },
+
+                        regexp:{
+                            regexp: /^[a-z0-9]+$/i,
+                            message: 'Only alphanumeric characters.'
+                        }
+                    }
+                }
+
+            }
+
+        });
+
+    });
+    
+</script>
 
 @endsection
