@@ -40,13 +40,14 @@ body {
   background: #FEF8F8;
   margin: 0px;
   padding: 0px;
-  font-family: "Constantia" cursive;
-  font-style: italic;
+  font-family: Constantia cursive;
   color: black;
 }
 .main{
   margin-top: 97px;
   color: black;
+    font-style: italic; 
+
 }
 
 

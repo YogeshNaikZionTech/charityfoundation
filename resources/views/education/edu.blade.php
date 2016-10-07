@@ -25,4 +25,19 @@
 
 	});
 </script>
+   <script>
+        $(document).ready(function(){
+            var scroll_start = 5;
+            var startChange = $('.nav1');
+            var offset = startChange.offset();
+            $(document).scroll(function() {
+                scroll_start = $(this).scrollTop();
+                if(scroll_start > offset.top) {
+                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                } else {
+                    $('.nav1').css('background-color', 'transparent');
+                }
+            });
+        });
+    </script>
 @endsection

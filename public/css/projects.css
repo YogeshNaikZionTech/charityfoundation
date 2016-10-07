@@ -1,6 +1,5 @@
 body{
-	font-family: "Constantia" cursive;
-    font-style: italic;
+	font-family: Constantia cursive;
 }
 .navbar-inverse{
     border-radius: 0px;
@@ -14,6 +13,8 @@ hr{
 }
 .main{
 margin-top: 77px;
+    font-style: italic;
+
 
 }
 

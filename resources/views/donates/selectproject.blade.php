@@ -20,14 +20,14 @@
                 <div class="row">
                 <div class="col-md-6 col-sm-9 col-xs-12 center-col">
                     <a style="display: block" class="thumbnail option default">
-                        <img src="{{URL::asset('/images/aa.jpg')}}" alt="AA Logo" class="img-thumbnail img-responsive">
+                        <img src="{{URL::asset('/images/aa.png')}}" alt="AA Logo" class="img-thumbnail img-responsive">
                         <!-- <h1>AA Foundation</h1> -->
                         <p value="AA Foundation">AA Foundation</p>
                     </a>
                 </div> 
                 </div>
 <div style="width: 100%; height: 20px; border-bottom: 1px solid darkgrey; text-align: center">
-  <span style="font-size: 20px; background-color: #F3F5F6; padding: 0 10px;">
+  <span style="font-size: 20px; background-color: #F3F5F6; padding: 0 10px;color: black">
     OR </span>
 </div>
                                  
@@ -246,5 +246,20 @@
 
     });
 </script>
+    <script>
+        $(document).ready(function(){
+            var scroll_start = 5;
+            var startChange = $('.nav1');
+            var offset = startChange.offset();
+            $(document).scroll(function() {
+                scroll_start = $(this).scrollTop();
+                if(scroll_start > offset.top) {
+                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                } else {
+                    $('.nav1').css('background-color', 'transparent');
+                }
+            });
+        });
+    </script>
 
 @endsection
