@@ -5,7 +5,7 @@
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
-<div class="container" id= "content">
+<div class="container reg-form" id= "content">
     <h1>AA Foundation User Registration</h1>
     <div class="row">
         <div class="col-md-6 col-md-offset-3 panelbody">
