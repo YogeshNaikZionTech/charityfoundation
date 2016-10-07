@@ -28,20 +28,26 @@
                             <p><a class="btn btn-lg" href="#" role="button">Read More</a></p>
 
                         </div>
-                        <div class="donate_carousel col-md-4 pull-right" >
-                            <h2>Urgent Cause</h2>
-                            <div class="circle" id="circles-309">
-                                <div class="circles-wrp" style="position: relative; display: inline-block;">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="166" height="166">
-                                        <path fill="transparent" stroke="#FFF" stroke-width="10" d="M 82.98411349011178 5.000001617828204 A 78 78 0 1 1 82.89165956483042 5.000075241381751 Z" class="circles-maxValueStroke"></path>
-                                        <path fill="transparent" stroke="#f8b864" stroke-width="10" d="M 82.98411349011178 5.000001617828204 A 78 78 0 0 1 87.81704624539476 5.148885265079684 " class="circles-valueStroke"></path></svg>
-                                    <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 58.1px; height: 166px; line-height: 166px;">
-                                        <div class="text-inner">0<span class="small">%</span></div>
-                                        {{--<h4>Raised   |    Goal</h4>--}}
-                                        <button class="btn btn-md">DONATE</button>
-                                    </div>
-                                </div>
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-10 pull-right" >
+                            {{--<h2>Urgent Cause</h2>--}}
+                            <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10" style="padding-bottom: 30px;">
+                                <h2>Total Number of Donors</h2>
+                                <span>1,23,3456</span>
+
                             </div>
+                            <button class="btn btn-lg"  style="border: 2px white solid;">DONATE</button>
+                            {{--<div class="circle" id="circles-309">--}}
+                                {{--<div class="circles-wrp" style="position: relative; display: inline-block;">--}}
+                                    {{--<svg xmlns="http://www.w3.org/2000/svg" width="166" height="166">--}}
+                                        {{--<path fill="transparent" stroke="#FFF" stroke-width="10" d="M 82.98411349011178 5.000001617828204 A 78 78 0 1 1 82.89165956483042 5.000075241381751 Z" class="circles-maxValueStroke"></path>--}}
+                                        {{--<path fill="transparent" stroke="#f8b864" stroke-width="10" d="M 82.98411349011178 5.000001617828204 A 78 78 0 0 1 87.81704624539476 5.148885265079684 " class="circles-valueStroke"></path></svg>--}}
+                                    {{--<div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 58.1px; height: 166px; line-height: 166px;">--}}
+                                        {{--<div class="text-inner">0<span class="small">%</span></div>--}}
+                                        {{--<h4>Raised   |    Goal</h4>--}}
+                                        {{--<button class="btn btn-md">DONATE</button>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</div>--}}
 
                         </div>
 
@@ -105,7 +111,7 @@
         </div>
 
         <div class=" container-fluid header_Events" >
-            <h1>List of Events !!</h1>
+            <h1>Our Events </h1>
             <div class="container-fluid div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
                     {{--For ecah statement for the Events--}}
