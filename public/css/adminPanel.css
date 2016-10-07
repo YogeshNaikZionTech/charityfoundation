@@ -1,8 +1,11 @@
 body{
-    background: url('https://hd.unsplash.com/photo-1470290449668-02dd93d9420a');
+    background: url('../images/slide-2.jpg');
     background-size:cover;
-
   }
+.well,.admincontent{
+    margin-top:10%;
+    margin-bottom:20px;
+}
 .admin-menu li{
     width:80%;
 }
@@ -15,9 +18,14 @@ body{
     background: lightcoral;
 }
 .adminhead{
-    font-family: "Vibur", "sans-serif";
+    font-family: Constantia, cursive;
     color: lightcoral;
+    text-align: center;
     font-weight: bold;
-
-
+}
+.admincontent h3{
+    color:black;
+      }
+.container{
+    color:black;
 }

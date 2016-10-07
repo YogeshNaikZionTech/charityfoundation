@@ -6,8 +6,8 @@
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
-    <div class="container well" id="content">
-        <h1 class="adminhead">Welcome Admin...!</h1>
+    <div class="container well admincontent" id="content">
+        <h1 class="adminhead">ADMIN PANEL</h1>
         <div class="container adminpanel">
             <div class="row">
                 <div class="col-md-3">
@@ -292,6 +292,22 @@
     </div>
 @endsection
 @section('scripts')
+    <script>
+        $(document).ready(function(){
+            var scroll_start = 5;
+            var startChange = $('.nav1');
+            var offset = startChange.offset();
+            $(document).scroll(function() {
+                scroll_start = $(this).scrollTop();
+                if(scroll_start > offset.top) {
+                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                } else {
+                    $('.nav1').css('background-color', 'transparent');
+                }
+            });
+        });
+    </script>
+
     <script type="text/javascript">
     $(document).ready(function()
     {
@@ -313,11 +329,6 @@
     });
     });
     </script>
-    @endsection
-@section('scripts')
-    <script type="text/javascript">
-$(document).ready(function() {
-$('#example').DataTable();
-} );
-    </script>
+
+
 @endsection

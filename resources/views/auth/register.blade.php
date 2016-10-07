@@ -5,7 +5,7 @@
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
-<div class="container" id= "content">
+<div class="container reg-form" id= "content">
     <h1>AA Foundation User Registration</h1>
     <div class="row">
         <div class="col-md-6 col-md-offset-3 panelbody">
@@ -102,4 +102,20 @@
     </div>
 </div>
 @endsection
-
+@section('scripts')
+    <script>
+        $(document).ready(function(){
+            var scroll_start = 5;
+            var startChange = $('.nav1');
+            var offset = startChange.offset();
+            $(document).scroll(function() {
+                scroll_start = $(this).scrollTop();
+                if(scroll_start > offset.top) {
+                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                } else {
+                    $('.nav1').css('background-color', 'transparent');
+                }
+            });
+        });
+    </script>
+@endsection
