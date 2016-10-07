@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', '|Update Profile')
+@section('title', '| Receipt')
 @section('stylesheets')
 <link href="{{URL::asset('/css/receiptStyle.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
