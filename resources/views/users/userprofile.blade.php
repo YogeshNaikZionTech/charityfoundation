@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', '|Update Profile')
+@section('title', '| Update Profile')
 @section('stylesheets')
     <link href="{{URL::asset('/css/userprofile.css')}}" rel="stylesheet" type="text/css"/>
    <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
