@@ -75,7 +75,7 @@
                   </div>
                 </div>
                 <div class="eventDesc" style="display: none">
-                <div class="test" data-toggle="test">
+                <div class="test" style="color: black" data-toggle="test">
                   <div>
                     <h2 style="display: inline-block;">Event Title: {{$event->event_Title}}</h2>
                     <span class="glyphicon glyphicon-remove pull-right close"  ></span>

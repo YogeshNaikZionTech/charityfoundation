@@ -1,0 +1,23 @@
+body{
+    background: url('https://hd.unsplash.com/photo-1470290449668-02dd93d9420a');
+    background-size:cover;
+
+  }
+.admin-menu li{
+    width:80%;
+}
+.admin-menu li a{
+    color: black;
+    font-size:18px;
+    font-weight: bold;
+    }
+.admin-menu li a:hover{
+    background: lightcoral;
+}
+.adminhead{
+    font-family: "Vibur", "sans-serif";
+    color: lightcoral;
+    font-weight: bold;
+
+
+}

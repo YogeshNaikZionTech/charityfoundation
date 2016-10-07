@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', '|Select Project')
+@section('title', '| Select Project')
 
 @section('stylesheets')
   <link href="{{URL::asset('/css/selectproject.css')}}" rel="stylesheet" type="text/css"/>
@@ -8,7 +8,7 @@
 
 @section('content')
 
-    <div class="container" id="content">
+    <div class="main container" id="content">
         @if(Session::has('successLogin'))
             <div class="alert alert-success" role="alert">
             <strong>{{\Session::get('successLogin')}}</strong>

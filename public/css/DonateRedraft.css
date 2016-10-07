@@ -1,3 +1,5 @@
+
+
  .btn{
             margin-top:8px;
         }
@@ -38,6 +40,13 @@ body {
   background: #FEF8F8;
   margin: 0px;
   padding: 0px;
+  font-family: "Constantia" cursive;
+  font-style: italic;
+  color: black;
+}
+.main{
+  margin-top: 97px;
+  color: black;
 }
 
 
@@ -92,9 +101,9 @@ body {
   color: #FFF!important;
 }*/
 
-.container {
+/*.container {
   margin: 1% auto;
-}
+}*/
 
 #Checkout {
   width: 50%;

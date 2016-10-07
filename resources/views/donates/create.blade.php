@@ -6,7 +6,7 @@
     @endsection
 @section('content')
 
-    <div class="container" id="content">
+    <div class="main container" id="content">
         <div class="row">
             <div class="col-md-3">
                 <div class="contri-method">

@@ -4,14 +4,18 @@
 }
 h2{
     margin-top: 0px;
+    color: black;
 }
 h4{
     margin-top: 15px;
     margin-bottom: 0px;
+    color: black;
     /*text-align: center;*/
 }
 
-
+.main{
+    margin-top: 77px;
+}
 .center-col{
     float: none;
 margin: 10px auto;
