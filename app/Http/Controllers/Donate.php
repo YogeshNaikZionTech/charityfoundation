@@ -34,6 +34,11 @@ class Donate extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
+        
+            if (!Auth::check() ) {
+            return view ('auth/login');
+        }
+
 
 	return view('donates/create');
 
