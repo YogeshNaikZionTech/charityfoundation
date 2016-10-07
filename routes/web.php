@@ -20,7 +20,6 @@ Route:: resource('education', 'EducationController');
 
 Route::resource('donates', 'Donate');
 
-
 Route::resource('contact', 'ContactController');
 
 Route::resource('projects', 'ProjectController');
@@ -28,6 +27,8 @@ Route::resource('projects', 'ProjectController');
 Route::get('/userprofile', 'userProfileController@profile');
 
 Route::post('/userprofile', 'userProfileController@updateUser' );
+
+Route::resource('admin','AdminController');
 
 Route::get('/select', 'Donate@showselectproject');
 

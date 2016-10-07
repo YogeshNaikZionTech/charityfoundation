@@ -35,7 +35,7 @@
                         </li>
                         @if (Auth::user()->isAdmin)
                         <li>
-                        <a href ="{{url('/')}}">Admin Panel</a>
+                        <a href ="{{url('/admin')}}">Admin Panel</a>
                         </li>
                         @endif
                         @if(Auth::check())
