@@ -1,6 +1,8 @@
 body{
    margin: 0px;
    padding: 0px;
+   font-family: "Constantia" cursive;
+    font-style: italic;
  }
 .navbar-inverse{
     border-radius: 0px;
@@ -16,6 +18,11 @@ hr{
 .test{
     margin-bottom: 10px;
     border-bottom: 1px solid darkgrey;
+}
+.main{
+margin-top: 77px;
+color: black;
+
 }
 .main ul{
     margin-bottom: 15px;
