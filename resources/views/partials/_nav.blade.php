@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse">
+<nav class= "nav1 navbar navbar-fixed-top ">
 
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
