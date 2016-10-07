@@ -20,9 +20,7 @@ font-family: Constantia,cursive;
     margin-bottom: 5px;
     border: 1px solid transparent;
 }
-#content{
-    margin-bottom:0;
-}
+
 .navbar-wrapper {
 
     position: absolute;
@@ -32,9 +30,7 @@ font-family: Constantia,cursive;
     z-index: 20;
     border-radius: 0;
 }
-.nav>li>a {
 
-}
 .nav>li>a:hover{
     color:black;
     background:none;

@@ -43,7 +43,7 @@
                
                 <p class="footerpara">
                     AA Foundation<br/>
-                    2665 N Frist St,<br/>
+                    2665 N First St,<br/>
                     San Jose, CA, 95134
                 </p>
             </div>

@@ -33,6 +33,7 @@ h1{font-size:40px;}
     text-align: left;
     top:30%;
     left:10%;
+    width:700px;
 }
 
 /* Declare heights because of positioning of img element */
@@ -109,7 +110,7 @@ h1{font-size:40px;}
 .header_projects
 {
     margin-top: 30px;
- text-align: center;
+    text-align: center;
     color:black;
 }
 .header_Events{margin-top: 20px;background-color: rgba(155, 151, 15, 0.29) ;padding-bottom:20px; }
@@ -132,21 +133,23 @@ h1{font-size:40px;}
     position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
 }
 .donate_carousel{
-    height:400px;
+    height:300px;
     margin-top: 14%;
     background: rgba(17, 0, 8, 0.46);
     border-radius: 20px;
+   padding:20px;
 }
 .circle{ padding-top:20px;}
 .btn-lg{
     background:none;
     border:2px rgba(127, 120, 8, 0.46) solid;
     border-radius: 15px;
-    color: black;
+    color: rgba(2, 155, 6, 0.69);
+    font-weight: bold;
 }
-.btn-lg:hover{background-color: rgba(103, 103, 20, 0.33) ; color:black;}
+.btn-lg:hover{background-color: rgba(155, 147, 12, 0.69) ; color:black;font-weight: bold}
 .suggest_donors{background-color: rgba(1, 2, 1, 0.53);padding:20px;}
-.donors1 >span{font-size:30px;color:black;font-weight:600 ;text-align: center}
+.donors1 >span{font-size:30px;color:white;font-weight:600 ;text-align: center;padding-bottom: 30px;}
 .suggest1{ text-align: left}
 
 .btn-md ,.form-control {
