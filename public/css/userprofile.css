@@ -13,10 +13,17 @@ body{
     padding: 5px;
 }
 input[type=file]{
-  
+
   padding: 14px;
   color:grey;
   }
 .page-header{
   color: #d9534f;
 }
+label{
+    color:black;
+}
+#content{
+    margin-top:55px;
+    }
+h2,h6{color: black}

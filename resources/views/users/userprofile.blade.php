@@ -31,7 +31,7 @@
                 <!-- Personal Info -->
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
 
-                    <h3>Personal info</h3>
+                    <h2>Personal info</h2>
                     <form class="form-horizontal" id="userForm" method="post" role="form">
 
                     <div class="form-group">
@@ -265,6 +265,22 @@
                         // Show the valid message element
                         $field.next('.validMessage[data-field="' + field + '"]').hide();
                     });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            var scroll_start = 5;
+            var startChange = $('.nav1');
+            var offset = startChange.offset();
+            $(document).scroll(function() {
+                scroll_start = $(this).scrollTop();
+                if(scroll_start > offset.top) {
+                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                } else {
+                    $('.nav1').css('background-color', 'transparent');
+                }
+            });
         });
     </script>
 @endsection
