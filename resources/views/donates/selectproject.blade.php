@@ -102,25 +102,25 @@
         <div id="events" class="tab-pane fade">
   <div class="row">
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/bg_contacts.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 1</p>
                 </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/event.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 2</p>
                 </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/event2.png')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 3</p>
                 </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/upcoming.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 4</p>
                 </a>
@@ -128,25 +128,25 @@
             </div>
             <div class="row">
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/upcomingEvent.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 5</p>
                 </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/shutterstock.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 6</p>
                 </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/thumb.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 7</p>
                 </a>
             </div>
             <div class="col-md-3 col-sm-4 col-xs-6">
-                <a class="thumbnail option project">
+                <a class="thumbnail option eve">
                     <img src="{{URL::asset('/images/background.jpg')}}" class="img-thumbnail img-responsive">
                     <p value="id">Event Title 8</p>
                 </a>
