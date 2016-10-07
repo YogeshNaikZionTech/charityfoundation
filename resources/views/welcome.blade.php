@@ -146,16 +146,7 @@
             </div>
         </div>
 
-        <div class="col-md-3 donors btn btn-success">Total Number of Donations<hr style="margin:0px">
-            <div style="padding-bottom:5px"><span style="font-size:40px; padding-bottom:5px"> 123,456,789</span></div>
-        </div>
-        <div class="col-md-3 suggest"><h2>Suggestions</h2>
-            <hr style="margin:0">
-            <p></p>
-            <textarea style="border-radius:4px;color:black" cols="40" placeholder="We would like to hear your ideas">
-            </textarea>
-            <button class="btn btn-success" type="submit" id="suggest">Submit</button>
-        </div>
+        
 
     </div>
 
