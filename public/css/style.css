@@ -5,12 +5,14 @@ body{
     font-family:Constantia,cursive;
     background-color: rgba(67, 155, 9, 0.29);
 }
-h1{font-size:50px;}
+h1{font-size:40px;}
 .div1{
     padding-bottom: 60px;
 }
    .div2{
-    padding-left: 100px;
+       margin-top: 30px;
+       padding-left: 100px;
+       padding-bottom: 40px;
    }
    p{
        font-size: 20px;
@@ -106,6 +108,7 @@ h1{font-size:50px;}
         }
 .header_projects
 {
+    margin-top: 30px;
  text-align: center;
     color:black;
 }
@@ -130,7 +133,7 @@ h1{font-size:50px;}
 }
 .donate_carousel{
     height:400px;
-    margin-top: 10%;
+    margin-top: 14%;
     background: rgba(17, 0, 8, 0.46);
     border-radius: 20px;
 }
@@ -139,5 +142,17 @@ h1{font-size:50px;}
     background:none;
     border:2px rgba(127, 120, 8, 0.46) solid;
     border-radius: 15px;
+    color: black;
 }
-.btn-lg:hover{background-color: rgba(103, 103, 20, 0.33) ; color:black}
+.btn-lg:hover{background-color: rgba(103, 103, 20, 0.33) ; color:black;}
+.suggest_donors{background-color: rgba(1, 2, 1, 0.53);padding:20px;}
+.donors1 >span{font-size:30px;color:black;font-weight:600 ;text-align: center}
+.suggest1{ text-align: left}
+
+.btn-md ,.form-control {
+     font-size: 20px;
+    border-color: whitesmoke;
+    color: black;
+    background-color:rgba(34, 105, 94, 0.04);
+    background-image: none;}
+

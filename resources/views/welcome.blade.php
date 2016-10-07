@@ -38,6 +38,7 @@
                                     <div class="circles-text" style="position: absolute; top: 0px; left: 0px; text-align: center; width: 100%; font-size: 58.1px; height: 166px; line-height: 166px;">
                                         <div class="text-inner">0<span class="small">%</span></div>
                                         {{--<h4>Raised   |    Goal</h4>--}}
+                                        <button class="btn btn-md">DONATE</button>
                                     </div>
                                 </div>
                             </div>
@@ -84,16 +85,19 @@
 
                     @foreach($projects_c as $cproject)
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+
                             <div class="homeprojects">
+
                                 <div class="head">{{$cproject->project_Status}}</div>
-                                <div class="project_image"><img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
+                                <div class="project_image">
+                                    <img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
                                 <div>
-                                    <div><h3>Project Name</h3></div>
-                                    <div><h4>{{$cproject->project_Title}}</h4></div>
-
+                                </div>
+                                    {{--<div><h3>Project Name</h3></div>--}}
+                                    <div><h3>{{$cproject->project_Title}}</h3></div>
+                                <div><p>A community of lifelong learners, and champions of our own success.</p></div>
                                     <button class="btn btn-lg"  title={{$cproject->project_Title}} data-content={{$cproject->project_Description}}>See more </button></div>
-                            </div>
                         </div>
                     @endforeach
                 </div>
@@ -146,11 +150,28 @@
             </div>
         </div>
 
-        
-
+        <div class="suggest_donors container-fluid">
+            <div class="row">
+                <div class="donors1 col-md-6 col-lg-6 col-xs-12 col-sm-6">
+                    <h2>Our Members/Donors</h2>
+                    <span>786</span>
+                </div>
+                <div class="suggest1 col-md-6 col-lg-6 col-xs-12 col-sm-6">
+                    <h2>Suggest Here</h2>
+                    <form class="form-horizontal col-md-10 col-lg-10 col-xs-11 col-sm-10">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10" style="margin-right: 10px;">
+                        <input class="form-control " required placeholder="Name :*" >  </div>
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10">
+                        <input class="form-control " required placeholder="Email :*"></div>
+                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <textarea class="form-control" required placeholder="Suggestion :*"> </textarea></div>
+                        <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
+                            <button class="btn btn-md">Shoot It !</button></div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-
 @endsection
 @section('scripts')
     <script>

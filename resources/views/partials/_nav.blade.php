@@ -2,9 +2,10 @@
 
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="sr-only">Toggle navigation</span>
+            <span style="background-color: cadetblue" class="icon-bar"></span>
+            <span style="background-color: cadetblue" class="icon-bar"></span>
+            <span  style="background-color: cadetblue" class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="/">AA Foundation</a>
     </div>

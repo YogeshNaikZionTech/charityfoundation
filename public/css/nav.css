@@ -1,14 +1,22 @@
 .container,.container-fluid{font-family: Constantia,cursive; font-style: italic; color: white}
 .navbar .navbar-nav>li>a {
 font-family: Constantia,cursive;
-    color: ghostwhite;
+
     font-size:18px;
     font-style:italic;
-font-weight:bold;
+    font-weight:bold;
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+
+    text-shadow: none;
+    color:mediumaquamarine;
+    letter-spacing: 2px;
 }
 .navbar {
+    padding-top:20px;
     position: absolute;
-    min-height: 27px;
+    min-height: 40px;
     margin-bottom: 5px;
     border: 1px solid transparent;
 }
@@ -16,6 +24,7 @@ font-weight:bold;
     margin-bottom:0;
 }
 .navbar-wrapper {
+
     position: absolute;
     top: 0;
     right: 0;
@@ -24,14 +33,7 @@ font-weight:bold;
     border-radius: 0;
 }
 .nav>li>a {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    font-size:16px;
-    text-shadow: none;
-    font-weight: bold;
-    color:ghostwhite;
-    letter-spacing: 2px;
+
 }
 .nav>li>a:hover{
     color:black;
@@ -48,14 +50,14 @@ font-weight:bold;
 .nav1 {
     transition-duration: 1s;
 }
-.navbar-brand > a{
+.navbar-header > .navbar-brand{
     float: left;
     height: 50px;
     padding: 15px 15px;
-    font-size: 50px;
+    font-size: 35px;
     line-height: 20px;
 }
-.navbar-brand:hover{
+.navbar-header > .navbar-brand:hover{
     color:aquamarine;
 }
 /* Flip around the padding for proper display in narrow viewports */
@@ -72,4 +74,62 @@ font-weight:bold;
 .navbar-wrapper .navbar .container {
     width: auto;
     height:50px;
+}
+@media (min-width: 768px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        margin-top: 0;
+    }
+    .navbar-wrapper .container {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+        border-radius: 0;
+    }
+
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
+}
+@media (min-width: 320px) {
+    /* Navbar positioning foo */
+    .navbar-wrapper {
+        margin-top: 0;
+    }
+    .navbar-wrapper .container {
+        padding-right: 5px;
+        padding-left: 5px;
+    }
+    .navbar-wrapper .navbar {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    /* The navbar becomes detached from the top, so we round the corners */
+    .navbar-wrapper .navbar {
+        border-radius: 0;
+    }
+
+    /* Bump up size of carousel content */
+    .carousel-caption p {
+        margin-bottom: 20px;
+        font-size: 21px;
+        line-height: 1.4;
+    }
+
+    .featurette-heading {
+        font-size: 50px;
+    }
 }

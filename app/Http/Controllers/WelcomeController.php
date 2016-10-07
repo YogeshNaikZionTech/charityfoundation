@@ -12,7 +12,7 @@ class WelcomeController extends Controller
 
 	public function show(){
 
-		$projectc = Project::paginate(6);
+		$projectc = Project::paginate(3);
 //		$projectf =Project::Where('project_Status','=','future')->paginate(3);
 //		$projectp =Project::Where('project_Status','=','completed')->paginate(3);
 
