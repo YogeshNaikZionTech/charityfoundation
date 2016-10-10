@@ -1,5 +1,6 @@
 *{margin:0 ;padding:0}
 body{
+    overflow-x: hidden;
     color: ghostwhite;
     text-align: center;
     font-family:Constantia,cursive;
@@ -109,7 +110,7 @@ h1{font-size:40px;}
         }
 .header_projects
 {
-    margin-top: 30px;
+    margin-top: 60px;
     text-align: center;
     color:black;
 }
@@ -142,13 +143,13 @@ h1{font-size:40px;}
 .circle{ padding-top:20px;}
 .btn-lg{
     background:none;
-    border:2px rgba(127, 120, 8, 0.46) solid;
+    border:2px white solid;
     border-radius: 15px;
     color: rgba(2, 155, 6, 0.69);
     font-weight: bold;
 }
 .btn-lg:hover{background-color: rgba(155, 147, 12, 0.69) ; color:black;font-weight: bold}
-.suggest_donors{background-color: rgba(1, 2, 1, 0.53);padding:20px;}
+.suggest_donors{background-color: rgba(1, 2, 1, 0.53);padding:20px; align-content: center;}
 .donors1 >span{font-size:30px;color:white;font-weight:600 ;text-align: center;padding-bottom: 30px;}
 .suggest1{ text-align: left}
 
@@ -159,3 +160,111 @@ h1{font-size:40px;}
     background-color:rgba(34, 105, 94, 0.04);
     background-image: none;}
 
+/*---------------------------------------------------Scroll Top-----------------------------------------------------------*/
+.scrollToTop > img{
+    width: 80px;
+    height:80px;
+  z-index: 999;
+    position: relative;
+
+
+}
+
+/*--------------------------------------------------pic Zoom---------------------------------------------------------------*/
+.image:hover img {
+    -webkit-transform:scale(1.07); /* Safari and Chrome */
+    -moz-transform:scale(1.07); /* Firefox */
+    -ms-transform:scale(1.07); /* IE 9 */
+    -o-transform:scale(1.07); /* Opera */
+    transform:scale(1.07);
+}
+
+.image img {
+    -webkit-transition: all 1s ease;
+    /*Safari and Chrome*/
+    -moz-transition: all 1s ease;
+    /*Firefox*/
+-o-transition: all 1s ease;
+    /*IE 9*/
+    -ms-transition: all 1s ease;
+    /*Opera*/
+transition: all 1s ease;
+}
+/*------------------------------------------------------scroll- down------------------------------------------------------------*/
+#section03 a {
+    padding-top: 60px;
+
+}
+
+#section03 a span {
+    z-index:9999;
+    background-color: rgba(63, 200, 180, 0.16);
+    position: absolute;
+    bottom:4%;
+    right:12%;
+    width: 46px;
+    height: 46px;
+    margin-left: -24px;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+#section03 a span::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin: -12px 0 0 -8px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+#section03 a span::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: '';
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 0 0 rgba(255,255,255,.1);
+    border-radius: 100%;
+    opacity: 0;
+    -webkit-animation: sdb03 3s infinite;
+    animation: sdb03 3s infinite;
+    box-sizing: border-box;
+}
+@-webkit-keyframes sdb03 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes sdb03 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
