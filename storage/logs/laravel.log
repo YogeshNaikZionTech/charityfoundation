@@ -1,0 +1,147 @@
+[2016-10-12 01:37:39] local.ERROR: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'category_ID' in 'field list' in /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php:476
+Stack trace:
+#0 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(476): PDO->prepare('insert into `ev...')
+#1 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(754): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `ev...', Array)
+#2 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(717): Illuminate\Database\Connection->runQueryCallback('insert into `ev...', Array, Object(Closure))
+#3 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(481): Illuminate\Database\Connection->run('insert into `ev...', Array, Object(Closure))
+#4 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(435): Illuminate\Database\Connection->statement('insert into `ev...', Array)
+#5 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2126): Illuminate\Database\Connection->insert('insert into `ev...', Array)
+#6 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/EventsTableSeeder.php(25): Illuminate\Database\Query\Builder->insert(Array)
+#7 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(39): EventsTableSeeder->run()
+#8 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/DatabaseSeeder.php(14): Illuminate\Database\Seeder->call('EventsTableSeed...')
+#9 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(63): DatabaseSeeder->run()
+#10 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#11 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#12 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#13 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#14 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#15 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Command/Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /home/zt/Charity/view/gtithub/charityfoundation/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'category_ID' in 'field list' (SQL: insert into `event` (`event_Title`, `event_Description`, `event_Date`, `event_StartTime`, `event_Location`, `event_EndTime`, `event_Image`, `event_Status`, `category_ID`) values (Et similique quia est quia repellat nisi., Modi corrupti illo labore placeat voluptatem. Porro ad iste quo maxime in occaecati., 2016-10-12 00:00:00, 2016-10-12 01:37:39, leafvillage, 2016-10-12 01:37:39, colorfull.jpg, future, 1)) in /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php:761
+Stack trace:
+#0 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(717): Illuminate\Database\Connection->runQueryCallback('insert into `ev...', Array, Object(Closure))
+#1 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(481): Illuminate\Database\Connection->run('insert into `ev...', Array, Object(Closure))
+#2 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(435): Illuminate\Database\Connection->statement('insert into `ev...', Array)
+#3 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2126): Illuminate\Database\Connection->insert('insert into `ev...', Array)
+#4 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/EventsTableSeeder.php(25): Illuminate\Database\Query\Builder->insert(Array)
+#5 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(39): EventsTableSeeder->run()
+#6 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/DatabaseSeeder.php(14): Illuminate\Database\Seeder->call('EventsTableSeed...')
+#7 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(63): DatabaseSeeder->run()
+#8 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#12 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#13 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Command/Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /home/zt/Charity/view/gtithub/charityfoundation/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}  
+[2016-10-12 01:38:07] local.ERROR: PDOException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'category_ID' in 'field list' in /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php:476
+Stack trace:
+#0 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(476): PDO->prepare('insert into `pr...')
+#1 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(754): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `pr...', Array)
+#2 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(717): Illuminate\Database\Connection->runQueryCallback('insert into `pr...', Array, Object(Closure))
+#3 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(481): Illuminate\Database\Connection->run('insert into `pr...', Array, Object(Closure))
+#4 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(435): Illuminate\Database\Connection->statement('insert into `pr...', Array)
+#5 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2126): Illuminate\Database\Connection->insert('insert into `pr...', Array)
+#6 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/projectTabelSeeder.php(29): Illuminate\Database\Query\Builder->insert(Array)
+#7 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(39): projectTabelSeeder->run()
+#8 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/DatabaseSeeder.php(15): Illuminate\Database\Seeder->call('projectTabelSee...')
+#9 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(63): DatabaseSeeder->run()
+#10 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#11 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#12 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#13 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#14 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#15 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Command/Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 /home/zt/Charity/view/gtithub/charityfoundation/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'category_ID' in 'field list' (SQL: insert into `project` (`project_Title`, `project_Description`, `project_Date`, `project_Location`, `project_StartTime`, `created_at`, `updated_at`, `project_Image`, `project_Status`, `category_ID`) values (Education for a region, Velit sequi nihil sit et odit mollitia. Totam voluptatibus magnam dolorem. Quisquam sunt blanditiis ut. Ut ut necessitatibus rem quas sunt laborum. Reprehenderit ut dicta placeat mollitia. Dolor alias provident perspiciatis est autem. Delectus molestias praesentium facere. Eligendi quis et optio soluta explicabo omnis cumque voluptatem. Nemo tenetur autem dicta quo asperiores explicabo. Amet aut aut optio pariatur eveniet. Autem maxime consequatur ipsam dolores et omnis eum. Debitis corrupti iusto earum rerum eos ut. Dolorum quod esse ut molestias aut. Dolores velit ut explicabo eos esse ut corrupti. Officiis quae eum praesentium cumque et. Molestiae quas quod quam. Nobis consequuntur hic et sed esse. Dolores voluptas perspiciatis est eos. Illo doloribus architecto distinctio exercitationem illo et magnam. Repellendus officia voluptatem earum. Sunt qui consequatur sequi velit. Veritatis delectus voluptas doloremque consequatur et dolorem dignissimos. Inventore natus itaque ratione id. In quasi in maxime. Labore in quas cupiditate officia architecto error earum. Ea consectetur quibusdam eum non eius modi. Veritatis quam quia et consequatur. Adipisci sit dolore expedita molestias. Omnis aut cum sit repellendus dolorum quasi. Perferendis veniam quia non deserunt. Et soluta consequatur neque voluptas autem amet. Id culpa dolor itaque voluptatem mollitia. Illum voluptatibus nihil magnam tempora accusantium necessitatibus autem. Enim sapiente alias est impedit. Non sed delectus omnis debitis repellendus et assumenda. Distinctio consequatur consequatur repellat qui nisi. Expedita rerum optio nostrum incidunt aut enim voluptates. Dignissimos enim quis est qui aut possimus. Consectetur veritatis aut aliquam minus aliquam. Officiis et architecto repellendus vel incidunt nihil ut. Ea velit ut quo iusto. Cum voluptates expedita et nulla quia. Reprehenderit et voluptas earum molestiae. Aspernatur quo earum autem sapiente aut placeat quaerat in. Occaecati at magni qui consectetur sed provident sed. Vero ut expedita quod nisi est perferendis inventore. Dolor sit est quasi laboriosam adipisci praesentium ea. Nam commodi deleniti tempora ut est aut eum delectus. Aspernatur explicabo reprehenderit doloremque facilis. Explicabo et qui sit quo at rem nemo. Est consectetur quia vel aliquid ratione ullam. Magni ipsum sapiente sunt et mollitia sit. Nemo nihil vel eos est beatae magni. Aliquid voluptatem eveniet id. Sed et sed ut fugit nam voluptatibus a. Non soluta qui qui animi eaque eum. Sed inventore necessitatibus nisi est non eum numquam. Qui esse labore qui voluptatem doloribus est. Corporis sed voluptas incidunt voluptas quaerat rem. Excepturi vero quisquam veritatis repellat at ab. Quis ut alias vero sit eius consectetur hic laboriosam. Ullam velit vitae voluptas reiciendis corrupti perspiciatis et. Et delectus quod qui. Nobis eum quidem eos esse aut porro voluptatem magni. Voluptatem quis consequuntur quis ipsa et dignissimos iusto., 2016-10-12 00:00:00, barbodos, 2016-10-12 01:38:07, 2016-10-12 01:38:07, 2016-10-12 01:38:07, charity.jpg, Current, 1)) in /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php:761
+Stack trace:
+#0 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(717): Illuminate\Database\Connection->runQueryCallback('insert into `pr...', Array, Object(Closure))
+#1 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(481): Illuminate\Database\Connection->run('insert into `pr...', Array, Object(Closure))
+#2 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Connection.php(435): Illuminate\Database\Connection->statement('insert into `pr...', Array)
+#3 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php(2126): Illuminate\Database\Connection->insert('insert into `pr...', Array)
+#4 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/projectTabelSeeder.php(29): Illuminate\Database\Query\Builder->insert(Array)
+#5 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Seeder.php(39): projectTabelSeeder->run()
+#6 /home/zt/Charity/view/gtithub/charityfoundation/database/seeds/DatabaseSeeder.php(15): Illuminate\Database\Seeder->call('projectTabelSee...')
+#7 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(63): DatabaseSeeder->run()
+#8 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Database/Console/Seeds/SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Container/Container.php(508): call_user_func_array(Array, Array)
+#12 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(169): Illuminate\Container\Container->call(Array)
+#13 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Command/Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Console/Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 /home/zt/Charity/view/gtithub/charityfoundation/vendor/symfony/console/Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 /home/zt/Charity/view/gtithub/charityfoundation/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 /home/zt/Charity/view/gtithub/charityfoundation/artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}  
+[2016-10-12 01:39:15] local.INFO: RequestPOST /userprofile HTTP/1.1
+Accept:                    text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:           gzip, deflate
+Accept-Language:           en-US,en;q=0.8
+Cache-Control:             max-age=0
+Connection:                keep-alive
+Content-Length:            141
+Content-Type:              application/x-www-form-urlencoded
+Cookie:                    XSRF-TOKEN=eyJpdiI6IktLM21KVHJIRDRzTVJPdmdSZVwvVkZ3PT0iLCJ2YWx1ZSI6InZDSHl3dHNCUzRDbGNENmFBZitlTFNFZGVsN2N2WE00MENyWGY5RWhoQjRYS1ZvNXVrVFJnSjRMOXlWUjFXWHgzYTg0S1FJb21Rb0MyM09RMXNHNk93PT0iLCJtYWMiOiI4NWJiMDczZDM5ZDFlNmYyYjNiNDFlOTA3MWI1NmFlZTJkMzIwNzgyNzExYWFkYjZjYjlmZTdhNDJkYWQyZDA2In0%3D; laravel_session=eyJpdiI6IkdcLzR1QlF4dXZDTWl3V1NUVG1IcjF3PT0iLCJ2YWx1ZSI6InlPRE1KeXhrWkd1VEpsT2o5eVdteHprNFcrSTVXaWtUamxyZXpUZXp0c0dXbEtiT2Y5d29iS2s2ZkNYQ2F1dFc2U0orZENjeXZtTUlRNmZWWEcxeTVRPT0iLCJtYWMiOiJlYWZiZTFlMDdhMWNmMGQwZDg2NTllMzEyOGZjYTkyZGQ4MjNkYTk3YzBjN2IwYTBkNTc3OGRmZGQxMmU3MzEyIn0%3D
+Host:                      localhost:8000
+Origin:                    http://localhost:8000
+Referer:                   http://localhost:8000/userprofile
+Upgrade-Insecure-Requests: 1
+User-Agent:                Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36
+
+phonenum=5487485474&_token=0aEiVoHIZfej3h4DQ0kxmAC74XETPu77y2GiDedf&street=123+heaven+&aptNo=888&state=CA&country=United+States&zipcode=95134  
+[2016-10-12 01:39:22] local.INFO: RequestPOST /userprofile HTTP/1.1
+Accept:                    text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:           gzip, deflate
+Accept-Language:           en-US,en;q=0.8
+Cache-Control:             max-age=0
+Connection:                keep-alive
+Content-Length:            141
+Content-Type:              application/x-www-form-urlencoded
+Cookie:                    XSRF-TOKEN=eyJpdiI6IlZVZ1BISGNUY2QwXC9kR1J1OGNqeFVBPT0iLCJ2YWx1ZSI6IlNcL3ZHanQ2N29HOHk2ZXZZQzVCdWg1YUdYV3N2RVwvQnh1VXhEVlBEOTVQNEc0Q1ZKaFhyNjZOQ21BSVQ4TnR1RlwvRkQrS1hzT0YzY2dycVFVd2FJVXlRPT0iLCJtYWMiOiIwZTFlOWE3MGU1NGZjNGI2MTkxOGQ4ZWEwZGQ0NjhjYjk3M2ZmMjcwOWM2NzViMDVlY2RhOTIyMDg0ODMxNGM4In0%3D; laravel_session=eyJpdiI6IitoQUhMZGpcL2NOMEppNERoVzlrQnBnPT0iLCJ2YWx1ZSI6IjhGb014QkRtZ1VpOE9JbUpKdXhYN3hMSUxIZ1hGV3F6T01hNmx5VlFsXC9WVDV3VmY3V1ZadHdOZ3FId1RnUitpek1KMnFmVU5RQ3gyM29Na0ZvOWNEUT09IiwibWFjIjoiZjQ2MjI3MTU4MGMzYzA4ZDhmOGNlMTI5MTI5N2ZlZWFkZWU0NDU2ZTI0ZTBjNzRhMWE4MzlhZDhiMWZiZTRkNCJ9
+Host:                      localhost:8000
+Origin:                    http://localhost:8000
+Referer:                   http://localhost:8000/userprofile
+Upgrade-Insecure-Requests: 1
+User-Agent:                Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36
+
+phonenum=5487485474&_token=0aEiVoHIZfej3h4DQ0kxmAC74XETPu77y2GiDedf&street=123+heaven+&aptNo=888&state=CA&country=United+States&zipcode=95134  
+[2016-10-12 01:40:12] local.INFO: RequestPOST /userprofile HTTP/1.1
+Accept:                    text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Accept-Encoding:           gzip, deflate
+Accept-Language:           en-US,en;q=0.8
+Cache-Control:             max-age=0
+Connection:                keep-alive
+Content-Length:            26061
+Content-Type:              multipart/form-data; boundary=----WebKitFormBoundaryAEan6EVHd1RJLn1k
+Cookie:                    XSRF-TOKEN=eyJpdiI6IjBEV0hWYXlvWlJ3OFJDZVBkN3VUTGc9PSIsInZhbHVlIjoiTEhqQ2tsQ1ZFYTVBU0VsUTFIMzJ4eUl4ZkxYV0VRYTMyaUQ1WE5Sc1BQWmhYeUU3QzloY2M3ZnBNWUVra0FXS1cyb0pONDRDS0pGXC9lTllIc3I5Uk9nPT0iLCJtYWMiOiI2NmM3ZjU1NDQxNjU2YTEzM2FlYjNmZmYyMThjZmY0YzU1ZDJmMTI1M2NjOTIwZmJhYTlhMjZiMmU0NTUwYzk3In0%3D; laravel_session=eyJpdiI6IjNFRDl2S2R0bVJPTTZ1dVFkK0Ewc2c9PSIsInZhbHVlIjoiVW9ETkwydXU0UTdNUmlib1ZqS3ZhUXRcL0RaMHVTUmtHXC80cENpWEhcL3M3YXF2cmV1ZXBTdDZEVkx0SkZJa25cL1ZxNk5TQkRHejQ0Z0dJZzNTeTBvamVRPT0iLCJtYWMiOiJjNmZmNTY1NTU5NDQxMjdlZDliN2JhN2RmMjE2ZjIyYzI1ZDQyYzdkYmNjZTEyNjgyYWRlNDVjMmFmYTM5YzI1In0%3D
+Host:                      localhost:8000
+Origin:                    http://localhost:8000
+Referer:                   http://localhost:8000/userprofile
+Upgrade-Insecure-Requests: 1
+User-Agent:                Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/53.0.2785.143 Chrome/53.0.2785.143 Safari/537.36
+
+  
+[2016-10-12 01:40:12] local.INFO: 1476236412.jpg  

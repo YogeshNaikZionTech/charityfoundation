@@ -6,40 +6,40 @@
 @endsection
 @section('content')
     <div class="main content" id="content">
-    <div class="h">
-        <h2>Projects</h2>
-        @if(Auth::check()&& Auth::user()->isAdmin)
-         <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
-        <div id="createEvent" class="modal fade" role="dialog">
-          <div class="modal-dialog">
-                    <!-- Modal content-->
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Add New Project</h4>
-              </div>
-              <form class="form-group" action="{{url('')}}" action="POST">
-                <div class="modal-body">
-                  <label>Project Name</label>
-                    <input type="text" class="form-control">
-                  <!-- <label>Date</label>
-                    <input type="date" class="form-control">
-                  <label>Start Time</label>
-                    <input type="time" class="form-control">
-                     <label>End Time</label>
-                    <input type="time" class="form-control">
-                   --><label>Project Description</label>
-                    <textarea placeholder="Description of the project" class="form-control"></textarea>
-                  <label>Upload an image</label>
-                    <input type="file" Name="pic" accept="image/*">
+        <div class="h">
+            <h2>Projects</h2>
+            @if(Auth::check()&& Auth::user()->isAdmin)
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
+                <div id="createEvent" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Add New Project</h4>
+                            </div>
+                            <form class="form-group" action="{{url('/projects')}}" action="POST">
+                                <div class="modal-body">
+                                    <label>Project Name</label>
+                                    <input id="pname" type="text" class="form-control">
+                                    <!-- <label>Date</label>
+                                      <input type="date" class="form-control">
+                                    <label>Start Time</label>
+                                      <input type="time" class="form-control">
+                                       <label>End Time</label>
+                                      <input type="time" class="form-control">
+                                     --><label>Project Description</label>
+                                    <textarea id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
+                                    <label>Upload an image</label>
+                                    <input id="piamge" type="file" Name="pic" accept="image/*">
+                                </div>
+                                <div class="modal-footer">
+                                    <input type="submit" class="btn btn-success" data-dismiss="modal">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
-                <div class="modal-footer">
-                  <input type="submit" class="btn btn-success" data-dismiss="modal">
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
         </div>
         @endif
 
@@ -95,7 +95,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="col-md-3">
+                            <div class="col-md-3">
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
                                     <div class="caption">
@@ -111,17 +111,17 @@
                                     </div>
                                 </div>
                             </div>
-                          <!--   <div class="projectDesc" id="desc">
-                                <h2>Project Name</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                <h3>Venue</h3>
-                                <h3>Date & Time</h3>
-                            </div> -->
+                            <!--   <div class="projectDesc" id="desc">
+                                  <h2>Project Name</h2>
+                                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                  <h3>Venue</h3>
+                                  <h3>Date & Time</h3>
+                              </div> -->
                             <!--  -->
                         </div>
 
@@ -165,7 +165,7 @@
                                     </div>
                                 </div>
                             </div>
-                               <div class="col-md-3">
+                            <div class="col-md-3">
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
                                     <div class="caption">
@@ -190,163 +190,163 @@
                                 <h3> Date & Time</h3>
                             </div> -->
                         </div>
- <div class="eventDesc1" id="desc">
-                    <h2>Project Name 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                
-               </div>
-                <div class="eventDesc2" id="desc">
-                    <h2>Project Name 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    
-               </div> 
-               <div class="eventDesc3" id="desc">
-                    <h2>Project Name 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                   
-               </div> 
-               <div class="eventDesc4" id="desc">
-                    <h2>Project Name 4</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                   
-               </div>
+                        <div class="eventDesc1" id="desc">
+                            <h2>Project Name 1</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        </div>
+                        <div class="eventDesc2" id="desc">
+                            <h2>Project Name 2</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        </div>
+                        <div class="eventDesc3" id="desc">
+                            <h2>Project Name 3</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        </div>
+                        <div class="eventDesc4" id="desc">
+                            <h2>Project Name 4</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+                        </div>
 
 
                     </div>
-             </div>
-       </div>
-   </div>
-</div> 
+                </div>
+            </div>
+        </div>
+    </div>
 
-    @endsection
+@endsection
 
 
 
 @section('scripts')
 
-            <script type="text/javascript">
-                $(document).ready(function(){
+    <script type="text/javascript">
+        $(document).ready(function(){
 
 // $('.nav li:first').removeClass('active');
 // $('.nav li:nth-child(3)').addClass('active');
 
-$('.donate').on('click', function () {
-    sessionStorage.removeItem('event');
-    var projectValue = $(this).attr('id');
-    sessionStorage.setItem('project', projectValue);
-});
+            $('.donate').on('click', function () {
+                sessionStorage.removeItem('event');
+                var projectValue = $(this).attr('id');
+                sessionStorage.setItem('project', projectValue);
+            });
 
- $(".eventDesc1").hide();
-        $(".eventDesc2").hide();
-        $(".eventDesc3").hide();
-        $(".eventDesc4").hide();
-
-
-        $(".eName1").click(function(){
-           $(".eventDesc2").hide();
-        $(".eventDesc3").hide();
-        $(".eventDesc4").hide();
-
-            if($(".eventDesc1").attr('style') == "display: none;"){
-                  $(".eventDesc1").show();
-            }
-            else
-                $(".eventDesc1").hide();
-                     });
+            $(".eventDesc1").hide();
+            $(".eventDesc2").hide();
+            $(".eventDesc3").hide();
+            $(".eventDesc4").hide();
 
 
-        $(".eName2").click(function(){
-        $(".eventDesc1").hide();
-        $(".eventDesc3").hide();
-        $(".eventDesc4").hide();
-
-
-            if($(".eventDesc2").attr('style') == "display: none;"){
-                  $(".eventDesc2").show();
-            }
-            else
+            $(".eName1").click(function(){
                 $(".eventDesc2").hide();
-                     });
-
-
-        $(".eName3").click(function(){
-
-        $(".eventDesc1").hide();
-        $(".eventDesc2").hide();
-        $(".eventDesc4").hide();
-
-            if($(".eventDesc3").attr('style') == "display: none;"){
-                  $(".eventDesc3").show();
-            }
-            else
                 $(".eventDesc3").hide();
-                     });
-
-  $(".eName4").click(function(){
-
-        $(".eventDesc1").hide();
-        $(".eventDesc2").hide();
-        $(".eventDesc3").hide();
-
-            if($(".eventDesc4").attr('style') == "display: none;"){
-                  $(".eventDesc4").show();
-            }
-            else
-                $(".eventDesc4").hide();
-                     });
-
-$('#read1').click(function(){
-    $(".eventDesc2").hide();
-        $(".eventDesc3").hide();
                 $(".eventDesc4").hide();
 
-  $(".eventDesc1").show();
-});
-$('#read2').click(function(){
-    $(".eventDesc1").hide();
-        $(".eventDesc3").hide();
+                if($(".eventDesc1").attr('style') == "display: none;"){
+                    $(".eventDesc1").show();
+                }
+                else
+                    $(".eventDesc1").hide();
+            });
+
+
+            $(".eName2").click(function(){
+                $(".eventDesc1").hide();
+                $(".eventDesc3").hide();
                 $(".eventDesc4").hide();
 
-  $(".eventDesc2").show();
-});
-$('#read3').click(function(){
-  $(".eventDesc1").hide();
-        $(".eventDesc2").hide();
+
+                if($(".eventDesc2").attr('style') == "display: none;"){
+                    $(".eventDesc2").show();
+                }
+                else
+                    $(".eventDesc2").hide();
+            });
+
+
+            $(".eName3").click(function(){
+
+                $(".eventDesc1").hide();
+                $(".eventDesc2").hide();
                 $(".eventDesc4").hide();
 
-  $(".eventDesc3").show();
-});
-$('#read4').click(function() {
-    $(".eventDesc1").hide();
-    $(".eventDesc2").hide();
-    $(".eventDesc3").hide();
-    $(".eventDesc4").show();
-    });
-});
+                if($(".eventDesc3").attr('style') == "display: none;"){
+                    $(".eventDesc3").show();
+                }
+                else
+                    $(".eventDesc3").hide();
+            });
+
+            $(".eName4").click(function(){
+
+                $(".eventDesc1").hide();
+                $(".eventDesc2").hide();
+                $(".eventDesc3").hide();
+
+                if($(".eventDesc4").attr('style') == "display: none;"){
+                    $(".eventDesc4").show();
+                }
+                else
+                    $(".eventDesc4").hide();
+            });
+
+            $('#read1').click(function(){
+                $(".eventDesc2").hide();
+                $(".eventDesc3").hide();
+                $(".eventDesc4").hide();
+
+                $(".eventDesc1").show();
+            });
+            $('#read2').click(function(){
+                $(".eventDesc1").hide();
+                $(".eventDesc3").hide();
+                $(".eventDesc4").hide();
+
+                $(".eventDesc2").show();
+            });
+            $('#read3').click(function(){
+                $(".eventDesc1").hide();
+                $(".eventDesc2").hide();
+                $(".eventDesc4").hide();
+
+                $(".eventDesc3").show();
+            });
+            $('#read4').click(function() {
+                $(".eventDesc1").hide();
+                $(".eventDesc2").hide();
+                $(".eventDesc3").hide();
+                $(".eventDesc4").show();
+            });
+        });
 
 
-            </script>
-               <script>
+    </script>
+    <script>
         $(document).ready(function(){
             var scroll_start = 5;
             var startChange = $('.nav1');
@@ -361,4 +361,4 @@ $('#read4').click(function() {
             });
         });
     </script>
-    @endsection
+@endsection

@@ -51,7 +51,7 @@
         </div>
         <div class="main-content">
             <div class="admin-content" id="history">
-                <h3>Donation History</h3>
+                <h3>Donation History<button class="btn btn-warning btn-md export">Export All</button></h3>
                 <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
@@ -124,7 +124,7 @@
 
             </div>
             <div class="admin-content" id="users">
-                <h3>Users</h3>
+                <h3>Users<button class="btn btn-warning btn-md export">Export All</button></h3>
                 <div class="col-xs-6" >
                     <div class="right-inner-addon">
                         <i class="fa fa-search"></i>
@@ -216,7 +216,7 @@
                 <div class="container col-md-12">
 
                     <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tab-list">
+                    <ul class="nav nav-pills" role="tab-list">
                         <li class="active">
                             <a href="#proj" role="tab" data-toggle="tab">
                                 <icon class="fa fa-plus-circle"></icon> Create Project
@@ -280,16 +280,31 @@
                 <h3>Update Projects/Events</h3>
                 <form class="form-group col-md-6">
                     <div class="form-group">
-                        <select class="form-control">
-                            <option>Select Project/Event</option>
-                            <option>Project1</option>
-                            <option>Project2</option>
-                            <option>Project3</option>
-                            <option>Event1</option>
-                            <option>Event2</option>
-                            <option>Event3</option>
-                        </select>
+                    <fieldset id="Group1" name="Group1">
+                        <input id="Radio1" name="Radio1" type="radio" value="projrad" />Projects
+                        <input id="Radio1" name="Radio1" type="radio" value="eventrad" />Events
+
+                    </fieldset>
+                        </div>
+                    <div class="form-group">
+                        <fieldset id="Group2" name="Group2">
+
+                            <select id="Select1" name="Select1" class="form-control">
+                                <option>Select</option>
+                                <option value="projrad 1" class="projrad">Project 1</option>
+                                <option value="projrad 2" class="projrad">Project 2</option>
+                                <option value="projrad 3" class="projrad">Project 3</option>
+                                <option value="projrad 4" class="projrad">Project 4</option>
+                                <option value="projrad 5" class="projrad">Project 5</option>
+                                <option value="eventrad 1" class="eventrad">Event 1</option>
+                                <option value="eventrad 2" class="eventrad">Event 2</option>
+                                <option value="eventrad 3" class="eventrad">Event 3</option>
+                                <option value="eventrad 4" class="eventrad">Event 4</option>
+                                <option value="eventrad 5" class="eventrad">Event 5</option>
+                            </select>
+                        </fieldset>
                     </div>
+
                     <div class="form-group">
                         <input class="form-control" id="updatename" name="updatename" placeholder="Project or Event Name" type="text">
                     </div>
@@ -305,11 +320,13 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <input type="file" Name="pic" accept="image/*">
+                        <label for="files" class="btn" style="background-color: lightseagreen">Select Image</label>
+                        <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
                     </div>
+
                     <div class="form-group">
                         <div class="btn">
-                            <input type="submit" class="btn btn-info">
+                            <input type="submit" class="btn btn-success">
                         </div>
                     </div>
                 </form>
@@ -362,5 +379,15 @@
     $('.side-nav').toggleClass('visible');
     });
     });
+    </script>
+    <script>
+        jQuery(function($) {
+            $('input:radio').change(function(){
+                var val = $('input:radio:checked').val();
+                $('#Select1').val(0)
+                $('.projrad, .eventrad').hide();
+                $('.' + val).show();
+            });
+        });
     </script>
 @endsection

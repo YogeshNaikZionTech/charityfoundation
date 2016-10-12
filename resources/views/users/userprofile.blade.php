@@ -3,7 +3,7 @@
 @section('title', '| Update Profile')
 @section('stylesheets')
     <link href="{{URL::asset('/css/userprofile.css')}}" rel="stylesheet" type="text/css"/>
-   <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+    <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
     <div class="container" id="content">
@@ -15,7 +15,7 @@
         <h1 class="page-header" style="color: #d9534f;">Edit Profile</h1>
         <div class="row">
             <!-- Profile Image -->
-            <form enctype="multipart/form-data" action="{{url('/userprofile')}}" method="POST">
+            <form enctype="multipart/form-data" class="form-horizontal" action="{{url('/userprofile')}}" method="POST">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
@@ -27,18 +27,18 @@
 
                     </div>
                 </div>
-            </form>
+
                 <!-- Personal Info -->
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
 
                     <h2>Personal info</h2>
-                    <form class="form-horizontal" id="userForm" method="post" role="form">
+
 
                     <div class="form-group">
                         <label for="username" class="col-lg-3 control-label">Name:</label>
                         <div class="col-lg-8">
                             <input class="form-control" id="username" name="username" value=" {{ Auth::user()->firstname }}  {{ Auth::user()->lastname }}" pattern="/^[a-zA-Z]+$/" type="text" disabled>
-                    </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="col-lg-3 control-label">Email:</label>
@@ -50,7 +50,7 @@
                         <label for="phonenum" class="col-lg-3 control-label">Phone Number:</label>
                         <div class="col-lg-8">
                             <input class="form-control" id="phonenum" name="phonenum" maxlength="10"  placeholder="Enter your 10 digit phone number" value="{{ Auth::user()->phonenum }}" type="text">
-                         </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 control-label">Password:</label>
@@ -103,46 +103,46 @@
                             <input class="btn btn-danger" value="Cancel" type="reset">
                         </div>
                     </div>
-                    </form>
-                </div>
+            </form>
         </div>
+    </div>
     </div>
 
 @endsection
 @section('scripts')
 
-     <script>
+    <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
-                 reader.onload = function (e) {
+                reader.onload = function (e) {
                     $('#profileimg').attr('src', e.target.result)
-                     .width(200)
-                    .height(200);
-                 };
+                            .width(200)
+                            .height(200);
+                };
 
-                 reader.readAsDataURL(input.files[0])
+                reader.readAsDataURL(input.files[0])
             }
-             }
-             $($(document).ready(function(){
-                             $('input:file').change(
-                                     function(){
-                                        if ($(this).val()) {
-                                            $('input:submit').attr('disabled',false);
-                                            }
-                                        }
-                                     );
-                            }));
+        }
+        $($(document).ready(function(){
+            $('input:file').change(
+                    function(){
+                        if ($(this).val()) {
+                            $('input:submit').attr('disabled',false);
+                        }
+                    }
+            );
+        }));
         $(function()
-                    {
-                        $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
-                        $(window).bind('resize', function(){
-                        $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
-                        });
-               });
-     </script>
+        {
+            $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
+            $(window).bind('resize', function(){
+                $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
+            });
+        });
+    </script>
 
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#userForm')
@@ -199,7 +199,7 @@
                                 }
                             },
                             phonenum: {
-                               validators: {
+                                validators: {
                                     notEmpty: {
                                         message: 'The phone number is required and cannot be empty'
                                     },

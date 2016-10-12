@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Carbon\Carbon;
 
 use App\Event;
 class EventController extends Controller
@@ -25,9 +27,9 @@ class EventController extends Controller
      */
     public function create()
     {
-	    $events_f = Event::Where('event_Status','=','future')->paginate(8);
-	    $events_c = Event::Where('event_Status','=','completed')->paginate(8);
-	    return view('events/show')->withEvents_f($events_f)->withEvents_c($events_c);
+        $events_f = Event::Where('event_Status','=','future')->paginate(8);
+        $events_c = Event::Where('event_Status','=','completed')->paginate(8);
+        return view('events/show')->withEvents_f($events_f)->withEvents_c($events_c);
     }
 
     /**
@@ -38,30 +40,35 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
+        Log::info($request);
+        $event_Title       =  $request->input('ename');
+        $event_Description =  $request->input('edescription');
+        $event_location    =  $request->input('location');
+        $event_Date        =  Carbon::now()->format( 'Y-m-d H:i:s' );
+        $event_StartTime   =  $request->input('stime');
+        $event_EndTime      = $request->input('etime');
+        $filename        = 'default.png';
 
-	                $event_Title       =  $request->input('ename');
-					$event_Description =  $request->input('edescriiption');
-	                $event_location    =  $request->input('location');
-					$event_Date        =  $request->input('edate');
-					$event_StartTime   =  $request->input('stime');
-	                $event_EndTime      = $request->input('etime');
-					$event_Image        = $request->input('eimage');
-					$event_Status       = $request->input('completed');
-					$Category_ID        = $request->input('etime');
-    	    $event = new Event();
+        if ( $request->hasFile('eimage') ) {
+            $event_image = $request->file('eimage');
+            $filename = time() . '.' . $event_image->getClientOriginalExtension();
+            Image::make($event_image)->resize(300, 300)->save(public_path('/events/' . $filename));
+        }
 
-	    $event->event_Title       = $event_Title;
-	    $event->event_Description = $event_Description;
-	    $event->event_location    = $event_location;
-	    $event->event_Date        = $event_Date;
-	    $event->event_StartTime   = $event_StartTime;
-	    $event->event_EndTime     = $event_EndTime;
-	    $event->event_Image        = $event_Image;
-	    $event->event_Status       = $event_Status;
-	    $event->Category_ID        = $Category_ID;
 
-		$event->save();
-	    return view('welcome');
+        $event = new Event();
+        $event->event_Title       = $event_Title;
+        $event->event_Description = $event_Description;
+        $event->event_location    = $event_location;
+        $event->event_Date        = $event_Date;
+        $event->event_StartTime   = $event_StartTime;
+        $event->event_EndTime     = $event_EndTime;
+        $event->event_Image        = $filename;
+
+
+
+        $event->save();
+        return view('welcome');
 
     }
 
