@@ -20,12 +20,12 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active ">
-                    <img class="first-slide" src="{{URL::asset('/images/slide-2.jpg')}}" alt="First slide">
+                    <img class="first-slide" src="{{URL::asset('/images/education3.jpg')}}" alt="First slide">
                     <div class="container">
-                        <div class="carousel-caption" style="position: absolute">
-                            <h1>CAUSE1: Education</h1>
-                            <p>"Educate CHILDREN in RURAL area"</p>
-                            <p><a class="btn btn-lg" href="#" role="button">Read More</a></p>
+                        <div class="carousel-caption first" style="position: absolute">
+                            <h1>CAUSE1: Education benefit society</h1>
+                            <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
+                            <a class="btn btn-lg" href="#" role="button">Read More</a>
 
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-10 pull-right" >
@@ -55,28 +55,37 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="second-slide" src="{{URL::asset('/images/slide3.jpg')}}" alt="Second slide">
+                    <img class="second-slide" src="{{URL::asset('/images/slider6.jpg')}}" alt="Second slide">
                     <div class="container">
-                        <div class="carousel-caption">
-                            <h1>CAUSE2:Solar panels to Schools</h1>
+                        <div class="carousel-caption second" >
+                            <h1 >CAUSE2:Solar panels to Schools</h1>
                             <p>We make a LIVING by what we GET but we make a LIFE by what we GIVE</p>
-                            <p><a class="btn btn-lg" href="#" role="button">Read More</a></p>
+                            <a class="btn btn-lg" href="#" role="button">Read More</a>
                         </div>
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-10 pull-right" >
+                            {{--<h2>Urgent Cause</h2>--}}
+                            <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10" style="padding-bottom: 30px;">
+                                <h2>Founder can take care of all the administrative cost</h2>
+
+                            </div>
+                            <button class="btn btn-lg">DONATE</button>
+                        </div>
+
                     </div>
                 </div>
                 <div class="item">
-                    <img class="third-slide" src="{{URL::asset('/images/slide1.jpg')}}" alt="Third slide">
+                    <img class="third-slide" src="{{URL::asset('/images/education2.jpg')}}" alt="Third slide">
                     <div class="container">
-                        <div class="carousel-caption">
+                        <div class="carousel-caption third">
                             <h1>CAUSE3:Digitize Classrooms</h1>
                             <p>We rise by "LIFTING OTHERS"</p>
-                            <p><a class="btn btn-lg" href="#" role="button">Read More</a></p>
+                            <a class="btn btn-lg" href="#" role="button">Read More</a>
                         </div>
                     </div>
                 </div>
             </div>
             <section id="section03" class="demo">
-                 <a href="#projects"><span></span></a>
+                 <a href="#header_education"><span></span></a>
             </section>
             <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -89,14 +98,16 @@
 
         </div>
 
-        <div class="container header_education">
+        <div class="container-fluid header_education" id="header_education">
             <h1> Educate yourself</h1>
-            <div>
+            <div >
 
-                <iframe class="col-lg-6 col-xs-12 col-sm-6 col-md-6" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
+                <iframe class="col-lg-8 col-xs-8 col-sm-8 col-md-8" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
 
             </div>
-            <div class="col-lg-6 col-xs-12 col-md-6 col-sm-6">
+            <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4 pull-left">
+                <h2>Video title</h2>
+                <p>Some description  about video ,Main theme of the video</p>
 
             </div>
 
@@ -200,12 +211,7 @@
     </div>
 @endsection
 @section('scripts')
-    <script>
-        $(document).ready(function(){
-            $('[data-toggle="popover"]').popover();
-        });
-    </script>
-    <script>
+     <script>
         $(document).ready(function(){
             var scroll_start = 5;
             var startChange = $('.nav1');
@@ -213,7 +219,7 @@
             $(document).scroll(function() {
                 scroll_start = $(this).scrollTop();
                 if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                    $('.nav1').css('background-color', 'rgba(3, 56, 69, 0.95)');
                 } else {
                     $('.nav1').css('background-color', 'transparent');
                 }
@@ -236,13 +242,43 @@
             });
 
         });
-        $(function() {
-            $('a[href*=#]').on('click', function(e) {
-                e.preventDefault();
-                $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 1000);
-                return false;
+        $(document).ready(function(){
+            // Add smooth scrolling to all links
+            $("a").on('click', function(event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
             });
         });
+
+
+
+
+
+//        $(function() {
+//
+//            $('a[href*=#]').on('click', function(e) {
+//                e.preventDefault();
+//                $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 3000);
+//
+//            });
+//        });
 
     </script>
     <script>
@@ -315,7 +351,7 @@
             $(this).prop('Counter',0).animate({
                 Counter: $(this).text()
             }, {
-                duration: 5000,
+                duration: 3000,
                 easing: 'swing',
                 step: function (now) {
                     $(this).text(Math.ceil(now));

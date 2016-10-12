@@ -1,7 +1,7 @@
 *{margin:0 ;padding:0}
 body{
     overflow-x: hidden;
-    color: ghostwhite;
+    color: black;
     text-align: center;
     font-family:Constantia,cursive;
     background-color: rgba(67, 155, 9, 0.29);
@@ -20,7 +20,9 @@ h1{font-size:40px;}
        font-weight: 500;
    }
    a{color:ghostwhite;
-   font-size: 16px;}
+   font-size: 16px;
+   }
+
 
 /*-------------------------------------------------Preethi Changes------------------------------------------------*/
 .carousel {
@@ -53,7 +55,10 @@ h1{font-size:40px;}
     position: relative;
     top: 0;
     left: 0;}
-
+.first > a { color:white ;}
+.second > a , .second > h1 , .second >p { color:rgba(3, 56, 69, 0.76) }
+.second > a{border-color:rgba(3, 56, 69, 0.76) }
+.third > a{ color :white;}
 @media screen and (min-width: 768px){
     .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
         margin-right: -10px;
@@ -103,18 +108,24 @@ h1{font-size:40px;}
     }
 }
 
-    @media screen and (min-width: 768px){
-            .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    @media screen and (min-width: 768px)
+    {
+            .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev
+            {
                 margin-left: -10px;
             }
         }
+
+
+
+
 .header_projects
 {
-    margin-top: 60px;
+    margin-top: 10px;
     text-align: center;
     color:black;
 }
-.header_Events{margin-top: 20px;background-color: rgba(155, 151, 15, 0.29) ;padding-bottom:20px; }
+.header_Events{margin-top: 40px;background-color: rgba(155, 151, 15, 0.29) ;padding-bottom:20px; }
 .homeprojects{
     padding:10px;
     text-align: left;
@@ -140,6 +151,7 @@ h1{font-size:40px;}
     border-radius: 20px;
    padding:20px;
 }
+.donate_carousel > button { color: white;border: 2px white solid;}
 .circle{ padding-top:20px;}
 .btn-lg{
     background:none;
@@ -231,7 +243,7 @@ transition: all 1s ease;
     content: '';
     width: 40px;
     height: 40px;
-    box-shadow: 0 0 0 0 rgba(255,255,255,.1);
+    box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
     border-radius: 100%;
     opacity: 0;
     -webkit-animation: sdb03 3s infinite;
@@ -246,7 +258,7 @@ transition: all 1s ease;
         opacity: 1;
     }
     60% {
-        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
+        box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
         opacity: 1;
     }
     100% {
@@ -261,8 +273,8 @@ transition: all 1s ease;
         opacity: 1;
     }
     60% {
-        box-shadow: 0 0 0 60px rgba(255,255,255,.1);
-        opacity: 0;
+        box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+        opacity: 1;
     }
     100% {
         opacity: 1;
@@ -270,6 +282,10 @@ transition: all 1s ease;
 }
 /*------------------------------------------------------------------header Education----------------------------------------*/
 .header_education{
-    padding-top: 10px;
+    background-color: rgba(179, 139, 112, 0.37);
+    padding-top: 70px;
+    padding-bottom: 10px;
+    color:black;
+
 }
-iframe{height:400px;border-radius: 10px;}
+iframe{height:450px;border-radius: 10px; padding-top: 20px;}
