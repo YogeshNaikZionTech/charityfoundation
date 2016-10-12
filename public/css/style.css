@@ -268,3 +268,8 @@ transition: all 1s ease;
         opacity: 1;
     }
 }
+/*------------------------------------------------------------------header Education----------------------------------------*/
+.header_education{
+    padding-top: 10px;
+}
+iframe{height:400px;border-radius: 10px;}

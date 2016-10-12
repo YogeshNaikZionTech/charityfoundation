@@ -89,6 +89,19 @@
 
         </div>
 
+        <div class="container header_education">
+            <h1> Educate yourself</h1>
+            <div>
+
+                <iframe class="col-lg-6 col-xs-12 col-sm-6 col-md-6" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
+
+            </div>
+            <div class="col-lg-6 col-xs-12 col-md-6 col-sm-6">
+
+            </div>
+
+        </div>
+
         <div class=" container-fluid header_projects" id="projects">
             <h1>Our Projects</h1>
             <div class="container-fluid div2">
@@ -230,7 +243,6 @@
                 return false;
             });
         });
-
 
     </script>
     <script>
