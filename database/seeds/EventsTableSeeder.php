@@ -22,7 +22,6 @@ class EventsTableSeeder extends Seeder {
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'colorfull.jpg',
 				'event_Status'      => 'future',
-				'category_ID'       => '1',
 
 			] );
 		}
@@ -38,7 +37,7 @@ class EventsTableSeeder extends Seeder {
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'thumb.jpg',
 				'event_Status'      => 'completed',
-				'category_ID'       => '2',
+
 
 			] );
 		}
@@ -54,7 +53,7 @@ class EventsTableSeeder extends Seeder {
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'upcoming.jpg',
 				'event_Status'      => 'current',
-				'category_ID'       => '1',
+
 
 			] );
 		}

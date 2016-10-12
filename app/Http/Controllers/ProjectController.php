@@ -15,7 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-	    return view('projects/show');
+        return view('projects/show');
     }
 
     /**
@@ -36,7 +36,21 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $filename= 'default.png';
+        if ( $request->hasFile('avatar') ) {
+            $project_image = $request->file('pimage');
+            $filename = time() . '.' . $project_image->getClientOriginalExtension();
+            Image::make($project_image)->resize(300, 300)->save(public_path('/avatars/' . $filename));
+        }
+        $pname =  $request->input('pname');
+        $pdescription =  $request->input('pdescription');
+        $project_image = $filename;
+
+
+
+
+
+
     }
 
     /**
@@ -48,7 +62,7 @@ class ProjectController extends Controller
 
     public function show($id)
     {
-//
+
     }
 
 

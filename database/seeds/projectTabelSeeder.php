@@ -26,7 +26,7 @@ class projectTabelSeeder extends Seeder
 				    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				    'project_Image'   => 'charity.jpg',
 				    'project_Status'  => 'Current',
-				    'category_ID'        => '1',
+
 
 			    ] );
 		    }

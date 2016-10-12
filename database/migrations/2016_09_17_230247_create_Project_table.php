@@ -23,7 +23,7 @@ class CreateProjectTable extends Migration
 			    $table->dateTime('project_StartTime');
 			    $table->string('project_Status');
 			    $table->string('project_Image');
-			    $table->string('category_ID');
+
 			    $table->timestamps();
 		    });
 	    }

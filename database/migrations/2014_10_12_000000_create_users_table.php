@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
 	        $table->string('avatar')->default('default.png');
-	        $table->integer('phonenum')->default(0000);
+	        $table->string('phonenum')->default(0000);
 	        $table->string('street')->default('None');
 	        $table->integer('aptNo')->default(00000);
 	        $table->string('state')->default('None');

@@ -25,12 +25,14 @@
              <div class="col-md-2 col-lg-2 col-xs-10 col-sm-3">
                
                 <ol>
-                    <li>
-                        <a href="{{url('/login')}}">Login</a>
-                    </li>
-                    <li>
-                        <a href="{{url('/register')}}">Sign Up</a>
-                    </li>
+                    @if(! Auth::check())
+                        <li>
+                            <a href="{{url('/login')}}">Login</a>
+                        </li>
+                        <li>
+                            <a href="{{url('/register')}}">Sign Up</a>
+                        </li>
+                    @endif
                     <li>
                         <a href="{{url('aboutus')}}">About Us</a>
                     </li>
