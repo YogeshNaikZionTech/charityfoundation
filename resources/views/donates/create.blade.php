@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="main container" id="content">
-        <div class="row">
+        <div class="row" id="rowc">
             <div class="col-md-3">
                 <div class="contri-method">
                     <p>How would you like to contribute?</p>

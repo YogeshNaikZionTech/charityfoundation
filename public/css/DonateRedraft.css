@@ -6,7 +6,7 @@
         
       
 
-        #headline h1{
+/*        #headline h1{
         	
         	font-size: 80px;
             font-weight: 700;
@@ -22,17 +22,17 @@
 
         #main{
         	margin-top: 1%;
-        }
+        }*/
 
-        .content{
-        	/*text-align: center;*/
+/*        .content{
+        	text-align: center;
         	display: none;
         }
 
         #select{
         	margin: 0 auto;
         	width: 50%
-        }
+        }*/
 
 
 
@@ -45,10 +45,9 @@ body {
 
 }
 .main{
-  margin-top: 97px;
+  margin-top: 5%;
   color: black;
-    font-style: italic; 
-
+  font-style: italic; 
 }
 
 
@@ -107,7 +106,7 @@ body {
   margin: 1% auto;
 }*/
 
-#Checkout {
+/*#Checkout {
   width: 50%;
   min-width: 300px;
   border-radius: 8px;
@@ -132,7 +131,7 @@ body {
 
 #Checkout>form {
   margin: 0 25px 25px;
-}
+}*/
 
 label {
   color: #46545C;
@@ -265,8 +264,6 @@ input:focus {
   padding: 10px;
   
 }
-.row{
-margin-bottom:30px;
-}
+
 
 
