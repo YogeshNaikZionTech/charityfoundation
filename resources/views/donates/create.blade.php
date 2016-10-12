@@ -35,8 +35,8 @@
             <div class="payment">   
                 <form id="paymentform" action="{{url('/recipte')}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input id="proevent" class="form-control proevent" type="text"> <!--Event/Project from select page-->
-                    <input id="dtype" class="form-control" type="text"><!--Donate Type-->
+                    <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
+                    <input id="dtype" class="form-control" type="hidden"><!--Donate Type-->
                     <div class="col-md-3 col-md-offset-1 middle">
                         <div class="payment1">
                             <div class="form-group">
@@ -106,8 +106,8 @@
                     
                 <form id="vform" action="" method="post">
                         <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
-                    <input class="form-control proevent" type="text"> <!--Event/Project from select page-->
-                    <input id="vtype" class="form-control" type="text"> <!--Donate Type-->
+                    <input class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
+                    <input id="vtype" class="form-control" type="hidden"> <!--Donate Type-->
                     <div class="col-md-3 col-md-offset-1">
                         <label>Volunteer Form</label>
                             <div class="volunteer">
@@ -163,9 +163,9 @@
         $(".payment").show();
         $("#note").hide();
 
-        $(".proevent").attr("style","display:none");
-        $("#dtype").attr("style","display:none");
-        $("#vtype").attr("style","display:none");
+        // $(".proevent").attr("style","display:none");
+        // $("#dtype").attr("style","display:none");
+        // $("#vtype").attr("style","display:none");
 
         if(sessionStorage.getItem('project') != null){
 
@@ -174,13 +174,21 @@
              $(".title").html(p);
         } 
 
-        else if(sessionStorage.getItem('event') != "null"){
+        else if(sessionStorage.getItem('event') != null){
 
             var e = sessionStorage.getItem('event');
             $(".monthly").attr("style","display:none")
              // $("#proj").html(e.key);
-             $('.proevent').val(e);
-             $(".title").html(e);
+            $('.proevent').val(e);
+            $(".title").html(e);
+        }
+        else if(sessionStorage.getItem('foundation') != null){
+
+            var p = sessionStorage.getItem('foundation');
+            $(".volunteer").attr("style","display:none")
+            // $("#proj").html(e.key);
+            $('.proevent').val(p);
+            $(".title").html(p);
         }
 
         $('button[name="inputbtn"]').click(function(){

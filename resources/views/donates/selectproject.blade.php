@@ -216,8 +216,9 @@
 
         $('.default').click(function(){
             sessionStorage.removeItem('event');
-            var projectValue = $(this).find('p').attr('value');
-            sessionStorage.setItem('project', projectValue);
+            sessionStorage.removeItem('project');
+            // var projectValue = $(this).find('p').attr('value');
+            sessionStorage.setItem('foundation', 'AA Foundation');
         });
 
         $('.eve').click(function(){
