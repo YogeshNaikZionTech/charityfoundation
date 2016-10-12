@@ -55,25 +55,37 @@
             <div id="upcoming" class="tab-pane fade in active">
 
               @foreach($events_f as $i => $event)
-              @if($i%4 == 0)
+              @if($i%3 == 0)
           
               <div class="row">
               @endif
-          <div class="eve">
-                <div class="col-md-3 col-sm-3 col-xs-3">
+
+              <div class="eve">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="thumbnail">
+                  <div class="image">
                     <img src="/images/{{$event->event_Image}}" alt="event2">
-                    <div class="caption">
-                      <a id="desc" class="eName"><h3>{{substr($event->event_Title,0,20)}}</h3></a>
-                      <p>{{substr($event->event_Title, 0, 25)}}</p>
-                      <!-- <p>ID is {{$event->event_id}}</p> -->
+                      <a href="{{url('/donates/create')}}" id="vol" role="button"><button type="button" class="btn btn-warning">Volunteer</button></a>
+                  </div>
+                  <div class="caption col-md-12 col-sm-12 col-xs-12">
+                    <div class="date col-md-2">
+                      <h3>{{date("M j", strtotime($event->event_StartTime))}}</h3>
+                    </div>
+                    <div class="col-md-9" style="margin: 0px">
+                      <a>
+                        <p>
+                          <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
+                        </p>
+                      </a>
                       <p>
-                        <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                        <a href="{{url('/donates/create')}}" class="btn btn-success pull-right" id="vol" role="button">Volunteer</a>
+                        <h6><span class="glyphicon glyphicon-map-marker"></span>{{$event->event_Location}} &nbsp; &nbsp; &nbsp; <span class="glyphicon glyphicon-time"></span>{{date("h:ia", strtotime($event->event_StartTime))}} - {{date("h:ia", strtotime($event->event_StartTime))}}</h6>
                       </p>
                     </div>
                   </div>
-                </div>
+
+                    </div>
+                  </div>
+                
                 <div class="eventDesc" style="display: none">
                 <div class="test" style="color: black" data-toggle="test">
                   <div>
@@ -86,10 +98,9 @@
                   <h4>End Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
                 </div>
                 </div>
-              </div>
-
-
-              @if($i%4 == 3)
+                </div>
+              
+              @if($i%3 == 2)
               
               </div>
               @elseif ($i+1 == (count($events_f)))
@@ -111,57 +122,70 @@
             </div>  <!-- End of upcoming tab -->
 
             <div id="completed" class="tab-pane fade">
-              @foreach($events_c as $i=>$eventc)
-
-                           @if($i%4 == 0)
+    @foreach($events_c as $i => $event)
+              @if($i%3 == 0)
           
               <div class="row">
               @endif
-            <div class="eve">
-                <div class="col-md-3">
+
+              <div class="eve">
+                <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="thumbnail">
-                    <img src="/images/{{$eventc->event_Image}}" alt="event2">
-                    <div class="caption">
-                      <a  class="eName"><h3>{{substr($eventc->event_Title,0,20)}}</h3></a>
-                      <p>{{substr($eventc->event_Title, 0, 25)}}</p>
+                  <div class="image">
+                    <img src="/images/{{$event->event_Image}}" alt="event2">
+                      <a href="{{url('/donates/create')}}" id="vol" role="button"><button type="button" class="btn btn-warning">Volunteer</button></a>
+                  </div>
+                  <div class="caption col-md-12 col-sm-12 col-xs-12">
+                    <div class="date col-md-2">
+                      <h3>{{date("M j", strtotime($event->event_StartTime))}}</h3>
+                    </div>
+                    <div class="col-md-9" style="margin: 0px">
+                      <a>
+                        <p>
+                          <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
+                        </p>
+                      </a>
                       <p>
-                        <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                        <a href="{{url('/donates/create')}}" class="btn btn-success pull-right" role="button">Read More</a>
+                        <h6><span class="glyphicon glyphicon-map-marker"></span>{{$event->event_Location}} &nbsp; &nbsp; &nbsp; <span class="glyphicon glyphicon-time"></span>{{date("h:ia", strtotime($event->event_StartTime))}} - {{date("h:ia", strtotime($event->event_StartTime))}}</h6>
                       </p>
                     </div>
                   </div>
-                </div>
-               <div class="eventDesc" style="display: none">
-                <div class="test" data-toggle="test">
+
+                    </div>
+                  </div>
+                
+                <div class="eventDesc" style="display: none">
+                <div class="test" style="color: black" data-toggle="test">
                   <div>
-                    <h2 style="display: inline-block;">Event Title: {{$eventc->event_Title}}</h2>
+                    <h2 style="display: inline-block;">Event Title: {{$event->event_Title}}</h2>
                     <span class="glyphicon glyphicon-remove pull-right close"  ></span>
                   </div>
-                  <p>Description:{{$eventc->event_Description}}</p>
-                  <h3>Event Venue: {{$eventc->event_Location}}</h3>
-                  <h4>Start Time: {{date("M j, Y, h:ia", strtotime($eventc->event_StartTime))}}</h4>
-                  <h4>End Time: {{date("M j, Y, h:ia", strtotime($eventc->event_StartTime))}}</h4>
+                  <p>Description:{{$event->event_Description}}</p>
+                  <h3>Event Venue: {{$event->event_Location}}</h3>
+                  <h4>Start Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
+                  <h4>End Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
                 </div>
                 </div>
-            </div>
-
-              @if($i%4 == 3)
+                </div>
+              
+              @if($i%3 == 2)
+              
               </div>
               @elseif ($i+1 == (count($events_c)))
+          
               </div>
               @endif
-              @endforeach
+               
+            @endforeach
 
               <!-- Pagination -->
-      <div class="row">
+       <div class="row">
          <div class="col-md-12">
               <div class="text-center">
                 {!! $events_c->links()!!}
               </div>
           </div>
-      </div>
-
-              
+      </div> 
 
 
             </div> <!-- End of completed tab -->

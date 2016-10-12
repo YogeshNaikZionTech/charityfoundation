@@ -36,3 +36,56 @@ color: black;
 .h h2{
     display: inline-block;
     margin-top: 0px;
+  }
+
+
+
+.image{
+     overflow: hidden;
+    height: 278px;
+
+
+    /*border: solid black 1px;*/
+    /*box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);*/
+}
+.image img {
+    width: 100%;
+    height: 278px;
+    -webkit-transition: all 1s ease; Safari and Chrome
+    -moz-transition: all 1s ease; Firefox
+    -o-transition: all 1s ease; IE 9
+    -ms-transition: all 1s ease; Opera
+    transition: all 1s ease;
+     /*overflow: hidden;*/
+
+}
+
+.image:hover img {
+    /*height: 278px;*/
+        -webkit-transform:scale(1.25); /* Safari and Chrome */
+    -moz-transform:scale(1.25); /* Firefox */
+    -ms-transform:scale(1.25); /* IE 9 */
+    -o-transform:scale(1.25); /* Opera */
+     transform:scale(1.25);
+     overflow: hidden;
+     cursor: pointer;
+     opacity: 0.7;
+}
+.image:hover button{
+    display: block;
+}
+.image button{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 15px;
+    display: none;
+}
+
+.date h3{
+    color: orange;
+}
+
+.caption span {
+  padding-right: 7px;
+}
