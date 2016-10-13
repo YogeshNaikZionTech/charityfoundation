@@ -1,6 +1,7 @@
 *{margin:0 ;padding:0}
 body{
-    color: ghostwhite;
+    overflow-x: hidden;
+    color: black;
     text-align: center;
     font-family:Constantia,cursive;
     background-color: rgba(67, 155, 9, 0.29);
@@ -19,7 +20,9 @@ h1{font-size:40px;}
        font-weight: 500;
    }
    a{color:ghostwhite;
-   font-size: 16px;}
+   font-size: 16px;
+   }
+
 
 /*-------------------------------------------------Preethi Changes------------------------------------------------*/
 .carousel {
@@ -52,7 +55,10 @@ h1{font-size:40px;}
     position: relative;
     top: 0;
     left: 0;}
-
+.first > a { color:white ;}
+.second > a , .second > h1 , .second >p { color:rgba(3, 56, 69, 0.76) }
+.second > a{border-color:rgba(3, 56, 69, 0.76) }
+.third > a{ color :white;}
 @media screen and (min-width: 768px){
     .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
         margin-right: -10px;
@@ -102,18 +108,24 @@ h1{font-size:40px;}
     }
 }
 
-    @media screen and (min-width: 768px){
-            .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev {
+    @media screen and (min-width: 768px)
+    {
+            .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev
+            {
                 margin-left: -10px;
             }
         }
+
+
+
+
 .header_projects
 {
-    margin-top: 30px;
+    margin-top: 10px;
     text-align: center;
     color:black;
 }
-.header_Events{margin-top: 20px;background-color: rgba(155, 151, 15, 0.29) ;padding-bottom:20px; }
+.header_Events{margin-top: 40px;background-color: rgba(155, 151, 15, 0.29) ;padding-bottom:20px; }
 .homeprojects{
     padding:10px;
     text-align: left;
@@ -139,16 +151,17 @@ h1{font-size:40px;}
     border-radius: 20px;
    padding:20px;
 }
+.donate_carousel > button { color: white;border: 2px white solid;}
 .circle{ padding-top:20px;}
 .btn-lg{
     background:none;
-    border:2px rgba(127, 120, 8, 0.46) solid;
+    border:2px white solid;
     border-radius: 15px;
     color: rgba(2, 155, 6, 0.69);
     font-weight: bold;
 }
 .btn-lg:hover{background-color: rgba(155, 147, 12, 0.69) ; color:black;font-weight: bold}
-.suggest_donors{background-color: rgba(1, 2, 1, 0.53);padding:20px;}
+.suggest_donors{background-color: rgba(1, 2, 1, 0.53);padding:20px; align-content: center;}
 .donors1 >span{font-size:30px;color:white;font-weight:600 ;text-align: center;padding-bottom: 30px;}
 .suggest1{ text-align: left}
 
@@ -159,3 +172,120 @@ h1{font-size:40px;}
     background-color:rgba(34, 105, 94, 0.04);
     background-image: none;}
 
+/*---------------------------------------------------Scroll Top-----------------------------------------------------------*/
+.scrollToTop > img{
+    width: 80px;
+    height:80px;
+  z-index: 999;
+    position: relative;
+
+
+}
+
+/*--------------------------------------------------pic Zoom---------------------------------------------------------------*/
+.image:hover img {
+    -webkit-transform:scale(1.07); /* Safari and Chrome */
+    -moz-transform:scale(1.07); /* Firefox */
+    -ms-transform:scale(1.07); /* IE 9 */
+    -o-transform:scale(1.07); /* Opera */
+    transform:scale(1.07);
+}
+
+.image img {
+    -webkit-transition: all 1s ease;
+    /*Safari and Chrome*/
+    -moz-transition: all 1s ease;
+    /*Firefox*/
+-o-transition: all 1s ease;
+    /*IE 9*/
+    -ms-transition: all 1s ease;
+    /*Opera*/
+transition: all 1s ease;
+}
+/*------------------------------------------------------scroll- down------------------------------------------------------------*/
+#section03 a {
+    padding-top: 60px;
+
+}
+
+#section03 a span {
+    z-index:9999;
+    background-color: rgba(63, 200, 180, 0.16);
+    position: absolute;
+    bottom:4%;
+    right:12%;
+    width: 46px;
+    height: 46px;
+    margin-left: -24px;
+    border: 3px solid #fff;
+    border-radius: 100%;
+    box-sizing: border-box;
+}
+#section03 a span::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    content: '';
+    width: 16px;
+    height: 16px;
+    margin: -12px 0 0 -8px;
+    border-left: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    box-sizing: border-box;
+}
+#section03 a span::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    content: '';
+    width: 40px;
+    height: 40px;
+    box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+    border-radius: 100%;
+    opacity: 0;
+    -webkit-animation: sdb03 3s infinite;
+    animation: sdb03 3s infinite;
+    box-sizing: border-box;
+}
+@-webkit-keyframes sdb03 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes sdb03 {
+    0% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    60% {
+        box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/*------------------------------------------------------------------header Education----------------------------------------*/
+.header_education{
+    background-color: rgba(179, 139, 112, 0.37);
+    padding-top: 70px;
+    padding-bottom: 10px;
+    color:black;
+
+}
+iframe{height:450px;border-radius: 10px; padding-top: 20px;}
