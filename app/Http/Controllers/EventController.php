@@ -80,7 +80,22 @@ class EventController extends Controller
      */
     public function show($id)
     {
-        //
+        $response_array = array();
+        $event_show = Event::Where('id','=',$id)->get();
+        $event_count = Event::all()->count();
+        Log::info('Total project count:'. $event_count);
+        if($id < $event_count ){
+
+            foreach($event_show as $value){Log::info('the values'. $value->id);
+                $response_array = array("id"=>$value->id,"event_Image"=>$value->event_Image, "event_Title"=>$value->event_Title, "event_Description"=>$value->event_Description, "event_Date"=>$value->event_Date,"event_Location"=>$value->event_Location,"event_StartTime"=>$value->event_StartTime, "event_EndTime"=>$value->event_EndTime);
+            }
+
+            echo json_encode($response_array);
+
+        }else{
+
+            echo 'No project present with that id';
+        }
     }
 
     /**
@@ -114,6 +129,9 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $event_delete = Event::Where('id','=',$id)->get();
+        $event_delete->delete();
+        echo 'deleted';
+
     }
 }

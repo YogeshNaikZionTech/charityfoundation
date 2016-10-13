@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
@@ -43,10 +44,9 @@ class userProfileController extends Controller {
         $user->save();
         \Session::flash( 'profileUpdated', 'Awesome, we have updated your profile' );
         return view( '/users/userprofile', array( 'user' => \Auth::user() ) );
-
-
-
     }
+
+
 
 
 

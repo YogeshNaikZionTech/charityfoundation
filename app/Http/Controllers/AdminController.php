@@ -18,4 +18,26 @@ class AdminController extends Controller
     {
         return view('admin/admin');
     }
+
+    /**
+     * @param Request $request
+     * @param $search_var
+     *
+     * TOdo
+     *      have to join with the donation table to ge the value(total donation)
+     */
+    public function  seachUser(Request $request, $search_var){
+
+        $user_list = User::all();
+        $user_respone = array();
+        foreach($user_list as $user_slug){
+
+            if(strpos($user_slug->name, $search_var)){
+
+                array_push($user_respone, $user_slug->firstname, $user_slug->lastname,$user_slug->email, $user_slug->phonenum);
+            }
+        }
+    }
+
+
 }
