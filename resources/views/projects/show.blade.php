@@ -73,7 +73,7 @@
                                 <div class="thumbnail">
                                     <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event2">
                                     <div class="caption">
-                                        <a href="#desc" class="eName2"><h3>Project Name</h3></a>
+                                        <a href="" class="eName2"><h3>Project Name</h3></a>
                                         <p>Short summary of project description.</p>
                                         <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
@@ -191,7 +191,7 @@
                             </div> -->
                         </div>
                         <div class="eventDesc1" id="desc">
-                            <h2>Project Name 1</h2>
+                            <h2>Project Name 2</h2>
                             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
