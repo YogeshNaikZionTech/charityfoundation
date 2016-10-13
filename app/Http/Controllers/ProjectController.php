@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
 
 class ProjectController extends Controller
@@ -63,6 +64,24 @@ class ProjectController extends Controller
     public function show($id)
     {
 
+            $response_array = array();
+            $project_show = Project::Where('id','=',$id)->get();
+            $project_count = Project::all()->count();
+            Log::info('Total project count:'. $project_count);
+            if($id < $project_count ){
+
+                foreach($project_show as $value){Log::info('the values'. $value->id);
+                    $response_array = array("id"=>$value->id, "project_Title"=>$value->project_Title, "project_Description"=>$value->project_Description, "project_Date"=>$value->project_Date,"project_Location"=>$value->project_Location,"project_StartTime"=>$value->project_StartTime);
+                }
+
+                echo json_encode($response_array);
+
+            }else{
+
+                echo 'No project prest with that id';
+            }
+
+
     }
 
 
@@ -75,7 +94,7 @@ class ProjectController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -98,6 +117,8 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $project_delete= Event::Where('id','=',$id)->get();
+        $project_delete->delete();
+        echo 'deleted';
     }
 }
