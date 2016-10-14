@@ -2,3 +2,168 @@
 [2016-10-13 01:40:10] local.INFO: the values12  
 [2016-10-13 01:40:23] local.INFO: Total project count:60  
 [2016-10-13 01:40:23] local.INFO: the values12  
+[2016-10-13 21:29:56] local.ERROR: InvalidArgumentException: Database [sql] not configured. in C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php:239
+Stack trace:
+#0 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(158): Illuminate\Database\DatabaseManager->getConfig('sql')
+#1 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(68): Illuminate\Database\DatabaseManager->makeConnection('sql')
+#2 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\DatabaseManager.php(317): Illuminate\Database\DatabaseManager->connection()
+#3 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Support\Facades\Facade.php(237): Illuminate\Database\DatabaseManager->__call('table', Array)
+#4 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\database\seeds\EventsTableSeeder.php(14): Illuminate\Support\Facades\Facade::__callStatic('table', Array)
+#5 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): EventsTableSeeder->run()
+#6 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\database\seeds\DatabaseSeeder.php(14): Illuminate\Database\Seeder->call('EventsTableSeed...')
+#7 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#8 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#12 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#13 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}  
+[2016-10-13 21:30:27] local.ERROR: PDOException: SQLSTATE[HY000]: General error: 1364 Field 'category_ID' doesn't have a default value in C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php:480
+Stack trace:
+#0 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(480): PDOStatement->execute()
+#1 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(754): Illuminate\Database\Connection->Illuminate\Database\{closure}(Object(Illuminate\Database\MySqlConnection), 'insert into `ev...', Array)
+#2 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(717): Illuminate\Database\Connection->runQueryCallback('insert into `ev...', Array, Object(Closure))
+#3 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(481): Illuminate\Database\Connection->run('insert into `ev...', Array, Object(Closure))
+#4 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(435): Illuminate\Database\Connection->statement('insert into `ev...', Array)
+#5 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2126): Illuminate\Database\Connection->insert('insert into `ev...', Array)
+#6 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\database\seeds\EventsTableSeeder.php(24): Illuminate\Database\Query\Builder->insert(Array)
+#7 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): EventsTableSeeder->run()
+#8 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\database\seeds\DatabaseSeeder.php(14): Illuminate\Database\Seeder->call('EventsTableSeed...')
+#9 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#10 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#11 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#12 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#13 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#14 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#15 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#21 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#22 {main}
+
+Next Illuminate\Database\QueryException: SQLSTATE[HY000]: General error: 1364 Field 'category_ID' doesn't have a default value (SQL: insert into `event` (`event_Title`, `event_Description`, `event_Date`, `event_StartTime`, `event_Location`, `event_EndTime`, `event_Image`, `event_Status`) values (Quasi vel occaecati aliquid quo., Pariatur quod explicabo enim. Natus voluptates corrupti tenetur dicta laboriosam fugit eius odio., 2016-10-13 00:00:00, 2016-10-13 21:30:27, leafvillage, 2016-10-13 21:30:27, colorfull.jpg, future)) in C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php:761
+Stack trace:
+#0 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(717): Illuminate\Database\Connection->runQueryCallback('insert into `ev...', Array, Object(Closure))
+#1 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(481): Illuminate\Database\Connection->run('insert into `ev...', Array, Object(Closure))
+#2 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Connection.php(435): Illuminate\Database\Connection->statement('insert into `ev...', Array)
+#3 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Query\Builder.php(2126): Illuminate\Database\Connection->insert('insert into `ev...', Array)
+#4 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\database\seeds\EventsTableSeeder.php(24): Illuminate\Database\Query\Builder->insert(Array)
+#5 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Seeder.php(39): EventsTableSeeder->run()
+#6 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\database\seeds\DatabaseSeeder.php(14): Illuminate\Database\Seeder->call('EventsTableSeed...')
+#7 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(63): DatabaseSeeder->run()
+#8 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Eloquent\Model.php(2280): Illuminate\Database\Console\Seeds\SeedCommand->Illuminate\Database\Console\Seeds\{closure}()
+#9 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Database\Console\Seeds\SeedCommand.php(64): Illuminate\Database\Eloquent\Model::unguarded(Object(Closure))
+#10 [internal function]: Illuminate\Database\Console\Seeds\SeedCommand->fire()
+#11 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Container\Container.php(508): call_user_func_array(Array, Array)
+#12 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Console\Command.php(169): Illuminate\Container\Container->call(Array)
+#13 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Command\Command.php(256): Illuminate\Console\Command->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Console\Command.php(155): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(820): Illuminate\Console\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(187): Symfony\Component\Console\Application->doRunCommand(Object(Illuminate\Database\Console\Seeds\SeedCommand), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#18 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#19 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#20 {main}  
+[2016-10-13 21:34:12] local.ERROR: Symfony\Component\Console\Exception\CommandNotFoundException: There are no commands defined in the "migration" namespace.
+
+Did you mean this?
+    migrate in C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php:490
+Stack trace:
+#0 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(522): Symfony\Component\Console\Application->findNamespace('migration')
+#1 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(184): Symfony\Component\Console\Application->find('migration:refre...')
+#2 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\symfony\console\Application.php(118): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\vendor\laravel\framework\src\Illuminate\Foundation\Console\Kernel.php(122): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 C:\Users\Nithin21\Desktop\Views\Charity\charityfoundation\artisan(35): Illuminate\Foundation\Console\Kernel->handle(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 {main}  
+[2016-10-13 21:35:09] local.INFO: Total project count:30  
+[2016-10-13 21:35:09] local.INFO: the values1  
+[2016-10-13 21:35:25] local.INFO: Total project count:10  
+[2016-10-13 21:35:25] local.INFO: the values1  
+[2016-10-13 21:38:46] local.INFO: Total project count:30  
+[2016-10-13 21:39:36] local.INFO: Total project count:30  
+[2016-10-13 21:40:10] local.INFO: Total project count:30  
+[2016-10-13 21:40:10] local.INFO: the values1  
+[2016-10-13 21:43:33] local.INFO: Total project count:30  
+[2016-10-13 21:43:33] local.INFO: the values1  
+[2016-10-13 21:43:43] local.INFO: Total project count:30  
+[2016-10-13 21:44:26] local.INFO: Total project count:30  
+[2016-10-13 21:47:44] local.INFO: Total project count:30  
+[2016-10-13 21:49:50] local.INFO: Total project count:30  
+[2016-10-13 21:51:05] local.INFO: Total project count:30  
+[2016-10-13 21:51:23] local.INFO: Total project count:30  
+[2016-10-13 21:53:34] local.INFO: Total project count:30  
+[2016-10-13 21:53:41] local.INFO: Total project count:30  
+[2016-10-13 21:57:13] local.INFO: Total project count:30  
+[2016-10-13 21:57:35] local.INFO: Total project count:30  
+[2016-10-13 21:58:22] local.INFO: Total project count:30  
+[2016-10-13 21:59:36] local.INFO: Total project count:30  
+[2016-10-13 21:59:36] local.INFO: the values4  
+[2016-10-13 22:03:20] local.INFO: Total project count:30  
+[2016-10-13 22:03:20] local.INFO: the values4  
+[2016-10-13 22:03:22] local.INFO: Total project count:30  
+[2016-10-13 22:03:22] local.INFO: the values4  
+[2016-10-13 22:04:36] local.INFO: Total project count:30  
+[2016-10-13 22:04:36] local.INFO: the values4  
+[2016-10-13 22:05:02] local.INFO: Total project count:30  
+[2016-10-13 22:05:02] local.INFO: the values2  
+[2016-10-13 22:05:40] local.INFO: Total project count:30  
+[2016-10-13 22:05:40] local.INFO: the values1  
+[2016-10-13 22:11:13] local.INFO: Total project count:30  
+[2016-10-13 22:11:13] local.INFO: the values1  
+[2016-10-13 22:11:35] local.INFO: Total project count:30  
+[2016-10-13 22:11:35] local.INFO: the values1  
+[2016-10-13 22:12:06] local.INFO: Total project count:30  
+[2016-10-13 22:12:06] local.INFO: the values2  
+[2016-10-13 22:12:09] local.INFO: Total project count:30  
+[2016-10-13 22:12:09] local.INFO: the values3  
+[2016-10-13 22:12:13] local.INFO: Total project count:30  
+[2016-10-13 22:12:13] local.INFO: the values5  
+[2016-10-13 22:12:15] local.INFO: Total project count:30  
+[2016-10-13 22:12:15] local.INFO: the values6  
+[2016-10-13 22:12:18] local.INFO: Total project count:30  
+[2016-10-13 22:12:18] local.INFO: the values8  
+[2016-10-13 22:26:05] local.INFO: Total project count:30  
+[2016-10-13 22:26:05] local.INFO: the values1  
+[2016-10-13 22:27:13] local.INFO: Total project count:30  
+[2016-10-13 22:27:13] local.INFO: the values1  
+[2016-10-13 22:27:19] local.INFO: Total project count:30  
+[2016-10-13 22:27:19] local.INFO: the values1  
+[2016-10-13 22:30:49] local.INFO: Total project count:30  
+[2016-10-13 22:30:50] local.INFO: Total project count:30  
+[2016-10-13 22:30:51] local.INFO: Total project count:30  
+[2016-10-13 22:30:55] local.INFO: Total project count:30  
+[2016-10-13 22:30:55] local.INFO: the values1  
+[2016-10-13 22:32:31] local.INFO: Total project count:30  
+[2016-10-13 22:32:31] local.INFO: the values8  
+[2016-10-13 22:35:17] local.INFO: Total project count:30  
+[2016-10-13 22:35:17] local.INFO: the values8  
+[2016-10-13 22:37:18] local.INFO: Total project count:30  
+[2016-10-13 22:37:18] local.INFO: the values8  
+[2016-10-13 22:43:44] local.INFO: Total project count:30  
+[2016-10-13 22:43:44] local.INFO: the values8  
+[2016-10-13 22:45:10] local.INFO: Total project count:30  
+[2016-10-13 22:45:10] local.INFO: the values1  
+[2016-10-13 23:00:24] local.INFO: Total project count:30  
+[2016-10-13 23:00:24] local.INFO: the values8  
+[2016-10-13 23:27:19] local.INFO: Total project count:30  
+[2016-10-13 23:27:19] local.INFO: the values1  
+[2016-10-13 23:27:30] local.INFO: Total project count:30  
+[2016-10-13 23:27:30] local.INFO: the values1  
+[2016-10-13 23:53:27] local.INFO: Total project count:30  
+[2016-10-13 23:53:27] local.INFO: the values1  
+[2016-10-13 23:54:28] local.INFO: Total project count:30  
+[2016-10-13 23:54:28] local.INFO: the values4  
+[2016-10-13 23:57:17] local.INFO: Total project count:30  
+[2016-10-13 23:57:17] local.INFO: the values4  
+[2016-10-13 23:57:48] local.INFO: Total project count:30  
+[2016-10-13 23:57:48] local.INFO: the values4  

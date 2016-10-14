@@ -74,10 +74,11 @@
                     <div class="col-md-9" style="margin: 0px">
                       <a>
                         <p>
-                          <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
+                          <h3 id="desc" class="eName" name = "{{$event->id}}">{{substr($event->event_Title,0,20)}}</h3> 
                         </p>
                       </a>
                       <p>
+                      
                         <h6><span class="glyphicon glyphicon-map-marker"></span>{{$event->event_Location}} &nbsp; &nbsp; &nbsp; <span class="glyphicon glyphicon-time"></span>{{date("h:ia", strtotime($event->event_StartTime))}} - {{date("h:ia", strtotime($event->event_StartTime))}}</h6>
                       </p>
                     </div>
@@ -87,7 +88,7 @@
                   </div>
                 
                 <div class="eventDesc" style="display: none">
-                <div class="test" style="color: black" data-toggle="test">
+<!--                 <div class="test" style="color: black" data-toggle="test">
                   <div>
                     <h2 style="display: inline-block;">Event Title: {{$event->event_Title}}</h2>
                     <span class="glyphicon glyphicon-remove pull-right close"  ></span>
@@ -96,6 +97,9 @@
                   <h3>Event Venue: {{$event->event_Location}}</h3>
                   <h4>Start Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
                   <h4>End Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
+                </div> -->
+                <div class="test" style="color: black">
+                    
                 </div>
                 </div>
                 </div>
@@ -211,9 +215,35 @@
 
 
             $(".eName").click(function(){
-                $('.test2').hide();
-                var d = $(this).closest('.eve').find('.eventDesc').html();
-                $(this).closest('.row').after('<div class="test2">' + d + '</div');
+                // $('.test2').hide();
+                // var d = $(this).closest('.eve').find('.eventDesc').html();
+                // $(this).closest('.row').after('<div class="test2">' + d + '</div');
+                var id = $(this).attr("name");
+                 $.ajax({
+
+                    url: "events/"+id,
+                    type: "GET",
+                    datatype:"json",
+                    success:function(response,status,xhttp){
+                        response = JSON.parse(response);
+                        console.log(response);
+                        var output="";
+                        $.each(response,function(key,val){
+                            console.log(val.event_Title);
+                            output +='<h2 style="display: inline-block;">Event Title: '+val+'</h2>';
+                            output +='<p>Description: '+val.event_Description+'</p>';
+                            output +='<h3>Event Venue: '+val.event_Location+'</h3';
+                            output +='<h4>Start Time: '+val.event_StartTime+'</h4>';
+                            output +='<h4>End Time: '+val.event_EndTime+'</h4>';
+                            // $('.test2').hide();
+                            // var d = $(this).closest('.eve').find('.eventDesc').html();
+                            // $(this).closest('.row').after('<div class="test2">' + val.id + '</div');
+
+                        });
+                        $(".test").html(output);
+
+                    }
+                });
             });
 
             $('body').on('click', '.close', function(){
