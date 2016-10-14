@@ -60,3 +60,14 @@ Route::get('/events', 'EventController@create');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+/**
+ * Json urls
+ */
+
+Route::get('admin/users/{search_var}', 'AdminController@searchUser');
+Route::get('events/lists/all', 'EventController@allevents');
+Route::get('events/page/{id}', 'EventController@paginateEvents');
+Route::get('events/lists/count', 'EventController@getEventCount');
+Route::get('events/status/current', 'EventController@getCurrentEvents');
+Route::get('events/status/future', 'EventController@getFutureEvents');

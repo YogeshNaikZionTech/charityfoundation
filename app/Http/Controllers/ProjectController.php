@@ -68,9 +68,11 @@ class ProjectController extends Controller
             $project_show = Project::Where('id','=',$id)->get();
             $project_count = Project::all()->count();
             Log::info('Total project count:'. $project_count);
+        Log::info($project_show);
+
             if($id < $project_count ){
 
-                foreach($project_show as $value){Log::info('the values'. $value->id);
+                foreach($project_show as $value){
                     $response_array = array("id"=>$value->id, "project_Title"=>$value->project_Title, "project_Description"=>$value->project_Description, "project_Date"=>$value->project_Date,"project_Location"=>$value->project_Location,"project_StartTime"=>$value->project_StartTime);
                 }
 
