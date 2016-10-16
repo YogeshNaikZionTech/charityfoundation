@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class AdminSeeder extends Seeder
 {
@@ -42,5 +43,24 @@ class AdminSeeder extends Seeder
 		    'isAdmin' => false,
 
 	    ] );
+
+        $Faker = Faker::create( 'App\User' );
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('users')->insert([
+                'firstname' => $Faker->firstName,
+                'lastname' =>$Faker->lastName,
+                'email' => $Faker->email,
+                'password' => Hash::make('password'),
+                'avatar' => 'default.png',
+                'phonenum' => $Faker->phoneNumber,
+                'street' => $Faker->word,
+                'aptNo' => $Faker->numberBetween($min = 100, $max = 9000) ,
+                'state' => 'PH',
+                'country' => 'USA',
+                'zipcode' => '97654',
+                'isAdmin' => false,
+
+            ]);
+        }
     }
 }

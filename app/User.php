@@ -26,4 +26,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    public function Event(){
+
+        return $this->belongsToMany('App\Event', 'Donate_Event')->withPivot('event_cents')->withTimestamps();
+    }
+
+    public function Project(){
+
+        return $this->belongsToMany('App\Project', 'Donate_Project')->withPivot('project_cents')->withTimestamps();
+    }
 }

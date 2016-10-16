@@ -100,7 +100,7 @@ class EventController extends Controller
      *  future:
      *  current:
      */
-    public function allevents(){
+    public function allEvents(){
 
         $event_list = Event::all()  ;
         Log::info($event_list);
@@ -110,7 +110,7 @@ class EventController extends Controller
 
     /**
      * Return the paginated view for Event pages
-     *
+     * @param  int  $id
      *  Start page: 1 * 8-8 =0 -> for first page and etc
      *  each time we start from $start and pick 8 events from there.
      */

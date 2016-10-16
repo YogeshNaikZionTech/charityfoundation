@@ -11,4 +11,9 @@ class Event extends Model
 	protected $fillable = [
 		'eventTitle', 'eventDescription', 'eventDate', 'eventStartTime', 'eventEndTime','eventstatus', 'eventimage', 'category',
 	];
+
+    public function  User(){
+
+        return $this->belongsToMany('App\User', 'Donate_Event')->withPivot('event_cents')->withTimestamps();
+    }
 }
