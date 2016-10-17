@@ -126,11 +126,9 @@
             <div class="admin-content" id="users">
                 <h3>Users<button class="btn btn-warning btn-md export">Export All</button></h3>
                 <div class="col-xs-6" >
-                    <div class="right-inner-addon">
-                        <i class="fa fa-search"></i>
-                        <input type="search"
-                               class="form-control"
-                               placeholder="Search" />
+                    <div class="wrapper">
+                        <input class="input" placeholder="Search Here" autofocus type="text" id="search">
+                        <span class="underline"></span>
                     </div>
                 </div>
                 <br/>
@@ -388,6 +386,17 @@
                 $('.projrad, .eventrad').hide();
                 $('.' + val).show();
             });
+        });
+    </script>
+    <script>
+        var $rows = $('#example tr');
+        $('#search').keyup(function() {
+            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+
+            $rows.show().filter(function() {
+                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+                return !~text.indexOf(val);
+            }).hide();
         });
     </script>
 @endsection
