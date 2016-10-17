@@ -43,8 +43,6 @@ class ContactController extends Controller
 		$cname = $request->input('name');
 	    $email = $request->input('email');
 	    $msg = $request->input('message');
-
-
 	    $contactuser = new contactus();
 	    $contactuser->name = $cname;
 	    $contactuser->email = $email;

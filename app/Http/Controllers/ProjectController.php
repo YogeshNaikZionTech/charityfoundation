@@ -68,9 +68,11 @@ class ProjectController extends Controller
             $project_show = Project::Where('id','=',$id)->get();
             $project_count = Project::all()->count();
             Log::info('Total project count:'. $project_count);
+        Log::info($project_show);
+
             if($id < $project_count ){
 
-                foreach($project_show as $value){Log::info('the values'. $value->id);
+                foreach($project_show as $value){
                     $response_array = array("id"=>$value->id, "project_Title"=>$value->project_Title, "project_Description"=>$value->project_Description, "project_Date"=>$value->project_Date,"project_Location"=>$value->project_Location,"project_StartTime"=>$value->project_StartTime);
                 }
 
@@ -84,7 +86,56 @@ class ProjectController extends Controller
 
     }
 
+/**
+ * show all projects
+ *
+ *
+ */
+    public function allProjects(){
 
+        $project_list = Project::all();
+        log::info('Request all projects:', $project_list);
+        echo json_encode($project_list);
+    }
+
+    /**
+     *
+     * paginate projects
+     *  @param  int  $id
+     */
+
+    public function  paginateProjects($id){
+
+        $perpage =8;
+        $project_Count = Project::all()->count();
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+        Log:info('Requesting for Projects(pagination) from :'. $start);
+        $project_all = Project::take($perpage)->skip($start)->get();
+        echo json_encode($project_all);
+
+    }
+
+    public function getProjectCount(){
+        $project_total = Project::all()->count(); ;
+        $project_future = Project::Where('project_Status','=','future')->count();
+        $project_completed = Project::Where('project_Status','=','completed')->count();
+        $project_current = Project::Where('project_Status','=','current')->count();
+        $projects_counts = array('Total Projects'=>$project_total,'projects_Current'=>$project_current , 'projects_Future'=>$project_future , 'projects_Completed'=>$project_completed);
+        echo  json_encode($projects_counts);
+    }
+    /**
+     * count funtions
+     */
+
+    public  function getCurrentProject(){
+        $project_current = Project::Where('project_Status','=','current')->count();
+        echo $project_current;
+    }
+
+    public  function getFutureProject(){
+        $project_future = Project::Where('project_Status','=','future')->count();
+        echo $project_future;
+    }
 
     /**
      * Show the form for editing the specified resource.

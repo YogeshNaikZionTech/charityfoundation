@@ -11,4 +11,10 @@ class Project extends Model
 	protected $fillable = [
 		'project_Title', 'project_Description', 'project_Date', 'project_StartTime','project_status', 'project_image', 'category', 'created_at', 'updated_at',
 	];
+
+
+    public function  User(){
+
+        return $this->belongsToMany('App\User', 'Donate_Project')->withPivot('project_cents')->withTimestamps();
+    }
 }
