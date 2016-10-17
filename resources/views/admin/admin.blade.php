@@ -27,7 +27,7 @@
                             <span>Donations</span>
                         </a>
                     </li>
-                    <li>
+                    <li ONCLICK="FocusOnInput()">
                         <a href="" data-target-id="users">
 
                             <span><i class="fa fa-search"></i></span>
@@ -43,7 +43,7 @@
                     <li>
                         <a href="" data-target-id="update">
                             <span><i class="fa fa-pencil-square-o"></i></span>
-                            <span>Update</span>
+                            <span>Modify</span>
                         </a>
                     </li>
                 </ul>
@@ -127,8 +127,10 @@
                 <h3>Users<button class="btn btn-warning btn-md export">Export All</button></h3>
                 <div class="col-xs-6" >
                     <div class="wrapper">
-                        <input class="input" placeholder="Search Here" autofocus type="text" id="search">
+                        <form name="search_form">
+                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text">
                         <span class="underline"></span>
+                        </form>
                     </div>
                 </div>
                 <br/>
@@ -318,14 +320,15 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="files" class="btn" style="background-color: lightseagreen">Select Image</label>
+                        <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
                         <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
                     </div>
 
                     <div class="form-group">
                         <div class="btn">
-                            <input type="submit" class="btn btn-success">
+                            <input type="submit" class="btn btn-primary">
                         </div>
+                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</button>
                     </div>
                 </form>
             </div>
@@ -389,14 +392,47 @@
         });
     </script>
     <script>
-        var $rows = $('#example tr');
-        $('#search').keyup(function() {
-            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+        $(document).ready(function(){
 
-            $rows.show().filter(function() {
-                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-                return !~text.indexOf(val);
-            }).hide();
+
+            $("#input").keyup(function(){
+                $.ajax({
+                    url			: "http://localhost/admin/users/{#input.val}",
+                    type		: "GET",
+                    data		: "input="+$("#input").val(),
+                    datatype	: "json",
+                    success		: function(response,status,request){
+
+                        console.log(response);
+                        var output='';
+                        response = JSON.parse(response);
+                        $.each(response, function(key,val){
+                            output += "<tr>" + "Full Name: "+val.name + "</tr>";
+                            output += "<tr>" + "Phone Number: "+val.ph_no + "</tr>";
+                            output += "<tr>" + "Email Address: "+val.email + "</tr>";
+                            output += "<tr>" + "User Since: "+val.user_from + "</tr>";
+                            output += "<tr>" + "Amount Received: "+val.amount + "</tr>";
+                            output += '<hr width="15%" align="left">'
+                        });
+                        $("#input").html(output);
+                    }
+                });
+            });
         });
+
+//        var $rows = $('#example tr');
+//        $('#search').keyup(function() {
+//            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
+//
+//            $rows.show().filter(function() {
+//                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
+//                return !~text.indexOf(val);
+//            }).hide();
+//        });
+    </script>
+    <script>
+        function FocusOnInput() {
+            document.forms['search_form'].elements['input'].focus();
+        }
     </script>
 @endsection
