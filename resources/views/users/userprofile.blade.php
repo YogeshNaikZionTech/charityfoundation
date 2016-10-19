@@ -15,7 +15,7 @@
         <h1 class="page-header" style="color: #d9534f;">Edit Profile</h1>
         <div class="row">
             <!-- Profile Image -->
-            <form enctype="multipart/form-data" class="form-horizontal" action="{{url('/userprofile')}}" method="POST">
+            <form enctype="multipart/form-data" id="userForm" class="form-horizontal" action="{{url('/userprofile')}}" method="POST">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
