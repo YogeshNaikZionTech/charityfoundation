@@ -107,18 +107,18 @@ class EventController extends Controller
         echo json_encode($event_list);
     }
 
-
     /**
      * Return the paginated view for Event pages
-     * @param  int  $id
+     *
+     * @param  \Illuminate\Http\Request  $request
      *  Start page: 1 * 8-8 =0 -> for first page and etc
      *  each time we start from $start and pick 8 events from there.
      */
-    public  function  paginateEvents($id){
+    public  function  paginateEvents(Request $request){
 
-
+            $id = $request->input('id');
             $perpage =8;
-            $event_Count = Event::all()->count();
+
             $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         Log:info('Requesting for Events(pagination) from :'. $start);
             $event_all = Event::take($perpage)->skip($start)->get();

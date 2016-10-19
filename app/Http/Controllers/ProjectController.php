@@ -99,15 +99,16 @@ class ProjectController extends Controller
     }
 
     /**
-     *
+     * @param  \Illuminate\Http\Request  $request
      * paginate projects
-     *  @param  int  $id
+     *
+     *
      */
 
-    public function  paginateProjects($id){
-
+    public function  paginateProjects(Request $request){
+        $id = $request->input('id');
         $perpage =8;
-        $project_Count = Project::all()->count();
+
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         Log:info('Requesting for Projects(pagination) from :'. $start);
         $project_all = Project::take($perpage)->skip($start)->get();

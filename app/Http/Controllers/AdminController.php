@@ -22,13 +22,14 @@ class AdminController extends Controller
 
     /**
      *
-     * @param $search_var
+     * @param  \Illuminate\Http\Request  $request
      *
      * TOdo
      *      have to join with the donation table to ge the value(total donation)
      */
-    public function  searchUser($search_var){
+    public function  searchUser(Request $request){
 
+        $search_var = $request->input('search_var');
         $user_list = User::all();
         $user_count = User::all()->count();
         Log::info($user_count);
