@@ -178,11 +178,11 @@
                     <h2>Suggest Here</h2>
                     <form class="form-horizontal col-md-10 col-lg-10 col-xs-11 col-sm-10" id="suggestform">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10" style="margin-right: 10px;">
-                        <input class="form-control name"  placeholder="Name :*" >  </div>
+                        <input class="form-control name " name="username"  placeholder="Name :*" >  </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10">
-                        <input class="form-control email  " type="email"  placeholder="Email :*"></div>
+                        <input class="form-control email  " name="email" type="email"  placeholder="Email :*"></div>
                             <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <textarea class="form-control suggestarea"  placeholder="Suggestion :*"> </textarea></div>
+                        <textarea class="form-control suggestarea" name="suggestarea"  placeholder="Suggestion :*"> </textarea></div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
                             <button class="btn col-lg-offset-12 btn-md">Shoot It !</button></div>
                     </form>
@@ -207,7 +207,7 @@
             $(document).scroll(function() {
                 scroll_start = ($(this).scrollTop()>0);
                 if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(3, 56, 69, 0.95)');
+                    $('.nav1').css('background-color', '#2c7873');
                 } else {
                     $('.nav1').css('background-color', 'transparent');
                 }
@@ -279,8 +279,31 @@
                             },
 
                             regexp:{
-                                regexp: /^[a-z0-9]+$/i,
+                                regexp: /^[A-Za-z0-9\s]+$/i,
                                 message: 'Only alphanumeric characters.'
+                            }
+                        }
+                    },
+                    username:{
+                        validators:{
+
+                                notEmpty:{
+                                    message: 'Please enter your name'
+                                },
+                                regexp:{
+                                    regexp:/^[A-Za-z\s]+$/,
+                                    message: 'Name can have only alphabets'
+                                }
+                        }
+                    },
+                    email:{
+                        validators:{
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            },
+
+                            notEmpty:{
+                                message:'Email ID is required'
                             }
                         }
                     }

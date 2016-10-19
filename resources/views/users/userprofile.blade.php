@@ -15,7 +15,7 @@
         <h1 class="page-header" style="color: #d9534f;">Edit Profile</h1>
         <div class="row">
             <!-- Profile Image -->
-            <form enctype="multipart/form-data" class="form-horizontal" action="{{url('/userprofile')}}" method="POST">
+            <form enctype="multipart/form-data" class="form-horizontal userForm" action="{{url('/userprofile')}}" method="POST">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
@@ -98,15 +98,17 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                             <input class="btn btn-success" value="Save Changes" type="submit" >
                             <span></span>
                             <input class="btn btn-danger" value="Cancel" type="reset">
                         </div>
                     </div>
+                    </div>
             </form>
         </div>
     </div>
-    </div>
+
 
 @endsection
 @section('scripts')
@@ -145,7 +147,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
-            $('#userForm')
+            $('.userForm')
                     .on('init.field.fv', function(e, data) {
                         var field  = data.field,        // Get the field name
                                 $field = data.element,      // Get the field element
@@ -167,10 +169,11 @@
                     })
                     .bootstrapValidator({
                         framework: 'bootstrap',
-                        icon: {
-                            valid: 'glyphicon glyphicon-ok',
-                            invalid: 'glyphicon glyphicon-remove',
-                            validating: 'glyphicon glyphicon-refresh'
+                        feedbackIcons:{
+
+                            valid:'glyphicon glyphicon-ok',
+                            invalid:'glyphicon glyphicon-remove',
+                            validating:'glyphicon glyphicon-refresh'
                         },
                         fields: {
                             country: {

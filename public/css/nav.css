@@ -1,4 +1,4 @@
-.container,.container-fluid{font-family: Constantia,cursive; font-style: italic; color: white}
+.container,.container-fluid{font-family: Constantia,cursive; font-style: italic; color: black}
 .navbar .navbar-nav>li>a {
 font-family: Constantia,cursive;
 
@@ -10,7 +10,7 @@ font-family: Constantia,cursive;
     padding: 10px 15px;
 
     text-shadow: none;
-    color:mediumaquamarine;
+    color:white;
     letter-spacing: 2px;
 }
 .navbar {
