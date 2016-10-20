@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\admin;
 
+use Illuminate\Support\Facades\Auth;
+
 class AdminController extends Controller
 {
     /**
@@ -51,5 +53,31 @@ class AdminController extends Controller
         echo json_encode($user_response);
     }
 
+    public  function getAllUsers(){
+
+        if(Auth::check()&& Auth::user()->isAdmin){
+
+            $user_list = User::all()->get();
+            echo json_encode($user_list);
+
+
+        }
+
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
