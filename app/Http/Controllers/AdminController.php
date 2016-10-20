@@ -56,7 +56,7 @@ class AdminController extends Controller
 
         if(Auth::check()&& Auth::user()->isAdmin){
 
-            $user_list = User::all()->get();
+            $user_list = User::all();
             echo json_encode($user_list);
 
 
