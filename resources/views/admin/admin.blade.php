@@ -27,7 +27,7 @@
                             <span>Donations</span>
                         </a>
                     </li>
-                    <li ONCLICK="FocusOnInput()">
+                    <li ONCLICK="FocusOnInput()" id="searchitem">
                         <a href="" data-target-id="users">
 
                             <span><i class="fa fa-search"></i></span>
@@ -328,7 +328,7 @@
                         <div class="btn">
                             <input type="submit" class="btn btn-primary">
                         </div>
-                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</button>
+                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</span></button>
                     </div>
                 </form>
             </div>
@@ -393,12 +393,11 @@
     </script>
     <script>
         $(document).ready(function(){
-
-
+          $("#searchitem").click(function(){
             $("#input").keyup(function(){
                 $.ajax({
-                    url			: "http://localhost/admin/users/{#input.val}",
-                    type		: "GET",
+                    url			: "http://localhost/admin/users/search",
+                    type		: "POST",
                     data		: "input="+$("#input").val(),
                     datatype	: "json",
                     success		: function(response,status,request){
@@ -407,21 +406,23 @@
                         var output='';
                         response = JSON.parse(response);
                         $.each(response, function(key,val){
-                            output += "<tr>" + "Full Name: "+val.name + "</tr>";
-                            output += "<tr>" + "Phone Number: "+val.ph_no + "</tr>";
+                            output += "<tr>" + "First Name: "+val.firstname + "</tr>";
+                            output += "<tr>" + "Last Name": "+val.lastname" + "</tr>";
                             output += "<tr>" + "Email Address: "+val.email + "</tr>";
-                            output += "<tr>" + "User Since: "+val.user_from + "</tr>";
-                            output += "<tr>" + "Amount Received: "+val.amount + "</tr>";
+                            output += "<tr>" + "Phone Number: "+val.phonenum + "</tr>";
+//                            output += "<tr>" + "User Since: "+val.user_from + "</tr>";
+////                          output += "<tr>" + "Amount Received: "+val.amount + "</tr>";
                             output += '<hr width="15%" align="left">'
                         });
                         $("#input").html(output);
                     }
                 });
             });
+          });
         });
 
 //        var $rows = $('#example tr');
-//        $('#search').keyup(function() {
+//        $('#input').keyup(function() {
 //            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
 //
 //            $rows.show().filter(function() {
