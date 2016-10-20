@@ -59,6 +59,7 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Donation Type</th>
+                        <th>Date of Donation</th>
                         <th>Donation Amount</th>
                     </tr>
                     </thead>
@@ -68,6 +69,7 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Donated Project</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$25</td>
                     </tr>
                     <tr>
@@ -75,6 +77,7 @@
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>Donated Event</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$30</td>
                     </tr>
                     <tr>
@@ -82,6 +85,7 @@
                         <td>Larry</td>
                         <td>the Bird</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$20</td>
                     </tr>
                     <tr>
@@ -89,6 +93,7 @@
                         <td>John</td>
                         <td>Smith</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     <tr>
@@ -96,6 +101,7 @@
                         <td>Owen</td>
                         <td>Murphy</td>
                         <td>Donated Event</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$55</td>
                     </tr>
                     <tr>
@@ -103,6 +109,7 @@
                         <td>Ernesto</td>
                         <td>Gomez</td>
                         <td>Donated Project</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$15</td>
                     </tr>
                     <tr>
@@ -110,6 +117,7 @@
                         <td>David</td>
                         <td>Turner</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$50</td>
                     </tr>
                     <tr>
@@ -117,6 +125,7 @@
                         <td>Yasha</td>
                         <td>Karant</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     </tbody>
@@ -141,10 +150,10 @@
                     <tr>
                         <th>First Name</th>
                         <th>Last Name</th>
-                        <th>Phone Number</th>
                         <th>Email Address</th>
-                        <th>User Since</th>
-                        <th>Amount Received</th>
+                        <th>Phone Number</th>
+                        {{--<th>User Since</th>--}}
+                        {{--<th>Amount Received</th>--}}
                     </tr>
                     </thead>
 
@@ -334,9 +343,37 @@
             });
         });
     </script>
+
+
     <script>
         $(document).ready(function(){
+            $.ajax(
+                    {
+                        url: "/admin/users/search",
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+
+                            var trHTML = '';
+
+                            $.each(data, function (i, item) {
+
+                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td></tr>';
+                            });
+
+                            $('#example').append(trHTML);
+
+                        },
+
+                        error: function (msg) {
+
+                            alert(msg.responseText);
+                        }
+                    });
           $("#searchitem").click(function(){
+
+
+
             $("#input").keyup(function(){
                 $.ajaxSetup({
                     headers:
@@ -356,13 +393,11 @@
                         var output='';
                         response = JSON.parse(response);
                         $.each(response, function(key,val){
-                            output += "<td>" + " "+val.firstname + "</td><br/>";
-                            output += "<td>" + " "+val.lastname + "</td><br/>";
-                            output += "<td>" + "  "+val.email + "</td><br/>";
-                            output += "<td>" + " "+val.phonenum + "</td><br/>";
-//                            output += "<tr>" + " "+val.user_from + "</tr>";
-////                          output += "<tr>" + " "+val.amount + "</tr>";
-                            output += '<hr width="15%" align="left"><br>'
+                            output += "<td>" + " "+val.firstname + "</td>";
+                            output += "<td>" + " "+val.lastname + "</td>";
+                            output += "<td>" + "  "+val.email + "</td>";
+                            output += "<td>" + " "+val.phonenum + "</td>";
+                            output += '<hr width="15%" align="left"><br/>'
                         });
                         $(".output").html(output);
                     }
@@ -371,15 +406,6 @@
           });
         });
 
-//        var $rows = $('#example tr');
-//        $('#input').keyup(function() {
-//            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-//
-//            $rows.show().filter(function() {
-//                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-//                return !~text.indexOf(val);
-//            }).hide();
-//        });
     </script>
     <script>
         function FocusOnInput() {
