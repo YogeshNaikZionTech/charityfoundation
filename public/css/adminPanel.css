@@ -157,6 +157,9 @@ label, input, h3{
 }
 /* set element styles to fit tablet and higher(desktop) */
 @media screen and (min-width: 600px) {
+    #content{
+        margin-top:5%;
+    }
     .header {
         background-color: #35475e;
         z-index: 1;
