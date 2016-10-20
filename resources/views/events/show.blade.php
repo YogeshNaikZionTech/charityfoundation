@@ -6,7 +6,7 @@
 @endsection
 @section('content')
 
-    <div class="main" id="content">
+    <div class="main container-fluid" id="content">
         <div class="h">
             <h2>Events</h2>
             @if(Auth::check()&& Auth::user()->isAdmin)
@@ -46,95 +46,82 @@
             @endif
         </div>
         <hr>
-        <div class="container-fluid">
+        <div class="container">
           <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
             <li><a data-toggle="tab" href="#completed">Completed Events</a></li>
           </ul>
           <div class="tab-content">
             <div id="upcoming" class="tab-pane fade in active">
-
-              @foreach($events_f as $i => $event)
-              @if($i%3 == 0)
-          
-              <div class="row">
-              @endif
-
-              <div class="eve">
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                  <div class="thumbnail">
-                  <div class="image">
-                    <img src="/images/{{$event->event_Image}}" alt="event2">
-                      <a href="{{url('/donates/create')}}" id="vol" role="button"><button type="button" class="btn btn-warning">Volunteer</button></a>
-                  </div>
-                  <div class="caption col-md-12 col-sm-12 col-xs-12">
-                    <div class="date col-md-2">
-                      <h3>{{date("M j", strtotime($event->event_StartTime))}}</h3>
-                    </div>
-                    <div class="col-md-9" style="margin: 0px">
-                      <a>
-                        <p>
-                          <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
-                        </p>
-                      </a>
-                      <p>
-                        <h6><span class="glyphicon glyphicon-map-marker"></span>{{$event->event_Location}} &nbsp; &nbsp; &nbsp; <span class="glyphicon glyphicon-time"></span>{{date("h:ia", strtotime($event->event_StartTime))}} - {{date("h:ia", strtotime($event->event_StartTime))}}</h6>
-                      </p>
-                    </div>
-                  </div>
-
-                    </div>
-                  </div>
-                
-                <div class="eventDesc" style="display: none">
-                <div class="test" style="color: black" data-toggle="test">
-                  <div>
-                    <h2 style="display: inline-block;">Event Title: {{$event->event_Title}}</h2>
-                    <span class="glyphicon glyphicon-remove pull-right close"  ></span>
-                  </div>
-                  <p>Description:{{$event->event_Description}}</p>
-                  <h3>Event Venue: {{$event->event_Location}}</h3>
-                  <h4>Start Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
-                  <h4>End Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
-                </div>
-                </div>
-                </div>
-              
-              @if($i%3 == 2)
-              
-              </div>
-              @elseif ($i+1 == (count($events_f)))
-          
-              </div>
-              @endif
-               
-
-            @endforeach
-
-            <!-- Pagination -->
+              @foreach($events_f->chunk(3) as $chunk)
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-center">
-                            {!! $events_f->links()!!}
+                  @foreach($chunk as $event)
+                    <div class="eve">
+                      <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="thumbnail">
+                          <div class="image">
+                            <img src="/images/{{$event->event_Image}}" alt="event2">
+                            <a href="{{url('/donates/create')}}" id="vol" role="button"><button type="button" class="btn btn-warning">Volunteer</button></a>
+                          </div>
+                          <div class="caption col-md-12 col-sm-12 col-xs-12">
+                            <div class="date col-md-2">
+                              <h3>{{date("M j", strtotime($event->event_StartTime))}}</h3>
+                            </div>
+                            <div class="col-md-9" style="margin: 0px">
+                              <a>
+                                <p>
+                                  <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
+                                </p>
+                              </a>
+                              <p>
+                                <h6><span class="glyphicon glyphicon-map-marker"></span>{{$event->event_Location}} &nbsp; &nbsp; &nbsp; <span class="glyphicon glyphicon-time"></span>{{date("h:ia", strtotime($event->event_StartTime))}} - {{date("h:ia", strtotime($event->event_StartTime))}}</h6>
+                              </p>
+                            </div>
+                          </div>
                         </div>
+                      </div>
+                      <div class="eventDesc" style="display: none">
+                      <div class="test" style="color: black" data-toggle="test">
+                        <div>
+                          <h2 style="display: inline-block;">Event Title: {{$event->event_Title}}</h2>
+                          <span class="glyphicon glyphicon-remove pull-right close"  ></span>
+                        </div>
+                        <p>Description:{{$event->event_Description}}</p>
+                        <h3>Event Venue: {{$event->event_Location}}</h3>
+                        <h4>Start Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
+                        <h4>End Time: {{date("M j, Y, h:ia", strtotime($event->event_StartTime))}}</h4>
+                      </div>
+                      </div>
                     </div>
+                    @endforeach
+                </div>       
+              @endforeach
+              <!-- Pagination -->
+            <!--   <div class="row">
+                <div class="col-md-12">
+                  <div class="text-center">
+                    {!! $events_c->links()!!}
+                  </div>
                 </div>
+              </div>  -->
+
+              <!-- Pagination -->
+<ul class="pagination" id="upPages">
+
+</ul>
 
             </div>  <!-- End of upcoming tab -->
 
             <div id="completed" class="tab-pane fade">
-    @foreach($events_c as $i => $event)
-              @if($i%3 == 0)
-          
-              <div class="row">
-              @endif
-
+                @foreach($events_c->chunk(3) as $chunk)
+                  <div class="row">
+                  @foreach($chunk as $event)
               <div class="eve">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                   <div class="thumbnail">
                   <div class="image">
                     <img src="/images/{{$event->event_Image}}" alt="event2">
-                      <a href="{{url('/donates/create')}}" id="vol" role="button"><button type="button" class="btn btn-warning">Volunteer</button></a>
+                      <a href="{{url('/donates/create')}}" id="vol" role="button"><button type="button" class="btn btn-warning">Read More</button></a>
                   </div>
                   <div class="caption col-md-12 col-sm-12 col-xs-12">
                     <div class="date col-md-2">
@@ -168,29 +155,21 @@
                 </div>
                 </div>
                 </div>
-              
-              @if($i%3 == 2)
-              
+            @endforeach
               </div>
-              @elseif ($i+1 == (count($events_c)))
-          
-              </div>
-              @endif
-               
             @endforeach
 
-              <!-- Pagination -->
-       <div class="row">
-         <div class="col-md-12">
-              <div class="text-center">
-                {!! $events_c->links()!!}
-              </div>
-          </div>
-      </div> 
-
-        </div> <!-- End of completed tab -->
-    </div> <!-- End of Tab content -->
-    </div>
+                      <!-- Pagination -->
+               <div class="row">
+                 <div class="col-md-12">
+                      <div class="text-center">
+                        {!! $events_c->links()!!}
+                      </div>
+                  </div>
+              </div> 
+            </div> <!-- End of completed tab -->
+          </div> <!-- End of Tab content -->
+        </div>
 
     </div> <!-- End of main content -->
 
@@ -205,7 +184,7 @@
 
             $( '#vol').click(function(){
                 sessionStorage.removeItem('project');
-                var eventValue = $(this).parent().parent().find('a.eName').text()
+                var eventValue = $(this).closest('.thumbnail').find('#desc').text();
                 sessionStorage.setItem('event', eventValue);
             });
 
@@ -241,5 +220,32 @@
             });
         });
     </script>
+<script type="text/javascript">
+  $(document).ready(function(){
+       $.ajax({
+      url : 'events/lists/count',
+      type: 'GET',
+      datatype: 'JSON',
+      success: function(response){
+response = JSON.parse(response);
+var upcomingPages = Math.ceil(response.events_Future/8);
+var completedPages = Math.ceil(response.events_Completed/8);
 
+for( var i=1; i<=upcomingPages; i++){
+    $('#upPages').append('<li><a class="pageClick">'+i+'</a></li>');
+}
+
+
+       }
+
+    });
+  $('body').on('click', '.pageClick', function(){
+                $.ajax({
+                  url: 
+                })
+            });
+
+
+  });
+</script>
 @endsection

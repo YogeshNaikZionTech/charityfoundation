@@ -65,9 +65,9 @@ Route::get('/home', 'HomeController@index');
  * Json urls events
  */
 
-Route::get('admin/users/{search_var}', 'AdminController@searchUser');
+Route::post('admin/users/search ', 'AdminController@searchUser');
 Route::get('events/lists/all', 'EventController@allEvents');
-Route::get('events/page/{id}', 'EventController@paginateEvents');
+Route::post('events/page/get/', 'EventController@paginateEvents');
 Route::get('events/lists/count', 'EventController@getEventCount');
 Route::get('events/status/current', 'EventController@getCurrentEvents');
 Route::get('events/status/future', 'EventController@getFutureEvents');
@@ -76,7 +76,15 @@ Route::get('events/status/future', 'EventController@getFutureEvents');
  * json url project
  */
 Route::get('projects/lists/all', 'ProjectController@allProjects');
-Route::get('projects/page/{id}', 'ProjectController@paginateProjects');
+Route::post('projects/page/{id}', 'ProjectController@paginateProjects');
 Route::get('projects/status/current', 'ProjectController@getCurrentProject');
 Route::get('projects/status/future', 'ProjectController@getFutureProject');
 Route::get('projects/lists/count', 'ProjectController@getProjectCount');
+
+
+/**
+ *
+ *  pagination links
+ *  post data to  : localhosts:8000/events/page/get/
+ *           data: 1
+ */
