@@ -53,6 +53,7 @@
           </ul>
           <div class="tab-content">
             <div id="upcoming" class="tab-pane fade in active">
+            <div class="upcomingContent">
               @foreach($events_f->chunk(3) as $chunk)
                 <div class="row">
                   @foreach($chunk as $event)
@@ -70,7 +71,7 @@
                             <div class="col-md-9" style="margin: 0px">
                               <a>
                                 <p>
-                                  <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
+                                  <h3 id="desc" class="eName" name="$event->id">{{substr($event->event_Title,0,20)}}</h3> 
                                 </p>
                               </a>
                               <p>
@@ -96,21 +97,30 @@
                     @endforeach
                 </div>       
               @endforeach
-              <!-- Pagination -->
-            <!--   <div class="row">
-                <div class="col-md-12">
-                  <div class="text-center">
-                    {!! $events_c->links()!!}
-                  </div>
-                </div>
-              </div>  -->
+           </div>
 
               <!-- Pagination -->
-<ul class="pagination" id="upPages">
+              <div class="row">
+              <div class="col-md-12">
+                    <ul class="pagination" id="upPages">
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+           <!--          <li class="page-item">
+      <a class="page-link" href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li> 
 
-</ul>
-
-            </div>  <!-- End of upcoming tab -->
+    <li class="page-item">
+      <a class="page-link" href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li> -->
+                    </ul>
+              </div>
+              </div>
+                    </div>  <!-- End of upcoming tab -->
 
             <div id="completed" class="tab-pane fade">
                 @foreach($events_c->chunk(3) as $chunk)
@@ -127,7 +137,7 @@
                     <div class="date col-md-2">
                       <h3>{{date("M j", strtotime($event->event_StartTime))}}</h3>
                     </div>
-                    <div class="col-md-9" style="margin: 0px">
+                    <div class="details col-md-10" style="margin: 0px">
                       <a>
                         <p>
                           <h3 id="desc" class="eName">{{substr($event->event_Title,0,20)}}</h3> 
@@ -162,11 +172,13 @@
                       <!-- Pagination -->
                <div class="row">
                  <div class="col-md-12">
-                      <div class="text-center">
-                        {!! $events_c->links()!!}
-                      </div>
+                      <ul class="pagination" id="comPages">
+                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                    </ul>
                   </div>
               </div> 
+
+
             </div> <!-- End of completed tab -->
           </div> <!-- End of Tab content -->
         </div>
@@ -232,17 +244,47 @@ var upcomingPages = Math.ceil(response.events_Future/8);
 var completedPages = Math.ceil(response.events_Completed/8);
 
 for( var i=1; i<=upcomingPages; i++){
-    $('#upPages').append('<li><a class="pageClick">'+i+'</a></li>');
+    $('#upPages').append('<li><a class="pageClick" name="' +i+   '">'+i+'</a></li>');
 }
-
-
-       }
+for( var i=1; i<=completedPages; i++){
+    $('#comPages').append('<li><a class="pageClick" name="' +i+   '">'+i+'</a></li>');
+}
+ }
 
     });
+
+
   $('body').on('click', '.pageClick', function(){
+    $.ajaxSetup({
+    headers:
+    {
+        'X-CSRF-Token': $('input[name="_token"]').val()
+    }
+  });
+
+   var id =  $(this).attr('name');
                 $.ajax({
-                  url: 
-                })
+                  url: 'events/page/get/',
+                  type: 'POST',
+                  data: {'id' : id},
+                  datatype: 'JSON',
+                  success: function(response){
+                    var output ="";
+               response = JSON.parse(response);
+               $.each(response, function (key,val) {
+                var eDate = new Date(val.event_Date);
+                eDate1 = eDate.getDate();
+                locale = "en-us";
+                eDate2 = eDate.toLocaleDateString("en-us",{month: "short"});
+                var start = new Date(val.event_StartTime);
+                var end = new Date(val.event_EndTime);
+                var title = val.event_Title;
+
+                 output += "<div class='col-md-4'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+               });
+                $('.upcomingContent').html(output);
+                  }
+                });
             });
 
 
