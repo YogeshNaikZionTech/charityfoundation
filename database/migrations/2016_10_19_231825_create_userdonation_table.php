@@ -23,15 +23,6 @@ class CreateUserdonationTable extends Migration
      */
     public function down()
     {
-        Schema::create('Donate_Project', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('project')->onDelete('cascade');
-            $table->integer('project_id')->unsigned();
-            $table->foreign('project_id')->references('id')->on('users')->onDelete('cascade');;
-            $table->integer('project_cents');
-            $table->timestamps();
 
-        });
     }
 }
