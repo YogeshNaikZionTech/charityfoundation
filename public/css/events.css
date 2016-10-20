@@ -18,6 +18,14 @@ hr{
     margin-bottom: 10px;
     border-bottom: 1px solid darkgrey;
 }
+.eName{
+
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+ 
+}
 .main{
 margin-top: 77px;
 color: black;
@@ -84,7 +92,12 @@ color: black;
     right: 15px;
     display: none;
 }
-
+.date{
+    padding: 0px;
+}
+.details{
+    padding: 0px;
+}
 .date h3{
     color: orange;
 }
