@@ -128,16 +128,19 @@
                 <div class="col-xs-6" >
                     <div class="wrapper">
                         <form name="search_form">
+                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                         <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text">
                         <span class="underline"></span>
                         </form>
                     </div>
                 </div>
                 <br/>
+
                 <table id="example" class="display table table-striped table-bordered table-hover table-success text-primary bg-info d-inline" id="usertable" align="center">
                     <thead class="thead-inverse">
                     <tr>
-                        <th>Full Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Phone Number</th>
                         <th>Email Address</th>
                         <th>User Since</th>
@@ -145,70 +148,10 @@
                     </tr>
                     </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>(111)111-1111</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$150</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>(222)222-2222</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/02/25</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>(333)333-3333</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$140</td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Kelly</td>
-                        <td>(444)444-4444</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$200</td>
-                    </tr>
-                    <tr>
-                        <td>Airi Satou</td>
-                        <td>(555)555-5555</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$150</td>
-                    </tr>
-                    <tr>
-                        <td>Brielle Williamson</td>
-                        <td>(666)666-6666</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$70</td>
-                    </tr>
-                    <tr>
-                        <td>Herrod Chandler</td>
-                        <td>(777)777-7777</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$40</td>
-                    </tr>
-                    <tr>
-                        <td>Rhona Davidson</td>
-                        <td>(888)888-8888</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$120</td>
-                    </tr>
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>(999)999-9999</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$85</td>
-                    </tr>
+                    <tbody class="output">
+
+                    </tbody>
+
                 </table>
             </div>
             <div class="admin-content" id="create">
@@ -328,7 +271,7 @@
                         <div class="btn">
                             <input type="submit" class="btn btn-primary">
                         </div>
-                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</span></button>
+                        <button class="btn btn-danger">Delete</button>
                     </div>
                 </form>
             </div>
@@ -395,10 +338,17 @@
         $(document).ready(function(){
           $("#searchitem").click(function(){
             $("#input").keyup(function(){
+                $.ajaxSetup({
+                    headers:
+                    {
+                        'X-CSRF-Token': $('input[name="_token"]').val()
+                    }
+                });
+                var sval = $("#input").val();
                 $.ajax({
-                    url			: "http://localhost/admin/users/search",
+                    url			: "/admin/users/search",
                     type		: "POST",
-                    data		: "input="+$("#input").val(),
+                    data		: {'search_var':sval},
                     datatype	: "json",
                     success		: function(response,status,request){
 
@@ -406,15 +356,15 @@
                         var output='';
                         response = JSON.parse(response);
                         $.each(response, function(key,val){
-                            output += "<tr>" + "First Name: "+val.firstname + "</tr>";
-                            output += "<tr>" + "Last Name": "+val.lastname" + "</tr>";
-                            output += "<tr>" + "Email Address: "+val.email + "</tr>";
-                            output += "<tr>" + "Phone Number: "+val.phonenum + "</tr>";
-//                            output += "<tr>" + "User Since: "+val.user_from + "</tr>";
-////                          output += "<tr>" + "Amount Received: "+val.amount + "</tr>";
-                            output += '<hr width="15%" align="left">'
+                            output += "<td>" + " "+val.firstname + "</td><br/>";
+                            output += "<td>" + " "+val.lastname + "</td><br/>";
+                            output += "<td>" + "  "+val.email + "</td><br/>";
+                            output += "<td>" + " "+val.phonenum + "</td><br/>";
+//                            output += "<tr>" + " "+val.user_from + "</tr>";
+////                          output += "<tr>" + " "+val.amount + "</tr>";
+                            output += '<hr width="15%" align="left"><br>'
                         });
-                        $("#input").html(output);
+                        $(".output").html(output);
                     }
                 });
             });
@@ -435,5 +385,6 @@
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();
         }
+
     </script>
 @endsection

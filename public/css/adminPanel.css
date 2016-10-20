@@ -156,13 +156,11 @@ label, input, h3{
     font-size: 18px;
 }
 /* set element styles to fit tablet and higher(desktop) */
-@media screen and (max-width: 800px) {
-    #content {
-        margin-top: 20%;
-    }
-}
 @media screen and (min-width: 600px) {
-       .header {
+    #content{
+        margin-top:5%;
+    }
+    .header {
         background-color: #35475e;
         z-index: 1;
     }
