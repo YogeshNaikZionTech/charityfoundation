@@ -5,64 +5,94 @@
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-    <div class="main content" id="content">
+    <div class="main container-fluid" id="content">
         <div class="h">
             <h2>Projects</h2>
             @if(Auth::check()&& Auth::user()->isAdmin)
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
-                <div id="createEvent" class="modal fade" role="dialog">
-                    <div class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Add New Project</h4>
-                            </div>
-                            <form class="form-group" action="{{url('/projects')}}" action="POST">
-                                <div class="modal-body">
-                                    <label>Project Name</label>
-                                    <input id="pname" type="text" class="form-control">
-                                    <!-- <label>Date</label>
-                                      <input type="date" class="form-control">
-                                    <label>Start Time</label>
-                                      <input type="time" class="form-control">
-                                       <label>End Time</label>
-                                      <input type="time" class="form-control">
-                                     --><label>Project Description</label>
-                                    <textarea id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input id="piamge" type="file" Name="pic" accept="image/*">
-                                </div>
-                                <div class="modal-footer">
-                                    <input type="submit" class="btn btn-success" data-dismiss="modal">
-                                </div>
-                            </form>
+            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
+            <div id="createEvent" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Add New Project</h4>
                         </div>
+                        <form class="form-group" action="{{url('/projects')}}" action="POST">
+                            <div class="modal-body">
+                                <label>Project Name</label>
+                                <input id="pname" type="text" class="form-control">
+                                <label>Project Description</label>
+                                <textarea id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
+                                <label>Upload an image</label>
+                                <input id="piamge" type="file" Name="pic" accept="image/*">
+                            </div>
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-success" data-dismiss="modal">
+                            </div>
+                        </form>
                     </div>
                 </div>
+            </div>
+            @endif
         </div>
-        @endif
-
         <hr>
-        <div class="row">
-            <div class="col-md-12">
-
-                <div class="container-fluid">
-                    <!-- <h2>Events</h2> -->
-
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Projects</a></li>
-                        <li><a data-toggle="tab" href="#completed">Completed Projects</a></li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="upcoming" class="tab-pane fade in active">
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName1"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
+        <div class="container-fluid">
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="active"><a data-toggle="tab" href="#current">Current Projects</a></li>
+                <li><a data-toggle="tab" href="#upcoming">Upcoming Projects</a></li>
+                <li><a data-toggle="tab" href="#completed">Completed Projects</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="current" class="tab-pane fade in active">
+                  <div class="row">
+    <div class="col-md-3">
+        <div class="thumbnail">
+            <div class="image">
+                <img src="{{URL::asset('/images/background.jpg')}}" class="img-responsive">
+                <a href=""><div class="title">Project Name</div></a>
+                   <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
+        </div>
+        </div>
+    </div>
+     <div class="col-md-3">
+        <div class="thumbnail">
+                <div class="image">
+                    <img src="{{URL::asset('/images/education1.jpg')}}" class="img-responsive">
+                      <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
+                    <a href=""><div class="title">Project Name</div></a>
+                </div>
+        </div>
+    </div>
+     <div class="col-md-3">
+        <div class="thumbnail">
+                <div class="image">
+                    <img src="{{URL::asset('/images/slide-2.jpg')}}" class="img-responsive">
+                    <a href=""><div class="title">Project Name</div> </a>
+                    <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
+                </div>
+        </div>
+    </div>
+     <div class="col-md-3">
+        <div class="thumbnail">
+                <div class="image">
+                    <img src="{{URL::asset('/images/slider4.jpg')}}" class="img-responsive">
+                     <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
+                    <a href=""><div class="title">Project Name</div></a>
+                </div>
+        </div>
+    </div>
+    
+</div>  
+                </div>
+                <div id="upcoming" class="tab-pane fade">
+                    <div class="col-md-3">
+                        <div class="thumbnail">
+                            <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
+                            <div class="caption">
+                                <a href="#desc" class="eName1"><h3>Project Name</h3></a>
+                                <p>Short summary of project description.</p>
+                                <p>
                                             <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
                                             <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 1" role="button">Donate</a>
                                         </p>
@@ -234,9 +264,7 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
+                </div>
 
 @endsection
 
