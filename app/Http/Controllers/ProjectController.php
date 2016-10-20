@@ -116,6 +116,46 @@ class ProjectController extends Controller
 
     }
 
+
+    /**
+     * @param  $request
+     * pagination for current events
+     */
+
+    public function paginateCurrentProjects(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $current_list = Project::where("project_Status","=","current")->take($perpage)->skip($start)->get();
+        Log::info('Requesting for pagination for current projects:'. $current_list);
+
+
+        echo json_encode($current_list);
+
+    }
+
+    /**
+     * @param  $request
+     * pagination for current events
+     */
+    public function paginateUpcomingProjects(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $upcoming_list = Event::where("project_Status","=","future")->take($perpage)->skip($start)->get();
+        Log::info('Requesting for pagination for upcoming projects '.$upcoming_list);
+
+
+        echo json_encode($upcoming_list);
+
+    }
+
+
+
     public function getProjectCount(){
         $project_total = Project::all()->count(); ;
         $project_future = Project::Where('project_Status','=','future')->count();

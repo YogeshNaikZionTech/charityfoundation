@@ -60,6 +60,9 @@ class AdminController extends Controller
             echo json_encode($user_list);
 
 
+        }else{
+
+            echo 'You are not authorized, please login';
         }
 
     }
