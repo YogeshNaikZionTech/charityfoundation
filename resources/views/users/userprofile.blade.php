@@ -15,7 +15,7 @@
         <h1 class="page-header" style="color: #d9534f;">Edit Profile</h1>
         <div class="row">
             <!-- Profile Image -->
-            <form enctype="multipart/form-data" class="form-horizontal userForm" action="{{url('/userprofile')}}" method="POST">
+            <form  enctype="multipart/form-data"  class="form-horizontal userForm" action="{{url('/userprofile')}}" method="POST">
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
@@ -32,8 +32,6 @@
                 <div class="col-md-8 col-sm-6 col-xs-12 personal-info">
 
                     <h2>Personal info</h2>
-
-
                     <div class="form-group">
                         <label for="username" class="col-lg-3 control-label">Name:</label>
                         <div class="col-lg-8">
@@ -98,7 +96,7 @@
                     <div class="form-group">
                         <label class="col-md-3 control-label"></label>
                         <div class="col-md-8">
-                            <input type="hidden" name="_token" value="{{csrf_token()}}">
+
                             <input class="btn btn-success" value="Save Changes" type="submit" >
                             <span></span>
                             <input class="btn btn-danger" value="Cancel" type="reset">

@@ -7,8 +7,6 @@
     <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 @endsection
 @section('content')
-
-
     <div id="content">
 
         <div id="myCarousel" class="carousel slide" data-ride="carousel" >
@@ -22,13 +20,13 @@
                 <div class="item active ">
                     <img class="first-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="First slide">
                     <div class="container">
-                        <div class="carousel-caption first" style="position: absolute">
+                        <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" style="position: absolute">
                             <h1>CAUSE1: Education benefit society</h1>
                             <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
 
                         </div>
-                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-10 pull-right" >
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-6 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
                             <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10" >
                                 <p>Total Number of Donors</p>
@@ -44,12 +42,12 @@
                 <div class="item">
                     <img class="second-slide img-responsive" src="{{URL::asset('/images/slider6.jpg')}}" alt="Second slide">
                     <div class="container">
-                        <div class="carousel-caption second col-md-4  col-lg-4 col-sm-4 col-xs-10" >
+                        <div class="carousel-caption second col-md-7 col-lg-7 col-sm-6 col-xs-6" >
                             <h1 >CAUSE2:Solar panels to Schools</h1>
                             <p>We make a LIVING by what we GET but we make a LIFE by what we GIVE</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
-                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-10 pull-right" >
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-6 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
                             <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10">
                                 <p>Founder take care of all the administrative cost</p>
@@ -63,7 +61,7 @@
                 <div class="item">
                     <img class="third-slide img-responsive" src="{{URL::asset('/images/education2.jpg')}}" alt="Third slide">
                     <div class="container">
-                        <div class="carousel-caption third">
+                        <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
                             <h1>CAUSE3:Digitize Classrooms</h1>
                             <p>We rise by "LIFTING OTHERS"</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
@@ -97,17 +95,15 @@
                 <p>Some description  about video ,Main theme of the video</p>
                 <a href="{{url('/education')}}" class="btn btn-lg">See more</a>
             </div>
-
         </div>
 
         <div class=" container-fluid header_projects" id="projects">
             <h1>Our Projects</h1>
-            <div class="container-fluid div2">
+            <div class="container div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
 
                     @foreach($projects_c as $cproject)
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-
                             <div class="homeprojects" >
 
                                 <div class="head">{{$cproject->project_Status}}</div>
@@ -116,7 +112,7 @@
                                     {{--<div><h3>Project Name</h3></div>--}}
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                    <div><a href="{{url('projects')}}" class="btn btn-lg"  title={{$cproject->project_Title}} data-content={{$cproject->project_Description}}>See more </a></div>
+                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a href="{{url('projects')}}" class="btn btn-lg"  style="right:30%" title={{$cproject->project_Title}} data-content={{$cproject->project_Description}}>See more </a></div>
                             </div>
                         </div>
                     @endforeach
@@ -126,7 +122,7 @@
 
         <div class=" container-fluid header_Events" >
             <h1>Our Events </h1>
-            <div class="container-fluid div2">
+            <div class="container div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
                     {{--For ecah statement for the Events--}}
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
@@ -155,7 +151,7 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                        <div class="homeEvents">
+                        <div class="homeEvents ">
                             <div class="head">Current</div>
                             <div class="project_image image"><img src="{{URL::asset('/images/people.jpg')}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
@@ -228,7 +224,6 @@
                 $('html, body').animate({scrollTop : 0},1000);
                 return false;
             });
-
         });
         $(document).ready(function(){
             // Add smooth scrolling to all links
@@ -264,9 +259,7 @@
                     invalid:'glyphicon glyphicon-remove',
                     validating:'glyphicon glyphicon-refresh'
                 },
-
                 fields:{
-
                     suggestarea:{
                         validators:{
                             notEmpty:{
