@@ -13,7 +13,17 @@ class CreateUserdonationTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('User_Card', function (Blueprint $table) {
+            $table->increments('id');
+            $table ->integer('user_id');
+            $table->string('card_num');
+            $table->string('cvv_num');
+            $table->string('expiry_time');
+            $table->string('name_card');
+            $table->string('zip_code');
+            
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +33,6 @@ class CreateUserdonationTable extends Migration
      */
     public function down()
     {
-
+        Schema::dropIfExists('User_Card');
     }
 }
