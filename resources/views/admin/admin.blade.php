@@ -139,7 +139,7 @@
                 <div class="col-xs-6" >
                     <div class="wrapper">
                         <form name="search_form">
-                            <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                         <span class="underline"></span>
                         </form>
