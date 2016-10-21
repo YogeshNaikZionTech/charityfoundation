@@ -73,7 +73,7 @@ Route::get('events/lists/count', 'EventController@getEventCount');
 Route::get('events/status/current', 'EventController@getCurrentEvents');
 Route::get('events/status/future', 'EventController@getFutureEvents');
 Route::post('events/page/future', 'EventController@paginateUpcomingEvents'); //Get pagination for future events
-Route::post('events/page/current/{id}', 'EventController@paginateCurrentEvents'); //Get pagination for current events
+Route::post('events/page/current', 'EventController@paginateCurrentEvents'); //Get pagination for current events
 /**
  * json url project
  */
