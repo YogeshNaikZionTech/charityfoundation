@@ -16,7 +16,7 @@
         <div class="row">
             <!-- Profile Image -->
             <form enctype="multipart/form-data" id="userForm" class="form-horizontal" action="{{url('/userprofile')}}" method="POST">
->>>>>>> 091e8e3e7b512d8d7ec3cc821f98e7cb1c998fbc
+
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 

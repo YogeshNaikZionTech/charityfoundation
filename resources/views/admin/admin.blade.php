@@ -235,73 +235,85 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form class="form-group col-md-6"  action="{{url('')}}" method="POST">
-                                <div class="modal-body">
-                                    <label>Project Name</label>
-                                    <input type="text" class="form-control" style="height:28px;">
-                                    <label>Project Description</label>
-                                    <textarea placeholder="Description of the project" class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input type="file" Name="pic" accept="image/*">
-                                    <div class="btn">
-                                        <input type="submit" class="btn btn-success">
+                            <form id="createproject" class=" col-md-6" action="{{url('')}}" method="POST">
+                                <div class="form-group">
+                                    <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
+                                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Project Description</label>
+                                    <div class="col-md-8">
+                                    <textarea name="description" placeholder="Description of the project" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ppic" class="control-label col-md-3">Upload an image</label>
+                                    <div class="col-md-8">
+                                    <input id="ppic" type="file" Name="pic" accept="image/*">
+                                    </div>
+                                </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-success">
+                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    </div>
+
                             </form>
                         </div>
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
-                            <form class="form-group col-md-6" id="createvent" action="{{url('events')}}" method="post">
+                            <form class=" col-md-6" id="createvent" action="{{url('events')}}" method="post">
 
                                     <div class="form-group">
-                                    <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name</label>
+                                    <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
                                         <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" >
                                              <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                    <label for="Location" class="col-md-3 control-label">Venue</label>
+                                    <label for="Location" class="col-md-3 control-label">Venue :</label>
                                         <div class="col-md-8">
                                              <input id="Location" type="text"  name="Location" class="form-control" style="height:28px;" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="dateeve"  class="col-md-3 control-label">Date </label>
+                                    <label for="dateeve"  class="col-md-3 control-label">Date :</label>
                                         <div class="col-md-8">
                                          <input  id="dateeve" type="date" name="date"  class="form-control" style="height:28px;">
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="stime" class="col-md-3 control-label">Start Time</label>
+                                    <label for="stime" class="col-md-3 control-label">Start Time :</label>
                                          <div id="starttime" class="input-append col-md-8" >
-                                                <input id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                                <input class="col-md-11" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
                                                 <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                                          </div>
                                       </div>
 
                                     <div class="form-group">
-                                        <label for="etime" class="col-md-3 control-label">End Time</label>
+                                        <label for="etime" class="col-md-3 control-label">End Time :</label>
                                         <div id="endtime" class="input-append col-md-8" >
-                                            <input id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
+                                            <input class="col-md-11" id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
                                             <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                    <label for="description" class="col-md-3 control-label" >Event Description</label>
+                                    <label for="description" class="col-md-3 control-label" >Event Description :</label>
                                      <div class="col-md-8">
-                                    <textarea id="description" placeholder="Description of the event" class="form-control"></textarea>
+                                    <textarea id="description" name="description" placeholder="Description of the event" class="form-control"></textarea>
                                      </div>
                                     </div>
-                                <div class="form-group">
-                                    <label class="col-md-3">Upload an image</label>
+                                    <div class="form-group">
+                                    <label class="col-md-3">Upload an image:</label>
                                     <input type="file" name="pic"  accept="image/*">
                                 </div>
-                                    <div class="btn">
+                                    <div>
 
                                         <input type="submit" class="btn btn-success">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -483,10 +495,174 @@
             });
         });
     </script>
-       <script type="text/javascript"
+    <script type="text/javascript"
             src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
     </script>
-    <script type="text/javascript"
-            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#createvent')
+                    .on('init.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element,      // Get the field element
+                                bv     = data.fv;           // FormValidation instance
+
+                        // Create a span element to show valid message
+                        // and place it right before the field
+                        var $span = $('<small/>')
+                                .addClass('help-block validMessage')
+                                .attr('data-field', field)
+                                .insertAfter($field)
+                                .hide();
+
+                        // Retrieve the valid message via getOptions()
+                        var message = bv.getOptions(field).validMessage;
+                        if (message) {
+                            $span.html(message);
+                        }
+                    })
+                    .bootstrapValidator({
+                        framework: 'bootstrap',
+                        feedbackIcons:{
+
+                            valid:'glyphicon glyphicon-ok',
+                            invalid:'glyphicon glyphicon-remove',
+                            validating:'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            ename: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The Event name is required'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-z ]*$/,
+                                        message: 'The Event name can only consist of alphabets'
+                                    }
+                                }
+                            },
+                            Location: {
+                               validators: {
+                                    notEmpty: {
+                                        message: 'The Venue is required'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-z ]*$/,
+                                        message: 'This field can only consist of alphabets'
+                                    }
+                                }
+                            },
+                            description: {
+                                validators:{
+                                    notEmpty:{
+                                        message: 'Description about event is must'
+                                    },
+
+                                    stringLength:{
+                                        max: 1000,
+                                        message: 'description should be less than 1000 characters'
+                                    },
+
+                                    regexp:{
+                                        regexp: /^[A-Za-z0-9\s]+$/i,
+                                        message: 'Only alphanumeric characters.'
+                                    }
+                                }
+                            }
+
+                        }
+                    })
+                    .on('success.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').show();
+                    })
+                    .on('err.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').hide();
+                    });
+        });
+        $(document).ready(function() {
+            $('#createproject')
+                    .on('init.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element,      // Get the field element
+                                bv     = data.fv;           // FormValidation instance
+
+                        // Create a span element to show valid message
+                        // and place it right before the field
+                        var $span = $('<small/>')
+                                .addClass('help-block validMessage')
+                                .attr('data-field', field)
+                                .insertAfter($field)
+                                .hide();
+
+                        // Retrieve the valid message via getOptions()
+                        var message = bv.getOptions(field).validMessage;
+                        if (message) {
+                            $span.html(message);
+                        }
+                    })
+                    .bootstrapValidator({
+                        framework: 'bootstrap',
+                        feedbackIcons:{
+
+                            valid:'glyphicon glyphicon-ok',
+                            invalid:'glyphicon glyphicon-remove',
+                            validating:'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            pname: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The Project name is required'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-z ]*$/,
+                                        message: 'The Project name can only consist of alphabets'
+                                    }
+                                }
+                            },
+
+                            description: {
+                                validators:{
+                                    notEmpty:{
+                                        message: 'Description about Project is must'
+                                    },
+                                    stringLength:{
+                                        max: 1000,
+                                        message: 'description should be less than 1000 characters'
+                                    },
+
+                                    regexp:{
+                                        regexp: /^[A-Za-z0-9\s]+$/i,
+                                        message: 'Only alphanumeric characters.'
+                                    }
+                                }
+                            }
+
+                        }
+                    })
+                    .on('success.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').show();
+                    })
+                    .on('err.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').hide();
+                    });
+        });
     </script>
+
 @endsection
