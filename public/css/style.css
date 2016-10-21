@@ -67,11 +67,6 @@ h1{font-size:40px;}
 
 
 
-
-
-
-
-
 .carousel {
     height: 666px;
     border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
@@ -111,7 +106,6 @@ h1{font-size:40px;}
     text-align: left;
     top:30%;
     left:10%;
-
 }
     .donate_carousel{
         height:300px;

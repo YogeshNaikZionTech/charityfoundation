@@ -243,7 +243,7 @@
                                          <div id="starttime" class="input-append col-md-8" >
                                                 <input class="col-md-11" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
                                                 <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
                                          </div>
                                       </div>
 
