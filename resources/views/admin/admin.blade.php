@@ -457,7 +457,7 @@
         });
 
     </script>
-<<<<<<< HEAD
+
 
     <script type="text/javascript">
         $(function() {
