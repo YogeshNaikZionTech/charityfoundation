@@ -9,7 +9,8 @@
         "laravel/framework": "5.3.*",
         "laravelcollective/html":"5.3.*",
         "filp/whoops": "^2.1",
-        "intervention/image": "^2.3"
+        "intervention/image": "^2.3",
+        "ext-gd": "*"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

@@ -4,6 +4,8 @@
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 @endsection
 @section('content')
     <div id="content">
@@ -128,7 +130,7 @@
                 <div class="col-xs-6" >
                     <div class="wrapper">
                         <form name="search_form">
-                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text">
+                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="height:28px;">
                         <span class="underline"></span>
                         </form>
                     </div>
@@ -233,10 +235,10 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form class="form-group col-md-6" action="{{url('')}}" action="POST">
+                            <form class="form-group col-md-6"  action="{{url('')}}" method="POST">
                                 <div class="modal-body">
                                     <label>Project Name</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" style="height:28px;">
                                     <label>Project Description</label>
                                     <textarea placeholder="Description of the project" class="form-control"></textarea>
                                     <label>Upload an image</label>
@@ -249,26 +251,62 @@
                         </div>
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
-                            <form class="form-group col-md-6" action="{{url('events')}}" method="post">
-                                <div class="modal-body">
-                                    <label>Event Name</label>
-                                    <input type="text" name="ename" class="form-control">
-                                    <label>Venue</label>
-                                    <input type="text" name="Location" class="form-control">
-                                    <label>Date</label>
-                                    <input type="date" class="form-control">
-                                    <label>Start Time</label>
-                                    <input type="time" class="form-control">
-                                    <label>End Time</label>
-                                    <input type="time" class="form-control">
-                                    <label>Event Description</label>
-                                    <textarea placeholder="Description of the event" class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input type="file" name="pic" accept="image/*">
-                                    <div class="btn">
-                                        <input type="submit" class="btn btn-success">
+                            <form class="form-group col-md-6" id="createvent" action="{{url('events')}}" method="post">
+
+                                    <div class="form-group">
+                                    <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name</label>
+                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" >
+                                             <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                    <label for="Location" class="col-md-3 control-label">Venue</label>
+                                        <div class="col-md-8">
+                                             <input id="Location" type="text"  name="Location" class="form-control" style="height:28px;" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="dateeve"  class="col-md-3 control-label">Date </label>
+                                        <div class="col-md-8">
+                                         <input  id="dateeve" type="date" name="date"  class="form-control" style="height:28px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="stime" class="col-md-3 control-label">Start Time</label>
+                                         <div id="starttime" class="input-append col-md-8" >
+                                                <input id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                                <span class="add-on" style=" height: 28px;">
+                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                                         </div>
+                                      </div>
+
+                                    <div class="form-group">
+                                        <label for="etime" class="col-md-3 control-label">End Time</label>
+                                        <div id="endtime" class="input-append col-md-8" >
+                                            <input id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
+                                            <span class="add-on" style=" height: 28px;">
+                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="description" class="col-md-3 control-label" >Event Description</label>
+                                     <div class="col-md-8">
+                                    <textarea id="description" placeholder="Description of the event" class="form-control"></textarea>
+                                     </div>
+                                    </div>
+                                <div class="form-group">
+                                    <label class="col-md-3">Upload an image</label>
+                                    <input type="file" name="pic"  accept="image/*">
                                 </div>
+                                    <div class="btn">
+
+                                        <input type="submit" class="btn btn-success">
+                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    </div>
+
                             </form>
                         </div>
 
@@ -328,7 +366,7 @@
                         <div class="btn">
                             <input type="submit" class="btn btn-primary">
                         </div>
-                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</button>
+                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</span></button>
                     </div>
                 </form>
             </div>
@@ -385,7 +423,7 @@
         jQuery(function($) {
             $('input:radio').change(function(){
                 var val = $('input:radio:checked').val();
-                $('#Select1').val(0)
+                $('#Select1').val(0);
                 $('.projrad, .eventrad').hide();
                 $('.' + val).show();
             });
@@ -430,9 +468,25 @@
 //            }).hide();
 //        });
     </script>
-    <script>
-        function FocusOnInput() {
-            document.forms['search_form'].elements['input'].focus();
-        }
+
+    <script type="text/javascript">
+        $(function() {
+            $('#starttime').datetimepicker({
+                pickDate: false ,
+                pick12HourFormat: true
+            });
+        });
+        $(function() {
+            $('#endtime').datetimepicker({
+                pickDate: false,
+            pick12HourFormat: true
+            });
+        });
+    </script>
+       <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
     </script>
 @endsection

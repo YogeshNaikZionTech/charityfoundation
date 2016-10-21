@@ -14,6 +14,6 @@ class Event extends Model
 
     public function  User(){
 
-        return $this->belongsToMany('App\User', 'Donate_Event')->withPivot('event_cents')->withTimestamps();
+        return $this->belongsToMany('App\User', 'Donate_Event')->withPivot('event_cents')->withPivot('receipt_num')->withTimestamps();
     }
 }

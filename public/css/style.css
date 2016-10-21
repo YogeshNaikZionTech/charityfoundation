@@ -53,6 +53,14 @@ h1{font-size:40px;}
         min-width: 100%;
         min-height: 140px;
     }
+    .donate_carousel{
+        height:300px;
+        margin-top: 14%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+        padding: 20px 10px;
+    }
 
 
 }
@@ -107,7 +115,7 @@ h1{font-size:40px;}
 }
     .donate_carousel{
         height:300px;
-        margin-top: 14%;
+        top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -156,7 +164,7 @@ h1{font-size:40px;}
         }
     .donate_carousel{
         height:300px;
-        margin-top: 14%;
+        top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -170,6 +178,14 @@ h1{font-size:40px;}
         /*z-index: 5;*/
         display: inline-block;
         margin-top: -10px;
+    }
+    .donate_carousel{
+        height:300px;
+        top: 50%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+        padding: 20px 10px;
     }
 }
 @media screen and (min-width: 768px) {
@@ -209,8 +225,9 @@ h1{font-size:40px;}
     position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
 }
 .donate_carousel{
+    position: relative;
     height:300px;
-    margin-top: 14%;
+    top: 14%;
     font-size: 16px;
     background: rgba(17, 0, 8, 0.46);
     border-radius: 20px;

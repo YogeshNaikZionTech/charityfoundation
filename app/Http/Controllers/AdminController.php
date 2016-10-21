@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\admin;
 
+use Illuminate\Support\Facades\Auth;
+
 class AdminController extends Controller
 {
     /**
@@ -22,13 +24,14 @@ class AdminController extends Controller
 
     /**
      *
-     * @param $search_var
+     * @param  \Illuminate\Http\Request  $request
      *
      * TOdo
      *      have to join with the donation table to ge the value(total donation)
      */
-    public function  searchUser($search_var){
+    public function  searchUser(Request $request){
 
+        $search_var = $request->input('search_var');
         $user_list = User::all();
         $user_count = User::all()->count();
         Log::info($user_count);
@@ -49,5 +52,31 @@ class AdminController extends Controller
         echo json_encode($user_response);
     }
 
+    public  function getAllUsers(){
+
+        if(Auth::check()&& Auth::user()->isAdmin){
+
+            $user_list = User::all()->get();
+            echo json_encode($user_list);
+
+
+        }
+
+    }
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
