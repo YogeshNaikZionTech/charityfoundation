@@ -649,4 +649,12 @@
         });
     </script>
 
+    <script>
+        function FocusOnInput() {
+            document.forms['search_form'].elements['input'].focus();
+        }
+
+    </script>
+
+
 @endsection
