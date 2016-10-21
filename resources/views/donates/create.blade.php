@@ -36,7 +36,7 @@
                 <form id="paymentform" action="{{url('/recipte')}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
-                    <input id="dtype" class="form-control" type="hidden"><!--Donate Type-->
+                    <input id="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
                     <div class="col-md-3 col-md-offset-1 middle">
                         <div class="payment1">
                             <div class="form-group">
