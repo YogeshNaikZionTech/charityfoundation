@@ -59,7 +59,7 @@
 
               <!-- Pagination -->
               <div class="row">
-              <div class="col-md-12">
+              <div class="col-md-12 page">
                     <ul class="pagination" id="upPages">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
            <!--          <li class="page-item">
@@ -86,7 +86,7 @@
                 </div>
                       <!-- Pagination -->
                <div class="row">
-                 <div class="col-md-12">
+                 <div class="col-md-12 page">
                       <ul class="pagination" id="comPages">
                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                     </ul>
@@ -199,7 +199,7 @@
         }
       });
 
-//Loading Completed Events only when Completed Tab is clicked
+//Loading Completed Events on load
 
 $.ajax({
         url: 'events/page/current/',
@@ -225,6 +225,7 @@ $.ajax({
 
         }
       });
+
 
       //Getting the content based on Page number for upcoming
 
@@ -267,7 +268,7 @@ $.ajax({
                     data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                      var output ="";
+                      var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                   var eDate = new Date(val.event_Date);
@@ -279,6 +280,7 @@ $.ajax({
 
                    output += "<div class='col-md-4'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
+                 output+= "</div>";
                   $('.completedContent').html(output);
                     }
                   });

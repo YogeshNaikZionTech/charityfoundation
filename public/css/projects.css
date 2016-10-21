@@ -1,20 +1,17 @@
 body{
-    margin: 0px;
- padding: 0px;
 	font-family: Constantia cursive;
 }
 
 .thumbnail{
-    /*border: solid black 1px;*/
+    padding: 0px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
 }
 hr{
     border-top: 1px solid #ddd;
 }
 .main{
-margin-top: 1%;
+margin-top: 7%;
     font-style: italic;
-
 }
 
 .main ul{
@@ -28,12 +25,19 @@ margin-top: 1%;
 .h h2{
     display: inline-block;
     margin-top: 0px;
+    color: black;
 }
-.thumbnail{
-    padding: 0px;
-    margin-bottom: 0px;
+.page ul{
+   display: flex;
+justify-content: center;
 }
 
+.pagination li:not(.active){
+cursor: pointer;
+}
+.noclick{
+    cursor: none;
+}
 .image{
     width: 100%;
     overflow: hidden;
@@ -90,6 +94,9 @@ display: none;
 .btn{
     padding: 0px;
 }
-.row{
-    margin-bottom: 50px;
-}    
+.title{
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
+}

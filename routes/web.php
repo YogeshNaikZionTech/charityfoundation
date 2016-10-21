@@ -87,6 +87,8 @@ Route::get('projects/status/future', 'ProjectController@getFutureProject');
 Route::get('projects/lists/count', 'ProjectController@getProjectCount');
 Route::get('projects/page/future/{id}', 'ProjectController@paginateUpcomingProjects'); //Get pagination for future Projects
 Route::get('projects/page/current/{id}', 'ProjectController@paginateCurrentProjects'); //Get pagination for current projects
+Route::get('projects/page/completed/{id}', 'ProjectController@paginateCompletedProjects'); //Get pagination for completed projects
+
 
 /**
  *

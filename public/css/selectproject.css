@@ -56,3 +56,10 @@ color: black;
     text-align: center;
     color: red;
 }
+.pagination li:not(.active){
+cursor: pointer;
+}
+.page ul{
+   display: flex;
+justify-content: center;
+}
