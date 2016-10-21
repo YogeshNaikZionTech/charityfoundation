@@ -126,6 +126,48 @@ class EventController extends Controller
 
     }
 
+    /**
+     * @param  $request
+     * pagination for upcomming events
+     */
+
+    public function paginateUpcomingEvents(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $upcoming_list = Event::where("event_Status","=","future")->take($perpage)->skip($start)->get();
+        Log::info($upcoming_list);
+
+
+        echo json_encode($upcoming_list);
+
+    }
+
+    /**
+     * @param  $request
+     * pagination for current events
+     */
+
+    public function paginateCurrentEvents(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $current_list = Event::where("event_Status","=","current")->take($perpage)->skip($start)->get();
+        Log::info($current_list);
+
+
+        echo json_encode($current_list);
+
+    }
+
+
+
+
+
     public function getEventCount(){
         $event_total = Event::all()->count(); ;
         $events_future = Event::Where('event_Status','=','future')->count();

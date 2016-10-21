@@ -29,7 +29,7 @@
                             <span>Donations</span>
                         </a>
                     </li>
-                    <li ONCLICK="FocusOnInput()">
+                    <li ONCLICK="FocusOnInput()" id="searchitem">
                         <a href="" data-target-id="users">
 
                             <span><i class="fa fa-search"></i></span>
@@ -61,6 +61,7 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Donation Type</th>
+                        <th>Date of Donation</th>
                         <th>Donation Amount</th>
                     </tr>
                     </thead>
@@ -70,6 +71,7 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Donated Project</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$25</td>
                     </tr>
                     <tr>
@@ -77,6 +79,7 @@
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>Donated Event</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$30</td>
                     </tr>
                     <tr>
@@ -84,6 +87,7 @@
                         <td>Larry</td>
                         <td>the Bird</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$20</td>
                     </tr>
                     <tr>
@@ -91,6 +95,7 @@
                         <td>John</td>
                         <td>Smith</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     <tr>
@@ -98,6 +103,7 @@
                         <td>Owen</td>
                         <td>Murphy</td>
                         <td>Donated Event</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$55</td>
                     </tr>
                     <tr>
@@ -105,6 +111,7 @@
                         <td>Ernesto</td>
                         <td>Gomez</td>
                         <td>Donated Project</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$15</td>
                     </tr>
                     <tr>
@@ -112,6 +119,7 @@
                         <td>David</td>
                         <td>Turner</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$50</td>
                     </tr>
                     <tr>
@@ -119,6 +127,7 @@
                         <td>Yasha</td>
                         <td>Karant</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     </tbody>
@@ -130,87 +139,31 @@
                 <div class="col-xs-6" >
                     <div class="wrapper">
                         <form name="search_form">
-                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="height:28px;">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text">
+
                         <span class="underline"></span>
                         </form>
                     </div>
                 </div>
                 <br/>
+
                 <table id="example" class="display table table-striped table-bordered table-hover table-success text-primary bg-info d-inline" id="usertable" align="center">
                     <thead class="thead-inverse">
                     <tr>
-                        <th>Full Name</th>
-                        <th>Phone Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email Address</th>
-                        <th>User Since</th>
-                        <th>Amount Received</th>
+                        <th>Phone Number</th>
+                        {{--<th>User Since</th>--}}
+                        {{--<th>Amount Received</th>--}}
                     </tr>
                     </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>(111)111-1111</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$150</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>(222)222-2222</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/02/25</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>(333)333-3333</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$140</td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Kelly</td>
-                        <td>(444)444-4444</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$200</td>
-                    </tr>
-                    <tr>
-                        <td>Airi Satou</td>
-                        <td>(555)555-5555</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$150</td>
-                    </tr>
-                    <tr>
-                        <td>Brielle Williamson</td>
-                        <td>(666)666-6666</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$70</td>
-                    </tr>
-                    <tr>
-                        <td>Herrod Chandler</td>
-                        <td>(777)777-7777</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$40</td>
-                    </tr>
-                    <tr>
-                        <td>Rhona Davidson</td>
-                        <td>(888)888-8888</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$120</td>
-                    </tr>
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>(999)999-9999</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$85</td>
-                    </tr>
+                    <tbody class="output">
+
+                    </tbody>
+
                 </table>
             </div>
             <div class="admin-content" id="create">
@@ -378,7 +331,6 @@
                         <div class="btn">
                             <input type="submit" class="btn btn-primary">
                         </div>
-                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</span></button>
                     </div>
                 </form>
             </div>
@@ -441,15 +393,49 @@
             });
         });
     </script>
+
+
     <script>
         $(document).ready(function(){
+            $.ajax(
+                    {
+                        url: "/admin/users/search",
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+
+                            var trHTML = '';
+
+                            $.each(data, function (i, item) {
+
+                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td></tr>';
+                            });
+
+                            $('#example').append(trHTML);
+
+                        },
+
+                        error: function (msg) {
+
+                            alert(msg.responseText);
+                        }
+                    });
+          $("#searchitem").click(function(){
+
 
 
             $("#input").keyup(function(){
+                $.ajaxSetup({
+                    headers:
+                    {
+                        'X-CSRF-Token': $('input[name="_token"]').val()
+                    }
+                });
+                var sval = $("#input").val();
                 $.ajax({
-                    url			: "http://localhost/admin/users/{#input.val}",
-                    type		: "GET",
-                    data		: "input="+$("#input").val(),
+                    url			: "/admin/users/search",
+                    type		: "POST",
+                    data		: {'search_var':sval},
                     datatype	: "json",
                     success		: function(response,status,request){
 
@@ -457,29 +443,21 @@
                         var output='';
                         response = JSON.parse(response);
                         $.each(response, function(key,val){
-                            output += "<tr>" + "Full Name: "+val.name + "</tr>";
-                            output += "<tr>" + "Phone Number: "+val.ph_no + "</tr>";
-                            output += "<tr>" + "Email Address: "+val.email + "</tr>";
-                            output += "<tr>" + "User Since: "+val.user_from + "</tr>";
-                            output += "<tr>" + "Amount Received: "+val.amount + "</tr>";
-                            output += '<hr width="15%" align="left">'
+                            output += "<td>" + " "+val.firstname + "</td>";
+                            output += "<td>" + " "+val.lastname + "</td>";
+                            output += "<td>" + "  "+val.email + "</td>";
+                            output += "<td>" + " "+val.phonenum + "</td>";
+                            output += '<hr width="15%" align="left"><br/>'
                         });
-                        $("#input").html(output);
+                        $(".output").html(output);
                     }
                 });
             });
+          });
         });
 
-//        var $rows = $('#example tr');
-//        $('#search').keyup(function() {
-//            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-//
-//            $rows.show().filter(function() {
-//                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-//                return !~text.indexOf(val);
-//            }).hide();
-//        });
     </script>
+<<<<<<< HEAD
 
     <script type="text/javascript">
         $(function() {
