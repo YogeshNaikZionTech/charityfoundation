@@ -66,11 +66,9 @@ Route::get('/home', 'HomeController@index');
  */
 
 Route::post('admin/users/search ', 'AdminController@searchUser');
-<<<<<<< HEAD
-Route::get('admin/users/search', 'AdminController@getAllUsers');
-=======
+
 Route::get('admin/users/search ', 'AdminController@getAllUsers');
->>>>>>> adminpanel_sk
+
 Route::get('events/lists/all', 'EventController@allEvents');
 Route::post('events/page/get/', 'EventController@paginateEvents');
 Route::get('events/lists/count', 'EventController@getEventCount');

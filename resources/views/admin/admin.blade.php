@@ -185,8 +185,9 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form class="form-group col-md-6" action="{{url('')}}" action="POST">
+                            <form class="form-group col-md-6" method="{{url('project/projectid')}}" action="PUT">
                                 <div class="modal-body">
+                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                                     <label>Project Name</label>
                                     <input type="text" class="form-control">
                                     <label>Project Description</label>
@@ -203,6 +204,7 @@
                             <h3>New Event Creation</h3>
                             <form class="form-group col-md-6" action="{{url('events')}}" method="post">
                                 <div class="modal-body">
+                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                                     <label>Event Name</label>
                                     <input type="text" name="ename" class="form-control">
                                     <label>Venue</label>
