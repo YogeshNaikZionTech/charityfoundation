@@ -3,6 +3,8 @@
 @section('title', '| Admin Panel')
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
@@ -138,7 +140,7 @@
                     <div class="wrapper">
                         <form name="search_form">
                             <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text">
+                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                         <span class="underline"></span>
                         </form>
                     </div>
@@ -277,9 +279,9 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="btn">
+                      
                             <input type="submit" class="btn btn-primary">
-                        </div>
+
                         <button class="btn btn-danger">Delete</button>
                     </div>
                 </form>
