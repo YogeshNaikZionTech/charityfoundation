@@ -157,6 +157,11 @@ input[type="text"]{ height: 28px;}
     font-size: 18px;
 }
 /* set element styles to fit tablet and higher(desktop) */
+@media screen and (max-width: 590px) {
+    #content{
+        margin-top: 20%;
+    }
+}
 @media screen and (min-width: 600px) {
     #content{
         margin-top:5%;
