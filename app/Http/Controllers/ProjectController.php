@@ -146,11 +146,24 @@ class ProjectController extends Controller
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
 
-        $upcoming_list = Event::where("project_Status","=","future")->take($perpage)->skip($start)->get();
+        $upcoming_list = Project::where("project_Status","=","future")->take($perpage)->skip($start)->get();
         Log::info('Requesting for pagination for upcoming projects '.$upcoming_list);
 
 
         echo json_encode($upcoming_list);
+
+    }
+     public function paginateCompletedProjects(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $current_list = Project::where("project_Status","=","completed")->take($perpage)->skip($start)->get();
+        Log::info('Requesting for pagination for completed projects:'. $current_list);
+
+
+        echo json_encode($current_list);
 
     }
 

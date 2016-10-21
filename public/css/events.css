@@ -26,6 +26,13 @@ hr{
     text-overflow: ellipsis;
  
 }
+.page ul{
+   display: flex;
+justify-content: center;
+}
+.pagination li:not(.active){
+cursor: pointer;
+}
 .main{
 margin-top: 77px;
 color: black;
