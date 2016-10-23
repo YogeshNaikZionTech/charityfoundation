@@ -5,7 +5,7 @@ footer{
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: black;
+    background-color: #004445;
 }
 footer span.copyright{
     line-height:40px;
@@ -27,7 +27,7 @@ ul.social-buttons{
 ul.social-buttons li a{
     text-align:center;
     display:block;
-    background-color:#222;
+    background-color: #004445;
     height:40px;
     width:40px;
     border-radius:100%;
@@ -40,7 +40,7 @@ ul.social-buttons li a{
     transition:all .3s;
 }
 ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
-    background-color:#fed136;
+    background-color:rgba(30, 112, 155, 0.52);
     text-align:center;
 }
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{
@@ -54,7 +54,7 @@ ol{
     list-style-type: none;
 }
 ol>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
-ol>li>a:hover{ color:cornflowerblue;  text-decoration: none;letter-spacing: 1px;}
+ol>li>a:hover{ color:black;  text-decoration: none;letter-spacing: 1px;}
 
-.footerpara{font-size:18px;}
+.footerpara{font-size:18px; color: white}
 

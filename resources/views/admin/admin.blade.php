@@ -3,7 +3,11 @@
 @section('title', '| Admin Panel')
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 @endsection
 @section('content')
     <div id="content">
@@ -27,7 +31,7 @@
                             <span>Donations</span>
                         </a>
                     </li>
-                    <li ONCLICK="FocusOnInput()">
+                    <li ONCLICK="FocusOnInput()" id="searchitem">
                         <a href="" data-target-id="users">
 
                             <span><i class="fa fa-search"></i></span>
@@ -59,6 +63,7 @@
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Donation Type</th>
+                        <th>Date of Donation</th>
                         <th>Donation Amount</th>
                     </tr>
                     </thead>
@@ -68,6 +73,7 @@
                         <td>Mark</td>
                         <td>Otto</td>
                         <td>Donated Project</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$25</td>
                     </tr>
                     <tr>
@@ -75,6 +81,7 @@
                         <td>Jacob</td>
                         <td>Thornton</td>
                         <td>Donated Event</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$30</td>
                     </tr>
                     <tr>
@@ -82,6 +89,7 @@
                         <td>Larry</td>
                         <td>the Bird</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$20</td>
                     </tr>
                     <tr>
@@ -89,6 +97,7 @@
                         <td>John</td>
                         <td>Smith</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     <tr>
@@ -96,6 +105,7 @@
                         <td>Owen</td>
                         <td>Murphy</td>
                         <td>Donated Event</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$55</td>
                     </tr>
                     <tr>
@@ -103,6 +113,7 @@
                         <td>Ernesto</td>
                         <td>Gomez</td>
                         <td>Donated Project</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$15</td>
                     </tr>
                     <tr>
@@ -110,6 +121,7 @@
                         <td>David</td>
                         <td>Turner</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$50</td>
                     </tr>
                     <tr>
@@ -117,6 +129,7 @@
                         <td>Yasha</td>
                         <td>Karant</td>
                         <td>Direct Donation</td>
+                        <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     </tbody>
@@ -128,87 +141,31 @@
                 <div class="col-xs-6" >
                     <div class="wrapper">
                         <form name="search_form">
-                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text">
+
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                         <span class="underline"></span>
                         </form>
                     </div>
                 </div>
                 <br/>
+
                 <table id="example" class="display table table-striped table-bordered table-hover table-success text-primary bg-info d-inline" id="usertable" align="center">
                     <thead class="thead-inverse">
                     <tr>
-                        <th>Full Name</th>
-                        <th>Phone Number</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
                         <th>Email Address</th>
-                        <th>User Since</th>
-                        <th>Amount Received</th>
+                        <th>Phone Number</th>
+                        {{--<th>User Since</th>--}}
+                        {{--<th>Amount Received</th>--}}
                     </tr>
                     </thead>
 
-                    <tbody>
-                    <tr>
-                        <td>Tiger Nixon</td>
-                        <td>(111)111-1111</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$150</td>
-                    </tr>
-                    <tr>
-                        <td>Garrett Winters</td>
-                        <td>(222)222-2222</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/02/25</td>
-                        <td>$100</td>
-                    </tr>
-                    <tr>
-                        <td>Ashton Cox</td>
-                        <td>(333)333-3333</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$140</td>
-                    </tr>
-                    <tr>
-                        <td>Cedric Kelly</td>
-                        <td>(444)444-4444</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$200</td>
-                    </tr>
-                    <tr>
-                        <td>Airi Satou</td>
-                        <td>(555)555-5555</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$150</td>
-                    </tr>
-                    <tr>
-                        <td>Brielle Williamson</td>
-                        <td>(666)666-6666</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$70</td>
-                    </tr>
-                    <tr>
-                        <td>Herrod Chandler</td>
-                        <td>(777)777-7777</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$40</td>
-                    </tr>
-                    <tr>
-                        <td>Rhona Davidson</td>
-                        <td>(888)888-8888</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$120</td>
-                    </tr>
-                    <tr>
-                        <td>Colleen Hurst</td>
-                        <td>(999)999-9999</td>
-                        <td>Example@domain.com</td>
-                        <td>2016/04/25</td>
-                        <td>$85</td>
-                    </tr>
+                    <tbody class="output">
+
+                    </tbody>
+
                 </table>
             </div>
             <div class="admin-content" id="create">
@@ -233,42 +190,92 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form class="form-group col-md-6" action="{{url('')}}" action="POST">
-                                <div class="modal-body">
-                                    <label>Project Name</label>
-                                    <input type="text" class="form-control">
-                                    <label>Project Description</label>
-                                    <textarea placeholder="Description of the project" class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input type="file" Name="pic" accept="image/*">
-                                    <div class="btn">
-                                        <input type="submit" class="btn btn-success">
+
+                            <form id="createproject" class=" col-md-6" action="{{url('')}}" method="POST">
+                                <div class="form-group">
+                                    <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
+                                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-3">Project Description</label>
+                                    <div class="col-md-8">
+                                    <textarea name="description" placeholder="Description of the project" class="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="ppic" class="control-label col-md-3">Upload an image</label>
+                                    <div class="col-md-8">
+                                    <input id="ppic" type="file" Name="pic" accept="image/*">
+                                    </div>
+                                </div>
+                                    <div>
+                                        <input type="submit" class="btn btn-success">
+                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    </div>
+
                             </form>
                         </div>
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
-                            <form class="form-group col-md-6" action="{{url('events')}}" method="post">
-                                <div class="modal-body">
-                                    <label>Event Name</label>
-                                    <input type="text" name="ename" class="form-control">
-                                    <label>Venue</label>
-                                    <input type="text" name="Location" class="form-control">
-                                    <label>Date</label>
-                                    <input type="date" class="form-control">
-                                    <label>Start Time</label>
-                                    <input type="time" class="form-control">
-                                    <label>End Time</label>
-                                    <input type="time" class="form-control">
-                                    <label>Event Description</label>
-                                    <textarea placeholder="Description of the event" class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input type="file" name="pic" accept="image/*">
-                                    <div class="btn">
-                                        <input type="submit" class="btn btn-success">
+
+                            <form class=" col-md-6" id="createvent" action="{{url('events')}}" method="post">
+
+                                    <div class="form-group">
+                                    <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
+                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" >
+                                             <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
+                                        </div>
                                     </div>
+                                    <div class="form-group">
+                                    <label for="Location" class="col-md-3 control-label">Venue :</label>
+                                        <div class="col-md-8">
+                                             <input id="Location" type="text"  name="Location" class="form-control" style="height:28px;" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="dateeve"  class="col-md-3 control-label">Date :</label>
+                                        <div class="col-md-8">
+                                         <input  id="dateeve" type="date" name="date"  class="form-control" style="height:28px;">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="stime" class="col-md-3 control-label">Start Time :</label>
+                                         <div id="starttime" class="input-append col-md-8" >
+                                                <input class="col-md-11" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                                <span class="add-on" style=" height: 28px;">
+                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
+                                         </div>
+                                      </div>
+
+                                    <div class="form-group">
+                                        <label for="etime" class="col-md-3 control-label">End Time :</label>
+                                        <div id="endtime" class="input-append col-md-8" >
+                                            <input class="col-md-11" id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
+                                            <span class="add-on" style=" height: 28px;">
+                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                    <label for="description" class="col-md-3 control-label" >Event Description :</label>
+                                     <div class="col-md-8">
+                                    <textarea id="description" name="description" placeholder="Description of the event" class="form-control"></textarea>
+                                     </div>
+                                    </div>
+                                    <div class="form-group">
+                                    <label class="col-md-3">Upload an image:</label>
+                                    <input type="file" name="pic"  accept="image/*">
                                 </div>
+                                    <div>
+
+                                        <input type="submit" class="btn btn-success">
+                                        <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    </div>
+
                             </form>
                         </div>
 
@@ -325,10 +332,11 @@
                     </div>
 
                     <div class="form-group">
-                        <div class="btn">
+                      
                             <input type="submit" class="btn btn-primary">
-                        </div>
-                        <button class="btn btn-danger"><span class="fa fa-trash-o"> Program</button>
+
+                        <button class="btn btn-danger">Delete</button>
+
                     </div>
                 </form>
             </div>
@@ -385,21 +393,55 @@
         jQuery(function($) {
             $('input:radio').change(function(){
                 var val = $('input:radio:checked').val();
-                $('#Select1').val(0)
+                $('#Select1').val(0);
                 $('.projrad, .eventrad').hide();
                 $('.' + val).show();
             });
         });
     </script>
+
+
     <script>
         $(document).ready(function(){
+            $.ajax(
+                    {
+                        url: "/admin/users/search",
+                        type: "GET",
+                        dataType: "json",
+                        success: function (data) {
+
+                            var trHTML = '';
+
+                            $.each(data, function (i, item) {
+
+                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td></tr>';
+                            });
+
+                            $('#example').append(trHTML);
+
+                        },
+
+                        error: function (msg) {
+
+                            alert(msg.responseText);
+                        }
+                    });
+          $("#searchitem").click(function(){
+
 
 
             $("#input").keyup(function(){
+                $.ajaxSetup({
+                    headers:
+                    {
+                        'X-CSRF-Token': $('input[name="_token"]').val()
+                    }
+                });
+                var sval = $("#input").val();
                 $.ajax({
-                    url			: "http://localhost/admin/users/{#input.val}",
-                    type		: "GET",
-                    data		: "input="+$("#input").val(),
+                    url			: "/admin/users/search",
+                    type		: "POST",
+                    data		: {'search_var':sval},
                     datatype	: "json",
                     success		: function(response,status,request){
 
@@ -407,32 +449,212 @@
                         var output='';
                         response = JSON.parse(response);
                         $.each(response, function(key,val){
-                            output += "<tr>" + "Full Name: "+val.name + "</tr>";
-                            output += "<tr>" + "Phone Number: "+val.ph_no + "</tr>";
-                            output += "<tr>" + "Email Address: "+val.email + "</tr>";
-                            output += "<tr>" + "User Since: "+val.user_from + "</tr>";
-                            output += "<tr>" + "Amount Received: "+val.amount + "</tr>";
-                            output += '<hr width="15%" align="left">'
+                            output += "<td>" + " "+val.firstname + "</td>";
+                            output += "<td>" + " "+val.lastname + "</td>";
+                            output += "<td>" + "  "+val.email + "</td>";
+                            output += "<td>" + " "+val.phonenum + "</td>";
+                            output += '<hr width="15%" align="left"><br/>'
                         });
-                        $("#input").html(output);
+                        $(".output").html(output);
                     }
                 });
             });
+          });
         });
 
-//        var $rows = $('#example tr');
-//        $('#search').keyup(function() {
-//            var val = $.trim($(this).val()).replace(/ +/g, ' ').toLowerCase();
-//
-//            $rows.show().filter(function() {
-//                var text = $(this).text().replace(/\s+/g, ' ').toLowerCase();
-//                return !~text.indexOf(val);
-//            }).hide();
-//        });
     </script>
+
+
+    <script type="text/javascript">
+        $(function() {
+            $('#starttime').datetimepicker({
+                pickDate: false ,
+                pick12HourFormat: true
+            });
+        });
+        $(function() {
+            $('#endtime').datetimepicker({
+                pickDate: false,
+            pick12HourFormat: true
+            });
+        });
+    </script>
+    <script type="text/javascript"
+            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#createvent')
+                    .on('init.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element,      // Get the field element
+                                bv     = data.fv;           // FormValidation instance
+
+                        // Create a span element to show valid message
+                        // and place it right before the field
+                        var $span = $('<small/>')
+                                .addClass('help-block validMessage')
+                                .attr('data-field', field)
+                                .insertAfter($field)
+                                .hide();
+
+                        // Retrieve the valid message via getOptions()
+                        var message = bv.getOptions(field).validMessage;
+                        if (message) {
+                            $span.html(message);
+                        }
+                    })
+                    .bootstrapValidator({
+                        framework: 'bootstrap',
+                        feedbackIcons:{
+
+                            valid:'glyphicon glyphicon-ok',
+                            invalid:'glyphicon glyphicon-remove',
+                            validating:'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            ename: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The Event name is required'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-z ]*$/,
+                                        message: 'The Event name can only consist of alphabets'
+                                    }
+                                }
+                            },
+                            Location: {
+                               validators: {
+                                    notEmpty: {
+                                        message: 'The Venue is required'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-z ]*$/,
+                                        message: 'This field can only consist of alphabets'
+                                    }
+                                }
+                            },
+                            description: {
+                                validators:{
+                                    notEmpty:{
+                                        message: 'Description about event is must'
+                                    },
+
+                                    stringLength:{
+                                        max: 1000,
+                                        message: 'description should be less than 1000 characters'
+                                    },
+
+                                    regexp:{
+                                        regexp: /^[A-Za-z0-9\s]+$/i,
+                                        message: 'Only alphanumeric characters.'
+                                    }
+                                }
+                            }
+
+                        }
+                    })
+                    .on('success.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').show();
+                    })
+                    .on('err.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').hide();
+                    });
+        });
+        $(document).ready(function() {
+            $('#createproject')
+                    .on('init.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element,      // Get the field element
+                                bv     = data.fv;           // FormValidation instance
+
+                        // Create a span element to show valid message
+                        // and place it right before the field
+                        var $span = $('<small/>')
+                                .addClass('help-block validMessage')
+                                .attr('data-field', field)
+                                .insertAfter($field)
+                                .hide();
+
+                        // Retrieve the valid message via getOptions()
+                        var message = bv.getOptions(field).validMessage;
+                        if (message) {
+                            $span.html(message);
+                        }
+                    })
+                    .bootstrapValidator({
+                        framework: 'bootstrap',
+                        feedbackIcons:{
+
+                            valid:'glyphicon glyphicon-ok',
+                            invalid:'glyphicon glyphicon-remove',
+                            validating:'glyphicon glyphicon-refresh'
+                        },
+                        fields: {
+                            pname: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The Project name is required'
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-z ]*$/,
+                                        message: 'The Project name can only consist of alphabets'
+                                    }
+                                }
+                            },
+
+                            description: {
+                                validators:{
+                                    notEmpty:{
+                                        message: 'Description about Project is must'
+                                    },
+                                    stringLength:{
+                                        max: 1000,
+                                        message: 'description should be less than 1000 characters'
+                                    },
+
+                                    regexp:{
+                                        regexp: /^[A-Za-z0-9\s]+$/i,
+                                        message: 'Only alphanumeric characters.'
+                                    }
+                                }
+                            }
+
+                        }
+                    })
+                    .on('success.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').show();
+                    })
+                    .on('err.field.fv', function(e, data) {
+                        var field  = data.field,        // Get the field name
+                                $field = data.element;      // Get the field element
+
+                        // Show the valid message element
+                        $field.next('.validMessage[data-field="' + field + '"]').hide();
+                    });
+        });
+    </script>
+
     <script>
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();
         }
+
     </script>
+
+
 @endsection

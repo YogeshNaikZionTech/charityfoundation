@@ -32,6 +32,7 @@ class AdminController extends Controller
     public function  searchUser(Request $request){
 
         $search_var = $request->input('search_var');
+        Log:info('data:'.$search_var);
         $user_list = User::all();
         $user_count = User::all()->count();
         Log::info($user_count);
