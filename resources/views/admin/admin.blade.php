@@ -55,7 +55,7 @@
         </div>
         <div class="main-content">
             <div class="admin-content" id="history">
-                <h3>Donation History<button class="btn btn-warning btn-md export">Export All</button></h3>
+                <h3>Donation History<a class="btn btn-warning btn-md export"  href="/admin/export/users">Export All</a></h3>
                 <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
