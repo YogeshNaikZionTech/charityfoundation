@@ -70,7 +70,18 @@ class Donate extends Controller
     public function store(Request $request)
     {
         $this->validate($request, array(
-           ''
+           'other-amt' => 'required|min:1|max:255',
+            'creditCardNumber'=> 'required|max:20',
+            'NameOnCard'=>'required|max:35',
+            'ExpiryData'=>'required',
+            'ZipCode'=>'required',
+            'dtype'=>'required',
+            'proevent'=>'required',
+            'pname'=>'required',
+            'name'=>'required',
+            'Email'=>'required|email',
+            'phone'=>'required|max:15',
+
         ));
     }
 
@@ -105,7 +116,7 @@ class Donate extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
     }
 
     /**

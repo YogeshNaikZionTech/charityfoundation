@@ -41,29 +41,43 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
-        Log::info($request);
-        $event_Title       =  $request->input('ename');
-        $event_Description =  $request->input('edescription');
-        $event_location    =  $request->input('location');
-        $event_Date        =  Carbon::now()->format( 'Y-m-d H:i:s' );
-        $event_StartTime   =  $request->input('stime');
-        $event_EndTime      = $request->input('etime');
-        $filename        = 'default.png';
-        if ( $request->hasFile('eimage') ) {
+        Log::info('Request that recevied' . $request);
+        $event_Title = $request->input('ename');
+        $event_Description = $request->input('edescription');
+        $event_location = $request->input('location');
+        $event_Date = $request->input('edate');
+
+        $start_time =   $event_Date.' '.$request->input('stime');
+        $end_time = $event_Date.' '.$request->input('etime');
+
+        $filename = 'default.png';
+        if ($request->hasFile('eimage')) {
             $event_image = $request->file('eimage');
             $filename = time() . '.' . $event_image->getClientOriginalExtension();
             Image::make($event_image)->resize(300, 300)->save(public_path('/events/' . $filename));
         }
-        $event = new Event();
-        $event->event_Title       = $event_Title;
-        $event->event_Description = $event_Description;
-        $event->event_location    = $event_location;
-        $event->event_Date        = $event_Date;
-        $event->event_StartTime   = $event_StartTime;
-        $event->event_EndTime     = $event_EndTime;
-        $event->event_Image        = $filename;
-        $event->save();
-        return view('welcome');
+            Log::info('Request that saving' . $start_time . $end_time);
+            $event = new Event();
+            $event->event_Title = $event_Title;
+            $event->event_Description = $event_Description;
+            $event->event_location = $event_location;
+            $event->event_Date = $event_Date;
+            $event->event_StartTime = $start_time;
+            $event->event_EndTime = $end_time;
+            $event->event_Image = $filename;
+        if($event_Date = date("Y,m,d")){
+
+            $event->event_Status = 'current';
+
+        }elseif ($event_Date > date("Y,m,d")){
+
+            $event->event_Status = 'future';
+
+        }
+            $event->save();
+        \Session::flash( 'EventCreated', 'Event created' );
+            return view('/events/show');
+
 
     }
 

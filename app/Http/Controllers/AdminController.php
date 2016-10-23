@@ -14,7 +14,8 @@ class AdminController extends Controller
     /**
      * Show the content 
      *
-     * @param  int  $id
+     *
+     *
      * @return Response
      */
     public function index()
@@ -51,6 +52,7 @@ class AdminController extends Controller
         }
         echo json_encode($user_response);
     }
+
 
     public  function getAllUsers(){
 
