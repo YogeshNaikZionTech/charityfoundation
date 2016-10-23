@@ -6,7 +6,16 @@
 @endsection
 @section('content')
 
+
     <div class="main container-fluid" id="content">
+
+    <div class="main" id="content">
+        @if(Session::has('EventCreated'))
+            <div class="alert alert-success" role="alert">
+                <strong>{{\Session::get('EventCreated')}}</strong>
+            </div>
+        @endif
+
         <div class="h">
             <h2>Events</h2>
             @if(Auth::check()&& Auth::user()->isAdmin)
@@ -24,15 +33,15 @@
                                     <label>Event Name</label>
                                     <input type="text" name="ename" class="form-control">
                                     <label>Venue</label>
-                                    <input type="text" name="Location" class="form-control">
+                                    <input type="text" name="location" class="form-control">
                                     <label>Date</label>
-                                    <input type="date" class="form-control">
+                                    <input type="date" name="edate" class="form-control">
                                     <label>Start Time</label>
                                     <input type="time" name='stime' class="form-control">
                                     <label>End Time</label>
                                     <input type="time" name='etime' class="form-control">
                                     <label>Event Description</label>
-                                    <textarea placeholder="Description of the event" name='description' class="form-control"></textarea>
+                                    <textarea name="edescription" placeholder="Description of the event" name='description' class="form-control"></textarea>
                                     <label>Upload an image</label>
                                     <input type="file" name="eimage" accept="image/*">
                                 </div>
