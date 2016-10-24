@@ -8,35 +8,35 @@
     <div class="main container-fluid" id="content">
         <div class="h">
             <h2>Projects</h2>
-            @if(Auth::check()&& Auth::user()->isAdmin)
-            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Project</button>
+      
+        </div>
+        <hr>
+        <div class="descModal">
+            <!-- <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Project</button> -->
             <div id="createEvent" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
                         <div class="modal-header create">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Add New Project</h4>
+                            <h4 class="modal-title"></h4>
                         </div>
-                        <form class="form-group" action="{{url('/projects')}}" action="POST">
+                        <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
                             <div class="modal-body">
-                                <label>Project Name</label>
-                                <input id="pname" type="text" class="form-control">
-                                <label>Project Description</label>
-                                <textarea id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
-                                <label>Upload an image</label>
-                                <input id="piamge" type="file" Name="pic" accept="image/*">
+                                <p class="des"><p>
+                                <h2 style="color: green">Location: <span class="loc"></span> </h2>
+                                <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
+
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" data-dismiss="modal">
+                            <div class="modal-location"></div>
+                                <input type="button" class="btn btn-success" data-dismiss="modal" value="Donate Now">
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
-            @endif
         </div>
-        <hr>
         <div class="container-fluid">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a data-toggle="tab" href="#current">Current Projects</a></li>
@@ -133,7 +133,7 @@
       $.ajax({
       url : 'projects/lists/count',
       type: 'GET',
-      datatype: 'JSON',
+      // datatype: 'JSON',
       success: function(response){
           response = JSON.parse(response);
           var currentPages = Math.ceil(response.projects_Current/8);
@@ -298,11 +298,26 @@ $.ajax({
           }
         });
 
+            //Call to get the description details based on project id 
          $('body').on('click','.title', function(){
+           
+               
             var id = $(this).attr('name');
             $.ajax({
-            //Call to get the description details based on project id 
+                url: 'projects/'+id,
+                type: 'GET',
+                datatype: 'JSON',
+                success: function(response){
+                       response = JSON.parse(response);
+                  
+                    $('.modal-title').html(response.project_Title);
+                    $('.des').html(response.project_Description) ;
+                    $('.loc').html(response.project_Location);
+                    $('.std').html(response.project_Date);
+
+                }
             });
+            $('#createEvent').modal('show');
          });
  });
     </script>
