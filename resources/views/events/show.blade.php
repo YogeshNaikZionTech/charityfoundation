@@ -10,11 +10,11 @@
         <div class="h">
             <h2>Events</h2>
             @if(Auth::check()&& Auth::user()->isAdmin)
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create Event</button>
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Event</button>
                 <div id="createEvent" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
-                            <div class="modal-header">
+                            <div class="modal-header create">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                                 <h4 class="modal-title">Add New Event</h4>
                             </div>
