@@ -18,7 +18,7 @@ class projectTabelSeeder extends Seeder
 			    DB::table( 'project' )->insert( [
 
 				    'project_Title'       => 'Education for a region',
-				    'project_Description' => $Faker->paragraph(100),
+				    'project_Description' => $Faker->paragraph(15),
 				    'project_Date'        => \Carbon\Carbon::today(),
 				    'project_Location'     => 'barbodos',
 				    'project_StartTime'  => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
@@ -35,7 +35,7 @@ class projectTabelSeeder extends Seeder
 		    DB::table( 'project' )->insert( [
 
 			    'project_Title'       => $Faker->sentence,
-			    'project_Description' => $Faker->paragraph(100),
+			    'project_Description' => $Faker->paragraph(15),
 			    'project_Date'        => \Carbon\Carbon::today(),
 			     'project_Location'     => 'wyodin',
 			    'project_StartTime'  => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
@@ -51,7 +51,7 @@ class projectTabelSeeder extends Seeder
 		    DB::table( 'project' )->insert( [
 
 			    'project_Title'       => $Faker->sentence,
-			    'project_Description' => $Faker->paragraph(100),
+			    'project_Description' => $Faker->paragraph(15),
 			    'project_Date'        => \Carbon\Carbon::today(),
 			    'project_Location'     => 'uchin',
 			    'project_StartTime'  => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
