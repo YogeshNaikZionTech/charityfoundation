@@ -1382,3 +1382,83 @@ Stack trace:
 #30 {main}  
 [2016-10-24 06:34:54] local.INFO: {"id":2,"firstname":"hinata","lastname":"great","email":"hinate@great.com","avatar":"1474160631.jpg ","phonenum":"13466","street":"koni","aptNo":554,"state":"east","country":"leaf","zipcode":5451,"isAdmin":0,"created_at":null,"updated_at":null}  
 [2016-10-24 06:34:54] local.INFO: 2  
+[2016-10-24 06:50:07] local.INFO: data:  
+[2016-10-24 06:50:07] local.INFO: 12  
+[2016-10-24 06:50:07] local.INFO: [{"id":1,"firstname":"Kai","lastname":"great","email":"kai@great.com","avatar":"1473652512.png","phonenum":"1234566","street":"heaven","aptNo":888,"state":"other world","country":"universe","zipcode":9009,"isAdmin":1,"created_at":null,"updated_at":null},{"id":2,"firstname":"hinata","lastname":"great","email":"hinate@great.com","avatar":"1474160631.jpg ","phonenum":"13466","street":"koni","aptNo":554,"state":"east","country":"leaf","zipcode":5451,"isAdmin":0,"created_at":null,"updated_at":null},{"id":3,"firstname":"Shawn","lastname":"Stark","email":"ohahn@gibson.com","avatar":"default.png","phonenum":"276.791.0324","street":"animi","aptNo":201,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":4,"firstname":"Ned","lastname":"Mitchell","email":"chance65@hotmail.com","avatar":"default.png","phonenum":"(989) 321-2614","street":"enim","aptNo":3000,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":5,"firstname":"Susanna","lastname":"Kuhn","email":"lora.buckridge@yahoo.com","avatar":"default.png","phonenum":"368-239-7913 x95676","street":"iste","aptNo":8925,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":6,"firstname":"Garnett","lastname":"Lindgren","email":"delphine43@parisian.com","avatar":"default.png","phonenum":"(504) 414-0163 x05109","street":"quo","aptNo":5463,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":7,"firstname":"Jeff","lastname":"Tillman","email":"alba74@hotmail.com","avatar":"default.png","phonenum":"601-969-7466 x637","street":"libero","aptNo":4285,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":8,"firstname":"Lucious","lastname":"Bruen","email":"genoveva.baumbach@gmail.com","avatar":"default.png","phonenum":"(453) 997-0076","street":"quibusdam","aptNo":475,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":9,"firstname":"Thad","lastname":"Kutch","email":"harris.lynn@turner.com","avatar":"default.png","phonenum":"+1 (804) 827-1785","street":"dolore","aptNo":415,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":10,"firstname":"Trudie","lastname":"Bailey","email":"wiegand.terrill@gmail.com","avatar":"default.png","phonenum":"1-568-456-9718 x9507","street":"enim","aptNo":4634,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":11,"firstname":"Robbie","lastname":"Toy","email":"wolff.arvid@gmail.com","avatar":"default.png","phonenum":"+1.363.671.7125","street":"provident","aptNo":1136,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":12,"firstname":"Gunner","lastname":"Quitzon","email":"gkuvalis@carroll.com","avatar":"default.png","phonenum":"+1-651-398-8426","street":"qui","aptNo":5162,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null}]  
+[2016-10-24 06:50:07] local.INFO:   
+[2016-10-24 06:50:07] local.INFO: Kai  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: hinata  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Shawn  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Ned  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Susanna  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Garnett  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Jeff  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Lucious  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Thad  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Trudie  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Robbie  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Gunner  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: data:  
+[2016-10-24 06:50:07] local.INFO: 12  
+[2016-10-24 06:50:07] local.INFO: [{"id":1,"firstname":"Kai","lastname":"great","email":"kai@great.com","avatar":"1473652512.png","phonenum":"1234566","street":"heaven","aptNo":888,"state":"other world","country":"universe","zipcode":9009,"isAdmin":1,"created_at":null,"updated_at":null},{"id":2,"firstname":"hinata","lastname":"great","email":"hinate@great.com","avatar":"1474160631.jpg ","phonenum":"13466","street":"koni","aptNo":554,"state":"east","country":"leaf","zipcode":5451,"isAdmin":0,"created_at":null,"updated_at":null},{"id":3,"firstname":"Shawn","lastname":"Stark","email":"ohahn@gibson.com","avatar":"default.png","phonenum":"276.791.0324","street":"animi","aptNo":201,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":4,"firstname":"Ned","lastname":"Mitchell","email":"chance65@hotmail.com","avatar":"default.png","phonenum":"(989) 321-2614","street":"enim","aptNo":3000,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":5,"firstname":"Susanna","lastname":"Kuhn","email":"lora.buckridge@yahoo.com","avatar":"default.png","phonenum":"368-239-7913 x95676","street":"iste","aptNo":8925,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":6,"firstname":"Garnett","lastname":"Lindgren","email":"delphine43@parisian.com","avatar":"default.png","phonenum":"(504) 414-0163 x05109","street":"quo","aptNo":5463,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":7,"firstname":"Jeff","lastname":"Tillman","email":"alba74@hotmail.com","avatar":"default.png","phonenum":"601-969-7466 x637","street":"libero","aptNo":4285,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":8,"firstname":"Lucious","lastname":"Bruen","email":"genoveva.baumbach@gmail.com","avatar":"default.png","phonenum":"(453) 997-0076","street":"quibusdam","aptNo":475,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":9,"firstname":"Thad","lastname":"Kutch","email":"harris.lynn@turner.com","avatar":"default.png","phonenum":"+1 (804) 827-1785","street":"dolore","aptNo":415,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":10,"firstname":"Trudie","lastname":"Bailey","email":"wiegand.terrill@gmail.com","avatar":"default.png","phonenum":"1-568-456-9718 x9507","street":"enim","aptNo":4634,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":11,"firstname":"Robbie","lastname":"Toy","email":"wolff.arvid@gmail.com","avatar":"default.png","phonenum":"+1.363.671.7125","street":"provident","aptNo":1136,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null},{"id":12,"firstname":"Gunner","lastname":"Quitzon","email":"gkuvalis@carroll.com","avatar":"default.png","phonenum":"+1-651-398-8426","street":"qui","aptNo":5162,"state":"PH","country":"USA","zipcode":97654,"isAdmin":0,"created_at":null,"updated_at":null}]  
+[2016-10-24 06:50:07] local.INFO:   
+[2016-10-24 06:50:07] local.INFO: Kai  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: hinata  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Shawn  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Ned  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Susanna  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Garnett  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Jeff  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Lucious  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Thad  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Trudie  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Robbie  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
+[2016-10-24 06:50:07] local.INFO: Gunner  
+[2016-10-24 06:50:07] local.INFO: array (
+)  
