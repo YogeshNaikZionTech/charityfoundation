@@ -20,6 +20,7 @@ class CreateDonationEventTable extends Migration
             $table->integer('event_id')->unsigned();
             $table->foreign('event_id')->references('id')->on('users');
             $table->integer('event_cents');
+            $table->integer('user_card');
             $table->string('receipt_num');
             $table->timestamps();
     });
