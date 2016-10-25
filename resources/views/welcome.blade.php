@@ -100,7 +100,29 @@
             <h1>Our Projects</h1>
             <div class="container div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
+                    <div id="createEvent" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header create">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                            <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
+                                <div class="modal-body">
+                                    <p class="des"><p>
+                                    <h2 style="color: green">Location: <span class="loc"></span> </h2>
+                                    <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
 
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="modal-location"></div>
+                                    <input type="button" class="btn btn-success" data-dismiss="modal" value="Donate Now">
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
                     @foreach($projects_c as $cproject)
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                             <div class="homeprojects" >
@@ -111,7 +133,7 @@
                                     {{--<div><h3>Project Name</h3></div>--}}
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a href="{{url('projects')}}" class="btn btn-lg"  style="right:30%" title={{$cproject->project_Title}} data-content={{$cproject->project_Description}}>See more </a></div>
+                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a   class="btn btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
                             </div>
                         </div>
                     @endforeach
@@ -165,10 +187,7 @@
                 </div>
 
             </div>
-
             <div class=" pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
-
-
         </div>
 
         <div class="suggest_donors container-fluid">
@@ -289,6 +308,38 @@
                 step: function (now) {
                     $(this).text(Math.ceil(now));
                 }
+            });
+        });
+        $(document).ready(function(){
+
+            //Pop up for Event Description
+            $.ajaxSetup({
+                headers:
+                {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                }
+            });
+
+            //Call to get the description details based on project id
+            $('body').on('click','.seemore', function(){
+
+
+                var id = $(this).attr('name');
+                $.ajax({
+                    url: 'projects/'+id,
+                    type: 'GET',
+                    datatype: 'JSON',
+                    success: function(response){
+                        response = JSON.parse(response);
+
+                        $('.modal-title').html(response.project_Title);
+                        $('.des').html(response.project_Description) ;
+                        $('.loc').html(response.project_Location);
+                        $('.std').html(response.project_Date);
+
+                    }
+                });
+                $('#createEvent').modal('show');
             });
         });
 
