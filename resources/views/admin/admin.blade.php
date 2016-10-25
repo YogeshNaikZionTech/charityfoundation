@@ -141,7 +141,6 @@
                 <div class="col-xs-6" >
                     <div class="wrapper">
                         <form name="search_form">
-
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                         <span class="underline"></span>
@@ -150,7 +149,7 @@
                 </div>
                 <br/>
 
-                <table id="example" class="display table table-striped table-bordered table-hover table-success text-primary bg-info d-inline" id="usertable" align="center">
+                <table id="example" class="display table table-striped table-bordered table-hover table-success text-primary bg-info d-inline" align="center">
                     <thead class="thead-inverse">
                     <tr>
                         <th>First Name</th>
@@ -285,78 +284,150 @@
             </div>
             <div class="admin-content" id="update">
                 <h3>Update Projects/Events</h3>
-                <form class="form-group col-md-6">
-                    <div class="form-group">
-                    <fieldset id="Group1" name="Group1">
-                        <input id="Radio1" name="Radio1" type="radio" value="projrad" />Projects
-                        <input id="Radio1" name="Radio1" type="radio" value="eventrad" />Events
-
-                    </fieldset>
+                <div>
+                    <label class="radiosel">
+                        <input type="radio" name="program" value="projects" checked> Projects
+                        <input type="radio" name="program" value="events"> Events
+                    </label>
+                </div>
+                <div class="project program">
+                    <form class="form-group col-md-6">
+                        <div class="form-group">
+                            <fieldset id="Group2" name="Group2">
+                                <select id="Select1" name="Select1" class="form-control">
+                                    <option>Select</option>
+                                    <option value="projrad 1" class="projrad">Project 1</option>
+                                    <option value="projrad 2" class="projrad">Project 2</option>
+                                    <option value="projrad 3" class="projrad">Project 3</option>
+                                    <option value="projrad 4" class="projrad">Project 4</option>
+                                    <option value="projrad 5" class="projrad">Project 5</option>
+                                </select>
+                            </fieldset>
                         </div>
-                    <div class="form-group">
-                        <fieldset id="Group2" name="Group2">
 
-                            <select id="Select1" name="Select1" class="form-control">
-                                <option>Select</option>
-                                <option value="projrad 1" class="projrad">Project 1</option>
-                                <option value="projrad 2" class="projrad">Project 2</option>
-                                <option value="projrad 3" class="projrad">Project 3</option>
-                                <option value="projrad 4" class="projrad">Project 4</option>
-                                <option value="projrad 5" class="projrad">Project 5</option>
-                                <option value="eventrad 1" class="eventrad">Event 1</option>
-                                <option value="eventrad 2" class="eventrad">Event 2</option>
-                                <option value="eventrad 3" class="eventrad">Event 3</option>
-                                <option value="eventrad 4" class="eventrad">Event 4</option>
-                                <option value="eventrad 5" class="eventrad">Event 5</option>
+                        <div class="form-group">
+                            <input class="form-control" id="updatepname" name="updatepname" placeholder="Project Name" style="height:28px;" type="text">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="pdescription" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Project Status</option>
+                                <option>Active</option>
+                                <option>Completed</option>
+                                <option>Future</option>
                             </select>
-                        </fieldset>
-                    </div>
-
-                    <div class="form-group">
-                        <input class="form-control" id="updatename" name="updatename" placeholder="Project or Event Name" type="text">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" id="description" name="description" placeholder="Project or Event Description" type="text" rows="5"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option>Project Status</option>
-                            <option>Active</option>
-                            <option>Completed</option>
-                            <option>Future</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                        <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
-                    </div>
-
-                    <div class="form-group">
-                      
+                        </div>
+                        <div class="form-group">
+                            <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
+                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                        </div>
+                        <div class="form-group">
                             <input type="submit" class="btn btn-primary">
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="event program">
+                    <form class="form-group col-md-6">
+                        <div class="form-group">
+                            <fieldset id="Group2" name="Group2">
 
-                        <button class="btn btn-danger">Delete</button>
+                                <select id="Select1" name="Select1" class="form-control">
+                                    <option>Select</option>
+                                    <option value="eventrad 1" class="eventrad">Event 1</option>
+                                    <option value="eventrad 2" class="eventrad">Event 2</option>
+                                    <option value="eventrad 3" class="eventrad">Event 3</option>
+                                    <option value="eventrad 4" class="eventrad">Event 4</option>
+                                    <option value="eventrad 5" class="eventrad">Event 5</option>
+                                </select>
+                            </fieldset>
+                        </div>
 
-                    </div>
-                </form>
+                        <div class="form-group">
+                            <input class="form-control" id="updateename" name="updateename" placeholder="Event Name" type="text" style="height:28px;">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="edescription" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
+                        </div>
+                        <div class="form-group">
+                            <div class="form-control">
+                            <div class="datetimepicker1 input-append date">
+                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="Start Time">
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                            <div class="datetimepicker1 input-append date">
+                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="End Time">
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Event Status</option>
+                                <option>Active</option>
+                                <option>Completed</option>
+                                <option>Future</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
+                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary">
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
+
         </div>
 
-    </div>
+
 @endsection
 @section('scripts')
     <script>
         $(document).ready(function(){
-            var scroll_start = 5;
+            $(this).scrollTop(0);
+        });
+        $(document).ready(function(){
+            var scroll_start = 1;
             var startChange = $('.nav1');
             var offset = startChange.offset();
             $(document).scroll(function() {
-                scroll_start = $(this).scrollTop();
+                scroll_start = ($(this).scrollTop()>0);
                 if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
+                    $('.nav1').css('background-color', '#2c7873');
                 } else {
                     $('.nav1').css('background-color', 'transparent');
                 }
+            });
+//        });
+//        $(document).ready(function(){
+
+            //Check to see if the window is top if not then display button
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollToTop').fadeIn();
+                } else {
+                    $('.scrollToTop').fadeOut();
+                }
+            });
+            //Click event to scroll to top
+            $('.scrollToTop').click(function(){
+                $('html, body').animate({scrollTop : 0},1000);
+                return false;
             });
         });
     </script>
@@ -390,14 +461,21 @@
     });
     </script>
     <script>
-        jQuery(function($) {
-            $('input:radio').change(function(){
-                var val = $('input:radio:checked').val();
-                $('#Select1').val(0);
-                $('.projrad, .eventrad').hide();
-                $('.' + val).show();
-            });
+
+        $(document).ready(function(){
+            $(".event").hide();
+        $('input[type="radio"]').change(function(){
+            if($(this).attr("value")=="projects"){
+                $(".program").not(".project").hide();
+                $(".project").show();
+            }
+            if($(this).attr("value")=="events"){
+                $(".program").not(".event").hide();
+                $(".event").show();
+            }
         });
+
+    });
     </script>
 
 
@@ -653,7 +731,12 @@
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();
         }
+    </script>
 
+    <script type="text/javascript">
+        $(function () {
+            $('.datetimepicker1').datetimepicker();
+        });
     </script>
 
 

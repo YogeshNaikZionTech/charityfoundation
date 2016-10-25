@@ -282,3 +282,16 @@ input[type="text"]{ height: 28px;}
 .input:focus+.underline {
     transform: scale(1);
 }
+input[type="text"]{
+    height: 28px;
+}
+.datetimepicker1{
+    display:inline;
+    padding:2px;
+}
+.radiosel{
+    font-weight: bold;
+}
+.radiosel input{
+    color: #0A246A;
+}
