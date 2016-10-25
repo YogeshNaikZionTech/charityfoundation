@@ -20,7 +20,7 @@
                 <div class="item active ">
                     <img class="first-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="First slide">
                     <div class="container">
-                        <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" style="position: absolute">
+                        <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>CAUSE1: Education benefit society</h1>
                             <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
@@ -177,7 +177,7 @@
                         <input class="form-control name " name="username"  placeholder="Name :*" >  </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10">
                         <input class="form-control email  " name="email" type="email"  placeholder="Email :*"></div>
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-10">
                         <textarea class="form-control suggestarea" name="suggestarea"  placeholder="Suggestion :*"> </textarea></div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
                             <button class="btn col-lg-offset-12 btn-md">Shoot It !</button></div>
