@@ -203,8 +203,9 @@
             $(document).scroll(function() {
                 scroll_start = ($(this).scrollTop()>0);
                 if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', '#2c7873');
+                    $('.nav1').addClass('grad');
                 } else {
+                    $('.nav1').removeClass('grad');
                     $('.nav1').css('background-color', 'transparent');
                 }
             });
