@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(DonateEventSeeder::class);
         $this->call(DonateProjectSeeder::class);
 
+        $this->call(UserPaymentTable::class);
+        $this->call(UserCardseeder::class);
 
     }
 }

@@ -69,6 +69,7 @@ Route::post('admin/users/search ', 'AdminController@searchUser');
 
 
 Route::get('admin/users/search', 'AdminController@getAllUsers');
+Route::get('admin/export/users', 'AdminController@exportUsers');
 
 Route::get('events/lists/all', 'EventController@allEvents');
 Route::post('events/page/get/', 'EventController@paginateEvents');
@@ -77,6 +78,7 @@ Route::get('events/status/current', 'EventController@getCurrentEvents');
 Route::get('events/status/future', 'EventController@getFutureEvents');
 Route::post('events/page/future', 'EventController@paginateUpcomingEvents'); //Get pagination for future events
 Route::post('events/page/current', 'EventController@paginateCurrentEvents'); //Get pagination for current events
+Route::get('/events/get/titles', 'EventController@getAllETitles');
 /**
  * json url project
  */

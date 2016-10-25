@@ -8,35 +8,35 @@
     <div class="main container-fluid" id="content">
         <div class="h">
             <h2>Projects</h2>
-            @if(Auth::check()&& Auth::user()->isAdmin)
-            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ Create New Project</button>
+      
+        </div>
+        <hr>
+        <div class="descModal">
+            <!-- <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Project</button> -->
             <div id="createEvent" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header">
+                        <div class="modal-header create">
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Add New Project</h4>
+                            <h4 class="modal-title"></h4>
                         </div>
-                        <form class="form-group" action="{{url('/projects')}}" action="POST">
+                        <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
                             <div class="modal-body">
-                                <label>Project Name</label>
-                                <input id="pname" type="text" class="form-control">
-                                <label>Project Description</label>
-                                <textarea id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
-                                <label>Upload an image</label>
-                                <input id="piamge" type="file" Name="pic" accept="image/*">
+                                <p class="des"><p>
+                                <h2 style="color: green">Location: <span class="loc"></span> </h2>
+                                <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
+
                             </div>
                             <div class="modal-footer">
-                                <input type="submit" class="btn btn-success" data-dismiss="modal">
+                            <div class="modal-location"></div>
+                                <input type="button" class="btn btn-success" data-dismiss="modal" value="Donate Now">
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </div>
                 </div>
             </div>
-            @endif
         </div>
-        <hr>
         <div class="container-fluid">
             <ul class="nav nav-tabs" role="tablist">
                 <li class="active"><a data-toggle="tab" href="#current">Current Projects</a></li>
@@ -46,44 +46,6 @@
             <div class="tab-content">
                 <div id="current" class="tab-pane fade in active">
                 <div class="currentContent"> </div>
-               
-    <div class="col-md-3">
-        <div class="thumbnail">
-            <div class="image">
-                <img src="{{URL::asset('/images/background.jpg')}}" class="img-responsive">
-                <a href=""><div class="title">Project Name</div></a>
-                   <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
-        </div>
-        </div>
-    </div>
-     <div class="col-md-3">
-        <div class="thumbnail">
-                <div class="image">
-                    <img src="{{URL::asset('/images/education1.jpg')}}" class="img-responsive">
-                      <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
-                    <a href=""><div class="title">Project Name</div></a>
-                </div>
-        </div>
-    </div>
-     <div class="col-md-3">
-        <div class="thumbnail">
-                <div class="image">
-                    <img src="{{URL::asset('/images/slide-2.jpg')}}" class="img-responsive">
-                    <a href=""><div class="title">Project Name</div> </a>
-                    <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
-                </div>
-        </div>
-    </div>
-     <div class="col-md-3">
-        <div class="thumbnail">
-                <div class="image">
-                    <img src="{{URL::asset('/images/slider4.jpg')}}" class="img-responsive">
-                     <a href="{{url('/donates/create')}}"><button type="button" class="btn btn-warning">Donate Now</button></a>
-                    <a href=""><div class="title">Project Name</div></a>
-                </div>
-        </div>
-    </div>
-
    
       <!-- Pagination -->
                <div class="row">
@@ -98,61 +60,7 @@
 
                 <div id="future" class="tab-pane fade">
                 <div class="futureContent"></div>
-                    <div class="col-md-3">
-                        <div class="thumbnail">
-                            <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event1">
-                            <div class="caption">
-                                <a href="#desc" class="eName1"><h3>Project Name</h3></a>
-                                <p>Short summary of project description.</p>
-                                <p>
-                                            <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 1" role="button">Donate</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event2">
-                                    <div class="caption">
-                                        <a href="" class="eName2"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 2" role="button">Donate</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName3"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 3" role="button">Donate</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/upcoming.jpg')}}" alt="event3">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName4"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-
-                                            <a href="#" class="btn btn-default" role="button" style="visibility:hidden"></a>
-                                            <a href="{{url('/donates/create')}}" class="btn btn-primary pull-right donate" id="Project 4" role="button">Donate</a>
-
-
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                 
                          <!-- Pagination -->
                <div class="row">
                  <div class="col-md-12 page">
@@ -165,58 +73,7 @@
 
                         <div id="completed" class="tab-pane fade">
                         <div class="completedContent"></div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/event.jpg')}}" alt="event1">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName1"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
-                                            <a href="#desc" class="btn btn-primary pull-right" role="button" id="read1">Read More</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/event.jpg')}}" alt="event2">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName2"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
-                                            <a href="#desc" class="btn btn-primary pull-right" role="button" id="read2">Read More</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName3"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
-                                            <a href="#desc" class="btn btn-primary pull-right" role="button" id="read3">Read More</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="thumbnail">
-                                    <img src="{{URL::asset('/images/event.jpg')}}" alt="event3">
-                                    <div class="caption">
-                                        <a href="#desc" class="eName4"><h3>Project Name</h3></a>
-                                        <p>Short summary of project description.</p>
-                                        <p>
-                                            <a href="#" class="btn btn-primary" role="button" style="visibility:hidden"></a>
-                                            <a href="#desc" class="btn btn-primary pull-right" role="button" id="read4">Read More</a>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+               
                           <!-- Pagination -->
                <div class="row">
                  <div class="col-md-12 page">
@@ -240,8 +97,7 @@
     <script type="text/javascript">
         $(document).ready(function(){
 
-
-            $('.donate').on('click', function () {
+            $('body').on('click','.donate', function () {
                 sessionStorage.removeItem('event');
                 var projectValue = $(this).attr('id');
                 sessionStorage.setItem('project', projectValue);
@@ -277,7 +133,7 @@
       $.ajax({
       url : 'projects/lists/count',
       type: 'GET',
-      datatype: 'JSON',
+      // datatype: 'JSON',
       success: function(response){
           response = JSON.parse(response);
           var currentPages = Math.ceil(response.projects_Current/8);
@@ -302,12 +158,12 @@
         // data: {'id': 1},
         datatype: 'JSON',
         success: function (response) {
-            console.log(response);
+          
                       var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href=''><div class='title'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Donate Now</button></a> </div></div></div>";
+                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.currentContent').html(output);
@@ -328,7 +184,7 @@ $.ajax({
                  response = JSON.parse(response);
                     $.each(response, function (key,val) {
 
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href=''><div class='title'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
+                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
                  });
                  output+="</div>";
                   $('.futureContent').html(output);
@@ -349,7 +205,7 @@ $.ajax({
                  
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href=''><div class='title'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.completedContent').html(output);
@@ -367,12 +223,12 @@ $.ajax({
                     // data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                        console.log(response);
+                     
                       var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                   
-                  output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href=''><div class='title'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Donate Now</button></a> </div></div></div>";
+                  output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Donate Now</button></a> </div></div></div>";
                  });
                  output+= "</div>";
                   $('.currentContent').html(output);
@@ -391,12 +247,12 @@ $.ajax({
                     // data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                        console.log(response);
+                        
                       var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                   
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href=''><div class='title'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
+                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
                  });
                  output+= "</div>";
                   $('.futureContent').html(output);
@@ -415,12 +271,12 @@ $.ajax({
                     // data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                        console.log(response);
+                    
                       var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                   
-                output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href=''><div class='title'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+                output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
                  });
                  output+= "</div>";
                   $('.completedContent').html(output);
@@ -430,5 +286,39 @@ $.ajax({
                   $('#comPages').find("a[name="+id+"]").closest('li').addClass('active');
               });
     });
+    </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        //Pop up for Event Description
+         $.ajaxSetup({
+          headers:
+          {
+              'X-CSRF-Token': $('input[name="_token"]').val()
+          }
+        });
+
+            //Call to get the description details based on project id 
+         $('body').on('click','.title', function(){
+           
+               
+            var id = $(this).attr('name');
+            $.ajax({
+                url: 'projects/'+id,
+                type: 'GET',
+                datatype: 'JSON',
+                success: function(response){
+                       response = JSON.parse(response);
+                  
+                    $('.modal-title').html(response.project_Title);
+                    $('.des').html(response.project_Description) ;
+                    $('.loc').html(response.project_Location);
+                    $('.std').html(response.project_Date);
+
+                }
+            });
+            $('#createEvent').modal('show');
+         });
+ });
     </script>
 @endsection

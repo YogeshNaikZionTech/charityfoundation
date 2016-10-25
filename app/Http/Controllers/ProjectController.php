@@ -38,7 +38,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $filename= 'default.png';
-        if ( $request->hasFile('avatar') ) {
+        if ( $request->hasFile('pimage') ) {
             $project_image = $request->file('pimage');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
             Image::make($project_image)->resize(300, 300)->save(public_path('/avatars/' . $filename));
@@ -46,6 +46,26 @@ class ProjectController extends Controller
         $pname =  $request->input('pname');
         $pdescription =  $request->input('pdescription');
         $project_image = $filename;
+
+        $project = new Project();
+
+        $project->project_Title = $pname;
+        $project->project_Description =$pdescription;
+       $project->project_Date = $request->input('pdate');
+        $project->project_StartTIme = $request->input('pstime');
+        $project->project_Image = $request->input('pimage');
+        $project->project_Location = $request->input('plocation');
+        $pdate = $request->input('pdate');
+        if($pdate == date("Y,m,d")){
+
+            $project->project_Status = 'current';
+
+        }elseif ($pdate > date("Y,m,d")){
+
+            $project->project_Status = 'future';
+
+        }
+
 
 
 
@@ -114,6 +134,17 @@ class ProjectController extends Controller
         $project_all = Project::take($perpage)->skip($start)->get();
         echo json_encode($project_all);
 
+    }
+
+
+    /**
+     * send all the list fo event description.
+     */
+
+    public  function  getAllETitles(){
+
+        $project_description = Project::Select('id','project_title')->get();
+        echo json_encode($project_description);
     }
 
 
@@ -211,7 +242,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
     }
 
     /**

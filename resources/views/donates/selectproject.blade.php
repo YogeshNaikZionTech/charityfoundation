@@ -51,7 +51,7 @@
 
                         <!-- Pagination -->
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 page">
                                 <ul class="pagination" id="currerntPages">
                                 <!-- <input type="hidden" name="_token" value="{{{ csrf_token() }}}" /> -->
                                 </ul>
@@ -65,7 +65,7 @@
 
                         <!-- Pagination -->
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-12 page">
                                 <ul class="pagination" id="eventPages">
                                     <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                                 </ul>

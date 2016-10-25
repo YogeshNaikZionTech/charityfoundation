@@ -15,6 +15,6 @@ class Project extends Model
 
     public function  User(){
 
-        return $this->belongsToMany('App\User', 'Donate_Project')->withPivot('project_cents')->withPivot('receipt_num')->withTimestamps();
+        return $this->belongsToMany('App\User', 'Donate_Project')->withPivot('project_cents')->withPivot('receipt_num')->withPivot('user_card')->withTimestamps();
     }
 }
