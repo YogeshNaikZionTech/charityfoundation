@@ -5,11 +5,46 @@
     <link href="{{URL::asset('/css/app2.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
-   
-    	
- 	
-	    <video src="https://s3.amazonaws.com/codecademy-content/projects/excursion/bg.mp4" autoplay muted loop></video>
-    	
+
+	    {{--<video src="https://s3.amazonaws.com/codecademy-content/projects/excursion/bg.mp4" autoplay muted loop></video>--}}
+        <div class="videos">
+
+            <video autoplay loop muted class="video-bg">
+                <source src="https://s3.amazonaws.com/codecademy-content/projects/excursion/bg.mp4"  type="video/mp4" />
+
+            </video>
+        </div>
+<div class="container-fluid header_education" id="content" >
+    <h1> Educate yourself</h1>
+
+    <div class="row container-fluid">
+    <div class="container col-lg-12 col-md-12 col-xs-11 col-sm-12  "  >
+        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6" >
+            <div class="col-lg-10 col-xs-10 col-md-10 col-sm-10 ">
+                <h2>India the-future superpower reclaiming</h2>
+                <p>Some description  about video or Main theme of the video</p>
+            </div>
+            <iframe  class="col-lg-11 col-xs-11 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/ijvVHdF7Ekc" frameborder="0" allowfullscreen></iframe>
+
+
+
+        </div>
+
+        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6" >
+            <div class="col-lg-10 col-xs-10 col-md-10 col-sm-10 ">
+                <h2>India the-future superpower reclaiming</h2>
+                <p>Some description  about video or Main theme of the video</p>
+            </div>
+            <iframe  class="col-lg-11 col-xs-11 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/Ndh58GGCTQo" frameborder="0" allowfullscreen></iframe>
+
+        </div>
+
+    </div>
+
+    </div>
+
+
+</div>
 
     
 @endsection
@@ -25,19 +60,5 @@
 
 	});
 </script>
-   <script>
-        $(document).ready(function(){
-            var scroll_start = 5;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = $(this).scrollTop();
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-        });
-    </script>
+<script src="{{URL::asset('/js/nav.js')}}"></script>
 @endsection

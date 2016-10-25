@@ -104,3 +104,6 @@ section#banner{
 
 
     @endsection
+@section('scripts')
+    <script src="{{URL::asset('/js/nav.js')}}"></script>
+    @endsection

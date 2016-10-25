@@ -26,12 +26,11 @@
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
 
                         </div>
-                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-6 pull-right" >
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
                             <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10" >
                                 <p>Total Number of Donors</p>
                                 <span class="count">123</span>
-
                             </div>
                             <a href="{{url('/select')}}" class="btn btn-lg">DONATE</a>
 
@@ -47,7 +46,7 @@
                             <p>We make a LIVING by what we GET but we make a LIFE by what we GIVE</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
-                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-6 pull-right" >
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
                             <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10">
                                 <p>Founder take care of all the administrative cost</p>
@@ -118,6 +117,7 @@
                     @endforeach
                 </div>
             </div>
+            <div class=" pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
         </div>
 
         <div class=" container-fluid header_Events" >
@@ -165,6 +165,10 @@
                 </div>
 
             </div>
+
+            <div class=" pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
+
+
         </div>
 
         <div class="suggest_donors container-fluid">
@@ -192,39 +196,9 @@
     </div>
 @endsection
 @section('scripts')
+    <script src="{{URL::asset('/js/nav.js')}}"></script>
      <script>
-         $(document).ready(function(){
-             $(this).scrollTop(0);
-         });
-        $(document).ready(function(){
-            var scroll_start = 1;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = ($(this).scrollTop()>0);
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', '#2c7873');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-//        });
-//        $(document).ready(function(){
 
-            //Check to see if the window is top if not then display button
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > 100) {
-                    $('.scrollToTop').fadeIn();
-                } else {
-                    $('.scrollToTop').fadeOut();
-                }
-            });
-            //Click event to scroll to top
-            $('.scrollToTop').click(function(){
-                $('html, body').animate({scrollTop : 0},1000);
-                return false;
-            });
-        });
         $(document).ready(function(){
             // Add smooth scrolling to all links
             $("a").on('click', function(event) {
