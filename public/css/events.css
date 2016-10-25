@@ -40,7 +40,7 @@ cursor: pointer;
 }
 
 .main{
-margin-top: 7%;
+margin-top: 3%;
 color: black;
 }
 
@@ -116,4 +116,18 @@ color: black;
 .create{
     background-color: green;
     color:white;
+}
+.modal-body h2,
+.modal-body h3,
+.modal-body h4,
+.modal-body .eimg{
+  display: inline-block;
+}
+.right{
+  display: inline-block;
+  float: right;
+  margin-right: 7%;
+}
+.des{
+  margin-top: 2%;
 }

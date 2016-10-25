@@ -13,7 +13,7 @@
         <hr>
         <div class="descModal">
             <!-- <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Project</button> -->
-            <div id="createEvent" class="modal fade" role="dialog">
+            <div id="projectDetails" class="modal fade" role="dialog">
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
@@ -99,7 +99,7 @@
 
             $('body').on('click','.donate', function () {
                 sessionStorage.removeItem('event');
-                var projectValue = $(this).attr('id');
+                var projectValue = $(this).closest('.image').find('.title').attr('name');
                 sessionStorage.setItem('project', projectValue);
             });
 });
@@ -205,7 +205,7 @@ $.ajax({
                  
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href=''><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.completedContent').html(output);
@@ -237,6 +237,7 @@ $.ajax({
                   $('#cuPages').children('li').removeClass('active');
                   $('#cuPages').find("a[name="+id+"]").closest('li').addClass('active');
               });
+
  //Getting the content based on Page number for Future
           $('body').on('click', '.fuPageClick', function(){
    
@@ -261,6 +262,7 @@ $.ajax({
                   $('#fuPages').children('li').removeClass('active');
                   $('#fuPages').find("a[name="+id+"]").closest('li').addClass('active');
               });
+
           //Getting the content based on Page number for Completed
           $('body').on('click', '.comPageClick', function(){
    
@@ -290,7 +292,7 @@ $.ajax({
     <script type="text/javascript">
     $(document).ready(function(){
 
-        //Pop up for Event Description
+        //Pop up for Project Description Details
          $.ajaxSetup({
           headers:
           {
@@ -317,7 +319,7 @@ $.ajax({
 
                 }
             });
-            $('#createEvent').modal('show');
+            $('#projectDetails').modal('show');
          });
  });
     </script>
