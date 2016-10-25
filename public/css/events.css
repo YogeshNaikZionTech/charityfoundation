@@ -3,13 +3,16 @@ body{
    padding: 0px;
    font-family: Constantia cursive;
  }
+
 .navbar-inverse{
     border-radius: 0px;
 }
+
 .thumbnail{
     /*border: solid black 1px;*/
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
 }
+
 hr{
     border-top: 1px solid #ddd;
 }
@@ -18,13 +21,29 @@ hr{
     margin-bottom: 10px;
     border-bottom: 1px solid darkgrey;
 }
-.main{
-margin-top: 77px;
-color: black;
-    font-style: italic;
 
+.eName{
 
+    white-space: nowrap;
+    overflow: hidden;
+    display: block;
+    text-overflow: ellipsis;
 }
+
+.page ul{
+   display: flex;
+justify-content: center;
+}
+
+.pagination li:not(.active){
+cursor: pointer;
+}
+
+.main{
+margin-top: 7%;
+color: black;
+}
+
 .main ul{
     margin-bottom: 15px;
     margin-top: 15px;
@@ -33,20 +52,14 @@ color: black;
 .eventDesc{
    border: 1px solid #ddd; 
 }
+
 .h h2{
     display: inline-block;
     margin-top: 0px;
-  }
-
-
-
+}
 .image{
-     overflow: hidden;
+    overflow: hidden;
     height: 278px;
-
-
-    /*border: solid black 1px;*/
-    /*box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);*/
 }
 .image img {
     width: 100%;
@@ -56,13 +69,10 @@ color: black;
     -o-transition: all 1s ease; IE 9
     -ms-transition: all 1s ease; Opera
     transition: all 1s ease;
-     /*overflow: hidden;*/
-
 }
 
 .image:hover img {
-    /*height: 278px;*/
-        -webkit-transform:scale(1.10); /* Safari and Chrome */
+    -webkit-transform:scale(1.10); /* Safari and Chrome */
     -moz-transform:scale(1.10); /* Firefox */
     -ms-transform:scale(1.10); /* IE 9 */
     -o-transform:scale(1.10); /* Opera */
@@ -71,12 +81,15 @@ color: black;
      cursor: pointer;
      opacity: 0.7;
 }
+
 .thumbnail:hover h3{
     color: orange;
 }
+
 .image:hover button{
     display: block;
 }
+
 .image button{
     position: absolute;
     margin: auto;
@@ -85,10 +98,22 @@ color: black;
     display: none;
 }
 
+.date{
+    padding: 0px;
+}
+
+.details{
+    padding: 0px;
+}
+
 .date h3{
     color: orange;
 }
 
 .caption span {
   padding-right: 7px;
+}
+.create{
+    background-color: green;
+    color:white;
 }

@@ -11,15 +11,26 @@ use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
+
+    public function __construct() {
+        $this->middleware( 'auth' );
+    }
     /**
      * Show the content 
      *
-     * @param  int  $id
+     *
+     *
      * @return Response
      */
     public function index()
     {
+        if (Auth::user()->isAdmin){
         return view('admin/admin');
+    }else{
+        echo "your not Admin";
+
+    }
+
     }
 
     /**
@@ -53,6 +64,7 @@ class AdminController extends Controller
         echo json_encode($user_response);
     }
 
+
     public  function getAllUsers(){
 
         if(Auth::check()&& Auth::user()->isAdmin){
@@ -61,10 +73,27 @@ class AdminController extends Controller
             echo json_encode($user_list);
 
 
+        }else{
+
+            echo 'You are not authorized, please login';
         }
 
     }
 
+    /**
+     * Export all the in to an excel file.
+     * if requied can be exported to pdf.
+     */
+    public function exportUsers(){
+
+
+        $users = User::select('id', 'firstname', 'lastname','email','phonenum', 'street','aptNo','state','country','zipcode','created_at')->get();
+        \Excel::create('users', function($excel) use($users) {
+            $excel->sheet('Sheet 1', function($sheet) use($users) {
+                $sheet->fromArray($users);
+            });
+        })->export('xls');
+    }
 
 }
 

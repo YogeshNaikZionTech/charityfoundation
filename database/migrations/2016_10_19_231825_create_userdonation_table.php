@@ -13,12 +13,12 @@ class CreateUserdonationTable extends Migration
      */
     public function up()
     {
-        Schema::create('User_Card', function (Blueprint $table) {
+        Schema::create('user_card', function (Blueprint $table) {
             $table->increments('id');
-            $table ->integer('user_id');
+            $table ->integer('user_id')->references('id')->on('users') ->onDelete('cascade');;
             $table->string('card_num');
             $table->string('cvv_num');
-            $table->string('expiry_time');
+            $table->string('expiry_date');
             $table->string('name_card');
             $table->string('zip_code');
             

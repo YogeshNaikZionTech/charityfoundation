@@ -232,59 +232,112 @@
             </div>
             <div class="admin-content" id="update">
                 <h3>Update Projects/Events</h3>
-                <form class="form-group col-md-6">
-                    <div class="form-group">
-                    <fieldset id="Group1" name="Group1">
-                        <input id="Radio1" name="Radio1" type="radio" value="projrad" />Projects
-                        <input id="Radio1" name="Radio1" type="radio" value="eventrad" />Events
-
-                    </fieldset>
+                <div>
+                    <label>
+                        <input type="radio" name="program" value="projects" checked> Projects
+                        <input type="radio" name="program" value="events"> Events
+                    </label>
+                </div>
+                <div class="project program">
+                    <form class="form-group col-md-6">
+                        <div class="form-group">
+                            <fieldset id="Group2" name="Group2">
+                                <select id="Select1" name="Select1" class="form-control">
+                                    <option>Select</option>
+                                    <option value="projrad 1" class="projrad">Project 1</option>
+                                    <option value="projrad 2" class="projrad">Project 2</option>
+                                    <option value="projrad 3" class="projrad">Project 3</option>
+                                    <option value="projrad 4" class="projrad">Project 4</option>
+                                    <option value="projrad 5" class="projrad">Project 5</option>
+                                </select>
+                            </fieldset>
                         </div>
-                    <div class="form-group">
-                        <fieldset id="Group2" name="Group2">
 
-                            <select id="Select1" name="Select1" class="form-control">
-                                <option>Select</option>
-                                <option value="projrad 1" class="projrad">Project 1</option>
-                                <option value="projrad 2" class="projrad">Project 2</option>
-                                <option value="projrad 3" class="projrad">Project 3</option>
-                                <option value="projrad 4" class="projrad">Project 4</option>
-                                <option value="projrad 5" class="projrad">Project 5</option>
-                                <option value="eventrad 1" class="eventrad">Event 1</option>
-                                <option value="eventrad 2" class="eventrad">Event 2</option>
-                                <option value="eventrad 3" class="eventrad">Event 3</option>
-                                <option value="eventrad 4" class="eventrad">Event 4</option>
-                                <option value="eventrad 5" class="eventrad">Event 5</option>
+                        <div class="form-group">
+                            <input class="form-control" id="updatepname" name="updatepname" placeholder="Project Name" type="text">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="pdescription" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Project Status</option>
+                                <option>Active</option>
+                                <option>Completed</option>
+                                <option>Future</option>
                             </select>
-                        </fieldset>
-                    </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
+                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                        </div>
 
-                    <div class="form-group">
-                        <input class="form-control" id="updatename" name="updatename" placeholder="Project or Event Name" type="text">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" id="description" name="description" placeholder="Project or Event Description" type="text" rows="5"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <select class="form-control">
-                            <option>Project Status</option>
-                            <option>Active</option>
-                            <option>Completed</option>
-                            <option>Future</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                        <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
-                    </div>
+                        <div class="form-group">
 
-                    <div class="form-group">
-                      
                             <input type="submit" class="btn btn-primary">
 
-                        <button class="btn btn-danger">Delete</button>
-                    </div>
-                </form>
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="event program">
+                    <form class="form-group col-md-6">
+                        <div class="form-group">
+                            <fieldset id="Group2" name="Group2">
+
+                                <select id="Select1" name="Select1" class="form-control">
+                                    <option>Select</option>
+                                    <option value="eventrad 1" class="eventrad">Event 1</option>
+                                    <option value="eventrad 2" class="eventrad">Event 2</option>
+                                    <option value="eventrad 3" class="eventrad">Event 3</option>
+                                    <option value="eventrad 4" class="eventrad">Event 4</option>
+                                    <option value="eventrad 5" class="eventrad">Event 5</option>
+                                </select>
+                            </fieldset>
+                        </div>
+
+                        <div class="form-group">
+                            <input class="form-control" id="updateename" name="updateename" placeholder="Event Name" type="text">
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" id="edescription" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text">
+                        </div>
+                        <div class="form-group">
+
+                        </div>
+                        <div class="form-group">
+                            <div id="datetimepicker1" class="input-append date">
+                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text">
+                                <span class="add-on">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control">
+                                <option>Event Status</option>
+                                <option>Active</option>
+                                <option>Completed</option>
+                                <option>Future</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
+                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                        </div>
+
+                        <div class="form-group">
+
+                            <input type="submit" class="btn btn-primary">
+
+                            <button class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+
             </div>
         </div>
 
@@ -336,14 +389,19 @@
     });
     </script>
     <script>
-        jQuery(function($) {
-            $('input:radio').change(function(){
-                var val = $('input:radio:checked').val();
-                $('#Select1').val(0)
-                $('.projrad, .eventrad').hide();
-                $('.' + val).show();
-            });
+        $(document).ready(function(){
+            $(".event").hide();
+        $('input[type="radio"]').change(function(){
+            if($(this).attr("value")=="projects"){
+                $(".program").not(".project").hide();
+                $(".project").show();
+            }
+            if($(this).attr("value")=="events"){
+                $(".program").not(".event").hide();
+                $(".event").show();
+            }
         });
+    });
     </script>
 
 
@@ -413,6 +471,11 @@
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();
         }
+    </script>
 
+    <script type="text/javascript">
+        $(function () {
+            $('#datetimepicker1').datetimepicker();
+        });
     </script>
 @endsection

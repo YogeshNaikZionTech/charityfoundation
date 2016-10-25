@@ -38,7 +38,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $filename= 'default.png';
-        if ( $request->hasFile('avatar') ) {
+        if ( $request->hasFile('pimage') ) {
             $project_image = $request->file('pimage');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
             Image::make($project_image)->resize(300, 300)->save(public_path('/avatars/' . $filename));
@@ -46,6 +46,26 @@ class ProjectController extends Controller
         $pname =  $request->input('pname');
         $pdescription =  $request->input('pdescription');
         $project_image = $filename;
+
+        $project = new Project();
+
+        $project->project_Title = $pname;
+        $project->project_Description =$pdescription;
+       $project->project_Date = $request->input('pdate');
+        $project->project_StartTIme = $request->input('pstime');
+        $project->project_Image = $request->input('pimage');
+        $project->project_Location = $request->input('plocation');
+        $pdate = $request->input('pdate');
+        if($pdate == date("Y,m,d")){
+
+            $project->project_Status = 'current';
+
+        }elseif ($pdate > date("Y,m,d")){
+
+            $project->project_Status = 'future';
+
+        }
+
 
 
 
@@ -116,6 +136,70 @@ class ProjectController extends Controller
 
     }
 
+
+    /**
+     * send all the list fo event description.
+     */
+
+    public  function  getAllETitles(){
+
+        $project_description = Project::Select('id','project_title')->get();
+        echo json_encode($project_description);
+    }
+
+
+    /**
+     * @param  $request
+     * pagination for current events
+     */
+
+    public function paginateCurrentProjects(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $current_list = Project::where("project_Status","=","current")->take($perpage)->skip($start)->get();
+        Log::info('Requesting for pagination for current projects:'. $current_list);
+
+
+        echo json_encode($current_list);
+
+    }
+
+    /**
+     * @param  $request
+     * pagination for current events
+     */
+    public function paginateUpcomingProjects(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $upcoming_list = Project::where("project_Status","=","future")->take($perpage)->skip($start)->get();
+        Log::info('Requesting for pagination for upcoming projects '.$upcoming_list);
+
+
+        echo json_encode($upcoming_list);
+
+    }
+     public function paginateCompletedProjects(Request $request){
+
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+
+        $current_list = Project::where("project_Status","=","completed")->take($perpage)->skip($start)->get();
+        Log::info('Requesting for pagination for completed projects:'. $current_list);
+
+
+        echo json_encode($current_list);
+
+    }
+
+
+
     public function getProjectCount(){
         $project_total = Project::all()->count(); ;
         $project_future = Project::Where('project_Status','=','future')->count();
@@ -158,7 +242,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+
     }
 
     /**
