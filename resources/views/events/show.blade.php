@@ -18,43 +18,36 @@
 
         <div class="h">
             <h2>Events</h2>
-            @if(Auth::check()&& Auth::user()->isAdmin)
-                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Event</button>
-                <div id="createEvent" class="modal fade" role="dialog">
+        </div>
+        <hr>
+
+                <div id="eventDetails" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header create">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Add New Event</h4>
+                                <h4 class="modal-title"></h4>
                             </div>
-                            <form class="form-group" action="{{url('events')}}" method="post">
                                 <div class="modal-body">
-                                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                                    <label>Event Name</label>
-                                    <input type="text" name="ename" class="form-control">
-                                    <label>Venue</label>
-                                    <input type="text" name="location" class="form-control">
-                                    <label>Date</label>
-                                    <input type="date" name="edate" class="form-control">
-                                    <label>Start Time</label>
-                                    <input type="time" name='stime' class="form-control">
-                                    <label>End Time</label>
-                                    <input type="time" name='etime' class="form-control">
-                                    <label>Event Description</label>
-                                    <textarea name="edescription" placeholder="Description of the event" name='description' class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input type="file" name="eimage" accept="image/*">
+                                <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
+                                <div class="right">
+                                 <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
+                                <h3 style="color: green">Date: <span class="dat"></span> </h3> <br>
+                                <h4 style="color: green">From: <span class="tim1"></span></h4> <br>
+                                <h4 style="color: green">To: <span class="tim2"></span></h4>
+
+                                </div>
+
+                                    <p class="des"><p>
+                               
+
                                 </div>
                                 <div class="modal-footer">
-                                    <input type="submit" class="btn btn-success">
+                                   <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success" value="Volunteer"></a>
                                 </div>
-                            </form>
                         </div>
                     </div>
                 </div>
-            @endif
-        </div>
-        <hr>
         <div class="container-fluid">
           <ul class="nav nav-tabs" role="tablist">
             <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
@@ -116,11 +109,11 @@
   <script type="text/javascript">
       $(document).ready(function(){
           sessionStorage.removeItem('project');
-          sessionStorage.removeItem('event');
+          // sessionStorage.removeItem('event');
 
-          $( '#vol').click(function(){
+          $( 'body').on('click', '#vol', function(){
               sessionStorage.removeItem('project');
-              var eventValue = $(this).closest('.thumbnail').find('#desc').text();
+              var eventValue = $(this).closest('.thumbnail').find('.eName').attr('name');
               sessionStorage.setItem('event', eventValue);
           });
 
@@ -199,8 +192,8 @@
                   var start = new Date(val.event_StartTime);
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
-
-                   output += "<div class='col-md-4'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+// 
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.upcomingContent').html(output);
         $('#upPages').children('li:first').addClass('active');
@@ -227,7 +220,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.completedContent').html(output);
         $('#comPages').children('li:first').addClass('active');
@@ -258,7 +251,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.upcomingContent').html(output);
                     }
@@ -287,7 +280,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px' > <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                  output+= "</div>";
                   $('.completedContent').html(output);
@@ -298,4 +291,52 @@ $.ajax({
               });
     });
   </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+
+        //Pop up for Event Description Details
+         $.ajaxSetup({
+          headers:
+          {
+              'X-CSRF-Token': $('input[name="_token"]').val()
+          }
+        });
+
+            //Call to get the description details based on event id 
+         $('body').on('click','.eName', function(){
+           
+               
+            var id = $(this).attr('name');
+            $.ajax({
+                url: 'events/'+id,
+                type: 'GET',
+                datatype: 'JSON',
+                success: function(response){
+                  console.log(response);
+                       response = JSON.parse(response);
+                    var eDate = new Date(response[0].event_Date);
+                  eDate1 = eDate.getDate();
+                  eDate2 = eDate.toLocaleDateString("en-us",{month: "long"});
+                  eDate3 = eDate.getFullYear();
+
+                  var start = new Date(response[0].event_StartTime);
+                  var end = new Date(response[0].event_EndTime);
+
+                  var imgstr = '/images/'+ response[0].event_Image;
+                  // var title = val.event_Title;
+                  $('.eimg').attr('src', imgstr)
+                    $('.modal-title').html(response[0].event_Title);
+                    $('.des').html(response[0].event_Description) ;
+                    $('.loc').html(response[0].event_Location);
+                    // $('.dat').html(response[0].event_Date);
+                    $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                    $('.tim1').html(start.toLocaleTimeString());
+                    $('.tim2').html(end.toLocaleTimeString());
+
+                }
+            });
+            $('#eventDetails').modal('show');
+         });
+ });
+    </script>
 @endsection
