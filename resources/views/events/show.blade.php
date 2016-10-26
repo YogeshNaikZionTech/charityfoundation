@@ -29,6 +29,23 @@
                                 <h4 class="modal-title"></h4>
                             </div>
                                 <div class="modal-body">
+
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    <label>Event Name</label>
+                                    <input type="text" name="ename" class="form-control">
+                                    <label>Venue</label>
+                                    <input type="text" name="location" class="form-control">
+                                    <label>Date</label>
+                                    <input type="date" name="edate" class="form-control">
+                                    <label>Start Time</label>
+                                    <input type="time" name='stime' class="form-control">
+                                    <label>End Time</label>
+                                    <input type="time" name='etime' class="form-control">
+                                    <label>Event Description</label>
+                                    <textarea name="edescription" placeholder="Description of the event" name='description' class="form-control"></textarea>
+                                    <label>Upload an image</label>
+                                    <input type="file" name="eimage" accept="image/*">
+
                                 <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
                                 <div class="right">
                                  <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
@@ -39,7 +56,6 @@
                                 </div>
 
                                     <p class="des"><p>
-                               
 
                                 </div>
                                 <div class="modal-footer">
@@ -63,7 +79,7 @@
               <div class="row">
               <div class="col-md-12 page">
                     <ul class="pagination" id="upPages">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
            <!--          <li class="page-item">
       <a class="page-link" href="#" aria-label="Previous">
         <span aria-hidden="true">&laquo;</span>
@@ -90,7 +106,7 @@
                <div class="row">
                  <div class="col-md-12 page">
                       <ul class="pagination" id="comPages">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                     </ul>
                   </div>
               </div> 
@@ -121,7 +137,7 @@
           $(".eName").click(function(){
               $('.test2').hide();
               var d = $(this).closest('.eve').find('.eventDesc').html();
-              $(this).closest('.row').after('<div class="test2">' + d + '</div');
+              $(this).closest('.row').after('<div class="test2">' + d + '</div>');
           });
 
           $('body').on('click', '.close', function(){

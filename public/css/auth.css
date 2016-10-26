@@ -5,14 +5,16 @@
     }
 
 body {
-    background: url('https://hd.unsplash.com/photo-1430132594682-16e1185b17c5');
+    /*background: url('../images/Helping-Hand.jpg');*/
+    background-image: linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)), url("../images/Helping-Hand.jpg");
     background-size:cover;
     background-color: rgba(0, 0, 0, 0.6);
     font-family: Constantia, cursive;
+    overflow-x:hidden;
 }
 
 h1 {
-    color: #ccc;
+    color: #fff;
     text-align: center;
     font-size: 40px;
 }
@@ -87,4 +89,9 @@ label{
 .link:hover {
     text-decoration: underline;
     color: #8C918F;
+}
+@media (max-width:500px){
+    h1{
+        margin-top:15%;
+    }
 }

@@ -8,10 +8,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-#content{
-    margin-top:5%;
-    margin-bottom:14%;
-}
 label, input, h3{
     color:black;
 }
@@ -32,7 +28,7 @@ label, input, h3{
 .header .logo {
     color: #233245;
 }
-input[type="text"]{ height: 28px;}
+input[type="text"]{ min-height: 28px;}
 .side-nav .logo {
     background-color: #233245;
     color: #fff;
@@ -83,11 +79,13 @@ input[type="text"]{ height: 28px;}
 /* side navigation styles */
 .side-nav {
     position: absolute;
-    width: 100%;
+    width: 100px;
+    min-height:100%;
     height: 100vh;
     background-color: #35475e;
     z-index: 1;
-    display: none;
+    overflow:hidden;
+    display: inline-block;
 }
 .side-nav.visible {
     display: block;
@@ -138,9 +136,7 @@ input[type="text"]{ height: 28px;}
 #history, #users{
     overflow: scroll;
 }
-#create, #update{
-    margin-bottom:34%;
-}
+
 .main-content .export{
     float: right;
     margin-right:5px;
@@ -295,3 +291,40 @@ input[type="text"]{
 .radiosel input{
     color: #0A246A;
 }
+.flexbox {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    min-height:100%;
+}
+.flexbox .col {
+    flex: 1;
+}
+.flexbox .col:nth-child(1) {
+    order: 1;
+}
+.flexbox .col:nth-child(2) {
+    order: 0;
+}
+html, body {
+    margin: 0px;
+    padding: 0px;
+    min-height: 100%;
+    height: 100%;
+}
+body{min-height:100%;}
+#content {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+
+}
+.push {
+    height: 50px;
+    clear: both;
+}
+#flexbox {
+    height: 100%;
+}
+
