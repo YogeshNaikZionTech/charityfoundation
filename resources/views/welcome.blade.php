@@ -139,55 +139,63 @@
                     @endforeach
                 </div>
             </div>
-            <div class=" pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
+            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>See more</span></button></a></div>
         </div>
 
         <div class=" container-fluid header_Events" >
             <h1>Our Events </h1>
             <div class="container div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
+                    <div id="eventDetails" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header create">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
+                                    <div class="right">
+                                        <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
+                                        <h3 style="color: green">Date: <span class="dat"></span> </h3> <br>
+                                        <h4 style="color: green">From: <span class="tim1"></span></h4> <br>
+                                        <h4 style="color: green">To: <span class="tim2"></span></h4>
+
+                                    </div>
+
+                                    <p class="des"><p>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success" value="Volunteer"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{--For ecah statement for the Events--}}
+                    @foreach($events_c as $cevent)
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                         <div class="homeEvents">
-                            <div class="head">Current</div>
-                            <div class="project_image image"><img src="{{URL::asset('/images/people1.jpg')}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
+                            <div class="head">{{$cevent->event_Status}}</div>
+                            <div class="project_image image"><img src="images/{{$cevent->event_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
                             <div>
-                                <div><h3>Event Name</h3></div>
+                                <div><h3>{{$cevent->event_Title}}</h3></div>
                                 <div><p>A community of lifelong learners, and champions of our own success.</p></div>
 
-                                <a href="{{url('events')}}" class="btn btn-lg">See more </a></div>
+                                <a  name="{{$cevent->id}}" class="btn btn-lg eveseemore">See more </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                        <div class="homeEvents">
-                            <div class="head">Current</div>
-                            <div class="project_image image">
-                                <img src="{{URL::asset('/images/people1.jpg')}}" class="img-responsive"  alt="Image"></div>
-
-                            <div>
-                                <div><h3>Event Name</h3></div>
-                                <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-
-                                <a href="{{url('events')}}" class="btn btn-lg">See more </a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                        <div class="homeEvents ">
-                            <div class="head">Current</div>
-                            <div class="project_image image"><img src="{{URL::asset('/images/people.jpg')}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
-
-                            <div>
-                                <div><h3>Event Name</h3></div>
-                                <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                <a href="{{url('events')}}" class="btn btn-lg">See more </a></div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>
+
             <div class=" pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
+
+
         </div>
 
         <div class="suggest_donors container-fluid">
@@ -340,6 +348,53 @@
                     }
                 });
                 $('#createEvent').modal('show');
+            });
+        });
+
+        $(document).ready(function(){
+
+            //Pop up for Event Description Details
+            $.ajaxSetup({
+                headers:
+                {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                }
+            });
+
+            //Call to get the description details based on event id
+            $('body').on('click','.eveseemore', function(){
+
+
+                var id = $(this).attr('name');
+                $.ajax({
+                    url: 'events/'+id,
+                    type: 'GET',
+                    datatype: 'JSON',
+                    success: function(response){
+                        console.log(response);
+                        response = JSON.parse(response);
+                        var eDate = new Date(response[0].event_Date);
+                        eDate1 = eDate.getDate();
+                        eDate2 = eDate.toLocaleDateString("en-us",{month: "long"});
+                        eDate3 = eDate.getFullYear();
+
+                        var start = new Date(response[0].event_StartTime);
+                        var end = new Date(response[0].event_EndTime);
+
+                        var imgstr = '/images/'+ response[0].event_Image;
+                        // var title = val.event_Title;
+                        $('.eimg').attr('src', imgstr)
+                        $('.modal-title').html(response[0].event_Title);
+                        $('.des').html(response[0].event_Description) ;
+                        $('.loc').html(response[0].event_Location);
+                        // $('.dat').html(response[0].event_Date);
+                        $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                        $('.tim1').html(start.toLocaleTimeString());
+                        $('.tim2').html(end.toLocaleTimeString());
+
+                    }
+                });
+                $('#eventDetails').modal('show');
             });
         });
 
