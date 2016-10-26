@@ -15,7 +15,7 @@ class EventsTableSeeder extends Seeder {
 
 
 				'event_Title'       => $Faker->sentence,
-				'event_Description' => $Faker->paragraph( 2 ),
+				'event_Description' => $Faker->paragraph( 8 ),
 				'event_Date'        => \Carbon\Carbon::today(),
 				'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Location'    => 'leafvillage',
@@ -30,7 +30,7 @@ class EventsTableSeeder extends Seeder {
 
 
 				'event_Title'       => $Faker->sentence,
-				'event_Description' => $Faker->paragraph( 2 ),
+				'event_Description' => $Faker->paragraph( 8 ),
 				'event_Date'        => \Carbon\Carbon::today(),
 				'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Location'    => 'landofsnow',
@@ -46,7 +46,7 @@ class EventsTableSeeder extends Seeder {
 
 
 				'event_Title'       => $Faker->sentence,
-				'event_Description' => $Faker->paragraph( 2 ),
+				'event_Description' => $Faker->paragraph( 8 ),
 				'event_Date'        => \Carbon\Carbon::today(),
 				'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Location'    => 'landofFire',

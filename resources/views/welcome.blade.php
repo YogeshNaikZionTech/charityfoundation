@@ -20,18 +20,17 @@
                 <div class="item active ">
                     <img class="first-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="First slide">
                     <div class="container">
-                        <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" style="position: absolute">
+                        <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>CAUSE1: Education benefit society</h1>
                             <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
 
                         </div>
-                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-6 pull-right" >
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
                             <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10" >
                                 <p>Total Number of Donors</p>
                                 <span class="count">123</span>
-
                             </div>
                             <a href="{{url('/select')}}" class="btn btn-lg">DONATE</a>
 
@@ -47,7 +46,7 @@
                             <p>We make a LIVING by what we GET but we make a LIFE by what we GIVE</p>
                             <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
-                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-6 pull-right" >
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
                             <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10">
                                 <p>Founder take care of all the administrative cost</p>
@@ -83,25 +82,47 @@
 
         </div>
 
-        <div class="container-fluid header_education" id="header_education">
+        <div class=" container-fluid header_education" id="header_education">
             <h1> Educate yourself</h1>
-            <div >
+            <div>
 
-                <iframe class="col-lg-8 col-xs-8 col-sm-8 col-md-8" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
+                <iframe class="col-lg-8 col-xs-12 col-sm-8 col-md-8" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
 
             </div>
-            <div class="col-lg-4 col-xs-4 col-md-4 col-sm-4 pull-left">
+            <div class="col-lg-4 col-xs-12 col-md-10 col-sm-4 pull-left">
                 <h2>Video title</h2>
                 <p>Some description  about video ,Main theme of the video</p>
                 <a href="{{url('/education')}}" class="btn btn-lg">See more</a>
             </div>
         </div>
 
-        <div class=" container-fluid header_projects" id="projects">
+        <div class="container-fluid header_projects" id="projects">
             <h1>Our Projects</h1>
-            <div class="container div2">
+            <div class="container-fluid div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
+                    <div id="createEvent" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div class="modal-header create">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                            <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
+                                <div class="modal-body">
+                                    <p class="des"><p>
+                                    <h2 style="color: green">Location: <span class="loc"></span> </h2>
+                                    <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
 
+                                </div>
+                                <div class="modal-footer">
+                                    <div class="modal-location"></div>
+                                    <input type="button" class="btn btn-success" data-dismiss="modal" value="Donate Now">
+                                </div>
+                                <!-- </form> -->
+                            </div>
+                        </div>
+                    </div>
                     @foreach($projects_c as $cproject)
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                             <div class="homeprojects" >
@@ -109,122 +130,102 @@
                                 <div class="head">{{$cproject->project_Status}}</div>
                                 <div class="project_image image">
                                     <img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
-                                    {{--<div><h3>Project Name</h3></div>--}}
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a href="{{url('projects')}}" class="btn btn-lg"  style="right:30%" title={{$cproject->project_Title}} data-content={{$cproject->project_Description}}>See more </a></div>
+                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a   class="btn btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
+            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>See more</span></button></a></div>
         </div>
 
         <div class=" container-fluid header_Events" >
             <h1>Our Events </h1>
-            <div class="container div2">
+            <div class="container-fluid div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
+                    <div id="eventDetails" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header create">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title"></h4>
+                                </div>
+                                <div class="modal-body">
+                                    <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
+                                    <div class="right">
+                                        <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
+                                        <h3 style="color: green">Date: <span class="dat"></span> </h3> <br>
+                                        <h4 style="color: green">From: <span class="tim1"></span></h4> <br>
+                                        <h4 style="color: green">To: <span class="tim2"></span></h4>
+
+                                    </div>
+
+                                    <p class="des"><p>
+
+
+                                </div>
+                                <div class="modal-footer">
+                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success" value="Volunteer"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{--For ecah statement for the Events--}}
+                    @foreach($events_c as $cevent)
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                         <div class="homeEvents">
-                            <div class="head">Current</div>
-                            <div class="project_image image"><img src="{{URL::asset('/images/people1.jpg')}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
+                            <div class="head">{{$cevent->event_Status}}</div>
+                            <div class="project_image image"><img src="images/{{$cevent->event_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
                             <div>
-                                <div><h3>Event Name</h3></div>
+                                <div><h3>{{$cevent->event_Title}}</h3></div>
                                 <div><p>A community of lifelong learners, and champions of our own success.</p></div>
 
-                                <a href="{{url('events')}}" class="btn btn-lg">See more </a></div>
+                                <a  name="{{$cevent->id}}" class="btn btn-lg eveseemore">See more </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                        <div class="homeEvents">
-                            <div class="head">Current</div>
-                            <div class="project_image image">
-                                <img src="{{URL::asset('/images/people1.jpg')}}" class="img-responsive"  alt="Image"></div>
-
-                            <div>
-                                <div><h3>Event Name</h3></div>
-                                <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-
-                                <a href="{{url('events')}}" class="btn btn-lg">See more </a></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                        <div class="homeEvents ">
-                            <div class="head">Current</div>
-                            <div class="project_image image"><img src="{{URL::asset('/images/people.jpg')}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
-
-                            <div>
-                                <div><h3>Event Name</h3></div>
-                                <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                <a href="{{url('events')}}" class="btn btn-lg">See more </a></div>
-                        </div>
-                    </div>
-
+                    @endforeach
                 </div>
 
             </div>
+
+            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
+
+
         </div>
 
         <div class="suggest_donors container-fluid">
             <div class="row">
 
-                <div class="suggest1 col-lg-offset-4 col-md-6 col-lg-6 col-xs-9 col-sm-6">
+                <div class="suggest1 col-lg-offset-4 col-md-offset-3 col-sm-offset-2 col-md-7 col-lg-7 col-xs-12 col-sm-7">
                     <h2>Suggest Here</h2>
-                    <form class="form-horizontal col-md-10 col-lg-10 col-xs-11 col-sm-10" id="suggestform">
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10" style="margin-right: 10px;">
+                    <form class="form-horizontal col-md-12 col-lg-10 col-xs-11 col-sm-12" id="suggestform">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-right: 10px;">
                         <input class="form-control name " name="username"  placeholder="Name :*" >  </div>
-                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-10">
+                        <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <input class="form-control email  " name="email" type="email"  placeholder="Email :*"></div>
-                            <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <textarea class="form-control suggestarea" name="suggestarea"  placeholder="Suggestion :*"> </textarea></div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
                             <button class="btn col-lg-offset-12 btn-md">Shoot It !</button></div>
                     </form>
                 </div>
+
             </div>
-            <div class=" col-md-3 col-lg-3 col-xs-3 col-sm-3 col-lg-offset-10">
-                <a href="#" class="scrollToTop"><img src="{{URL::asset('/images/back_to_top_icon.png')}}"/></a>
+            <div class=" col-md-2 col-lg-2 col-xs-3 col-sm-2 col-lg-offset-9 pull-right" >
+                <a href="#" class="scrollToTop"><img style="bottom: 0;"   src="{{URL::asset('/images/back_to_top_icon.png')}}"/></a>
             </div>
         </div>
 
     </div>
 @endsection
 @section('scripts')
+    <script src="{{URL::asset('/js/nav.js')}}"></script>
      <script>
-         $(document).ready(function(){
-             $(this).scrollTop(0);
-         });
-        $(document).ready(function(){
-            var scroll_start = 1;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = ($(this).scrollTop()>0);
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', '#2c7873');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-//        });
-//        $(document).ready(function(){
 
-            //Check to see if the window is top if not then display button
-            $(window).scroll(function(){
-                if ($(this).scrollTop() > 100) {
-                    $('.scrollToTop').fadeIn();
-                } else {
-                    $('.scrollToTop').fadeOut();
-                }
-            });
-            //Click event to scroll to top
-            $('.scrollToTop').click(function(){
-                $('html, body').animate({scrollTop : 0},1000);
-                return false;
-            });
-        });
         $(document).ready(function(){
             // Add smooth scrolling to all links
             $("a").on('click', function(event) {
@@ -315,6 +316,85 @@
                 step: function (now) {
                     $(this).text(Math.ceil(now));
                 }
+            });
+        });
+        $(document).ready(function(){
+
+            //Pop up for Event Description
+            $.ajaxSetup({
+                headers:
+                {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                }
+            });
+
+            //Call to get the description details based on project id
+            $('body').on('click','.seemore', function(){
+
+
+                var id = $(this).attr('name');
+                $.ajax({
+                    url: 'projects/'+id,
+                    type: 'GET',
+                    datatype: 'JSON',
+                    success: function(response){
+                        response = JSON.parse(response);
+
+                        $('.modal-title').html(response.project_Title);
+                        $('.des').html(response.project_Description) ;
+                        $('.loc').html(response.project_Location);
+                        $('.std').html(response.project_Date);
+
+                    }
+                });
+                $('#createEvent').modal('show');
+            });
+        });
+
+        $(document).ready(function(){
+
+            //Pop up for Event Description Details
+            $.ajaxSetup({
+                headers:
+                {
+                    'X-CSRF-Token': $('input[name="_token"]').val()
+                }
+            });
+
+            //Call to get the description details based on event id
+            $('body').on('click','.eveseemore', function(){
+
+
+                var id = $(this).attr('name');
+                $.ajax({
+                    url: 'events/'+id,
+                    type: 'GET',
+                    datatype: 'JSON',
+                    success: function(response){
+                        console.log(response);
+                        response = JSON.parse(response);
+                        var eDate = new Date(response[0].event_Date);
+                        eDate1 = eDate.getDate();
+                        eDate2 = eDate.toLocaleDateString("en-us",{month: "long"});
+                        eDate3 = eDate.getFullYear();
+
+                        var start = new Date(response[0].event_StartTime);
+                        var end = new Date(response[0].event_EndTime);
+
+                        var imgstr = '/images/'+ response[0].event_Image;
+                        // var title = val.event_Title;
+                        $('.eimg').attr('src', imgstr)
+                        $('.modal-title').html(response[0].event_Title);
+                        $('.des').html(response[0].event_Description) ;
+                        $('.loc').html(response[0].event_Location);
+                        // $('.dat').html(response[0].event_Date);
+                        $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                        $('.tim1').html(start.toLocaleTimeString());
+                        $('.tim2').html(end.toLocaleTimeString());
+
+                    }
+                });
+                $('#eventDetails').modal('show');
             });
         });
 

@@ -18,7 +18,7 @@ footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
     font-family:Calibri,cursive;
-    text-align:center;
+    text-align:left;
 
 }
 ul.social-buttons{
@@ -48,13 +48,14 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
     text-align:center;
 }
 a{color:black}
-.form-data{padding:20px;   text-align:center;}
+.form-data{padding:20px; text-align:center;}
 ol{
     display: block;
     list-style-type: none;
+    text-align: left;
 }
 ol>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
-ol>li>a:hover{ color:black;  text-decoration: none;letter-spacing: 1px;}
+ol>li>a:hover{ color:black;  text-decoration: none;}
 
 .footerpara{font-size:18px; color: white}
 

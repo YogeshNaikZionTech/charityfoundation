@@ -7,7 +7,7 @@
             <span style="background-color: cadetblue" class="icon-bar"></span>
             <span  style="background-color: cadetblue" class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">AA Foundation</a>
+        <a class="navbar-brand" href="/"> <img src="/images/aafoundationlogo(1).jpg"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right">
