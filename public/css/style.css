@@ -16,8 +16,10 @@ h1{font-size:40px;}
             padding-bottom: 40px;
    }
    p{
-       font-size: 20px;
+       font-size: 18px;
        font-weight: 500;
+       text-align: justify;
+       padding:5px;
    }
    a{color:ghostwhite;
    font-size: 16px;
@@ -446,8 +448,8 @@ h1{font-size:40px;}
     position: relative;
     top: 0;
     left: 0;}
-.first > a { color:white ;}
-.second > a , .second > h1 , .second >p { color:rgba(3, 56, 69, 0.76) }
+.first > a , .first > p, .first >h1{ color:black ;}
+.second > a , .second > h1 , .second >p { color :white; }
 .second > a{border-color:rgba(3, 56, 69, 0.76) }
 .third > a{ color :white;}
 @media screen and (max-width: 768px){
@@ -762,3 +764,4 @@ iframe{height:450px;border-radius: 10px; padding-top: 20px;}
     background-color: #2aabd2;
     color:white;
 }
+/*---------------------------------------------Pop-up projects--------------------------------------------*/
