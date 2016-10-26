@@ -45,7 +45,7 @@
                             <span>Create</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="modifyitem">
                         <a href="" data-target-id="update">
                             <span><i class="fa fa-pencil-square-o"></i></span>
                             <span>Modify</span>
@@ -289,8 +289,8 @@
                 <h3>Update Projects/Events</h3>
                 <div>
                     <label class="radiosel">
-                        <input type="radio" name="program" value="projects" checked> Projects
-                        <input type="radio" name="program" value="events"> Events
+                        <input type="radio" name="program" id="radiosel1" value="projects" checked> Projects
+                        <input type="radio" name="program" id="radiosel2" value="events"> Events
                     </label>
                 </div>
                 <div class="project program">
@@ -476,9 +476,6 @@
                         }
                     });
           $("#searchitem").click(function(){
-
-
-
             $("#input").keyup(function(){
                 $.ajaxSetup({
                     headers:
@@ -512,6 +509,58 @@
         });
 
     </script>
+//Modify Menu
+    <script type="text/javascript">
+               $(document).ready(function() {
+                   $("#modifyitem").click(function() {
+                       $.ajaxSetup({
+                           headers: {
+                               'X-CSRF-Token': $('input[name="_token"]').val()
+                           }
+                       });
+                       //onload when projects is selected
+                       $.ajax({
+                           url: '',
+                           type: 'GET',
+                           // datatype: 'JSON',
+                           success: function (response) {
+                               response = JSON.parse(response);
+
+                           }
+
+
+                       });
+                       //click on projects
+                       $("#radiosel1").click(function() {
+                           $.ajax({
+                               url: '',
+                               type: 'GET',
+                               // datatype: 'JSON',
+                               success: function (response) {
+                                   response = JSON.parse(response);
+
+                               }
+
+
+                           });
+                       });
+                       //when click on events
+                       $("#radiosel2").click(function(){
+                           $.ajax({
+                               url: '',
+                               type: 'GET',
+                               // datatype: 'JSON',
+                               success: function (response) {
+                                   response = JSON.parse(response);
+
+                               }
+
+
+                           });
+                       });
+                   });
+               });
+   </script>
 
 
     <script type="text/javascript">
