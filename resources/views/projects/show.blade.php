@@ -152,7 +152,23 @@
 
       });
         // Load the current projects on load
+        $.ajax({
+                url: 'projects/page/current/'+1,
+                type: 'GET',
+                //data: {'id': 1}
+                // datatype: 'JSON',
+                success: function (response) {
+                    var output ="<div class='row'>";
+                    response = JSON.parse(response);
+                        $.each(response, function (key,val) {
+                            output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                                });
+                           output+="</div>";
+                             $('.currentContent').html(output);
+                   $('#cuPages').children('li:first').addClass('active');
 
+                            }
+             });
 //Loading Future Projects on load
 
 $.ajax({
