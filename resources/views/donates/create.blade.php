@@ -37,6 +37,7 @@
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
                     <input id="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
+                    <input id="type" class="form-control type" type="hidden"><!--Project/Event-->
                     <div class="col-md-3 col-md-offset-1 middle">
                         <div class="payment1">
                             <div class="form-group">
@@ -108,6 +109,7 @@
                         <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
                     <input class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
                     <input id="vtype" class="form-control" type="hidden"> <!--Donate Type-->
+                    <input id="type" class="form-control type" type="hidden"><!--Project/Event-->
                     <div class="col-md-3 col-md-offset-1">
                         <label>Volunteer Form</label>
                             <div class="volunteer">
@@ -168,25 +170,28 @@
         // $("#vtype").attr("style","display:none");
 
         if(sessionStorage.getItem('project') != null){
-
+            var type = "project";
             var p = sessionStorage.getItem('project');
-             $('.proevent').val(p);
-             $(".title").html(p);
+            $('.proevent').val(p);
+            $('.type').val(type);
+            $(".title").html(p);
         } 
 
         else if(sessionStorage.getItem('event') != null){
-
+            var type = "event";
             var e = sessionStorage.getItem('event');
             $(".monthly").attr("style","display:none")
              // $("#proj").html(e.key);
+            $('.type').val(type);
             $('.proevent').val(e);
             $(".title").html(e);
         }
         else if(sessionStorage.getItem('foundation') != null){
-
+            var type = "foundation";
             var p = sessionStorage.getItem('foundation');
             $(".volunteer").attr("style","display:none")
             // $("#proj").html(e.key);
+            $('.type').val(type);
             $('.proevent').val(p);
             $(".title").html(p);
         }
