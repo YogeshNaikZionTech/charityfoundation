@@ -1,5 +1,5 @@
  <footer id="footer">
-    <div class="container footerContainer">
+    <div class="container-fluid footerContainer">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xs-10 col-sm-3">
                 <span class="copyright">Copyright &copy; AA Foundation 2016</span>
@@ -22,28 +22,28 @@
                     </li>
                 </ol>
             </div>
-             <div class="col-md-2 col-lg-2 col-xs-12 col-sm-3">
+             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-3">
                
                 <ol>
                     @if(! Auth::check())
-                        <li class="col-md-10 col-lg-8 col-xs-6 col-sm-10">
+                        <li class="col-md-10 col-lg-8 col-xs-6 col-sm-11">
                             <a href="{{url('/login')}}">Login</a>
                         </li>
-                        <li class="col-md-10 col-lg-8 col-xs-6 col-sm-10">
+                        <li class="col-md-11 col-lg-11 col-xs-6 col-sm-11">
                             <a href="{{url('/register')}}">Sign Up</a>
                         </li>
                     @endif
-                    <li class="col-md-10 col-lg-8 col-xs-6 col-sm-10">
+                    <li class="col-md-11 col-lg-11 col-xs-6 col-sm-11">
                         <a href="{{url('aboutus')}}">About Us</a>
                     </li>
-                    <li class="col-md-11 col-lg-9 col-xs-6 col-sm-10">
+                    <li class="col-md-11 col-lg-12 col-xs-6 col-sm-11">
                         <a href="{{url('contact')}}">Contact US</a>
                     </li>
                 </ol>
             </div>
             <div class="col-md-2 col-lg-2 col-xs-12 col-sm-3">
                
-                <p class="footerpara" class="col-md-3 col-lg-3 col-xs-10 col-sm-3">
+                <p class="footerpara col-md-12 col-lg-12 col-xs-12 col-sm-12">
                     AA Foundation<br/>
                     2665 N First St,<br/>
                     San Jose, CA, 95134
