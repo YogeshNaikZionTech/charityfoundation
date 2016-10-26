@@ -18,7 +18,8 @@
             </div>
             <a href="#" class="nav-trigger"><span></span></a>
         </div>
-        <div class="side-nav">
+        <div class="flexbox">
+        <div class="side-nav col">
             <div class="logo">
                 <i class="fa fa-tachometer"></i>
                 <span>Admin Panel</span>
@@ -53,9 +54,9 @@
                 </ul>
             </nav>
         </div>
-        <div class="main-content">
+        <div class="main-content col">
             <div class="admin-content" id="history">
-                <h3>Donation History<a class="btn btn-warning btn-md export"  >Export All</a></h3>
+                <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
                 <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
@@ -190,8 +191,9 @@
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
 
-                            <form id="createproject" class=" col-md-6" action="{{url('')}}" method="POST">
+                            <form id="createproject" class=" col-md-6" action="{{url('projects/projectid')}}" method="PUT">
                                 <div class="form-group">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
                                     <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
                                     <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
@@ -219,11 +221,12 @@
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
 
-                            <form class=" col-md-6" id="createvent" action="{{url('events')}}" method="post">
+                            <form class=" col-md-6" id="createvent" action="{{url('event/eventid')}}" method="PUT">
 
                                     <div class="form-group">
+                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
-                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8" >
+                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
                                              <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
                                         </div>
                                     </div>
@@ -393,7 +396,8 @@
             </div>
 
         </div>
-
+        </div>
+</div>
 
 @endsection
 @section('scripts')
@@ -421,7 +425,7 @@
                 if ($(this).scrollTop() > 100) {
                     $('.scrollToTop').fadeIn();
                 } else {
-                    $('.scrollToTop').fadeOut();
+                    $('.scrollToTofp').fadeOut();
                 }
             });
             //Click event to scroll to top

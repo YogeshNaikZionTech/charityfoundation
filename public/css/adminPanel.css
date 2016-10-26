@@ -8,10 +8,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-#content{
-    margin-top:5%;
-    margin-bottom:14%;
-}
+/*#content{*/
+    /*margin-top:5%;*/
+    /*margin-bottom:14%;*/
+/*}*/
 label, input, h3{
     color:black;
 }
@@ -138,9 +138,7 @@ input[type="text"]{ height: 28px;}
 #history, #users{
     overflow: scroll;
 }
-#create, #update{
-    margin-bottom:34%;
-}
+
 .main-content .export{
     float: right;
     margin-right:5px;
@@ -294,4 +292,31 @@ input[type="text"]{
 }
 .radiosel input{
     color: #0A246A;
+}
+.flexbox {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    min-height:100%;
+}
+.flexbox .col {
+    flex: 1;
+}
+.flexbox .col:nth-child(1) {
+    order: 1;
+}
+.flexbox .col:nth-child(2) {
+    order: 0;
+}
+html { height: 100%; }
+body {
+    min-height:100%;
+    position:relative;
+    padding-bottom:[footer-height]
+}
+.footer {
+    position: absolute;
+    left: 0 ; right: 0; bottom: 0;
+    height:[footer-height];
 }

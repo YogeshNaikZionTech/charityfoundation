@@ -67,7 +67,7 @@
      <script>
          $(document).ready(function() {
 
-             $('#footer').css('margin-top', $(document).height() - $('#content').height() - $('#footer').height());
+             $('footer').css('margin-top', $(document).height() - $('#content').height() - $('footer').height());
          });
 
      </script>
