@@ -191,7 +191,7 @@
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
 
-                            <form id="createproject" class=" col-md-6" action="{{url('projects/projectid')}}" method="PUT">
+                            <form id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
                                 <div class="form-group">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                     <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
@@ -200,15 +200,38 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Project Description</label>
+                                    <label for="Location" class="col-md-3 control-label">Venue :</label>
                                     <div class="col-md-8">
-                                    <textarea name="description" placeholder="Description of the project" class="form-control"></textarea>
+                                        <input id="plocation" type="text"  name="plocation" class="form-control" style="height:28px;" />
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pdate"  class="col-md-3 control-label">Date :</label>
+                                    <div class="col-md-8">
+                                        <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pstime" class="col-md-3 control-label">Start Time :</label>
+                                    <div id="pstarttime" class="input-append col-md-8" >
+                                        <input class="col-md-11" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                        <span class="add-on" style=" height: 28px;">
+                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="ppic" class="control-label col-md-3">Upload an image</label>
+                                    <label class="control-label col-md-3">Project Description</label>
                                     <div class="col-md-8">
-                                    <input id="ppic" type="file" Name="pic" accept="image/*">
+                                        <textarea name="pdescription" placeholder="Description of the project" class="form-control"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="pimage" class="control-label col-md-3">Upload an image</label>
+                                    <div class="col-md-8">
+                                    <input id="pimage" type="file" Name="pimage" accept="image/*">
                                     </div>
                                 </div>
                                     <div>
@@ -221,7 +244,7 @@
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
 
-                            <form class=" col-md-6" id="createvent" action="{{url('event/eventid')}}" method="PUT">
+                            <form class=" col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
 
                                     <div class="form-group">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}" />
@@ -233,14 +256,14 @@
                                     <div class="form-group">
                                     <label for="Location" class="col-md-3 control-label">Venue :</label>
                                         <div class="col-md-8">
-                                             <input id="Location" type="text"  name="Location" class="form-control" style="height:28px;" />
+                                             <input id="location" type="text"  name="location" class="form-control" style="height:28px;" />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                     <label for="dateeve"  class="col-md-3 control-label">Date :</label>
                                         <div class="col-md-8">
-                                         <input  id="dateeve" type="date" name="date"  class="form-control" style="height:28px;">
+                                         <input  id="dateeve" type="date" name="edate"  class="form-control" style="height:28px;">
                                         </div>
                                     </div>
 
@@ -265,12 +288,12 @@
                                     <div class="form-group">
                                     <label for="description" class="col-md-3 control-label" >Event Description :</label>
                                      <div class="col-md-8">
-                                    <textarea id="description" name="description" placeholder="Description of the event" class="form-control"></textarea>
+                                    <textarea id="edescription" name="edescription" placeholder="Description of the event" class="form-control"></textarea>
                                      </div>
                                     </div>
                                     <div class="form-group">
                                     <label class="col-md-3">Upload an image:</label>
-                                    <input type="file" name="pic"  accept="image/*">
+                                    <input type="file" name="pic" accept="image/*">
                                 </div>
                                     <div>
 
@@ -358,28 +381,28 @@
                             <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <div class="form-control">
-                            <div class="datetimepicker1 input-append date">
-                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="Start Time">
-                                <span class="add-on">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                </span>
-                            </div>
-                            <div class="datetimepicker1 input-append date">
-                                <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="End Time">
-                                <span class="add-on">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                </span>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <select class="form-control">
                                 <option>Event Status</option>
                                 <option>Active</option>
                                 <option>Completed</option>
                                 <option>Future</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <div>
+                                <div class="datetimepicker1 input-append date">
+                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="Start Time">
+                                    <span class="add-on" style="height:28px;">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                                </div>
+                                <div class="datetimepicker1 input-append date">
+                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="End Time">
+                                    <span class="add-on" style="height:28px;">
+                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                </span>
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
@@ -509,7 +532,7 @@
         });
 
     </script>
-//Modify Menu
+{{--Modify Menu--}}
     <script type="text/javascript">
                $(document).ready(function() {
                    $("#modifyitem").click(function() {
@@ -574,6 +597,12 @@
             $('#endtime').datetimepicker({
                 pickDate: false,
             pick12HourFormat: true
+            });
+        });
+        $(function() {
+            $('#pstarttime').datetimepicker({
+                pickDate: false ,
+                pick12HourFormat: true
             });
         });
     </script>
