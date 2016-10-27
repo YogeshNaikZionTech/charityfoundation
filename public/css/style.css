@@ -416,6 +416,74 @@ h1{font-size:40px;}
 
 
 }
+@media screen and (min-width: 1920px) {
+    .carousel {
+        min-height: 666px;
+        height: 1000px;
+        margin-bottom: 60px;
+    }
+    .carousel-caption {
+        /*z-index: 10;*/
+        text-align: left;
+        top:30%;
+        left:10%;
+        /*width:700px;*/
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        min-height: 666px;
+        height: 1000px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 666px;
+        height: 1000px;
+    }
+    .carousel-inner1 > .item > img {
+        position: relative;
+        top: 0;
+        left: 0;}
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        z-index: 10;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        min-height: 140px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 140px;
+    }
+    .donate_carousel{
+        height:500px;
+        margin-top: 14%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+        padding: 20px 10px;
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 25px;}
+    h1 {
+        font-size: 40px;
+    }
+    .carousel-caption p{font-size: 25px;}
+    .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+
+
+
+}
 
 
 .carousel {
@@ -615,27 +683,6 @@ h1{font-size:40px;}
 
 }
 
-/*--------------------------------------------------pic Zoom---------------------------------------------------------------*/
-/*.image:hover img {*/
-    /*-webkit-transform:scale(1.07); !* Safari and Chrome *!*/
-    /*-moz-transform:scale(1.07); !* Firefox *!*/
-    /*-ms-transform:scale(1.07); !* IE 9 *!*/
-    /*-o-transform:scale(1.07); !* Opera *!*/
-    /*transform:scale(1.07);*/
-/*}*/
-
-/*.image img {*/
-    /*-webkit-transition: all 1s ease;*/
-    /*!*Safari and Chrome*!*/
-    /*-moz-transition: all 1s ease;*/
-    /*!*Firefox*!*/
-/*-o-transition: all 1s ease;*/
-    /*!*IE 9*!*/
-    /*-ms-transition: all 1s ease;*/
-    /*!*Opera*!*/
-/*transition: all 1s ease;*/
-/*}*/
-/*------------------------------------------------------scroll- down------------------------------------------------------------*/
 #section03 a {
     padding-top: 60px;
 }
