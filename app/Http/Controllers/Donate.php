@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Event;
 use App\Project;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +16,9 @@ class Donate extends Controller
 	 * author:Sandeep
 	 * Setting all the routes that come to donate page should be authenticated.
 	 */
-
+    public function __construct() {
+        $this->middleware( 'auth' );
+    }
 
 	/**
      * Display a listing of the resource.
@@ -34,8 +36,9 @@ class Donate extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        
+
             if (!Auth::check() ) {
+                \Session::put( 'EventCreated', 'Event created' );
             return view ('auth/login');
         }
 
@@ -49,9 +52,6 @@ class Donate extends Controller
 	 */
 	public function showselectproject(){
 
-		if (!Auth::check() ) {
-			return view ('auth/login');
-		}
 
 		$events = Event::where('event_Status','=','current')->orWhere('event_Status','=','future')->get();
 		$project = Project::where('project_Status','=','current')->orWhere('project_Status','=','future')->get();
