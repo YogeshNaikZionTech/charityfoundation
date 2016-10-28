@@ -18,7 +18,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active ">
-                    <img class="first-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="First slide">
+                    <img class="first-slide img-responsive" src="{{URL::asset('/images/slider6.jpg')}}" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>CAUSE1: Education benefit society</h1>
@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="second-slide img-responsive" src="{{URL::asset('/images/slider6.jpg')}}" alt="Second slide">
+                    <img class="second-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption second col-md-7 col-lg-7 col-sm-6 col-xs-6" >
                             <h1 >CAUSE2:Solar panels to Schools</h1>
@@ -100,7 +100,7 @@
             <h1>Our Projects</h1>
             <div class="container-fluid div2">
                 <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
-                    <div id="createEvent" class="modal fade" role="dialog">
+                    <div id="createProject" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
                             <div class="modal-content">
@@ -152,17 +152,17 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title"></h4>
                                 </div>
-                                <div class="modal-body">
-                                    <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
-                                    <div class="right">
-                                        <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
-                                        <h3 style="color: green">Date: <span class="dat"></span> </h3> <br>
-                                        <h4 style="color: green">From: <span class="tim1"></span></h4> <br>
-                                        <h4 style="color: green">To: <span class="tim2"></span></h4>
+                                <div class="modal-body col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                    <img src="" alt='event_Image' class="eimg img-responsive col-lg-6 col-md-6 col-xs-12 col-sm-6" height="250px" width="250px">
+                                    <div class="right col-lg-6 col-md-6 col-xs-12 col-sm-6   ">
+                                        <h2 class="col-lg-12 col-md-12 col-xs-12 col-sm-12" style="color: green">Venue: <span class="loc"></span> </h2> <br>
+                                        <h3 class="col-lg-8 col-md-8 col-xs-12 col-sm-8" style="color: green">Date: <span class="dat"></span> </h3> <br>
+                                        <h4 class="col-lg-8 col-md-8 col-xs-12 col-sm-8" style="color: green">From: <span class="tim1"></span></h4> <br>
+                                        <h4 class="col-lg-8 col-md-8 col-xs-12 col-sm-8" style="color: green">To: <span class="tim2"></span></h4>
 
                                     </div>
 
-                                    <p class="des"><p>
+                                    <p class="des col-lg-12 col-md-12 col-xs-12 col-sm-12"><p>
 
 
                                 </div>
@@ -216,7 +216,7 @@
 
             </div>
             <div class=" col-md-2 col-lg-2 col-xs-3 col-sm-2 col-lg-offset-9 pull-right" >
-                <a href="#" class="scrollToTop"><img style="bottom: 0;"   src="{{URL::asset('/images/back_to_top_icon.png')}}"/></a>
+                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/images/back_to_top_icon.png')}}"/></a>
             </div>
         </div>
 
@@ -347,7 +347,7 @@
 
                     }
                 });
-                $('#createEvent').modal('show');
+                $('#createProject').modal('show');
             });
         });
 
