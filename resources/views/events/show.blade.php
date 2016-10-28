@@ -5,10 +5,7 @@
     <link href="{{URL::asset('/css/events.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-
-
-    <div class="main container-fluid" id="content">
-
+  <div class="main container-fluid" id="content">
     <div class="main" id="content">
         @if(Session::has('EventCreated'))
             <div class="alert alert-success" role="alert">
@@ -20,7 +17,6 @@
             <h2>Events</h2>
         </div>
         <hr>
-
                 <div id="eventDetails" class="modal fade" role="dialog">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -29,34 +25,14 @@
                                 <h4 class="modal-title"></h4>
                             </div>
                                 <div class="modal-body">
-
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                    <label>Event Name</label>
-                                    <input type="text" name="ename" class="form-control">
-                                    <label>Venue</label>
-                                    <input type="text" name="location" class="form-control">
-                                    <label>Date</label>
-                                    <input type="date" name="edate" class="form-control">
-                                    <label>Start Time</label>
-                                    <input type="time" name='stime' class="form-control">
-                                    <label>End Time</label>
-                                    <input type="time" name='etime' class="form-control">
-                                    <label>Event Description</label>
-                                    <textarea name="edescription" placeholder="Description of the event" name='description' class="form-control"></textarea>
-                                    <label>Upload an image</label>
-                                    <input type="file" name="eimage" accept="image/*">
-
-                                <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
-                                <div class="right">
-                                 <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
-                                <h3 style="color: green">Date: <span class="dat"></span> </h3> <br>
-                                <h4 style="color: green">From: <span class="tim1"></span></h4> <br>
-                                <h4 style="color: green">To: <span class="tim2"></span></h4>
-
-                                </div>
-
+                                  <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
+                                  <div class="right">
+                                    <h2 style="color: green">Venue: <span class="loc"></span> </h2> <br>
+                                    <h3 style="color: green">Date: <span class="dat"></span> </h3> <br>
+                                    <h4 style="color: green">From: <span class="tim1"></span></h4> <br>
+                                    <h4 style="color: green">To: <span class="tim2"></span></h4>
+                                  </div>
                                     <p class="des"><p>
-
                                 </div>
                                 <div class="modal-footer">
                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success" value="Volunteer"></a>
@@ -65,44 +41,31 @@
                     </div>
                 </div>
         <div class="container-fluid">
-          <ul class="nav nav-tabs" role="tablist">
+          <ul class="nav nav-tabs nav-justified" role="tablist">
             <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
             <li><a data-toggle="tab" id="completedTab" href="#completed">Completed Events</a></li>
           </ul>
           <div class="tab-content">
-            <div id="upcoming" class="tab-pane fade in active">
-            <div class="upcomingContent">
-        
-           </div>
 
-              <!-- Pagination -->
+            <div id="upcoming" class="tab-pane fade in active">
+              <div class="upcomingContent">
+              <!-- Upcoming events will get populated here -->
+             </div>
+                            <!-- Pagination -->
               <div class="row">
-              <div class="col-md-12 page">
+                <div class="col-md-12 page">
                     <ul class="pagination" id="upPages">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-           <!--          <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-        <span class="sr-only">Previous</span>
-      </a>
-    </li> 
-
-    <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-        <span class="sr-only">Next</span>
-      </a>
-    </li> -->
                     </ul>
+                </div>
               </div>
-              </div>
-                    </div>  <!-- End of upcoming tab -->
+            </div>  <!-- End of upcoming tab -->
 
             <div id="completed" class="tab-pane fade">
                 <div class="completedContent">
-                  
+                <!-- Completed events will get populated here -->
                 </div>
-                      <!-- Pagination -->
+                            <!-- Pagination -->
                <div class="row">
                  <div class="col-md-12 page">
                       <ul class="pagination" id="comPages">
@@ -110,8 +73,6 @@
                     </ul>
                   </div>
               </div> 
-
-
             </div> <!-- End of completed tab -->
           </div> <!-- End of Tab content -->
         </div>
@@ -122,6 +83,7 @@
 
 @endsection
 @section('scripts')
+<script type="text/javascript" src="{{URL::asset('/js/nav.js')}}"></script>
   <script type="text/javascript">
       $(document).ready(function(){
           sessionStorage.removeItem('project');
@@ -146,21 +108,7 @@
 
       });
   </script>
-  <script>
-      $(document).ready(function(){
-          var scroll_start = 5;
-          var startChange = $('.nav1');
-          var offset = startChange.offset();
-          $(document).scroll(function() {
-              scroll_start = $(this).scrollTop();
-              if(scroll_start > offset.top) {
-                  $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-              } else {
-                  $('.nav1').css('background-color', 'transparent');
-              }
-          });
-      });
-  </script>
+
   <script type="text/javascript">
     $(document).ready(function(){
  $.ajaxSetup({
@@ -201,10 +149,12 @@
                       var output ="";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  var eDate = new Date(val.event_Date);
-                  eDate1 = eDate.getDate();
+                  var dateWithTimeZone = val.event_Date + "PST";
+                  var dateObject = new Date(dateWithTimeZone);
+                  // var eDate = new Date(val.event_Date);
+                  eDate1 = dateObject.getDate();
                   locale = "en-us";
-                  eDate2 = eDate.toLocaleDateString("en-us",{month: "short"});
+                  eDate2 = dateObject.toLocaleDateString(locale,{month: "short"});
                   var start = new Date(val.event_StartTime);
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
@@ -228,10 +178,12 @@ $.ajax({
                       var output ="";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  var eDate = new Date(val.event_Date);
-                  eDate1 = eDate.getDate();
+                  var dateWithTimeZone = val.event_Date + "PST";
+                  var dateObject = new Date(dateWithTimeZone);
+                  // var eDate = new Date(val.event_Date);
+                  eDate1 = dateObject.getDate();
                   locale = "en-us";
-                  eDate2 = eDate.toLocaleDateString("en-us",{month: "short"});
+                  eDate2 = dateObject.toLocaleDateString(locale,{month: "short"});
                   var start = new Date(val.event_StartTime);
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
@@ -259,10 +211,11 @@ $.ajax({
                       var output ="";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  var eDate = new Date(val.event_Date);
-                  eDate1 = eDate.getDate();
+                  var dateWithTimeZone = val.event_Date + "PST";
+                  var dateObject = new Date(dateWithTimeZone);
+                  eDate1 = dateObject.getDate();
                   locale = "en-us";
-                  eDate2 = eDate.toLocaleDateString("en-us",{month: "short"});
+                  eDate2 = dateObject.toLocaleDateString(locale,{month: "short"});
                   var start = new Date(val.event_StartTime);
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
@@ -289,9 +242,11 @@ $.ajax({
                       var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  var eDate = new Date(val.event_Date);
-                  eDate1 = eDate.getDate();
-                  eDate2 = eDate.toLocaleDateString("en-us",{month: "short"});
+                  var dateWithTimeZone = val.event_Date + "PST";
+                  var dateObject = new Date(dateWithTimeZone);
+                  // var eDate = new Date(val.event_Date);
+                  eDate1 = dateObject.getDate();
+                  eDate2 = dateObject.toLocaleDateString("en-us",{month: "short"});
                   var start = new Date(val.event_StartTime);
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
@@ -328,12 +283,13 @@ $.ajax({
                 type: 'GET',
                 datatype: 'JSON',
                 success: function(response){
-                  console.log(response);
+
                        response = JSON.parse(response);
-                    var eDate = new Date(response[0].event_Date);
-                  eDate1 = eDate.getDate();
-                  eDate2 = eDate.toLocaleDateString("en-us",{month: "long"});
-                  eDate3 = eDate.getFullYear();
+                        var dateWithTimeZone = response[0].event_Date + "PST";
+                  var dateObject = new Date(dateWithTimeZone);
+                  eDate1 = dateObject.getDate();
+                  eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
+                  eDate3 = dateObject.getFullYear();
 
                   var start = new Date(response[0].event_StartTime);
                   var end = new Date(response[0].event_EndTime);
