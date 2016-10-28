@@ -93,7 +93,7 @@ class ProjectController extends Controller
             if($id < $project_count ){
 
                 foreach($project_show as $value){
-                    $response_array = array("id"=>$value->id, "project_Title"=>$value->project_Title, "project_Description"=>$value->project_Description, "project_Date"=>$value->project_Date,"project_Location"=>$value->project_Location,"project_StartTime"=>$value->project_StartTime);
+                    $response_array = array("id"=>$value->id, "project_Title"=>$value->project_Title, "project_Description"=>$value->project_Description, "project_Date"=>$value->project_Date,"project_Location"=>$value->project_Location,"project_StartTime"=>$value->project_StartTime, "project_Image"=>$value->project_Image, "project_Status"=>$value->project_Status);
                 }
 
                 echo json_encode($response_array);

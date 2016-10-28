@@ -17,11 +17,12 @@
                 <div class="modal-dialog">
                     <!-- Modal content-->
                     <div class="modal-content">
-                        <div class="modal-header create">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <div class="modal-body">
+                        <div class="modal-header create" style="background-image: url('/images/moutain.jpg'); background-color: rgba(0,0,0,0.5);" >
+                      
+                            <button type="button" class="btn pull-right" data-dismiss="modal" style="color: white">Close</button>
                             <h4 class="modal-title"></h4>
                         </div>
-                        <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
                             <div class="modal-body">
                                 <p class="des"><p>
                                 <h2 style="color: green">Location: <span class="loc"></span> </h2>
@@ -29,16 +30,14 @@
 
                             </div>
                             <div class="modal-footer">
-                            <div class="modal-location"></div>
-                                <input type="button" class="btn btn-success" data-dismiss="modal" value="Donate Now">
+                                <input type="button" id="donateBtn" style="display: none" class="btn btn-success" data-dismiss="modal" value="Donate Now">
                             </div>
-                        <!-- </form> -->
                     </div>
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <ul class="nav nav-tabs" role="tablist">
+            <ul class="nav nav-tabs nav-justified projectTabs" role="tablist">
                 <li class="active"><a data-toggle="tab" href="#current">Current Projects</a></li>
                 <li><a data-toggle="tab" id="futureTab" href="#future">Future Projects</a></li>
                 <li><a data-toggle="tab" id="completedTab" href="#completed">Completed Projects</a></li>
@@ -93,6 +92,7 @@
 
 
 @section('scripts')
+<script type="text/javascript" src="{{URL::asset('/js/nav.js')}}"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
@@ -105,21 +105,7 @@
 });
 
     </script>
-    <script>
-        $(document).ready(function(){
-            var scroll_start = 5;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = $(this).scrollTop();
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-        });
-    </script>
+
     <script type="text/javascript">
     $(document).ready(function(){
         $.ajaxSetup({
@@ -202,7 +188,7 @@ $.ajax({
                  
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href=''><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+                   output += "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href=''><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.completedContent').html(output);
@@ -300,6 +286,7 @@ $.ajax({
             //Call to get the description details based on project id 
          $('body').on('click','.title', function(){
            
+                      $('#donateBtn').hide();
                
             var id = $(this).attr('name');
             $.ajax({
@@ -308,16 +295,36 @@ $.ajax({
                 datatype: 'JSON',
                 success: function(response){
                        response = JSON.parse(response);
-                  
+                  var dateObject = new Date(response.project_Date + 'PST');
+                  eDate1 = dateObject.getDate();
+                  eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
+                  eDate3 = dateObject.getFullYear();
+                  var imageSrc = "background-image: url('/images/" +  response.project_Image +" ')";
                     $('.modal-title').html(response.project_Title);
                     $('.des').html(response.project_Description) ;
                     $('.loc').html(response.project_Location);
-                    $('.std').html(response.project_Date);
-
+                    $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                    $('.modal-header').attr('style' , imageSrc);
+                    if(response.project_Status == 'Current'){
+                      $('#donateBtn').fadeIn("slow");
+                    }
+                    else{
+                      $('#donateBtn').hide();
+                    }
                 }
             });
             $('#projectDetails').modal('show');
          });
  });
+
+    //Redirecting to Donate Page from Modal's "Donate Now" Button
+         $('body').on('click','.title', function(){
+var kim = $(this);
+
+
+         });
+
     </script>
+
+
 @endsection

@@ -88,6 +88,8 @@
 
 
 @section('scripts')
+<script type="text/javascript" src="{{URL::asset('/js/nav.js')}}"></script>
+
     <script type="text/javascript">
         $(document).ready(function(){
 
@@ -132,21 +134,7 @@
             });
         });
     </script>
-    <script>
-        $(document).ready(function(){
-            var scroll_start = 5;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = $(this).scrollTop();
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-        });
-    </script>
+   
     <script type="text/javascript">   // Ajax Calls
         $(document).ready(function(){
             var p = 1;
@@ -181,7 +169,7 @@
                     var output ="<div class='row'>";
                     response = JSON.parse(response);
                     $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
+                        output += "<div class='col-md-3'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
                     });
 
                     output+="</div>";
@@ -202,7 +190,7 @@
                         var output ="<div class='row'>";
                         response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
+                        output += "<div class='col-md-3'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
                         });
                     output+="</div>";
                     $('#projectcontent').html(output);
@@ -239,7 +227,7 @@
                     var output ="<div class='row'>";
                     response = JSON.parse(response);
                     $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
+                        output += "<div class='col-md-3'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
                     });
 
                     output+="</div>";
@@ -259,7 +247,7 @@
                         var output ="<div class='row'>";
                         response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
+                        output += "<div class='col-md-3'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
                     });
                     output+="</div>";
                     $('#eventcontent').html(output);

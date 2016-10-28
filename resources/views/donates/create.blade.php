@@ -6,10 +6,10 @@
     @endsection
 @section('content')
 
-    <div class="main container" id="content">
+    <div class="main container" id="content" style="color: black">
         <div class="row" id="rowc">
             <div class="col-md-3">
-                <div class="contri-method">
+                <div class="contri-method" style="color: black">
                     <p>How would you like to contribute?</p>
                     <div class="donate-method onetime">
                     <label>

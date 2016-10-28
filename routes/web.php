@@ -32,6 +32,8 @@ Route::resource('admin','AdminController');
 
 Route::get('/select', 'Donate@showselectproject');
 
+
+
 Route::get('/setproject', function (){
 	/**
 	 * Set the selected project id or name in the session here.
