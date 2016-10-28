@@ -13,18 +13,18 @@ class UserPaymentTable extends Seeder
     {
         $Faker = Faker::create( 'App\Ucard' );
 
-            DB::table( 'user_card' )->insert( [
+        for($i=0; $i<5; $i++){
+            DB::table('user_card')->insert([
 
-
-                'user_id'    => 2,
+                'user_id' => $i,
                 'card_num' => $Faker->creditCardNumber,
-                'cvv_num'        => '455',
-                'expiry_date'   => \Carbon\Carbon::now()->format( 'Y-m' ),
-                'name_card'    => 'sasuke sama',
-                'zip_code'     => '89889'
+                'cvv_num' => rand(100,999),
+                'expiry_date' => \Carbon\Carbon::now()->format('Y-m'),
+                'name_card' => $Faker->firstName,
+                'zip_code' => rand(10000, 99999)
 
 
-            ] );
-
+            ]);
+}
     }
 }

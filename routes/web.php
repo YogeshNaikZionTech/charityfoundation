@@ -69,6 +69,10 @@ Route::get('/home', 'HomeController@index');
 
 Route::post('admin/users/search ', 'AdminController@searchUser');
 
+//Return paginated users i.e /admin/users/1 -> will give you 8 users
+Route::get('/admin/users/{id}','AdminController@userPagination');
+
+
 
 Route::get('admin/users/search', 'AdminController@getAllUsers');
 Route::get('admin/export/users', 'AdminController@exportUsers');
