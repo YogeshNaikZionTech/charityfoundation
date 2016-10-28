@@ -88,6 +88,8 @@
 
 
 @section('scripts')
+<script type="text/javascript" src="{{URL::asset('/js/nav.js')}}"></script>
+
     <script type="text/javascript">
         $(document).ready(function(){
 
@@ -132,21 +134,7 @@
             });
         });
     </script>
-    <script>
-        $(document).ready(function(){
-            var scroll_start = 5;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = $(this).scrollTop();
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-        });
-    </script>
+   
     <script type="text/javascript">   // Ajax Calls
         $(document).ready(function(){
             var p = 1;
