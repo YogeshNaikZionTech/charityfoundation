@@ -5,109 +5,105 @@
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-    <div class="main container-fluid" id="content">
-        <div class="h">
-            <h2>Projects</h2>
-      
-        </div>
-        <hr>
-        <div class="descModal">
-            <!-- <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#createEvent">+ New Project</button> -->
-            <div id="projectDetails" class="modal fade" role="dialog">
-                <div class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                                <div class="modal-body">
-                        <div class="modal-header create" style="background-image: url('/images/moutain.jpg'); background-color: rgba(0,0,0,0.5);" >
-                      
-                            <button type="button" class="btn pull-right" data-dismiss="modal" style="color: white">Close</button>
-                            <h4 class="modal-title"></h4>
-                        </div>
-                            <div class="modal-body">
-                                <p class="des"><p>
-                                <h2 style="color: green">Location: <span class="loc"></span> </h2>
-                                <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
-
-                            </div>
-                            <div class="modal-footer">
-                                <input type="button" id="donateBtn" style="display: none" class="btn btn-success" data-dismiss="modal" value="Donate Now">
-                            </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container-fluid">
-            <ul class="nav nav-tabs nav-justified projectTabs" role="tablist">
-                <li class="active"><a data-toggle="tab" href="#current">Current Projects</a></li>
-                <li><a data-toggle="tab" id="futureTab" href="#future">Future Projects</a></li>
-                <li><a data-toggle="tab" id="completedTab" href="#completed">Completed Projects</a></li>
-            </ul>
-            <div class="tab-content">
-                <div id="current" class="tab-pane fade in active">
-                <div class="currentContent"> </div>
+<div class="main container-fluid" id="content">
+  <div class="h">
+      <h2>Projects</h2>
    
-      <!-- Pagination -->
-               <div class="row">
-                 <div class="col-md-12 page" >
-                      <ul class="pagination" id="cuPages">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                    </ul>
-                  </div>
-              </div> 
-                </div>
-
-
-                <div id="future" class="tab-pane fade">
-                <div class="futureContent"></div>
-                 
-                         <!-- Pagination -->
-               <div class="row">
-                 <div class="col-md-12 page">
-                      <ul class="pagination" id="fuPages">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                    </ul>
-                  </div>
-              </div>
-                        </div>
-
-                        <div id="completed" class="tab-pane fade">
-                        <div class="completedContent"></div>
-               
-                          <!-- Pagination -->
-               <div class="row">
-                 <div class="col-md-12 page">
-                      <ul class="pagination" id="comPages">
-                    <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-                    </ul>
-                  </div>
-              </div>
-                        </div>
-           
-                    </div>
-                </div>
-                </div>
-
+  </div>
+  <hr>
+  <div class="descModal">
+    <div id="projectDetails" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="modal-header create" style="background-image: url('/images/moutain.jpg') ;background-color: rgba(0,0,0,0.5)">
+              <button type="button" class="btn pull-right close" data-dismiss="modal" >&times;</button>
+              <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+              <p class="des"></p>
+              <h2 style="color: green">Location: <span class="loc"></span> </h2>
+              <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
+            </div>
+            <div class="modal-footer">
+              <input type="button" id="donateBtn" style="display: none" class="btn btn-success" data-dismiss="modal" value="Donate Now" projId=''>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <ul class="nav nav-tabs nav-justified projectTabs" role="tablist">
+      <li class="active"><a data-toggle="tab" href="#current">Current Projects</a></li>
+      <li><a data-toggle="tab" id="futureTab" href="#future">Future Projects</a></li>
+      <li><a data-toggle="tab" id="completedTab" href="#completed">Completed Projects</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="current" class="tab-pane fade in active">
+        <div class="currentContent"> </div>
+                  <!-- Pagination -->
+          <div class="row">
+            <div class="col-md-12 page" >
+              <ul class="pagination" id="cuPages">
+                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+              </ul>
+            </div>
+          </div> 
+      </div>
+      <div id="future" class="tab-pane fade">
+        <div class="futureContent"></div>
+                   <!-- Pagination -->
+          <div class="row">
+            <div class="col-md-12 page">
+              <ul class="pagination" id="fuPages">
+                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+              </ul>
+            </div>
+          </div>
+      </div>
+      <div id="completed" class="tab-pane fade">
+        <div class="completedContent"></div>
+                    <!-- Pagination -->
+          <div class="row">
+            <div class="col-md-12 page">
+              <ul class="pagination" id="comPages">
+                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+              </ul>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>              
 @endsection
-
-
 
 @section('scripts')
 <script type="text/javascript" src="{{URL::asset('/js/nav.js')}}"></script>
 
     <script type="text/javascript">
         $(document).ready(function(){
+        sessionStorage.removeItem('event');
 
             $('body').on('click','.donate', function () {
                 sessionStorage.removeItem('event');
                 var projectValue = $(this).closest('.image').find('.title').attr('name');
                 sessionStorage.setItem('project', projectValue);
             });
-});
+    });
 
     </script>
 
     <script type="text/javascript">
     $(document).ready(function(){
+      $.fn.extend({
+    animateCss: function (animationName) {
+        var animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+        this.addClass('animated ' + animationName).one(animationEnd, function() {
+            $(this).removeClass('animated ' + animationName);
+        });
+    }
+});
         $.ajaxSetup({
           headers:
           {
@@ -144,14 +140,26 @@
                 //data: {'id': 1}
                 // datatype: 'JSON',
                 success: function (response) {
-                    var output ="<div class='row'>";
+                  console.log(response);
+                    var time =0 ;
                     response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                            output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                          setTimeout(function(){
+
+                            var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                               
+                            var k = $('<div>'+output+'</div>').hide();
+                  $('.currentContent').append(k);
+                  k.show().animateCss('fadeInUp');
+                    }, time);
+                      time+= 175;
                                 });
-                           output+="</div>";
-                             $('.currentContent').html(output);
+
+
+                              // $('.currentContent').html(output);
+                            
                    $('#cuPages').children('li:first').addClass('active');
+                 
 
                             }
              });
@@ -163,14 +171,21 @@ $.ajax({
         // data: {'id': 1},
         datatype: 'JSON',
         success: function (response) {
-                    var output ="<div class='row'>";
+                    
                  response = JSON.parse(response);
+                 var time=0;
                     $.each(response, function (key,val) {
+                      // setTimeout(function(){
 
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
-                 });
-                 output+="</div>";
-                  $('.futureContent').html(output);
+                   var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
+                 
+                 var k = $('<div class="row">'+output+'</div>').hide();
+                  $('.futureContent').append(output);
+                  k.fadeIn();
+// }, time);
+                      // time+= 100;
+                      });
+
         $('#fuPages').children('li:first').addClass('active');
 
         }
@@ -198,6 +213,7 @@ $.ajax({
       });
  //Getting the content based on Page number for current
           $('body').on('click', '.cuPageClick', function(){
+                  $('.currentContent').empty();
    
                var id =  $(this).attr('name');
                   $.ajax({
@@ -206,16 +222,24 @@ $.ajax({
                     // data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                     
-                      var output ="<div class='row'>";
+                     var time = 0;
+                      // var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  
-                  output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Donate Now</button></a> </div></div></div>";
-                 });
-                 output+= "</div>";
-                  $('.currentContent').html(output);
+                   setTimeout(function(){
+                            var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+
+          var k = $('<div>'+output+'</div>').hide();
+                  $('.currentContent').append(k);
+                  k.show().animateCss('fadeInUp');
+                    }, time);
+                      time+= 175;
+                                });
+
+                 // output+= "</div>";
+                  // $('.currentContent').html(output);
                     }
+                    
                   });
                   $('#cuPages').children('li').removeClass('active');
                   $('#cuPages').find("a[name="+id+"]").closest('li').addClass('active');
@@ -223,6 +247,7 @@ $.ajax({
 
  //Getting the content based on Page number for Future
           $('body').on('click', '.fuPageClick', function(){
+                  $('.futureContent').empty();
    
                var id =  $(this).attr('name');
                   $.ajax({
@@ -231,15 +256,23 @@ $.ajax({
                     // data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                        
-                      var output ="<div class='row'>";
+                      var time = 0;  
+                      // var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  
-                   output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
+                  setTimeout(function(){
+                   var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>";
+
+
+          var k = $('<div>'+output+'</div>').hide();
+                  $('.futureContent').append(k);
+                  k.show().animateCss('fadeInUp');
+                    }, time);
+                      time+= 175;
+
                  });
-                 output+= "</div>";
-                  $('.futureContent').html(output);
+                 // output+= "</div>";
+                  // $('.futureContent').html(output);
                     }
                   });
                   $('#fuPages').children('li').removeClass('active');
@@ -248,6 +281,7 @@ $.ajax({
 
           //Getting the content based on Page number for Completed
           $('body').on('click', '.comPageClick', function(){
+                  $('.completedContent').empty();
    
                var id =  $(this).attr('name');
                   $.ajax({
@@ -256,15 +290,22 @@ $.ajax({
                     // data: {'id' : id},
                     datatype: 'JSON',
                     success: function(response){
-                    
-                      var output ="<div class='row'>";
+                         var time = 0; 
+                      // var output ="<div class='row'>";
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
-                  
-                output += "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+                   setTimeout(function(){
+               var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+
+
+                  var k = $('<div>'+output+'</div>').hide();
+                  $('.completedContent').append(k);
+                  k.show().animateCss('fadeInUp');
+                    }, time);
+                      time+= 175;
                  });
-                 output+= "</div>";
-                  $('.completedContent').html(output);
+                 // output+= "</div>";
+                  // $('.completedContent').html(output);
                     }
                   });
                   $('#comPages').children('li').removeClass('active');
@@ -305,8 +346,9 @@ $.ajax({
                     $('.loc').html(response.project_Location);
                     $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                     $('.modal-header').attr('style' , imageSrc);
+                 $('#donateBtn').attr('projId', response.id)
                     if(response.project_Status == 'Current'){
-                      $('#donateBtn').fadeIn("slow");
+                      $('#donateBtn').fadeIn("7000");
                     }
                     else{
                       $('#donateBtn').hide();
@@ -318,11 +360,13 @@ $.ajax({
  });
 
     //Redirecting to Donate Page from Modal's "Donate Now" Button
-         $('body').on('click','.title', function(){
-var kim = $(this);
-
-
+         $('body').on('click','#donateBtn', function(){
+var projectValue = $(this).attr('projId');
+ sessionStorage.setItem('project', projectValue);
+window.location.href = "{{url('donates/create')}}";
          });
+
+
 
     </script>
 
