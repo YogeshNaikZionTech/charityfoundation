@@ -5,112 +5,121 @@
     <link href="{{URL::asset('/css/donateRedraft.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
+<div class="main container" id="content">
 
-    <div class="main container" id="content" style="color: black">
-        <div class="row" id="rowc">
-            <div class="col-md-3">
-                <div class="contri-method" style="color: black">
-                    <p>How would you like to contribute?</p>
-                    <div class="donate-method onetime">
-                    <label>
-                        <input type="radio" name="donate" value="onetime" checked> One-Time Donation
-                    </label>
+    <div class="row">
+        <div class="board col-md-4"> 
+            <h4 class="text-center"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
+            <div class="left">
+                <div class="col-md-12">
+                    <div class="div4">
+                        <div class="div3">
+                            <h3 class="animated fadeInUp">How<br>would<br>you like<br>to<br>contribute<br>?</h3>
+                        </div>  
+                        <div class="div1">
+                            <div class="div2">
+                                <ul>
+                                    <li class="donate-method onetime">
+                                        <input type="radio" name="donate" value="onetime" id="onetime">
+                                        <label for="onetime">One-Time</label>
+                                        <div class="check"><div class="inside"></div></div>
+                                    </li>
+                                    <li class="donate-method monthly">
+                                        
+                                        <input type="radio" name="donate" value="monthly" id="monthly">
+                                        <label for="monthly">Monthly Donation</label>
+                                        <div class="check"><div class="inside"></div></div>
+                                    </li>
+                                    <li class="donate-method volunteer">
+                                        
+                                        <input type="radio" name="donate" value="volunteer" id="volunteer">
+                                        <label for="volunteer">Volunteer</label>
+                                        <div class="check"><div class="inside"></div></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--<button id="step-1-next" class="btn btn-success nextBtn pull-right">Continue</button> -->
+                        </div>
+                        <div id="note" style="color: black; display: none">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
                     </div>
-
-                    <div class="donate-method monthly">
-                    <label>
-                        <input type="radio" name="donate" value="monthly" id="monthly"> Monthly Donation
-                    </label>
-                    <div id="note">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
-                    </div>
-
-                    <div class="donate-method volunteer">
-                    <label>
-                        <input type="radio" name="donate" value="volunteer"> Volunteer
-                    </label>
-                    </div>
-                </div>
+                    <!-- <div class="note1"><h4><span class="imp"><i class="glyphicon glyphicon-asterisk"></i></span> Founder takes care of all administrative costs</h4></div> -->
+                </div><!--End of Donation Type-->
             </div>
-
+        </div>
+            <!-- <div role="tabpanel" class="tab-pane fade" id="step-2"> -->
+        <div class="board col-md-4">
+            <h4 class="text-center"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
                 <form id="paymentform" action="{{url('/payment')}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
-                    <input id="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
-                    <div class="col-md-3 col-md-offset-1 middle">
-                        <div class="payment1">
-                            <div class="form-group">
-                                <label for="PaymentAmount">Donate Amount</label>
+                    <div class="col-md-10 middle">
+                        <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
+                        <input id="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
+                        <input id="type" class="form-control type" type="hidden"><!--Project/Event-->
+                        <div class="formdetails">
+                            <div class="div6">              
                                 <div class="amount-placeholder">
-                                  <div class="btn-group" role="group">
-                                    <button type="button" class="btn btn-default" name="inputbtn" value="10">$10</button>
-                                    <button type="button" class="btn btn-default" name="inputbtn" value="15">$15</button>
-                                    <button type="button" class="btn btn-default" name="inputbtn" value="20">$20</button>
-                                    <button type="button" class="btn btn-default" name="inputbtn" value="25">$25</button>
-                                    <button type="button" class="btn btn-default" name="inputbtn" value="30">$30</button>
-                                  </div>
+                                    <div class="form-group">
+                                    <label for="other-amt">Donate Amount</label>
+                                      <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-default" name="inputbtn" value="10">$10</button>
+                                        <button type="button" class="btn btn-default" name="inputbtn" value="15">$15</button>
+                                        <button type="button" class="btn btn-default" name="inputbtn" value="20">$20</button>
+                                        <button type="button" class="btn btn-default" name="inputbtn" value="25">$25</button>
+                                        <button type="button" class="btn btn-default" name="inputbtn" value="30">$30</button>
+                                      </div>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="form-group">
-                               <div class="input-group">
-                                  <span class="input-group-addon">$</span>
-                                  <input type="text" class="form-control" id="other-amt" name="otheramt" placeholder="Other Amount">
+                                <div class="form-group">
+                                   <div class="input-group">
+                                      <span class="input-group-addon">$</span>
+                                      <input type="text" class="form-control" id="other-amt" name="otheramt" placeholder="Other Amount">
+                                    </div>
                                 </div>
-                            </div>
+                                <div class="form-group" id="cc_number">
+                                    <label for="CreditCardNumber">Card number</label>
+                                    <input id="CreditCardNumber" class="null card-image form-control" type="text" name="CreditCardNumber">
+                                </div>
+                                <div class="form-group">
+                                    <label for="NameOnCard">Name on card</label>
+                                    <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
+                                </div>
 
-                            <div class="form-group" id="cc_number">
-                                <label for="CreditCardNumber">Card number</label>
-                                <input id="CreditCardNumber" class="null card-image form-control" type="text" name="CreditCardNumber">
-                            </div>
+                                <div class="expiry-date-group form-group">
+                                    <label for="ExpiryDate">Expiry date</label>
+                                    <input id="ExpiryDate" class="form-control" type="text" placeholder="YYYY/MM" name="ExpiryDate">
+                                </div>
 
-                            <div class="form-group">
-                                <label for="NameOnCard">Name on card</label>
-                                <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
-                            </div>
+                                <div class="security-code-group form-group">
+                                    <label for="SecurityCode">Security code</label>
+                                    <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
+                                </div>
 
-                            <div class="expiry-date-group form-group">
-                                <label for="ExpiryDate">Expiry date</label>
-                                <input id="ExpiryDate" class="form-control" type="text" placeholder="YYYY/MM" name="ExpiryDate">
+                                <div class="zip-code-group form-group">
+                                    <label for="ZIPCode">ZIP code</label>
+                                    <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
+                                </div>   
+                                <input id="PayButton" class=" hidden" type="submit" >
                             </div>
-
-                            <div class="security-code-group form-group">
-                                <label for="SecurityCode">Security code</label>
-                                <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
-                            </div>
-
-                            <div class="zip-code-group form-group">
-                                <label for="ZIPCode">ZIP code</label>
-                                <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
-                            </div>   
-                        </div>
+                        </div> <!--End of payment form details--> 
                     </div>
-                
-
-                    <div class="col-md-3 col-md-offset-1 right">
-                        <p>Review/Summary</p>
-
-                        <div id="donatepay">
-                            <p>You would like to donate <span id="amt"></span> dollars <br> for <span class="title"></span> from <br> card number: <span id="ccnum"></span> <br> with the name: <span id="ccname"></span><br></p>
-                            <button id="PayButton" class="btn btn-block btn-success submit-button" type="submit">
-                                <span class="submit-button-lock"></span>
-                                <span class="align-middle">Donate</span>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-
+                </form><!--End of Form-->
+                <!--<button id="step-2-next" class="btn btn-success nextBtn formv pull-right">Continue</button> -->
+            </div><!--End of Payment-->
             <div class="volform">
-                    
                 <form id="vform" action="" method="post">
-                        <!-- <input type="hidden" name="_token" value="{{csrf_token()}}"> -->
-                    <input class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
-                    <input id="vtype" class="form-control" type="hidden"> <!--Donate Type-->
-                    <div class="col-md-3 col-md-offset-1">
-                        <label>Volunteer Form</label>
-                            <div class="volunteer">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">  
+                    <div class="col-md-10 middle">
+                    
+                        <input class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
+                        <input id="vtype" class="form-control" type="hidden"> <!--Donate Type-->
+                        <input id="type" class="form-control type" type="hidden"><!--Project/Event-->
+                        <div class="formdetails">
+                            <div class="div6">
+                                <div class="form-group">
+                                    <label>Volunteer Form</label>
+                                </div>
                                 <div class="form-group">
                                     <label for="Name">Name</label>
                                     <input id="Name" name="Name" class="form-control" type="text">
@@ -129,25 +138,41 @@
                                 <div class="form-group">
                                     <label for="Comments">Comments</label>
                                     <textarea id="Comments" name="Comments" class="form-control" type="text" rows="5"></textarea>
-                                 </div>
-                           </div>
-                    </div>
-                 
-                    <div class="col-md-3 col-md-offset-1">
-                        <p>Review/Summary</p>
-
-                        <div id="vol">
-                        <p>Thank you for volunteering for <span class="title"></span>, We will get back to you</p>
-                        <button id="VolButton" name="submit2" class="btn btn-block btn-success submit-button" type="submit">
-                            <span class="submit-button-lock"></span>
-                            <span class="align-middle">Volunteer</span>
-                        </button>
-                        </div>
-                    </div>
-                </form>
+                                </div> 
+                                <input id="VolButton" class=" hidden" type="submit">
+                            </div>
+                        </div> <!--End of payment form details--> 
+                    </div>              
+                </form><!--End of Form-->   
             </div>
         </div>
-    </div>
+            <!-- </div> --><!--End of step-2-->
+            <!-- <div role="tabpanel" class="tab-pane fade" id="step-3"> -->
+            <div class="board col-md-4">
+                <h4 class="text-center"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
+                <div class="right review1 ">
+                    <div class="col-md-12 div7">
+                        <div id="donatepay">
+                            <p>Your Donation: <span id="amt"></span> dollars <br> for <span class="title"></span> from <br> card number: <span id="ccnum"></span> <br> with the name: <span id="ccname"></span><br></p>
+                        </div>
+                        <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
+                        <span class="align-middle">Donate</span></label>
+                    </div>
+                </div>
+                <div class="right review2 " style="display: none">
+                    <div class="col-md-12 div7">
+                        <div id="vol">
+                            <p>Thank you for volunteering for <span class="title"></span>, We will get back to you</p>
+                        </div>
+                        <label for="VolButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
+                        <span class="align-middle">Volunteer</span></label>
+                    </div>
+                </div>
+            </div>
+                <!-- </div> --><!--End of step-3-->
+            <!-- </div> --> <!--End of Tab Content-->
+        </div><!--End of Row-->
+    </div><!--End of Container-->
 @endsection
 
 @section('scripts')
@@ -156,37 +181,45 @@
 
     $(document).ready(function(){
 
+    var height1 = $(".payment").height();
+    $(".left").height(height1);
+
         var damt=0;
         $("#amt").html(damt);
 
         $(".volform").hide();
         $(".payment").show();
         $("#note").hide();
+        $(".review1").show();
+        $(".review2").hide();
 
         // $(".proevent").attr("style","display:none");
         // $("#dtype").attr("style","display:none");
         // $("#vtype").attr("style","display:none");
 
         if(sessionStorage.getItem('project') != null){
-
+            var type = "project";
             var p = sessionStorage.getItem('project');
-             $('.proevent').val(p);
-             $(".title").html(p);
+            $('.proevent').val(p);
+            $('.type').val(type);
+            $(".title").html(p);
         } 
 
         else if(sessionStorage.getItem('event') != null){
-
+            var type = "event";
             var e = sessionStorage.getItem('event');
             $(".monthly").attr("style","display:none")
              // $("#proj").html(e.key);
+            $('.type').val(type);
             $('.proevent').val(e);
             $(".title").html(e);
         }
         else if(sessionStorage.getItem('foundation') != null){
-
+            var type = "foundation";
             var p = sessionStorage.getItem('foundation');
             $(".volunteer").attr("style","display:none")
             // $("#proj").html(e.key);
+            $('.type').val(type);
             $('.proevent').val(p);
             $(".title").html(p);
         }
@@ -202,32 +235,64 @@
 
             var a=$("input[name=donate]:checked").val();
             var d= new Date();
+            d = d.getDate();
 
-            $("#day").html(d.getDate()+"th");
+            $("#day").html(getGetOrdinal(d));
+
+            function getGetOrdinal(n) {
+               var s=["th","st","nd","rd"],
+                   v=n%100;
+               return n+(s[(v-20)%10]||s[v]||s[0]);
+            }
 
 
 
             if(a==="monthly"){
+                // $("#onetime").closest('label').removeAttr("style");
+                // $("#volunteer").closest('label').removeAttr("style");
+
+                // $("#monthly").closest('label').attr("style","color:#ff944d");
+
+
 
                 $("#note").show();
                 $(".payment").show();
+                $(".review1").show();
                 $(".volform").hide();
+                $(".review2").hide();
                 $('#dtype').val(a);
                 
             }
             else if(a==="onetime"){
+                // $("#monthly").closest('label').removeAttr("style");
+                // $("#volunteer").closest('label').removeAttr("style");
+
+                // $("#onetime").closest('label').attr("style","color:#ff944d");
+
+
+
 
                 $("#note").hide();
                 $(".payment").show();
+                $(".review1").show();
                 $(".volform").hide();
+                $(".review2").hide();
                 $('#dtype').val(a);
                 
             }
             else if(a==="volunteer"){
+                // $("#onetime").closest('label').removeAttr("style");
+                // $("#monthly").closest('label').removeAttr("style");
+
+                // $("#volunteer").closest('label').attr("style","color:#ff944d");
+
+
                 
                 $("#note").hide();
                 $(".payment").hide();
+                $(".review1").hide();
                 $(".volform").show();
+                $(".review2").show();
                 $('#vtype').val(a);
                 
                 
@@ -299,6 +364,10 @@
 
         });
 
+        $("#PayBtn").click(function(e){
+            e.preventDefault();
+        });
+
         // $('#paymentform').on("err.validator.fv",function(e,data){
         //                 if (data.field === 'email') {
         //         // The email field is not valid
@@ -318,6 +387,10 @@
     
 
 $(document).ready(function(){
+        $('.formv').click(function(){
+        $('#paymentform').bootstrapValidator('validate');
+        $('#vform').bootstrapValidator('validate');
+    });
 
 
     $('#paymentform').bootstrapValidator({ 
