@@ -2,7 +2,7 @@
 
 @section('title', '| Donate')
 @section('stylesheets')
-    <link href="{{URL::asset('/css/donateRedraft.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{URL::asset('/css/donate.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
 <div class="main container" id="content">
@@ -181,8 +181,12 @@
 
     $(document).ready(function(){
 
-    var height1 = $(".payment").height();
-    $(".left").height(height1);
+    // var height1 = $(".payment").height();
+    // $(".left").height(height1);
+        $(".board").click(function(){
+            $(this).find("h4").addClass("highlight");
+
+        });
 
         var damt=0;
         $("#amt").html(damt);
@@ -208,7 +212,7 @@
         else if(sessionStorage.getItem('event') != null){
             var type = "event";
             var e = sessionStorage.getItem('event');
-            $(".monthly").attr("style","display:none")
+            $(".monthly").attr("style","display:none");
              // $("#proj").html(e.key);
             $('.type').val(type);
             $('.proevent').val(e);
@@ -217,7 +221,7 @@
         else if(sessionStorage.getItem('foundation') != null){
             var type = "foundation";
             var p = sessionStorage.getItem('foundation');
-            $(".volunteer").attr("style","display:none")
+            $(".volunteer").attr("style","display:none");
             // $("#proj").html(e.key);
             $('.type').val(type);
             $('.proevent').val(p);
@@ -364,9 +368,9 @@
 
         });
 
-        $("#PayBtn").click(function(e){
-            e.preventDefault();
-        });
+        // $("#PayBtn").click(function(e){
+        //     e.preventDefault();
+        // });
 
         // $('#paymentform').on("err.validator.fv",function(e,data){
         //                 if (data.field === 'email') {
