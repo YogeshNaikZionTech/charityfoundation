@@ -11,6 +11,11 @@
 @endsection
 @section('content')
     <div id="content">
+        @if(Session::has('ProjectCreated'))
+            <div class="alert alert-success" role="alert">
+                <strong>{{\Session::get('ProjectCreated')}}</strong>
+            </div>
+        @endif
         <div class="header">
             <div class="logo">
                 <i class="fa fa-tachometer"></i>
@@ -190,7 +195,6 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-
                             <form id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
                                 <div class="form-group">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />

@@ -16,21 +16,16 @@ class AdminController extends Controller
         $this->middleware( 'auth' );
     }
     /**
-     * Show the content 
-     *
-     *
-     *
+     * Show the content
      * @return Response
      */
     public function index()
     {
         if (Auth::user()->isAdmin){
-        return view('admin/admin');
-    }else{
-        echo "your not Admin";
-
-    }
-
+            return view('admin/admin');
+        }else{
+            echo "your not Admin";
+        }
     }
 
     /**
@@ -52,32 +47,41 @@ class AdminController extends Controller
         $user_check = array();
         $user_response = array();
         foreach($user_list as $user_slug){
-                Log::info($user_slug->firstname);
-            if(stripos($user_slug->firstname, $search_var)!==false){
+            Log::info($user_slug->firstname);
+            $user_name = $user_slug->firstname . $user_slug->lastname;
+            if(stripos($user_name, $search_var)!==false){
+                $tsum =0;
+               $esum=0;
+               $psum =0;
+               $event =$user_slug->Event()->get();
+               $project =$user_slug->Project()->get();
 
-                Log::info('inside if:'.$user_slug);
-              $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum);
+             if($event->count() >0) {
+                 foreach ($event as $e) {
+                     $esum += $e->pivot->event_cents;
+                 }
+             }
+             if($project->count()){
+                 foreach($project as $p){
+                     $psum += $p->pivot->project_cents;
+                 }
+             }
+             $tsum = $esum +$psum;
+                $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum, "project_donation"=>$psum,"event_donation"=>$esum,"total_donation" => $tsum);
                 array_push($user_response, $user_check);
             }
-            Log::info($user_response);
         }
         echo json_encode($user_response);
     }
 
 
     public  function getAllUsers(){
-
         if(Auth::check()&& Auth::user()->isAdmin){
-
             $user_list = User::all();
             echo json_encode($user_list);
-
-
         }else{
-
             echo 'You are not authorized, please login';
         }
-
     }
 
     /**
@@ -94,6 +98,60 @@ class AdminController extends Controller
             });
         })->export('xls');
     }
+
+    /**
+     * @param $id
+     *
+     *
+     * php tinker tries ;)
+     * $user = \App\User::where('id','=','3')->first();
+     * $event =$user->Event()->get();
+     * foreach($event as $e){ $sum += $e->pivot->event_cents;echo $sum;}
+     * Total donation = Event_donation + project_donation;
+     * Return donation amount with user deatils.
+     * /admin/users/1
+     */
+    public function userPagination($id){
+
+        //user with donation amount array
+        $user_donation =array();
+        $perpage =10;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+        $user_list = User::take($perpage)->skip($start)->get();
+        Log::info($user_list);
+        foreach($user_list as $u){
+            $esum =0;
+            $psum =0;
+            $event =$u->Event()->get();
+            $project =$u->Project()->get();
+
+            foreach($project as $p){
+                $psum += $p->pivot->project_cents;
+            }
+
+                foreach ($event as $e) {
+                    $esum += $e->pivot->event_cents;
+                }
+                $tsum = $esum+$psum;
+                array_push($user_donation,array("firstname" => $u->firstname, "lastname" => $u->lastname, "email" => $u->email, "phonenum" => $u->phonenum, "project_donation"=>$psum,"event_donation"=>$esum,"total_donation" => $tsum));
+
+//                Log::info($user_donation);
+//                array_push($user_donation,array("firstname" => $u->firstname, "lastname" => $u->lastname, "email" => $u->email, "phonenum" => $u->phonenum, "total_donation" => $sum));
+//                Log::info($user_donation);
+
+        }
+        echo json_encode($user_donation);
+    }
+
+
+    public function donationView(){
+
+        //
+    }
+
+
+
+
 
 }
 

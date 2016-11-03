@@ -20,6 +20,7 @@ class CreateDonationProjectTable extends Migration
             $table->integer('project_id')->unsigned();
             $table->foreign('project_id')->references('id')->on('users')->onDelete('cascade');;
             $table->integer('project_cents');
+            $table->integer('user_card');
             $table->string('receipt_num');
             $table->timestamps();
 
