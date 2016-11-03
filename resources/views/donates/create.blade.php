@@ -9,12 +9,12 @@
 
     <div class="row">
         <div class="board col-md-4"> 
-            <h4 class="text-center"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
+            <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
             <div class="left">
                 <div class="col-md-12">
                     <div class="div4">
                         <div class="div3">
-                            <h3 class="animated fadeInUp">How<br>would<br>you like<br>to<br>contribute<br>?</h3>
+                            <h3 class="animated fadeInUp">How would you like to contribute?</h3>
                         </div>  
                         <div class="div1">
                             <div class="div2">
@@ -48,7 +48,7 @@
         </div>
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-2"> -->
         <div class="board col-md-4">
-            <h4 class="text-center"><span class="glyphicon glyphicon-list"></span> Details</h4>
+            <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
                 <form id="paymentform" action="{{url('/payment')}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -149,7 +149,7 @@
             <!-- </div> --><!--End of step-2-->
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-3"> -->
             <div class="board col-md-4">
-                <h4 class="text-center"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
+                <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
                 <div class="right review1 ">
                     <div class="col-md-12 div7">
                         <div id="donatepay">
@@ -181,9 +181,8 @@
 
     $(document).ready(function(){
 
-    // var height1 = $(".payment").height();
-    // $(".left").height(height1);
         $(".board").click(function(){
+            $(".board").find("h4").removeClass("highlight");
             $(this).find("h4").addClass("highlight");
 
         });
@@ -202,7 +201,7 @@
         // $("#vtype").attr("style","display:none");
 
         if(sessionStorage.getItem('project') != null){
-            var type = "project";
+            var type = "projects";
             var p = sessionStorage.getItem('project');
             $('.proevent').val(p);
             $('.type').val(type);
@@ -210,13 +209,27 @@
         } 
 
         else if(sessionStorage.getItem('event') != null){
-            var type = "event";
+            var type = "events";
             var e = sessionStorage.getItem('event');
             $(".monthly").attr("style","display:none");
              // $("#proj").html(e.key);
             $('.type').val(type);
             $('.proevent').val(e);
-            $(".title").html(e);
+            // $(".title").html(e);
+
+            $.ajax({
+                url: '../events/'+e,
+                type:'GET',
+                datatype:'JSON',
+                success: function(response){
+                    console.log(response);
+                    response = JSON.parse(response);
+                    var name = response[0].event_Title;
+                    console.log(name);
+                    $('.title').html(name);
+                    
+                }
+            });
         }
         else if(sessionStorage.getItem('foundation') != null){
             var type = "foundation";
@@ -232,7 +245,6 @@
 
             $('button[name="inputbtn"]').removeClass("active");
             $(this).addClass("active");
-
         });
 
         $(".donate-method").click(function(){
@@ -240,7 +252,6 @@
             var a=$("input[name=donate]:checked").val();
             var d= new Date();
             d = d.getDate();
-
             $("#day").html(getGetOrdinal(d));
 
             function getGetOrdinal(n) {
@@ -249,16 +260,10 @@
                return n+(s[(v-20)%10]||s[v]||s[0]);
             }
 
-
-
             if(a==="monthly"){
                 // $("#onetime").closest('label').removeAttr("style");
                 // $("#volunteer").closest('label').removeAttr("style");
-
                 // $("#monthly").closest('label').attr("style","color:#ff944d");
-
-
-
                 $("#note").show();
                 $(".payment").show();
                 $(".review1").show();
@@ -270,12 +275,7 @@
             else if(a==="onetime"){
                 // $("#monthly").closest('label').removeAttr("style");
                 // $("#volunteer").closest('label').removeAttr("style");
-
                 // $("#onetime").closest('label').attr("style","color:#ff944d");
-
-
-
-
                 $("#note").hide();
                 $(".payment").show();
                 $(".review1").show();
@@ -287,20 +287,13 @@
             else if(a==="volunteer"){
                 // $("#onetime").closest('label').removeAttr("style");
                 // $("#monthly").closest('label').removeAttr("style");
-
                 // $("#volunteer").closest('label').attr("style","color:#ff944d");
-
-
-                
                 $("#note").hide();
                 $(".payment").hide();
                 $(".review1").hide();
                 $(".volform").show();
                 $(".review2").show();
                 $('#vtype').val(a);
-                
-                
-
             }
         });
         function calamt(){
@@ -309,10 +302,9 @@
 
                 $("#amt").html(" ");
                 $("button[name=inputbtn]").click(function(e){
-                damt = e.target.value;
-                $("#other-amt").val(damt);
-                $("#amt").html(damt);
-
+                    damt = e.target.value;
+                    $("#other-amt").val(damt);
+                    $("#amt").html(damt);
                 });
             }
 
@@ -321,69 +313,40 @@
                 damt = $("#other-amt").val();
                 $("#amt").html(damt);
                 $('button[name="inputbtn"]').removeClass("active");
-
-
-
             }
-
         };
+
         calamt();
 
         $("#other-amt").on("change",function(){
 
             calamt();
-
         });
 
         $("#other-amt").on("keyup", function(){
 
             calamt();
-
         });
-
-        // $("#other-amt").on("keydown", function(){
-
-        //     calamt();
-
-        // });
 
 
         $("button[name=inputbtn]").on("click",function(){
 
             $("#paymentform").bootstrapValidator('revalidateField', "otheramt");
-
         });
 
         $("#CreditCardNumber").on("keyup",function(){
 
             var cc = $("#CreditCardNumber").val();
             $("#ccnum").html(cc);
-
         });
 
         $("#NameOnCard").on("keyup",function(){
 
             var cname = $("#NameOnCard").val();
             $("#ccname").html(cname);
-
         });
 
-        // $("#PayBtn").click(function(e){
-        //     e.preventDefault();
-        // });
-
-        // $('#paymentform').on("err.validator.fv",function(e,data){
-        //                 if (data.field === 'email') {
-        //         // The email field is not valid
-        //         data.element
-        //             .data('fv.messages')
-        //             // Hide all the messages
-        //             .find('.help-block[data-fv-for="' + data.field + '"]').hide()
-        //             // Show only message associated with current validator
-        //             .filter('[data-fv-validator="' + data.validator + '"]').show();
-        //     }
-
-        // });
+        $
 
     }); // End of jQuery 1
 

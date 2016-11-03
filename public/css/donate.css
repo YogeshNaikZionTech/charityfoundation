@@ -25,6 +25,8 @@ h4 > span{
 
 .highlight{
   border-bottom: 3px solid #0000b3;
+  transition: border-bottom .25s ease-in-out;
+  -webkit-transition: border-bottom .25s ease-in-out;
 }
 
 .div1{
