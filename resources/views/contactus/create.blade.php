@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/contactus.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-    <div class="container media1 content">
+    <div class=" container media1 content">
         @if(\Session::has('contact_Success'))
             <div class="alert alert-success" role="alert">
                 <strong>Thank you {{$contactuser->name}} {{\Session::get('contact_Success')}}</strong>
