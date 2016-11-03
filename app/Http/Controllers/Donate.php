@@ -83,6 +83,20 @@ class Donate extends Controller
             'phone'=>'required|max:15',
 
         ));
+
+        $damount = $request->input('other-amt');
+        $c_num = $request->input('creditCardNumber');
+        $name_card = $request->input('NameOnCard');
+        $expiray_date= $request->input('ExpiryData');
+        $zip = $request->input('Zipcode');
+        $dtype = $request->input('dtype');
+        $proevent = $request->input('proevent');
+        $pname = $request->input('pname');
+        $email = $request->input('Email');
+        $phone_number = $request->input('phone');
+
+
+
     }
 
     /**

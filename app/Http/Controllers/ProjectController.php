@@ -66,12 +66,8 @@ class ProjectController extends Controller
 
         }
 
-
-
-
-
-
-
+        \Session::flash( 'ProjectCreated', 'Project created' );
+        return view('/projects/show');
     }
 
     /**

@@ -48,13 +48,28 @@ class AdminController extends Controller
         $user_response = array();
         foreach($user_list as $user_slug){
             Log::info($user_slug->firstname);
-            if(stripos($user_slug->firstname, $search_var)!==false){
+            $user_name = $user_slug->firstname . $user_slug->lastname;
+            if(stripos($user_name, $search_var)!==false){
+                $tsum =0;
+               $esum=0;
+               $psum =0;
+               $event =$user_slug->Event()->get();
+               $project =$user_slug->Project()->get();
 
-                Log::info('inside if:'.$user_slug);
-                $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum);
+             if($event->count() >0) {
+                 foreach ($event as $e) {
+                     $esum += $e->pivot->event_cents;
+                 }
+             }
+             if($project->count()){
+                 foreach($project as $p){
+                     $psum += $p->pivot->project_cents;
+                 }
+             }
+             $tsum = $esum +$psum;
+                $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum, "project_donation"=>$psum,"event_donation"=>$esum,"total_donation" => $tsum);
                 array_push($user_response, $user_check);
             }
-            Log::info($user_response);
         }
         echo json_encode($user_response);
     }
