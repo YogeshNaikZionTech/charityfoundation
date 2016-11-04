@@ -130,7 +130,32 @@ class Donate extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, array(
+            'other-amt' => 'required|min:1|max:255',
+            'creditCardNumber'=> 'required|max:20',
+            'NameOnCard'=>'required|max:35',
+            'ExpiryData'=>'required',
+            'ZipCode'=>'required',
+            'dtype'=>'required',
+            'proevent'=>'required',
+            'pname'=>'required',
+            'name'=>'required',
+            'Email'=>'required|email',
+            'phone'=>'required|max:15',
 
+        ));
+            $event_update =Event::where('id','=', $id)->get();
+
+        $damount = $request->input('other-amt');
+        $c_num = $request->input('creditCardNumber');
+        $name_card = $request->input('NameOnCard');
+        $expiray_date= $request->input('ExpiryData');
+        $zip = $request->input('Zipcode');
+        $dtype = $request->input('dtype');
+        $proevent = $request->input('proevent');
+        $pname = $request->input('pname');
+        $email = $request->input('Email');
+        $phone_number = $request->input('phone');
     }
 
     /**
