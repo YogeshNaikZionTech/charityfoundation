@@ -75,14 +75,44 @@ class Donate extends Controller
             'NameOnCard'=>'required|max:35',
             'ExpiryData'=>'required',
             'ZipCode'=>'required',
-            'dtype'=>'required',
-            'proevent'=>'required',
-            'pname'=>'required',
-            'name'=>'required',
-            'Email'=>'required|email',
-            'phone'=>'required|max:15',
+            'dtype'=>'required',    //1-time, or monthly, voulnteer
+            'type'=> 'required',    // project,event or foundation.
+            'proevent'=>'required', //id of project/event
+            'securitycode'=>'required',
+
 
         ));
+
+        /**
+         * checking if(dtype ){
+         *
+         * decide if its time or money donation.
+         *
+         * }
+         *
+         *
+         * //Time -donation
+         *  feild:
+         *  dtype
+         * proevent
+         * type
+         * if(type = foundation){
+         *
+         *  no time donation only money donation.
+         *
+         *
+         * }
+         *
+         * if(dytpe = time){
+         *
+         * name, email, phone commentes(text)
+         *
+         * }
+         *
+         *  URL: /donates  method: post
+         *
+         * Redirect : -> recipte.
+         */
 
         $damount = $request->input('other-amt');
         $c_num = $request->input('creditCardNumber');
