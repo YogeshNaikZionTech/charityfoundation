@@ -92,7 +92,7 @@
             <div class="col-lg-4 col-xs-12 col-md-10 col-sm-4 pull-left">
                 <h2>Video title</h2>
                 <p>Some description  about video ,Main theme of the video</p>
-                <a href="{{url('/education')}}" class="btn btn-lg">See more</a>
+                <a href="{{url('/education')}}" class="btn btn-lg">Explore more</a>
             </div>
         </div>
 
@@ -138,7 +138,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>See more</span></button></a></div>
+            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
         </div>
 
         <div class=" container-fluid header_Events" >
@@ -192,7 +192,7 @@
 
             </div>
 
-            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
+            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
 
 
         </div>
