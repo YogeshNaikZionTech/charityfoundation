@@ -218,7 +218,7 @@
             });
 
             $.ajax({
-                url: 'events/page/current',
+                url: 'events/page/future',
                 type: 'POST',
                 data: {'id': 1},
                 datatype: 'JSON',
@@ -235,11 +235,11 @@
                     $('#eventPages').children('li:first').addClass('active');
                 }
             });
-            //Getting the content based on Page number for current projects
+            //Getting the content based on Page number for upcoming events
             $('body').on('click','.evePageClick',function(){
                 var id =  $(this).attr('name');
                 $.ajax({
-                    url: 'events/page/current',
+                    url: 'events/page/future',
                     type: 'POST',
                     data: {'id' : id},
                     datatype: 'JSON',

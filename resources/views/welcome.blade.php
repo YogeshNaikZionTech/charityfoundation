@@ -23,7 +23,7 @@
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>CAUSE1: Education benefit society</h1>
                             <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
-                            <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
+                            <a class="btn btn-lg btn2" href="{{url('projects')}}" role="button">Read More</a>
 
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
@@ -32,7 +32,7 @@
                                 <p>Total Number of Donors</p>
                                 <span class="count">123</span>
                             </div>
-                            <a href="{{url('/select')}}" class="btn btn-lg">DONATE</a>
+                            <a href="{{url('/select')}}" class="btn btn-lg btn2">DONATE</a>
 
                         </div>
 
@@ -44,7 +44,7 @@
                         <div class="carousel-caption second col-md-7 col-lg-7 col-sm-6 col-xs-6" >
                             <h1 >CAUSE2:Solar panels to Schools</h1>
                             <p>We make a LIVING by what we GET but we make a LIFE by what we GIVE</p>
-                            <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
+                            <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
@@ -52,7 +52,7 @@
                                 <p>Founder take care of all the administrative cost</p>
 
                             </div>
-                            <a href="{{url('/select')}}" class="btn btn-lg">DONATE</a>
+                            <a href="{{url('/select')}}" class="btn btn2 btn-lg">DONATE</a>
                         </div>
 
                     </div>
@@ -63,7 +63,7 @@
                         <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
                             <h1>CAUSE3:Digitize Classrooms</h1>
                             <p>We rise by "LIFTING OTHERS"</p>
-                            <a class="btn btn-lg" href="{{url('projects')}}" role="button">Read More</a>
+                            <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
             <div class="col-lg-4 col-xs-12 col-md-10 col-sm-4 pull-left">
                 <h2>Video title</h2>
                 <p>Some description  about video ,Main theme of the video</p>
-                <a href="{{url('/education')}}" class="btn btn-lg">See more</a>
+                <a href="{{url('/education')}}" class="btn btn2 btn-lg">See more</a>
             </div>
         </div>
 
@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="modal-location"></div>
-                                    <input type="button" class="btn btn-success" data-dismiss="modal" value="Donate Now">
+                                    <input type="button" class="btn btn2 btn-success" data-dismiss="modal" value="Donate Now">
                                 </div>
                                 <!-- </form> -->
                             </div>
@@ -132,13 +132,13 @@
                                     <img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a   class="btn btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
+                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
-            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>See more</span></button></a></div>
+            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn btn2"><span>See more</span></button></a></div>
         </div>
 
         <div class=" container-fluid header_Events" >
@@ -167,7 +167,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success" value="Volunteer"></a>
+                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn2 btn-success" value="Volunteer"></a>
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                                 <div><h3>{{$cevent->event_Title}}</h3></div>
                                 <div><p>A community of lifelong learners, and champions of our own success.</p></div>
 
-                                <a  name="{{$cevent->id}}" class="btn btn-lg eveseemore">See more </a>
+                                <a  name="{{$cevent->id}}" class="btn btn2 btn-lg eveseemore">See more </a>
                             </div>
                         </div>
                     </div>
@@ -192,7 +192,7 @@
 
             </div>
 
-            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>See more</span></button></a></div>
+            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn btn2"><span>See more</span></button></a></div>
 
 
         </div>
@@ -210,7 +210,7 @@
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <textarea class="form-control suggestarea" name="suggestarea"  placeholder="Suggestion :*"> </textarea></div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                            <button class="btn col-lg-offset-12 btn-md">Shoot It !</button></div>
+                            <button class="btn btn2 col-lg-offset-12 btn-md">Shoot It !</button></div>
                     </form>
                 </div>
 
