@@ -775,7 +775,7 @@ h3 {
 }
 iframe{height:450px;border-radius: 10px; padding-top: 20px;}
 /*---------------------------------------------------------See more button hover effects----------------------------------------*/
-.btn
+.btn2
 {
     display: inline-block;
     border-radius: 7px;
@@ -787,14 +787,14 @@ iframe{height:450px;border-radius: 10px; padding-top: 20px;}
     cursor: pointer;
     margin: 5px;
 }
-.btn span {
+.btn2 span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.btn span:after {
+.btn2 span:after {
     content: '»';
     position: absolute;
     opacity: 0;
@@ -803,16 +803,16 @@ iframe{height:450px;border-radius: 10px; padding-top: 20px;}
     transition: 0.5s;
 }
 
-.btn:hover span {
+.btn2:hover span {
     padding-right: 25px;
 }
 
-.btn:hover span:after {
+.btn2:hover span:after {
     opacity: 1;
     right: 0;
     color:white;
 }
-.btn:hover span:after , .btn
+.btn2:hover span:after , .btn2
 {
     background-color: #2aabd2;
     color:white;

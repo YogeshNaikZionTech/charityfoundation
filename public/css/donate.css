@@ -12,11 +12,15 @@
   clear: both;
 }
 
-.board h4{
+.board > h4{
   color: #b3b3b3;
   margin-bottom: 8%;
-  
   padding-bottom: 20px;
+}
+
+#donatepay > h4{
+  color: #b3b3b3;
+  margin-top: 0px;
 }
 
 h4 > span{
@@ -28,6 +32,60 @@ h4 > span{
   transition: border-bottom .25s ease-in-out;
   -webkit-transition: border-bottom .25s ease-in-out;
 }
+
+.title{
+  display: inline-block;
+  color: #ff6600;
+  /*line-height: 80px;*/
+  
+ /* vertical-align: middle;*/
+}
+
+.cause{
+  margin-bottom: 10%;
+  padding:0px;
+  -moz-box-shadow: 0px 0px 20px #4c5a5d;
+  -webkit-box-shadow: 0px 0px 20px #4c5a5d;
+  box-shadow: 0px 0px 20px #4c5a5d;
+  background: -moz-linear-gradient(-45deg,  rgba(186,186,186,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba(186,186,186,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  rgba(186,186,186,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bababa', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.reset{
+  padding:0px;
+}
+
+.reset2{
+  display: inline-block;
+  font-size: x-large;
+  height: 50px;
+  line-height: 50px;
+}
+
+#amt{
+  display: inline-block;
+  height: 50px;
+  font-size: xx-large;
+  border: 1px solid #0000b3;
+  line-height: 50px;
+  color: #ff6600; 
+}
+
+.dollar{ 
+  display: inline-block;
+  height: 50px;
+  font-size: xx-large;
+  
+  line-height: 50px;
+  color: #0000b3; 
+}
+.formv{
+  clear: both;
+}
+
+
 
 .div1{
 /*  border: 1px solid black;*/
