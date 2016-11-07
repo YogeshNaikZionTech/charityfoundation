@@ -203,7 +203,7 @@ $.ajax({
                  
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href=''><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+                   output += "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.completedContent').html(output);
@@ -295,7 +295,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                    setTimeout(function(){
-               var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning'>Read More</button></a> </div></div></div>";
+               var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button type='button' name='"+val.id+"' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
 
 
                   var k = $('<div>'+output+'</div>').hide();
@@ -357,6 +357,38 @@ $.ajax({
             });
             $('#projectDetails').modal('show');
          });
+
+//Call to get the description details when 'Read More' is clicked on completed projects
+ $('body').on('click','.readMore', function(){
+              $('#donateBtn').hide();
+               
+            var id = $(this).attr('name');
+            $.ajax({
+                url: 'projects/'+id,
+                type: 'GET',
+                datatype: 'JSON',
+                success: function(response){
+                       response = JSON.parse(response);
+                  var dateObject = new Date(response.project_Date + 'PST');
+                  eDate1 = dateObject.getDate();
+                  eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
+                  eDate3 = dateObject.getFullYear();
+                  var imageSrc = "background-image: url('/images/" +  response.project_Image +" ')";
+                    $('.modal-title').html(response.project_Title);
+                    $('.des').html(response.project_Description) ;
+                    $('.loc').html(response.project_Location);
+                    $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                    $('.modal-header').attr('style' , imageSrc);
+                 $('#donateBtn').attr('projId', response.id)
+                    if(response.project_Status == 'Current'){
+                      $('#donateBtn').fadeIn("7000");
+                    }
+                    else{
+                      $('#donateBtn').hide();
+                    }
+                }
+            });
+            $('#projectDetails').modal('show');
  });
 
     //Redirecting to Donate Page from Modal's "Donate Now" Button
@@ -366,7 +398,7 @@ var projectValue = $(this).attr('projId');
 window.location.href = "{{url('donates/create')}}";
          });
 
-
+ });
 
     </script>
 
