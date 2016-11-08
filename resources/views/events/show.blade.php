@@ -188,7 +188,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.completedContent').html(output);
         $('#comPages').children('li:first').addClass('active');
@@ -251,7 +251,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px' > <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px' > <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                  output+= "</div>";
                   $('.completedContent').html(output);

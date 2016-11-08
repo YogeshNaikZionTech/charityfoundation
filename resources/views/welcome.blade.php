@@ -117,7 +117,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="modal-location"></div>
-                                    <input type="button" class="btn btn2 btn-success" data-dismiss="modal" value="Donate Now">
+                                    <input type="button" class="btn btn2 btn-success donateNow" value="Donate Now">
                                 </div>
                                 <!-- </form> -->
                             </div>
@@ -167,7 +167,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn2 btn-success" value="Volunteer"></a>
+                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn2 btn-success volunteerBtn" value="Volunteer"></a>
                                 </div>
                             </div>
                         </div>
@@ -344,6 +344,7 @@
                         $('.des').html(response.project_Description) ;
                         $('.loc').html(response.project_Location);
                         $('.std').html(response.project_Date);
+                        $('.donateNow').attr('name', response.id)
 
                     }
                 });
@@ -391,11 +392,26 @@
                         $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                         $('.tim1').html(start.toLocaleTimeString());
                         $('.tim2').html(end.toLocaleTimeString());
+                        $('.volunteerBtn').attr('name', response[0].id);
 
                     }
                 });
                 $('#eventDetails').modal('show');
             });
+
+$('.donateNow').click(function(){
+        sessionStorage.removeItem('event');
+        var projectValue = $(this).attr('name');
+                sessionStorage.setItem('project', projectValue);
+                window.location.href = "{{url('donates/create')}}";
+});
+$('.volunteerBtn').click(function(){
+        sessionStorage.removeItem('project');
+        var eventValue = $(this).attr('name');
+                sessionStorage.setItem('event', eventValue);
+                // window.location.href = "{{url('donates/create')}}";
+});
+
         });
 
 
