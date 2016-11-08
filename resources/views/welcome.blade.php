@@ -93,7 +93,7 @@
                 <h2>Video title</h2>
                 <p>Some description  about video ,Main theme of the video</p>
 
-                <a href="{{url('/education')}}" class="btn btn-lg">Explore more</a>
+                <a href="{{url('/education')}}" class="btn btn2">Explore more</a>
 
             </div>
         </div>
@@ -141,7 +141,7 @@
                 </div>
             </div>
 <
-            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
+            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class="btn2 btn"><span>Explore more</span></button></a></div>
 
         </div>
 
@@ -197,7 +197,7 @@
             </div>
 
 
-            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
+            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn2 btn"><span>Explore more</span></button></a></div>
 
 
 
