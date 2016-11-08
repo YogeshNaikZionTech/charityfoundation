@@ -64,7 +64,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 /**
- * Json urls events
+ *  api routes. I could not put them in api.php.    
  */
 
 Route::post('admin/users/search ', 'AdminController@searchUser');

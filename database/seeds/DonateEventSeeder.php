@@ -21,7 +21,7 @@ class DonateEventSeeder extends Seeder
 
         //seed 2
         $event = \App\Event::where('id','=','3')->first();
-        $user = \App\User::where('id','=','3')->first();
+        $user = \App\User::where('id','=','2')->first();
         Log::info($user);
         Log::info($user->id);
         $event->User()->attach([$user->id=>['event_cents'=>300, 'user_card'=>1, 'receipt_num'=>987]]);

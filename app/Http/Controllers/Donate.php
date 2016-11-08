@@ -86,7 +86,7 @@ class Donate extends Controller
         $donation_type = $request->input('dtype');
         if($donation_type = 'event'){
 
-            
+
         }
 
         /**
