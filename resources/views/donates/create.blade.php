@@ -175,7 +175,7 @@
                         </div>
 
                         <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
-                        <span class="align-middle">Donate</span></label>
+                        <span class="align-middle">DONATE</span></label>
                     </div>
                 </div>
                 <div class="right review2 " style="display: none">
@@ -184,7 +184,7 @@
                             <p>Thank you for volunteering for <span class="title"></span>, We will get back to you</p>
                         </div>
                         <label for="VolButton" id="PayBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
-                        <span class="align-middle">Volunteer</span></label>
+                        <span class="align-middle">VOLUNTEER</span></label>
                     </div>
                 </div>
             </div>
@@ -224,7 +224,20 @@
             var p = sessionStorage.getItem('project');
             $('.proevent').val(p);
             $('.type').val(type);
-            $(".title").html(p);
+            // $(".title").html(p);
+            $.ajax({
+                url: '../projects/'+p,
+                type:'GET',
+                datatype:'JSON',
+                success: function(response){
+                    
+                    response = JSON.parse(response);
+                    var name = response.project_Title;
+                    
+                    $('.title').html(name);
+                    $("#image").attr("src",'../images/'+response.project_Image);
+                }
+            });
         } 
 
         else if(sessionStorage.getItem('event') != null){
@@ -235,8 +248,9 @@
             $('.type').val(type);
             $('.proevent').val(e);
             // $(".title").html(e);
-            if(sessionStorage.getItem('volunteer')===true){
-                $('#volunteer').attr('checked','checked')
+            if(sessionStorage.getItem('volunteer')=== "true"){
+                $('.volunteer input[type=radio]').attr('checked','checked');
+                donatecheck();
             }
 
             $.ajax({
@@ -244,10 +258,10 @@
                 type:'GET',
                 datatype:'JSON',
                 success: function(response){
-                    console.log(response);
+                    
                     response = JSON.parse(response);
                     var name = response[0].event_Title;
-                    console.log(name);
+                    
                     $('.title').html(name);
                     
                     $("#image").attr("src",'../images/'+response[0].event_Image);
@@ -273,53 +287,12 @@
 
         $(".donate-method").click(function(){
 
-            var a=$("input[name=donate]:checked").val();
-            var d= new Date();
-            d = d.getDate();
-            $("#day").html(getGetOrdinal(d));
+            donatecheck();
 
-            function getGetOrdinal(n) {
-               var s=["th","st","nd","rd"],
-                   v=n%100;
-               return n+(s[(v-20)%10]||s[v]||s[0]);
-            }
-
-            if(a==="monthly"){
-                // $("#onetime").closest('label').removeAttr("style");
-                // $("#volunteer").closest('label').removeAttr("style");
-                // $("#monthly").closest('label').attr("style","color:#ff944d");
-                $("#note").show();
-                $(".payment").show();
-                $(".review1").show();
-                $(".volform").hide();
-                $(".review2").hide();
-                $('#dtype').val(a);
-                
-            }
-            else if(a==="onetime"){
-                // $("#monthly").closest('label').removeAttr("style");
-                // $("#volunteer").closest('label').removeAttr("style");
-                // $("#onetime").closest('label').attr("style","color:#ff944d");
-                $("#note").hide();
-                $(".payment").show();
-                $(".review1").show();
-                $(".volform").hide();
-                $(".review2").hide();
-                $('#dtype').val(a);
-                
-            }
-            else if(a==="volunteer"){
-                // $("#onetime").closest('label').removeAttr("style");
-                // $("#monthly").closest('label').removeAttr("style");
-                // $("#volunteer").closest('label').attr("style","color:#ff944d");
-                $("#note").hide();
-                $(".payment").hide();
-                $(".review1").hide();
-                $(".volform").show();
-                $(".review2").show();
-                $('#vtype').val(a);
-            }
         });
+
+            
+
         function calamt(){
 
             if ($("#other-amt").val() == '') {
@@ -370,7 +343,55 @@
             $("#ccname").html(cname);
         });
 
-        $
+        function donatecheck(){
+
+            var a=$("input[name=donate]:checked").val();
+            var d= new Date();
+            d = d.getDate();
+            $("#day").html(getGetOrdinal(d));
+
+            function getGetOrdinal(n) {
+               var s=["th","st","nd","rd"],
+                   v=n%100;
+               return n+(s[(v-20)%10]||s[v]||s[0]);
+            }
+
+            if(a==="monthly"){
+                // $("#onetime").closest('label').removeAttr("style");
+                // $("#volunteer").closest('label').removeAttr("style");
+                // $("#monthly").closest('label').attr("style","color:#ff944d");
+                $("#note").show();
+                $(".payment").show();
+                $(".review1").show();
+                $(".volform").hide();
+                $(".review2").hide();
+                $('#dtype').val(a);
+                
+            }
+            else if(a==="onetime"){
+                // $("#monthly").closest('label').removeAttr("style");
+                // $("#volunteer").closest('label').removeAttr("style");
+                // $("#onetime").closest('label').attr("style","color:#ff944d");
+                $("#note").hide();
+                $(".payment").show();
+                $(".review1").show();
+                $(".volform").hide();
+                $(".review2").hide();
+                $('#dtype').val(a);
+                
+            }
+            else if(a==="volunteer"){
+                // $("#onetime").closest('label').removeAttr("style");
+                // $("#monthly").closest('label').removeAttr("style");
+                // $("#volunteer").closest('label').attr("style","color:#ff944d");
+                $("#note").hide();
+                $(".payment").hide();
+                $(".review1").hide();
+                $(".volform").show();
+                $(".review2").show();
+                $('#vtype').val(a);
+            }
+        }
 
     }); // End of jQuery 1
 
