@@ -50,13 +50,50 @@ ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a
 }
 a{color:black}
 .form-data{padding:20px; text-align:center;}
-ol{
+.style{
     display: block;
     list-style-type: none;
     text-align: left;
 }
-ol>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
-ol>li>a:hover{ color:black;  text-decoration: none;}
+.style>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
+.style>li>a:hover{ color:black;  text-decoration: none;}
 
 .footerpara{font-size:18px; color: white}
+
+/*#ppModal{
+    font-style: normal;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: left;
+    
+}*/
+
+.pp{
+
+    position: relative;
+    padding: 15px;
+    text-align: left;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+}
+
+.pp p{
+        margin: 0 0 10px;
+
+        font-size: unset;
+        font-weight: unset;
+        text-align: unset;
+        padding:unset;
+}
+
+.pp ul, .pp ol{
+    padding-left: 40px;
+}
+
+.pp1{
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-align: left;
+
+}
 

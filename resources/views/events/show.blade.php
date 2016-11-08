@@ -35,7 +35,7 @@
                                     <p class="des"><p>
                                 </div>
                                 <div class="modal-footer">
-                                   <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success" value="Volunteer"></a>
+                                   <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success volunt" value="Volunteer"></a>
                                 </div>
                         </div>
                     </div>
@@ -159,7 +159,7 @@
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 // 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.upcomingContent').html(output);
         $('#upPages').children('li:first').addClass('active');
@@ -188,7 +188,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.completedContent').html(output);
         $('#comPages').children('li:first').addClass('active');
@@ -220,7 +220,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.upcomingContent').html(output);
                     }
@@ -251,7 +251,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' role='button'><button type='button' class='btn btn-warning'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px' > <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px' > <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                  output+= "</div>";
                   $('.completedContent').html(output);
@@ -273,9 +273,9 @@ $.ajax({
           }
         });
 
-            //Call to get the description details based on event id 
+            //Call to get the description details based on event id (opens modal)
          $('body').on('click','.eName', function(){
-           
+           $('.volunt').hide();
                
             var id = $(this).attr('name');
             $.ajax({
@@ -283,6 +283,7 @@ $.ajax({
                 type: 'GET',
                 datatype: 'JSON',
                 success: function(response){
+                      console.log(response);
 
                        response = JSON.parse(response);
                         var dateWithTimeZone = response[0].event_Date + "PST";
@@ -304,11 +305,80 @@ $.ajax({
                     $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                     $('.tim1').html(start.toLocaleTimeString());
                     $('.tim2').html(end.toLocaleTimeString());
+                    $('.volunt').attr('name', response[0].id)
+
+                    if(response[0].event_Status == 'future'){
+                      $('.volunt').fadeIn("7000");
+                    }
+                    else{
+                      $('.volunt').hide();
+                    }
 
                 }
             });
             $('#eventDetails').modal('show');
          });
- });
+
+
+    //Call to get description when 'Read More is clicked' (opens modal)
+     $('body').on('click','.readMore', function(){
+           $('.volunt').hide();
+               
+            var id = $(this).attr('name');
+            $.ajax({
+                url: 'events/'+id,
+                type: 'GET',
+                datatype: 'JSON',
+                success: function(response){
+                      console.log(response);
+
+                       response = JSON.parse(response);
+                        var dateWithTimeZone = response[0].event_Date + "PST";
+                  var dateObject = new Date(dateWithTimeZone);
+                  eDate1 = dateObject.getDate();
+                  eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
+                  eDate3 = dateObject.getFullYear();
+
+                  var start = new Date(response[0].event_StartTime);
+                  var end = new Date(response[0].event_EndTime);
+
+                  var imgstr = '/images/'+ response[0].event_Image;
+                  // var title = val.event_Title;
+                  $('.eimg').attr('src', imgstr)
+                    $('.modal-title').html(response[0].event_Title);
+                    $('.des').html(response[0].event_Description) ;
+                    $('.loc').html(response[0].event_Location);
+                    // $('.dat').html(response[0].event_Date);
+                    $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                    $('.tim1').html(start.toLocaleTimeString());
+                    $('.tim2').html(end.toLocaleTimeString());
+                    $('.volunt').attr('name', response[0].id)
+
+                    if(response[0].event_Status == 'future'){
+                      $('.volunt').fadeIn("7000");
+                    }
+                    else{
+                      $('.volunt').hide();
+                    }
+
+                }
+            });
+            $('#eventDetails').modal('show');
+         });
+
+
+         $('.volunt').on('click', function(){
+          var eventValue = $(this).attr('name');
+          sessionStorage.setItem('event', eventValue);
+          sessionStorage.setItem('volunteer' , 'true');
+         });
+         $('body').on('click', '.volBtn', function(){
+           var eventValue = $(this).attr('name');
+          sessionStorage.setItem('event', eventValue);
+          sessionStorage.setItem('volunteer' , 'true');
+         });
+
+          });
+
     </script>
 @endsection
