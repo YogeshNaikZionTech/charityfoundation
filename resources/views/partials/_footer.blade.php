@@ -70,7 +70,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title pp1" id="policyModalLabel">Privacy Policy</h4>
+                        <h3 class="modal-title pp1" id="policyModalLabel">Privacy Policy</h3>
                     </div>
                     <div class="modal-body pp">
                         <p>
@@ -117,7 +117,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title pp1" id="touModalLabel">Web Site Terms and Conditions of Use</h4>
+                        <h3 class="modal-title pp1" id="touModalLabel">Web Site Terms and Conditions of Use</h3>
                     </div>
                     <div class="modal-body pp">
 
