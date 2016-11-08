@@ -50,7 +50,7 @@
         <div class="board col-md-4">
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
-                <form id="paymentform" action="{{url('/payment')}}" method="post">
+                <form id="paymentform" action="{{url('/donates')}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="col-md-10 middle">
                         <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
@@ -100,7 +100,7 @@
                                     <label for="ZIPCode">ZIP code</label>
                                     <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
                                 </div>   
-                                <input id="PayButton" class=" hidden" type="submit" >
+                                <input id="PayButton" class="hidden" type="submit" >
                             </div>
                         </div> <!--End of payment form details--> 
                     </div>
@@ -153,8 +153,27 @@
                 <div class="right review1 ">
                     <div class="col-md-12 div7">
                         <div id="donatepay">
-                            <p>Your Donation: <span id="amt"></span> dollars <br> for <span class="title"></span> from <br> card number: <span id="ccnum"></span> <br> with the name: <span id="ccname"></span><br></p>
+                            <h4>Selected Cause:</h4>
+
+                            <div class="cause col-md-12">
+                                <div class="col-md-3 reset">
+                                    <img id="image" width ="80px" height="80px">
+                                </div>
+
+                                <div class="col-md-9 reset">
+                                    <h4 class="title"></h4>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-12 reset" style="margin-bottom: 10%">
+                                <div class="col-md-6 reset reset2" style="color:#b3b3b3">Your Donation</div> 
+                                <div class="col-md-1 reset text-center dollar">$</div><div id="amt" class="col-md-3 reset text-center"></div> 
+<!--                                 card number: <span id="ccnum"></span><br>
+                                with the name: <span id="ccname"></span><br> -->
+                            </div>
                         </div>
+
                         <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
                         <span class="align-middle">Donate</span></label>
                     </div>
@@ -164,7 +183,7 @@
                         <div id="vol">
                             <p>Thank you for volunteering for <span class="title"></span>, We will get back to you</p>
                         </div>
-                        <label for="VolButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
+                        <label for="VolButton" id="PayBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
                         <span class="align-middle">Volunteer</span></label>
                     </div>
                 </div>
@@ -182,8 +201,8 @@
     $(document).ready(function(){
 
         $(".board").click(function(){
-            $(".board").find("h4").removeClass("highlight");
-            $(this).find("h4").addClass("highlight");
+            $(".board").find("h4:first").removeClass("highlight");
+            $(this).find("h4:first").addClass("highlight");
 
         });
 
@@ -216,6 +235,9 @@
             $('.type').val(type);
             $('.proevent').val(e);
             // $(".title").html(e);
+            if(sessionStorage.getItem('volunteer')===true){
+                $('#volunteer').attr('checked','checked')
+            }
 
             $.ajax({
                 url: '../events/'+e,
@@ -227,6 +249,8 @@
                     var name = response[0].event_Title;
                     console.log(name);
                     $('.title').html(name);
+                    
+                    $("#image").attr("src",'../images/'+response[0].event_Image);
                     
                 }
             });

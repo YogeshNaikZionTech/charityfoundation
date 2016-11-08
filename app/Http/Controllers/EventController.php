@@ -28,9 +28,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        $events_f = Event::Where('event_Status','=','future')->paginate(8);
-        $events_c = Event::Where('event_Status','=','completed')->paginate(8);
-        return view('events/show')->withEvents_f($events_f)->withEvents_c($events_c);
+       
+        return view('events/show');
     }
 
 /**
@@ -98,7 +97,7 @@ class EventController extends Controller
         if($id < $event_count ){
 
             foreach($event_show as $value){Log::info('the values'. $value->id);
-                $response_check= array("id"=>$value->id,"event_Image"=>$value->event_Image, "event_Title"=>$value->event_Title, "event_Description"=>$value->event_Description, "event_Date"=>$value->event_Date,"event_Location"=>$value->event_Location,"event_StartTime"=>$value->event_StartTime, "event_EndTime"=>$value->event_EndTime);
+                $response_check= array("id"=>$value->id,"event_Image"=>$value->event_Image, "event_Title"=>$value->event_Title, "event_Description"=>$value->event_Description, "event_Date"=>$value->event_Date,"event_Location"=>$value->event_Location,"event_StartTime"=>$value->event_StartTime, "event_EndTime"=>$value->event_EndTime,"event_Status"=>$value->event_Status);
                 array_push($response_array, $response_check);
             }
             echo json_encode($response_array);
