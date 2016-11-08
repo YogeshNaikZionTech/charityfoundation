@@ -281,14 +281,14 @@ h4 > span{
   -webkit-transition: background 0.25s linear;
 }
 
-.div2 input[type=radio]:checked ~ .check {
+.div2 input[type=radio]:checked ~ .check, .check1 {
   border: 5px solid #ff944d;
 }
 
-.div2 input[type=radio]:checked ~ .check::before{
+.div2 input[type=radio]:checked ~ .check::before, .check1{
   background: #ff944d;
 }
 
-.div2 input[type=radio]:checked ~ label{
+.div2 input[type=radio]:checked ~ label, .check1{
   color: #ff944d;
 }
