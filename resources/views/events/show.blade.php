@@ -159,7 +159,7 @@
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 // 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.upcomingContent').html(output);
         $('#upPages').children('li:first').addClass('active');
@@ -220,7 +220,7 @@ $.ajax({
                   var end = new Date(val.event_EndTime);
                   var title = val.event_Title;
 
-                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
+                   output += "<div class='col-md-4 col-sm-6'>    <div class='thumbnail'> <div class='image'> <img src='/images/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button></a> </div> <div class='caption col-md-12'> <div class='date col-md-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10' style='margin:0px'> <a><p><h3 id='desc' class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>"
                  });
                   $('.upcomingContent').html(output);
                     }
@@ -369,6 +369,11 @@ $.ajax({
 
          $('.volunt').on('click', function(){
           var eventValue = $(this).attr('name');
+          sessionStorage.setItem('event', eventValue);
+          sessionStorage.setItem('volunteer' , 'true');
+         });
+         $('body').on('click', '.volBtn', function(){
+           var eventValue = $(this).attr('name');
           sessionStorage.setItem('event', eventValue);
           sessionStorage.setItem('volunteer' , 'true');
          });
