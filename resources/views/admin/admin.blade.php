@@ -197,7 +197,7 @@
                             <h3>New Project Creation</h3>
                             <form id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
                                 <div class="form-group">
-                                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
                                     <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
                                     <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
                                     <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
@@ -251,7 +251,7 @@
                             <form class=" col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
 
                                     <div class="form-group">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
                                     <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
                                         <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
                                              <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
