@@ -8,13 +8,13 @@
 <div class="main container" id="content">
 
     <div class="row">
-        <div class="board col-md-4"> 
+        <div class="board col-xs-6 col-sm-4 col-md-4"> 
             <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
             <div class="left">
-                <div class="col-md-12">
+                <div class="col-md-12 col-lg-12 col-sm-12">
                     <div class="div4">
                         <div class="div3">
-                            <h3 class="animated fadeInUp">How would you like to contribute?</h3>
+                            <h3 class="animated fadeInUp"">How would you like to contribute?</h3>
                         </div>  
                         <div class="div1">
                             <div class="div2">
@@ -31,7 +31,7 @@
                                         <div class="check"><div class="inside"></div></div>
                                     </li>
                                     <li class="donate-method volunteer">
-                                        
+                        
                                         <input type="radio" name="donate" value="volunteer" id="volunteer">
                                         <label for="volunteer">Volunteer</label>
                                         <div class="check"><div class="inside"></div></div>
@@ -47,15 +47,15 @@
             </div>
         </div>
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-2"> -->
-        <div class="board col-md-4">
+        <div class="board col-xs-6 col-sm-4 col-md-4">
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
                 <form id="paymentform" action="{{url('/donates')}}" method="post">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <div class="col-md-10 middle">
-                        <input id="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
-                        <input id="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
-                        <input id="type" class="form-control type" type="hidden"><!--Project/Event-->
+                    <div class="col-md-10 col-lg-10 col-sm-10 middle">
+                        <input id="proevent" name="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
+                        <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
+                        <input id="type" name="type" class="form-control type" type="hidden"><!--Project/Event-->
                         <div class="formdetails">
                             <div class="div6">              
                                 <div class="amount-placeholder">
@@ -100,7 +100,7 @@
                                     <label for="ZIPCode">ZIP code</label>
                                     <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
                                 </div>   
-                                <input id="PayButton"  type="submit" >
+                                <input id="PayButton" class="hidden" type="submit">
                             </div>
                         </div> <!--End of payment form details--> 
                     </div>
@@ -110,11 +110,11 @@
             <div class="volform">
                 <form id="vform" action="" method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
-                    <div class="col-md-10 middle">
+                    <div class="col-md-10 col-lg-10 col-sm-10 middle">
                     
-                        <input class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
-                        <input id="vtype" class="form-control" type="hidden"> <!--Donate Type-->
-                        <input id="type" class="form-control type" type="hidden"><!--Project/Event-->
+                        <input class="form-control proevent" name="proevent" type="hidden"> <!--Event/Project from select page-->
+                        <input id="vtype" class="form-control" name="vtype" type="hidden"> <!--Donate Type-->
+                        <input id="type" class="form-control type" name="type" type="hidden"><!--Project/Event-->
                         <div class="formdetails">
                             <div class="div6">
                                 <div class="form-group">
@@ -139,7 +139,7 @@
                                     <label for="Comments">Comments</label>
                                     <textarea id="Comments" name="Comments" class="form-control" type="text" rows="5"></textarea>
                                 </div> 
-                                <input id="VolButton" class=" hidden" type="submit">
+                                <input id="volButton" class="hidden" type="submit">
                             </div>
                         </div> <!--End of payment form details--> 
                     </div>              
@@ -148,16 +148,15 @@
         </div>
             <!-- </div> --><!--End of step-2-->
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-3"> -->
-            <div class="board col-md-4">
+            <div class="board col-xs-6 col-sm-4 col-md-4">
                 <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
                 <div class="right review1 ">
-                    <div class="col-md-12 div7">
+                    <div class="col-md-12  div7">
                         <div id="donatepay">
                             <h4>Selected Cause:</h4>
-
                             <div class="cause col-md-12">
                                 <div class="col-md-3 reset">
-                                    <img id="image" width ="80px" height="80px">
+                                    <img class="image">
                                 </div>
 
                                 <div class="col-md-9 reset">
@@ -166,9 +165,9 @@
                             </div>
 
 
-                            <div class="col-md-12 reset" style="margin-bottom: 10%">
-                                <div class="col-md-6 reset reset2" style="color:#b3b3b3">Your Donation</div> 
-                                <div class="col-md-1 reset text-center dollar">$</div><div id="amt" class="col-md-3 reset text-center"></div> 
+                            <div class="col-md-12 col-sm-12 col-xs-12 reset" style="margin-bottom: 10%">
+                                <div class="col-md-6 col-xs-8 col-sm-6 reset reset2" style="color:#b3b3b3">Your Donation</div> 
+                                <div class="col-md-1 col-xs-1 col-sm-1 reset text-center dollar">$</div><div id="amt" class="col-md-3 col-sm-3 col-xs-3 reset text-center"></div> 
 <!--                                 card number: <span id="ccnum"></span><br>
                                 with the name: <span id="ccname"></span><br> -->
                             </div>
@@ -179,11 +178,24 @@
                     </div>
                 </div>
                 <div class="right review2 " style="display: none">
-                    <div class="col-md-12 div7">
+                    <div class="col-md-12 col-sm-12 col-xs-12 div7">
                         <div id="vol">
-                            <p>Thank you for volunteering for <span class="title"></span>, We will get back to you</p>
+                            <h4>Selected Cause:</h4>
+                            <div class="cause col-md-12 col-xs-12">
+                                <div class="col-md-3 col-xs-8 reset">
+                                    <img class="image">
+                                </div>
+
+                                <div class="col-md-9 col-xs-10 reset">
+                                    <h4 class="title"></h4>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-xs-12 reset" style="margin-bottom: 10%">
+
+                            </div>
                         </div>
-                        <label for="VolButton" id="PayBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
+                        <label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
                         <span class="align-middle">VOLUNTEER</span></label>
                     </div>
                 </div>
@@ -235,7 +247,7 @@
                     var name = response.project_Title;
                     
                     $('.title').html(name);
-                    $("#image").attr("src",'../images/'+response.project_Image);
+                    $(".image").attr("src",'../images/'+response.project_Image);
                 }
             });
         } 
@@ -399,10 +411,10 @@
     
 
 $(document).ready(function(){
-        $('.formv').click(function(){
-        $('#paymentform').bootstrapValidator('validate');
-        $('#vform').bootstrapValidator('validate');
-    });
+        // $('.formv').click(function(){
+        // $('#paymentform').bootstrapValidator('validate');
+        // $('#vform').bootstrapValidator('validate');
+    // });
 
 
     $('#paymentform').bootstrapValidator({ 
