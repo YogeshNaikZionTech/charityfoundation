@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Project;
+use App\Ucard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
@@ -69,11 +70,13 @@ class Donate extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
+        Log::info($request);
         $this->validate($request, array(
             'other-amt' => 'required|min:1|max:255',
             'creditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
-            'ExpiryData'=>'required',
+            'ExpiryDate'=>'required',
             'ZipCode'=>'required',
             'dtype'=>'required',    //1-time, or monthly, voulnteer
             'type'=> 'required',    // project,event or foundation.
@@ -82,11 +85,48 @@ class Donate extends Controller
 
 
         ));
+        $d_amount = $request->input('other-amt');
+        $u_cardnum = $request->input('creditCardNumber');
+        $u_cardname = $request->input('NameOnCard');
+        $u_cardExpiry = $request->input('ExpiryDate');
+        $u_cardcvv = $request->input('securitycode');
+        $u_cardzip = $request->input('zipCode');
 
-        $donation_type = $request->input('dtype');
-        if($donation_type = 'event'){
+        //get the current user
+        $user = Auth::user();
+        $user_id = $user ->id;
+
+        //make a card mode;
+        $card = new Ucard();
+        $card->user_id = $user_id;
+        $card->card_num = $u_cardnum;
+        $card->cvv_num = $u_cardcvv;
+        $card->expiry_data =$u_cardExpiry;
+        $card->name_card = $u_cardname;
+        $card->zip_code = $u_cardzip;
+        $receipt = $this->generateReceipt();
+        //save the card in to User-card table and attache the user to the user_id- relationship.
+        $card->save();
+        $user->Ucard()->save($card);
+        $card_id = $card->id;
+        $id = $request->input('proevent');
+        $type_payment = $request->input('dtype');
+
+        $donation_type = $request->input('type');
+        if($donation_type === 'event'){
 
 
+            $event = Event::where('id','=',$id)->first();
+            $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
+
+            if($type_payment === 'oneTime'){
+
+            }
+
+        }else if($donation_type === 'project'){
+
+            $project= Event::where('id','=',$id)->first();
+            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
         }
 
         /**
@@ -131,6 +171,18 @@ class Donate extends Controller
         $email = $request->input('Email');
         $phone_number = $request->input('phone');
 
+
+
+    }
+
+    public function generateReceipt(){
+
+        $d_date = date('y');
+        $month = date('m');
+        $day = date('d');
+        $rand = mt_rand(1000,9999);
+        $prefix='A';
+        return $prefix.$d_date.$rand.$month.$day;
 
 
     }

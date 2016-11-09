@@ -100,7 +100,7 @@
                                     <label for="ZIPCode">ZIP code</label>
                                     <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
                                 </div>   
-                                <input id="PayButton" class="hidden" type="submit" >
+                                <input id="PayButton"  type="submit" >
                             </div>
                         </div> <!--End of payment form details--> 
                     </div>
