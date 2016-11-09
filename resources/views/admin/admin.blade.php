@@ -312,8 +312,10 @@
 
                 </div>
             </div>
+
             <div class="admin-content" id="update">
                 <h3>Update Projects/Events</h3>
+
                 <div>
                     <label class="radiosel">
                         <input type="radio" name="program" id="radiosel1" value="projects" checked> Projects
@@ -321,7 +323,7 @@
                     </label>
                 </div>
                 <div class="project program">
-                    <form class="form-group col-md-6">
+                    <form class="form-group col-md-6" action="{{url('/projects')}}" method="PUT">
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
                                 <select id="Select1" name="Select1" class="form-control">
@@ -360,7 +362,7 @@
                     </form>
                 </div>
                 <div class="event program">
-                    <form class="form-group col-md-6">
+                    <form class="form-group col-md-6"  action="{{url('/events')}}" method="PUT">
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
 
