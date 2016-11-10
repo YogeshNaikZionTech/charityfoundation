@@ -114,14 +114,12 @@ class Donate extends Controller
 
         $donation_type = $request->input('type');
         if($donation_type === 'event'){
+//
+//        as no money in involved with the events.
+//            $event = Event::where('id','=',$id)->first();
+//            $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
 
 
-            $event = Event::where('id','=',$id)->first();
-            $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
-
-            if($type_payment === 'oneTime'){
-
-            }
 
         }else if($donation_type === 'project'){
 
@@ -173,6 +171,29 @@ class Donate extends Controller
 
 
 
+    }
+
+    public function manageVoulnteer(Request $request){
+
+        $this->validate($request, array(
+
+            'proevent'=>'required',
+            'Name' => 'required',
+            'Email'=> 'required',
+            'Comments' => 'required',
+            'Phone'=>'required',
+            'type'=>'required',
+            'proevent'=>'required',
+
+
+
+
+
+
+
+
+
+        ));
     }
 
     public function generateReceipt(){

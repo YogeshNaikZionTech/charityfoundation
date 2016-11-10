@@ -108,7 +108,7 @@
                 <!--<button id="step-2-next" class="btn btn-success nextBtn formv pull-right">Continue</button> -->
             </div><!--End of Payment-->
             <div class="volform">
-                <form id="vform" action="" method="post">
+                <form id="vform" action="/volunteer" method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
                     <div class="col-md-10 col-lg-10 col-sm-10 middle">
                     
