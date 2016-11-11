@@ -70,7 +70,7 @@ class Donate extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+
         Log::info($request);
         $this->validate($request, array(
             'other-amt' => 'required|min:1|max:255',
@@ -90,7 +90,9 @@ class Donate extends Controller
         $u_cardzip = $request->input('zipCode');
 
         //get the current user
+
         $user = Auth::user();
+        Log::infor('get the logedin user'. $user->lastname);
         $user_id = $user ->id;
 
         //make a card model;
@@ -115,12 +117,13 @@ class Donate extends Controller
 //            $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
 
             //save the eent->users. relation is achieved.
+        //attaching user
             $project= Event::where('id','=',$id)->first();
             $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'type'=>$type_payment]]);
 
 
-
-
+            Log::info('user donate to project request recevied');
+            return view('/donates/receipt');
     }
 
     public function manageVoulnteer(Request $request){
