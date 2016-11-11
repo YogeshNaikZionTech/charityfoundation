@@ -79,11 +79,8 @@ class Donate extends Controller
             'ExpiryDate'=>'required',
             'ZipCode'=>'required',
             'dtype'=>'required',    //1-time, or monthly, voulnteer
-            'type'=> 'required',    // project,event or foundation.
-            'proevent'=>'required', //id of project/event
+            'proevent'=>'required', //id of project
             'securitycode'=>'required',
-
-
         ));
         $d_amount = $request->input('other-amt');
         $u_cardnum = $request->input('creditCardNumber');
@@ -96,78 +93,31 @@ class Donate extends Controller
         $user = Auth::user();
         $user_id = $user ->id;
 
-        //make a card mode;
+        //make a card model;
         $card = new Ucard();
         $card->user_id = $user_id;
-        $card->card_num = $u_cardnum;
+        $encry_card = Crypt::encrypt($request->input($u_cardnum));
+        $card->card_num = $encry_card;
         $card->cvv_num = $u_cardcvv;
         $card->expiry_data =$u_cardExpiry;
         $card->name_card = $u_cardname;
         $card->zip_code = $u_cardzip;
         $receipt = $this->generateReceipt();
-        //save the card in to User-card table and attache the user to the user_id- relationship.
+        //save the card in to User-card table and attach the user to the user_id relationship.
         $card->save();
         $user->Ucard()->save($card);
         $card_id = $card->id;
         $id = $request->input('proevent');
         $type_payment = $request->input('dtype');
 
-        $donation_type = $request->input('type');
-        if($donation_type === 'event'){
-//
 //        as no money in involved with the events.
 //            $event = Event::where('id','=',$id)->first();
 //            $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
 
-
-
-        }else if($donation_type === 'project'){
-
+            //save the eent->users. relation is achieved.
             $project= Event::where('id','=',$id)->first();
-            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
-        }
+            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'type'=>$type_payment]]);
 
-        /**
-         * checking if(dtype ){
-         *
-         * decide if its time or money donation.
-         *
-         * }
-         *
-         *
-         * //Time -donation
-         *  feild:
-         *  dtype
-         * proevent
-         * type
-         * if(type = foundation){
-         *
-         *  no time donation only money donation.
-         *
-         *
-         * }
-         *
-         * if(dytpe = time){
-         *
-         * name, email, phone commentes(text)
-         *
-         * }
-         *
-         *  URL: /donates  method: post
-         *
-         * Redirect : -> recipte.
-         */
-
-        $damount = $request->input('other-amt');
-        $c_num = $request->input('creditCardNumber');
-        $name_card = $request->input('NameOnCard');
-        $expiray_date= $request->input('ExpiryData');
-        $zip = $request->input('Zipcode');
-        $dtype = $request->input('dtype');
-        $proevent = $request->input('proevent');
-        $pname = $request->input('pname');
-        $email = $request->input('Email');
-        $phone_number = $request->input('phone');
 
 
 
@@ -177,23 +127,16 @@ class Donate extends Controller
 
         $this->validate($request, array(
 
-            'proevent'=>'required',
+            'proevent'=>'required', //id
             'Name' => 'required',
             'Email'=> 'required',
             'Comments' => 'required',
             'Phone'=>'required',
-            'type'=>'required',
-            'proevent'=>'required',
-
-
-
-
-
-
-
-
-
+            'type'=>'required', // project or event.
         ));
+
+//decide on time
+
     }
 
     public function generateReceipt(){
