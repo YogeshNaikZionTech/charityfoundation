@@ -13,7 +13,7 @@ class CreateDonationProjectTable extends Migration
      */
     public function up()
     {
-        Schema::create('Donate_Project', function (Blueprint $table) {
+        Schema::create('donate_project', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('project')->onDelete('cascade');
@@ -21,6 +21,7 @@ class CreateDonationProjectTable extends Migration
             $table->foreign('project_id')->references('id')->on('users')->onDelete('cascade');;
             $table->integer('project_cents');
             $table->integer('user_card');
+            $table->string('donation_type');
             $table->string('receipt_num');
             $table->timestamps();
 
@@ -34,6 +35,6 @@ class CreateDonationProjectTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Donate_Project');
+        Schema::dropIfExists('donate_project');
     }
 }

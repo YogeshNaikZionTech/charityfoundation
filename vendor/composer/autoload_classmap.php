@@ -14,6 +14,7 @@ return array(
     'CreateEventsTable' => $baseDir . '/database/migrations/2016_09_07_015718_create_events_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
     'CreateProjectTable' => $baseDir . '/database/migrations/2016_09_17_230247_create_Project_table.php',
+    'CreateProjectVoulnteer' => $baseDir . '/database/migrations/2016_11_11_084438_create_project_voulnteer.php',
     'CreateUserdonationTable' => $baseDir . '/database/migrations/2016_10_19_231825_create_userdonation_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
