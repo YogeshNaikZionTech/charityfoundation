@@ -1,8 +1,12 @@
+html,body{
+    min-width: 492px;
+}
 body{
    margin: 0px;
    padding: 0px;
    font-family: Constantia cursive;
  }
+
 
 .navbar-inverse{
     border-radius: 0px;
@@ -10,7 +14,15 @@ body{
 
 .thumbnail{
     /*border: solid black 1px;*/
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+    /*box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);*/
+    padding: 0px;
+     max-width: 400px;
+         margin: 0px auto 20px auto;
+
+}
+.thumbnail:hover{
+
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .3);
 }
 
 hr{
@@ -41,8 +53,9 @@ cursor: pointer;
 }
 
 .main{
-margin-top: 3%;
+  margin-top: 77px;
 color: black;
+ font-style: normal;
 }
 
 .main ul{
@@ -61,6 +74,7 @@ color: black;
 .image{
     overflow: hidden;
     height: 278px;
+     max-width: 400px;
 }
 .image img {
     width: 100%;
@@ -95,7 +109,7 @@ color: black;
     position: absolute;
     margin: auto;
     top: 0;
-    right: 15px;
+  
     display: none;
 }
 
@@ -131,4 +145,19 @@ color: black;
 }
 .des{
   margin-top: 2%;
+}
+@media (max-width: 768px){
+    .nav-justified > li {
+        display: table-cell;
+        width: 1%;
+  }
+    .nav-justified > li > a  {
+        border-bottom: 1px solid #ddd !important;
+        border-radius: 4px 4px 0 0 !important;
+        margin-bottom: 0 !important;
+  }
+    .nav-justified > li.active > a  {
+        border-bottom: 1px solid transparent !important;
+  }
+
 }

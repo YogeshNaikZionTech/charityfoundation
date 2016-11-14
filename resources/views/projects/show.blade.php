@@ -41,7 +41,7 @@
     </ul>
     <div class="tab-content">
       <div id="current" class="tab-pane fade in active">
-        <div class="currentContent"> </div>
+        <div class="currentContent row"> </div>
                   <!-- Pagination -->
           <div class="row">
             <div class="col-md-12 page" >
@@ -52,7 +52,7 @@
           </div> 
       </div>
       <div id="future" class="tab-pane fade">
-        <div class="futureContent"></div>
+        <div class="futureContent row"></div>
                    <!-- Pagination -->
           <div class="row">
             <div class="col-md-12 page">
@@ -63,7 +63,7 @@
           </div>
       </div>
       <div id="completed" class="tab-pane fade">
-        <div class="completedContent"></div>
+        <div class="completedContent row"></div>
                     <!-- Pagination -->
           <div class="row">
             <div class="col-md-12 page">
@@ -121,15 +121,22 @@
           var currentPages = Math.ceil(response.projects_Current/8);
           var futurePages = Math.ceil(response.projects_Future/8);
           var completedPages = Math.ceil(response.projects_Completed/8);
+
+          if(currentPages > 1){
             for( var i=1; i<=currentPages; i++){
               $('#cuPages').append('<li><a class="cuPageClick" name=' +i+   '>'+i+'</a></li>');
               }
+            }
+          if(futurePages > 1){
             for( var i=1; i<=futurePages; i++){
               $('#fuPages').append('<li><a class="fuPageClick" name=' +i+   '>'+i+'</a></li>');
               }
+            }
+          if(completedPages > 1){
             for( var i=1; i<=completedPages; i++){
               $('#comPages').append('<li><a class="comPageClick" name=' +i+   '>'+i+'</a></li>');
               }
+            }
         }
 
       });
@@ -146,7 +153,7 @@
                         $.each(response, function (key,val) {
                           setTimeout(function(){
 
-                            var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                            var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
                                
                             var k = $('<div>'+output+'</div>').hide();
                   $('.currentContent').append(k);
@@ -177,7 +184,7 @@ $.ajax({
                     $.each(response, function (key,val) {
                       // setTimeout(function(){
 
-                   var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
+                   var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
                  
                  var k = $('<div class="row">'+output+'</div>').hide();
                   $('.futureContent').append(output);
@@ -203,7 +210,7 @@ $.ajax({
                  
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
+                   output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.completedContent').html(output);
@@ -227,7 +234,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                    setTimeout(function(){
-                            var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                            var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
 
           var k = $('<div>'+output+'</div>').hide();
                   $('.currentContent').append(k);
@@ -261,7 +268,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                   setTimeout(function(){
-                   var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>";
+                   var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>";
 
 
           var k = $('<div>'+output+'</div>').hide();
@@ -295,7 +302,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                    setTimeout(function(){
-               var output = "<div class='col-md-3 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button type='button' name='"+val.id+"' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
+               var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button type='button' name='"+val.id+"' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
 
 
                   var k = $('<div>'+output+'</div>').hide();
@@ -345,7 +352,7 @@ $.ajax({
                     $('.des').html(response.project_Description) ;
                     $('.loc').html(response.project_Location);
                     $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
-                    $('.modal-header').attr('style' , imageSrc);
+                    $('.create').attr('style' , imageSrc);
                  $('#donateBtn').attr('projId', response.id)
                     if(response.project_Status == 'Current'){
                       $('#donateBtn').fadeIn("7000");
