@@ -2,7 +2,6 @@
 
 @section('title', '| Welcome')
 @section('stylesheets')
-
     <link href="{{URL::asset('/css/style.css')}}" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 @endsection
