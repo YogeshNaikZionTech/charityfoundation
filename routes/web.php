@@ -71,7 +71,7 @@ Route::post('admin/users/search ', 'AdminController@searchUser');
 
 //Return paginated users i.e /admin/users/1 -> will give you 8 users
 Route::get('/admin/users/{id}','AdminController@userPagination');
-
+Route::Post('/volunteer', 'Donate@manageVoulnteer');
 
 
 Route::get('admin/users/search', 'AdminController@getAllUsers');

@@ -19,13 +19,13 @@ h1{font-size:40px;}
        font-size: 18px;
        font-weight: 500;
        text-align: justify;
-       padding-left:7px;
-       padding-right:7px;
+       padding:5px;
    }
    a{color:ghostwhite;
    font-size: 16px;
    }
-
+h3{
+    min-height: 50px;}
 
 /*-------------------------------------------------Preethi Changes------------------------------------------------*/
 @media screen and (min-width: 200px) {
@@ -228,7 +228,7 @@ h1{font-size:40px;}
         min-height: 140px;
     }
     .donate_carousel{
-        height:300px;
+        height:170px;
         margin-top: 35%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -274,17 +274,17 @@ h1{font-size:40px;}
         min-height: 140px;
     }
     .donate_carousel{
-        height:300px;
-        margin-top: 25%;
+        height:150px;
+        margin-top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
         padding: 20px 10px;
     }
     .donate_carousel >.donors1 > p {
-        font-size: 23px;}
+        font-size: 20px;}
     h1 {
-        font-size: 40px;
+        font-size: 35px;
     }
     .carousel-caption p{font-size: 25px;}
     .carousel-caption > .btn-lg{ width:120px; font-size: 20px;}
@@ -316,15 +316,15 @@ h1{font-size:40px;}
         min-height: 140px;
     }
     .donate_carousel{
-        height:500px;
-        margin-top: 14%;
+        height:150px;
+        margin-top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
         padding: 20px 10px;
     }
     .donate_carousel >.donors1 > p {
-        font-size: 25px;}
+        font-size: 20px;}
     h1 {
         font-size: 40px;
     }
@@ -358,8 +358,8 @@ h1{font-size:40px;}
         min-height: 140px;
     }
     .donate_carousel{
-        height:500px;
-        margin-top: 14%;
+        height:150px;
+        margin-top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -399,8 +399,8 @@ h1{font-size:40px;}
         min-height: 140px;
     }
     .donate_carousel{
-        height:500px;
-        margin-top: 14%;
+        height:150px;
+        margin-top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -434,7 +434,7 @@ h1{font-size:40px;}
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 666px;
-        height: 1000px;
+       max-height: 1000px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -443,7 +443,7 @@ h1{font-size:40px;}
         left: 0;
         width: 100%;
         min-height: 666px;
-        height: 1000px;
+        max-height: 1000px;
     }
     .carousel-inner1 > .item > img {
         position: relative;
@@ -467,8 +467,8 @@ h1{font-size:40px;}
         min-height: 140px;
     }
     .donate_carousel{
-        height:500px;
-        margin-top: 14%;
+        height:150px;
+        margin-top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -528,7 +528,7 @@ h1{font-size:40px;}
     left:10%;
 }
     .donate_carousel{
-        height:300px;
+        height:150px;
         top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -536,6 +536,8 @@ h1{font-size:40px;}
         padding: 20px 10px;
     }
 }
+
+
 @media screen and (min-width: 768px) {
     .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
         margin-right: -10px;
@@ -575,8 +577,8 @@ h1{font-size:40px;}
             margin-top: -10px;
         }
     .donate_carousel{
-        height:300px;
-        top: 30%;
+        height:150px;
+        top: 40%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -592,7 +594,7 @@ h1{font-size:40px;}
         margin-top: -10px;
     }
     .donate_carousel{
-        height:300px;
+        height:150px;
         top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -631,14 +633,14 @@ h1{font-size:40px;}
     color:black;
     border-color: #0f0f0f; box-shadow:2px 0 20px rgba(3, 56, 69, 0.76) ;
 }
-.homeEvents > div> h3 ,.homeEvents > div> p  { padding-left:10px; }
+.homeEvents > .description_event { padding-left:10px;padding-right:10px; }
 .homeEvents:hover{  border-color:rgba(3, 56, 69, 0.76) ; box-shadow:2px 0 20px black;}
 .homeEvents > .head {
     position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
 }
 .donate_carousel{
     position: relative;
-    height:300px;
+    height:150px;
     top: 14%;
     font-size: 16px;
     background: rgba(17, 0, 8, 0.46);
@@ -663,14 +665,7 @@ h1{font-size:40px;}
 .btn-lg:hover{ color:black;font-weight: bold;background-color:rgba(20, 58, 69, 0.52)}
 .suggest_donors{padding:20px; align-content: center;}
 .donors1 >span{font-size:30px;color:white;font-weight:600 ;text-align: center;padding-bottom: 30px;}
-.suggest1{ text-align: left;}
-.suggest1 >h2 {padding-right: 15px; padding-left: 15px;}
-h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding-left: 10px;
-    padding-right: 10px;min-height: 52px;
-}
+.suggest1{ text-align: left}
 
 .btn-md ,.form-control {
      font-size: 20px;
@@ -768,14 +763,14 @@ h3 {
 /*------------------------------------------------------------------header Education----------------------------------------*/
 .header_education{
     /*background-color: rgba(179, 139, 112, 0.37);*/
-    padding-top: 50px;
+    padding-top: 70px;
     padding-bottom: 10px;
     color:black;
 
 }
 iframe{height:450px;border-radius: 10px; padding-top: 20px;}
 /*---------------------------------------------------------See more button hover effects----------------------------------------*/
-.btn2
+.btn
 {
     display: inline-block;
     border-radius: 7px;
@@ -787,14 +782,14 @@ iframe{height:450px;border-radius: 10px; padding-top: 20px;}
     cursor: pointer;
     margin: 5px;
 }
-.btn2 span {
+.btn span {
     cursor: pointer;
     display: inline-block;
     position: relative;
     transition: 0.5s;
 }
 
-.btn2 span:after {
+.btn span:after {
     content: '»';
     position: absolute;
     opacity: 0;
@@ -803,16 +798,16 @@ iframe{height:450px;border-radius: 10px; padding-top: 20px;}
     transition: 0.5s;
 }
 
-.btn2:hover span {
+.btn:hover span {
     padding-right: 25px;
 }
 
-.btn2:hover span:after {
+.btn:hover span:after {
     opacity: 1;
     right: 0;
     color:white;
 }
-.btn2:hover span:after , .btn2
+.btn:hover span:after , .btn
 {
     background-color: #2aabd2;
     color:white;

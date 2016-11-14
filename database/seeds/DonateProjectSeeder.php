@@ -16,20 +16,20 @@ class DonateProjectSeeder extends Seeder
          $user = \App\User::where('id','=','3')->first();
           Log::info($user);
           Log::info($project->id);
-         $project->User()->attach([$user->id=>['project_cents'=>1000, 'user_card'=>3, 'receipt_num'=>77886]]);
+         $project->User()->attach([$user->id=>['project_cents'=>1000, 'user_card'=>3, 'receipt_num'=>77886,'donation_type'=>'oneTime']]);
 
 
         $project =\App\Project::where('id','=','4')->first();
         $user = \App\User::where('id','=','2')->first();
         Log::info($user);
         Log::info($project->id);
-        $project->User()->attach([$user->id=>['project_cents'=>500, 'user_card'=>2, 'receipt_num'=>4533]]);
+        $project->User()->attach([$user->id=>['project_cents'=>500, 'user_card'=>2, 'receipt_num'=>4533,'donation_type'=>'monthly']]);
 
         $project =\App\Project::where('id','=','5')->first();
         $user = \App\User::where('id','=','2')->first();
         Log::info($user);
         Log::info($project->id);
-        $project->User()->attach([$user->id=>['project_cents'=>900, 'user_card'=>2, 'receipt_num'=>3345]]);
+        $project->User()->attach([$user->id=>['project_cents'=>900, 'user_card'=>2, 'receipt_num'=>3345,'donation_type'=>'monthly']]);
         /**
          * ---------get donat project table values-----
          * $user = \App\User::where('id','=','3')->first();
