@@ -13,10 +13,6 @@ class CreateDonatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('donates', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
     }
 
     /**
