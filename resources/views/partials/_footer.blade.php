@@ -1,67 +1,36 @@
  <footer id="footer">
     <div class="container-fluid footerContainer">
-        <div class="row">
-            <div class="col-md-3 col-lg-3 col-xs-10 col-sm-3">
-                <span class="copyright">Copyright &copy; AA Foundation 2016</span>
-                    <ul class="list-inline quicklinks">
-                        <li class="col-md-6 col-lg-6 col-xs-6 col-sm-8"><a data-toggle="modal" data-target="#ppModal">Privacy Policy</a>
+        <div class="row pagelinks">
+            <div class="col-md-12">
+                <div class="pull-left">
+                    <ul class="style list-inline quicklinks">
+                        <li><a data-toggle="modal" data-target="#ppModal" class="privacy">Privacy Policy</a>
                         </li>
-                        <li class="col-md-6 col-lg-6 col-xs-6 col-sm-8"><a data-toggle="modal" data-target="#touModal">Terms of Use</a>
+                        <li><a data-toggle="modal" data-target="#touModal" class="terms">Terms of Use</a>
+                        </li>
+                        <li>
+                            <a href="{{url('aboutus')}}"><b>About Us</b></a>
+                        </li>
+                        <li>
+                            <a href="{{url('contact')}}"><b>Contact US</b></a>
                         </li>
                     </ul>
+                 </div>
+                <div id="copyright" class="col-centered">
+                    <span class="copyright">Copyright &copy; AA Foundation 2016</span>
                 </div>
-
-            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-3">
-               
-                <ol class="style">
-                    <li class="col-md-8 col-lg-8 col-xs-6 col-sm-8">
-                        <a href="{{url('projects')}}">Projects</a>
-                    </li>
-                    <li class="col-md-8 col-lg-8 col-xs-6 col-sm-8">
-                        <a href="{{url('events')}}">Events</a>
-                    </li>
-                </ol>
+                <div class="pull-right">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                         </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                         </li>
+                         <li><a href="#"><i class="fa fa-instagram"></i></a>
+                         </li>
+                    </ul>
+                </div>
             </div>
-             <div class="col-md-3 col-lg-3 col-xs-12 col-sm-3">
-               
-                <ol class="style">
-                    @if(! Auth::check())
-                        <li class="col-md-10 col-lg-8 col-xs-6 col-sm-11">
-                            <a href="{{url('/login')}}">Login</a>
-                        </li>
-                        <li class="col-md-11 col-lg-11 col-xs-6 col-sm-11">
-                            <a href="{{url('/register')}}">Sign Up</a>
-                        </li>
-                    @endif
-                    <li class="col-md-11 col-lg-11 col-xs-6 col-sm-11">
-                        <a href="{{url('aboutus')}}">About Us</a>
-                    </li>
-                    <li class="col-md-11 col-lg-12 col-xs-6 col-sm-11">
-                        <a href="{{url('contact')}}">Contact US</a>
-                    </li>
-                </ol>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xs-12 col-sm-3">
-               
-                <p class="footerpara col-md-12 col-lg-12 col-xs-12 col-sm-12">
-                    AA Foundation<br/>
-                    2665 N First St,<br/>
-                    San Jose, CA, 95134
-                </p>
-            </div>
-            <div class="col-md-2 col-lg-2 col-xs-6 col-sm-3">
-                <ul class="list-inline social-buttons">
-                    <li class="col-md-3 col-lg-3 col-xs-4 col-sm-3"><a href="#"><i class="fa fa-twitter"></i></a>
-                    </li>
-                    <li class="col-md-3 col-lg-3 col-xs-4 col-sm-3"><a href="#"><i class="fa fa-facebook"></i></a>
-                    </li>
-                    <li class="col-md-3 col-lg-3 col-xs-4 col-sm-3"><a href="#"><i class="fa fa-instagram"></i></a>
-                    </li>
-                </ul>
-            </div>
-
         </div>
-
     </div>
 </footer>
         <!-- Modal -->

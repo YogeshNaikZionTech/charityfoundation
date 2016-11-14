@@ -195,7 +195,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
+                            <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
                                 <div class="form-group">
                                     {{--<input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
                                     <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
@@ -239,7 +239,7 @@
                                     </div>
                                 </div>
                                     <div>
-                                        <input type="submit" class="btn btn-success">
+                                        <input type="submit" class="btn btn-success" onclick="submitForm()">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     </div>
 
@@ -248,7 +248,7 @@
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
 
-                            <form class=" col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
+                            <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
 
                                     <div class="form-group">
                                         {{--<input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
@@ -301,7 +301,7 @@
                                 </div>
                                     <div>
 
-                                        <input type="submit" class="btn btn-success">
+                                        <input type="submit" class="btn btn-success" onclick="submitForm()">
                                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                                     </div>
 
@@ -792,6 +792,11 @@
         $(function () {
             $('.datetimepicker1').datetimepicker();
         });
+        function submitForm() {
+            document.create.submit();
+            document.create.reset();
+        }
+
     </script>
 
 
