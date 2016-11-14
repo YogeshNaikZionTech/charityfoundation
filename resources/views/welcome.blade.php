@@ -28,11 +28,11 @@
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
-                            <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10" >
-                                <p>Total Number of Donors</p>
+                            <div class="donors1 col-md-12 col-lg-12 col-xs-12 col-sm-12" >
+                                <p>Total number of donors</p>
                                 <span class="count">123</span>
                             </div>
-                            <a href="{{url('/select')}}" class="btn btn-lg btn2">DONATE</a>
+                            {{--<a href="{{url('/select')}}" class="btn btn-lg btn2">DONATE</a>--}}
 
                         </div>
 
@@ -52,7 +52,7 @@
                                 <p>Founder take care of all the administrative cost</p>
 
                             </div>
-                            <a href="{{url('/select')}}" class="btn btn2 btn-lg">DONATE</a>
+                            {{--<a href="{{url('/select')}}" class="btn btn2 btn-lg">DONATE</a>--}}
                         </div>
 
                     </div>
@@ -93,7 +93,7 @@
                 <h2>Video title</h2>
                 <p>Some description  about video ,Main theme of the video</p>
 
-                <a href="{{url('/education')}}" class="btn btn2">Explore more</a>
+                <a href="{{url('/education')}}" class="btn btn-lg">Explore more</a>
 
             </div>
         </div>
@@ -119,7 +119,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="modal-location"></div>
-                                    <input type="button" class="btn btn2 btn-success donateNow" value="Donate Now">
+                                    <input type="button" class="btn btn2 btn-success" data-dismiss="modal" value="Donate Now">
                                 </div>
                                 <!-- </form> -->
                             </div>
@@ -140,8 +140,8 @@
                     @endforeach
                 </div>
             </div>
-<
-            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class="btn2 btn"><span>Explore more</span></button></a></div>
+
+            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
 
         </div>
 
@@ -171,7 +171,7 @@
 
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn2 btn-success volunteerBtn" value="Volunteer"></a>
+                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn2 btn-success" value="Volunteer"></a>
                                 </div>
                             </div>
                         </div>
@@ -183,7 +183,7 @@
                             <div class="head">{{$cevent->event_Status}}</div>
                             <div class="project_image image"><img src="images/{{$cevent->event_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
 
-                            <div>
+                            <div class="description_event">
                                 <div><h3>{{$cevent->event_Title}}</h3></div>
                                 <div><p>A community of lifelong learners, and champions of our own success.</p></div>
 
@@ -197,7 +197,7 @@
             </div>
 
 
-            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn2 btn"><span>Explore more</span></button></a></div>
+            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
 
 
 
@@ -350,7 +350,6 @@
                         $('.des').html(response.project_Description) ;
                         $('.loc').html(response.project_Location);
                         $('.std').html(response.project_Date);
-                        $('.donateNow').attr('name', response.id)
 
                     }
                 });
@@ -398,26 +397,11 @@
                         $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                         $('.tim1').html(start.toLocaleTimeString());
                         $('.tim2').html(end.toLocaleTimeString());
-                        $('.volunteerBtn').attr('name', response[0].id);
 
                     }
                 });
                 $('#eventDetails').modal('show');
             });
-
-$('.donateNow').click(function(){
-        sessionStorage.removeItem('event');
-        var projectValue = $(this).attr('name');
-                sessionStorage.setItem('project', projectValue);
-                window.location.href = "{{url('donates/create')}}";
-});
-$('.volunteerBtn').click(function(){
-        sessionStorage.removeItem('project');
-        var eventValue = $(this).attr('name');
-                sessionStorage.setItem('event', eventValue);
-                // window.location.href = "{{url('donates/create')}}";
-});
-
         });
 
 
