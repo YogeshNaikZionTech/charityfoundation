@@ -82,6 +82,8 @@ class Donate extends Controller
             'proevent'=>'required', //id of project
             'securitycode'=>'required',
         ));
+
+        Log::info('all values are present: storing the values.');
         $d_amount = $request->input('other-amt');
         $u_cardnum = $request->input('creditCardNumber');
         $u_cardname = $request->input('NameOnCard');
@@ -186,6 +188,7 @@ class Donate extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, array(
+
             'other-amt' => 'required|min:1|max:255',
             'creditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
@@ -199,6 +202,7 @@ class Donate extends Controller
             'phone'=>'required|max:15',
 
         ));
+        Log::info('all values are prest, updating the values.');
             $event_update =Event::where('id','=', $id)->get();
 
         $damount = $request->input('other-amt');
