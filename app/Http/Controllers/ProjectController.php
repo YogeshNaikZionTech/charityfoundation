@@ -238,7 +238,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        echo 'Great you got it.';e
 
     }
 
@@ -250,8 +250,9 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        $project_delete= Event::Where('id','=',$id)->get();
-        $project_delete->delete();
-        echo 'deleted';
+        echo 'Great you got it.';
+//        $project_delete= Event::Where('id','=',$id)->get();
+//        $project_delete->delete();
+//        echo 'deleted';
     }
 }
