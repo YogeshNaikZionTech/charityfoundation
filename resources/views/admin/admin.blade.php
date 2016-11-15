@@ -499,10 +499,10 @@
 
                         },
 
-                        error: function (msg) {
-
-                            alert(msg.responseText);
-                        }
+                        // error: function (msg) {
+                                                        //This is causing the pop-up on admin page.
+                        //     alert(msg.responseText);
+                        // }
                     });
           $("#searchitem").click(function(){
             $("#input").keyup(function(){
