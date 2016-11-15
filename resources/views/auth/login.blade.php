@@ -44,26 +44,25 @@
                                 @endif
                             </div>
                         </div>
-
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
+                            <div class="col-md-3 col-md-offset-2">
                                 <div class="checkbox">
                                     <label>
                                         <input type="checkbox" name="remember"> Remember Me
                                     </label>
                                 </div>
                             </div>
+                            <div class="col-md-3 col-md-offset-2">
+                            <a class="btn btn-link" href="{{ url('/password/reset') }}">
+                                Forgot Your Password?
+                            </a>
+                            </div>
                         </div>
-
                         <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
+                            <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary log-btn">
                                     Login
                                 </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">
-                                    Forgot Your Password?
-                                </a>
                             </div>
                         </div>
                     </form>
