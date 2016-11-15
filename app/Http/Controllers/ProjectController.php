@@ -110,7 +110,7 @@ class ProjectController extends Controller
     public function allProjects(){
 
         $project_list = Project::all();
-        log::info('Request all projects:', $project_list);
+        // log::info('Request all projects:', $project_list);
         echo json_encode($project_list);
     }
 
@@ -209,8 +209,8 @@ class ProjectController extends Controller
      */
 
     public  function getCurrentProject(){
-        $project_current = Project::Where('project_Status','=','current')->count();
-        echo $project_current;
+        $project_current = Project::Where('project_Status','=','Current')->get();
+        echo json_encode($project_current);
     }
 
     public  function getFutureProject(){
