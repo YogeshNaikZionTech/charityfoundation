@@ -162,8 +162,8 @@
                         <th>Last Name</th>
                         <th>Email Address</th>
                         <th>Phone Number</th>
-                        {{--<th>User Since</th>--}}
-                        {{--<th>Amount Received</th>--}}
+                        <th>User Since</th>
+                        <th>Amount Received</th>
                     </tr>
                     </thead>
 
@@ -492,7 +492,7 @@
 
                             $.each(data, function (i, item) {
 
-                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td></tr>';
+                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' +item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
                             });
 
                             $('#example').append(trHTML);
@@ -528,6 +528,8 @@
                             output += "<td>" + " "+val.lastname + "</td>";
                             output += "<td>" + "  "+val.email + "</td>";
                             output += "<td>" + " "+val.phonenum + "</td>";
+                            output += "<td>" + " "+val.usersince + "</td>";
+                            output += "<td>" + " "+val.amountreceived + "</td>";
                             output += '<hr width="15%" align="left"><br/>'
                         });
                         $(".output").html(output);
@@ -549,7 +551,7 @@
                        });
                        //onload when projects is selected
                        $.ajax({
-                           url: '',
+                           url: 'projects/status/current',
                            type: 'GET',
                            // datatype: 'JSON',
                            success: function (response) {
