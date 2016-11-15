@@ -1,31 +1,26 @@
 footer{
-    padding:18px 0;
-	color:white;
+    color:white;
     position: relative;
     right: 0;
     bottom: 0;
     left: 0;
     z-index: 100;
-    background-color: #004445;
-}
-footer
-{
-    width:100%;
+    background-color: rgb(173,202,197);
 }
 #content{
     min-height:100vh;
 }
 footer span.copyright{
     line-height:40px;
-    font-family:Calibri,cursive;
-    color:white;
+    font-family:Constantia, cursive;
+    color:black;
     font-size:18px;
 
 }
 footer ul.quicklinks{
     margin-bottom:0;
     line-height:40px;
-    font-family:Calibri,cursive;
+    font-family:Constantia, cursive;
     text-align:left;
 
 }
@@ -35,13 +30,14 @@ ul.social-buttons{
 ul.social-buttons li a{
     text-align:center;
     display:block;
-    background-color: #004445;
+    background-color: rgb(173,202,197);
     height:40px;
     width:40px;
     border-radius:100%;
     font-size:20px;
     line-height:40px;
-    color:#fff;
+    font-weight:bold;
+    color:black;
     outline:0;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
@@ -62,10 +58,10 @@ a{color:black}
     list-style-type: none;
     text-align: left;
 }
-.style>li>a{ color:ghostwhite;text-align: left;font-size:18px;}
+.style>li>a{ color:black;text-align: left;font-size:18px;}
 .style>li>a:hover{ color:black;  text-decoration: none;}
 
-.footerpara{font-size:18px; color: white}
+.footerpara{font-size:18px; color: black; text-align:justify;}
 
 /*#ppModal{
     font-style: normal;
@@ -79,7 +75,7 @@ a{color:black}
     position: relative;
     padding: 15px;
     text-align: left;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
     line-height: 1.42857143;
     color: #333;
@@ -87,7 +83,6 @@ a{color:black}
 
 .pp p{
         margin: 0 0 10px;
-
         font-size: unset;
         font-weight: unset;
         text-align: unset;
@@ -99,8 +94,98 @@ a{color:black}
 }
 
 .pp1{
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-align: left;
-
 }
 
+.pp2{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+}
+
+.pp2:hover{
+      color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.privacy, .terms{
+  cursor: pointer;
+}
+.style .privacy, .style .terms{
+    font-size:12px;
+}
+*{margin:0 ;padding:0}
+body{
+    text-align: center;
+ }
+.col-centered{
+    display:inline-block;
+    margin:0 auto;
+    text-align:center;
+}
+@media(max-width: 670px){
+   footer{
+       overflow: hidden;
+       width: 100%;
+       max-height:100%;
+       text-align: center;
+   }
+   .pagelinks div.pull-left ol li a, .pagelinks div.footerpara.pull-right, .pagelinks div.col-centered ol li a{
+       display: inline-block;
+       margin:0 auto;
+       text-align:center;
+       float:none;
+       font-size: 12px;
+   }
+   #copyright span.copyright{
+       font-size: 12px;
+   }
+   /*#copyright ul li a {*/
+       /*display: inline-block;*/
+       /*margin:0 auto;*/
+       /*text-align:center;*/
+       /*float:none;*/
+       /*font-size: 10px;*/
+       /*padding: 0 auto;*/
+   /*}*/
+    /*#copyright ul.pull-left{*/
+       /*float:none;*/
+        /*text-align:center;*/
+    /*}*/
+    /*#copyright ul.pull-right{*/
+
+    /*}*/
+    ul.social-buttons li a{
+        text-align:center;
+        background-color: rgb(173,202,197);;
+        height:20px;
+        width:20px;
+        border-radius:100%;
+        font-size:10px;
+        line-height:20px;
+        color:black;
+        outline:0;
+        -webkit-transition:all .3s;
+        -moz-transition:all .3s;
+        transition:all .3s;
+    }
+}

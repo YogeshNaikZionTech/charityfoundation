@@ -198,7 +198,7 @@ class EventController extends Controller
      * Return total number of completed events
      */
     public  function getCurrentEvents(){
-        $events_current = Event::Where('event_Status','=','current')->count();
+        $events_current = Event::Where('event_Status','=','current')->get();
         echo $events_current;
     }
 

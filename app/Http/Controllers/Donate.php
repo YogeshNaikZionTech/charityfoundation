@@ -73,8 +73,9 @@ class Donate extends Controller
 
         Log::info($request);
         $this->validate($request, array(
-            'other-amt' => 'required|min:1|max:255',
-            'creditCardNumber'=> 'required|max:20',
+
+           'otheramt' => 'required|min:1|max:255',
+            'CreditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
             'ExpiryDate'=>'required',
             'ZipCode'=>'required',
@@ -140,6 +141,7 @@ class Donate extends Controller
             'type'=>'required', // project or event.
         ));
 
+
 //decide on time
 
     }
@@ -153,6 +155,19 @@ class Donate extends Controller
         $prefix='A';
         return $prefix.$d_date.$rand.$month.$day;
 
+
+        $damount = $request->input('otheramt');
+        $c_num = $request->input('CreditCardNumber');
+        $name_card = $request->input('NameOnCard');
+        $expiray_date= $request->input('ExpiryDate');
+        $zip = $request->input('ZipCode');
+        $dtype = $request->input('dtype');
+        $proevent = $request->input('proevent');
+        $pname = $request->input('pname');
+        $email = $request->input('Email');
+        $phone_number = $request->input('phone');
+
+        
 
     }
 

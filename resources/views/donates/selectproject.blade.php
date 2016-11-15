@@ -37,9 +37,9 @@
             <h4>Select a specific cause</h4>
             <!-- <h2>What cause would you like to donate to?</h2> -->
 
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a data-toggle="tab" href="#projects">Projects</a></li>
-                <li><a data-toggle="tab" href="#events">Events</a></li>
+            <ul class="nav nav-tabs select-cause" role="tablist">
+                <li class="active"><a data-toggle="tab" href="#projects">Donate to a Project</a></li>
+                <li><a data-toggle="tab" href="#events">Volunteer for an Event</a></li>
             </ul>
 
             <form name="selectProj" action="{{url('donates/create')}}" method="get">
@@ -153,9 +153,11 @@
                     response = JSON.parse(response);
                     // console.log(response);
                     var currentPages = Math.ceil(response.projects_Current/8);
+                    if(currentPages > 1){
                     for( var i=1; i<=currentPages; i++){
                     $('#currerntPages').append('<li><a class="cuPageClick" name=' +i+ '>'+i+'</a></li>');
                     }
+                }
                 }
             });
             // Load the current projects on load
@@ -169,7 +171,7 @@
                     var output ="<div class='row'>";
                     response = JSON.parse(response);
                     $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
                     });
 
                     output+="</div>";
@@ -190,7 +192,7 @@
                         var output ="<div class='row'>";
                         response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
                         });
                     output+="</div>";
                     $('#projectcontent').html(output);
@@ -211,9 +213,11 @@
                     response = JSON.parse(response);
                     console.log(response);
                     var eventPages = Math.ceil(response.events_Current/8);
+                    if(eventPages > 1){
                     for( var i=1; i<=eventPages; i++){
                     $('#eventPages').append('<li><a class="evePageClick" name=' +i+ '>'+i+'</a></li>');
                     }
+                }
                 }
             });
 
@@ -227,7 +231,7 @@
                     var output ="<div class='row'>";
                     response = JSON.parse(response);
                     $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
                     });
 
                     output+="</div>";
@@ -247,7 +251,7 @@
                         var output ="<div class='row'>";
                         response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                        output += "<div class='col-md-3'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
                     });
                     output+="</div>";
                     $('#eventcontent').html(output);
