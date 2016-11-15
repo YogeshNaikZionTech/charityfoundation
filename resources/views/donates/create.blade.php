@@ -8,10 +8,10 @@
 <div class="main container" id="content">
 
     <div class="row">
-        <div class="board col-xs-6 col-sm-4 col-md-4"> 
+        <div class="board col-md-4"> 
             <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
             <div class="left">
-                <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="col-md-12">
                     <div class="div4">
                         <div class="div3">
                             <h3 class="animated fadeInUp"">How would you like to contribute?</h3>
@@ -19,18 +19,18 @@
                         <div class="div1">
                             <div class="div2">
                                 <ul>
-                                    <li class="donate-method onetime">
-                                        <input type="radio" name="donate" value="onetime" id="onetime">
+                                    <li class="donate-method onetime" style="display: none;">
+                                        <input type="radio" name="donate" value="onetime" id="onetime" checked>
                                         <label for="onetime">One-Time</label>
                                         <div class="check"><div class="inside"></div></div>
                                     </li>
-                                    <li class="donate-method monthly">
+                                    <li class="donate-method monthly" style="display: none;">
                                         
                                         <input type="radio" name="donate" value="monthly" id="monthly">
                                         <label for="monthly">Monthly Donation</label>
                                         <div class="check"><div class="inside"></div></div>
                                     </li>
-                                    <li class="donate-method volunteer">
+                                    <li class="donate-method volunteer" style="display: none;">
                         
                                         <input type="radio" name="donate" value="volunteer" id="volunteer">
                                         <label for="volunteer">Volunteer</label>
@@ -40,22 +40,22 @@
                             </div>
                             <!--<button id="step-1-next" class="btn btn-success nextBtn pull-right">Continue</button> -->
                         </div>
-                        <div id="note" style="color: black; display: none">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
+                        <div id="note" class= "animated pulse"style="color: black; display: none;font-size: medium;">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
                     </div>
                     <!-- <div class="note1"><h4><span class="imp"><i class="glyphicon glyphicon-asterisk"></i></span> Founder takes care of all administrative costs</h4></div> -->
                 </div><!--End of Donation Type-->
             </div>
         </div>
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-2"> -->
-        <div class="board col-xs-6 col-sm-4 col-md-4">
+        <div class="board col-md-4">
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
-                <form id="paymentform" action="{{url('/donates')}}" method="post">
+                <form id="paymentform" action="{{url('/donates')}}" method="post" target="myIframe">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <div class="col-md-10 col-lg-10 col-sm-10 middle">
-                        <input id="proevent" name="proevent" class="form-control proevent" type="hidden"> <!--Event/Project from select page-->
-                        <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime"><!--Donate Type-->
-                        <input id="type" name="type" class="form-control type" type="hidden"><!--Project/Event-->
+                    <div class="col-md-10 middle">
+                        <input id="proevent" name="proevent" class="form-control proevent" type="hidden" disabled> <!--Event/Project from select page-->
+                        <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime" disabled><!--Donate Type-->
+                        <input id="type" name="type" class="form-control type" type="hidden" disabled><!--Project/Event-->
                         <div class="formdetails">
                             <div class="div6">              
                                 <div class="amount-placeholder">
@@ -86,20 +86,36 @@
                                     <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
                                 </div>
 
+<!--                                 <div class="expiry-date-group">
+                                    
+                                    <div class="month-group form-group">
+                                        <label for="expMonth">Month</label>
+                                        <input id="expMonth" class="form-control" type="text" placeholder="MM" name="expMonth">
+                                    </div>
+
+                                    <div class="year-group form-group">   
+                                        <label for="expYear">Year</label>
+                                        <input id="expYear" class="form-control" type="text" placeholder="YYYY" name="expYear">
+                                    </div>
+                                </div> -->
                                 <div class="expiry-date-group form-group">
                                     <label for="ExpiryDate">Expiry date</label>
-                                    <input id="ExpiryDate" class="form-control" type="text" placeholder="YYYY/MM" name="ExpiryDate">
+                                    <input id="ExpiryDate" class="form-control" type="text" placeholder="MM/YY" name="ExpiryDate">
                                 </div>
 
-                                <div class="security-code-group form-group">
-                                    <label for="SecurityCode">Security code</label>
-                                    <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
-                                </div>
 
-                                <div class="zip-code-group form-group">
-                                    <label for="ZIPCode">ZIP code</label>
-                                    <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
-                                </div>   
+                                
+                                    
+                                    <div class="security-code-group form-group">
+                                        <label for="SecurityCode">CVV</label>
+                                        <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
+                                    </div>
+
+                                    <div class="zip-code-group form-group">
+                                        <label for="ZIPCode">ZIP code</label>
+                                        <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
+                                    </div>   
+                                
                                 <input id="PayButton" class="hidden" type="submit">
                             </div>
                         </div> <!--End of payment form details--> 
@@ -107,14 +123,14 @@
                 </form><!--End of Form-->
                 <!--<button id="step-2-next" class="btn btn-success nextBtn formv pull-right">Continue</button> -->
             </div><!--End of Payment-->
-            <div class="volform">
-                <form id="vform" action="" method="post">
+            <div class="volform" style="display: none">
+                <form id="vform" action="{{url('/volunteer')}}" method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
-                    <div class="col-md-10 col-lg-10 col-sm-10 middle">
+                    <div class="col-md-10 middle">
                     
-                        <input class="form-control proevent" name="proevent" type="hidden"> <!--Event/Project from select page-->
-                        <input id="vtype" class="form-control" name="vtype" type="hidden"> <!--Donate Type-->
-                        <input id="type" class="form-control type" name="type" type="hidden"><!--Project/Event-->
+                        <input class="form-control proevent" name="proevent" type="hidden" disabled> <!--Event/Project from select page-->
+                        <input id="vtype" class="form-control" name="vtype" type="hidden" disabled> <!--Donate Type-->
+                        <input id="type" class="form-control type" name="type" type="hidden" disabled><!--Project/Event-->
                         <div class="formdetails">
                             <div class="div6">
                                 <div class="form-group">
@@ -148,7 +164,7 @@
         </div>
             <!-- </div> --><!--End of step-2-->
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-3"> -->
-            <div class="board col-xs-6 col-sm-4 col-md-4">
+            <div class="board col-md-4">
                 <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
                 <div class="right review1 ">
                     <div class="col-md-12  div7">
@@ -164,34 +180,49 @@
                                 </div>
                             </div>
 
+                            <div class="summary">    
+                                <div class="col-md-12 reset" style="margin-bottom: 10%;">
+                                    <div class="col-md-6 reset reset2" style="color:#b3b3b3">Your Donation</div>
+                                        <div class="col-md-1 reset text-center dollar">$</div>
+                                        <div id="amt"  class="col-md-2 reset text-center"></div> 
+                                </div>
 
-                            <div class="col-md-12 col-sm-12 col-xs-12 reset" style="margin-bottom: 10%">
-                                <div class="col-md-6 col-xs-8 col-sm-6 reset reset2" style="color:#b3b3b3">Your Donation</div> 
-                                <div class="col-md-1 col-xs-1 col-sm-1 reset text-center dollar">$</div><div id="amt" class="col-md-3 col-sm-3 col-xs-3 reset text-center"></div> 
-<!--                                 card number: <span id="ccnum"></span><br>
-                                with the name: <span id="ccname"></span><br> -->
+                                <div class="col-md-12 reset" style="margin-bottom: 10%">
+                                    <div class="col-md-7 reset reset2" style="color:#b3b3b3;font-size:medium">Card number ending with</div> 
+                                     <div id="ccnum" class="col-md-2 reset text-center"></div> 
+                                </div>
+
+                                <div class="col-md-12 reset" style="margin-bottom: 10%">
+                                    <div class="col-md-3 reset reset2" style="color:#b3b3b3">Name</div> 
+                                    <div id="ccname" class="col-md-9 reset text-center"></div> 
+                                </div>
                             </div>
+
                         </div>
 
                         <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
                         <span class="align-middle">DONATE</span></label>
                     </div>
+                    <div class="col-md-12 appre">
+                        <p>Thank You!!!</p>
+                        
+                    </div>
                 </div>
                 <div class="right review2 " style="display: none">
-                    <div class="col-md-12 col-sm-12 col-xs-12 div7">
+                    <div class="col-md-12 div7">
                         <div id="vol">
                             <h4>Selected Cause:</h4>
-                            <div class="cause col-md-12 col-xs-12">
-                                <div class="col-md-3 col-xs-8 reset">
+                            <div class="cause col-md-12">
+                                <div class="col-md-3 reset">
                                     <img class="image">
                                 </div>
 
-                                <div class="col-md-9 col-xs-10 reset">
+                                <div class="col-md-9 reset">
                                     <h4 class="title"></h4>
                                 </div>
                             </div>
 
-                            <div class="col-md-12 col-xs-12 reset" style="margin-bottom: 10%">
+                            <div class="col-md-12 reset" style="margin-bottom: 10%">
 
                             </div>
                         </div>
@@ -203,6 +234,7 @@
                 <!-- </div> --><!--End of step-3-->
             <!-- </div> --> <!--End of Tab Content-->
         </div><!--End of Row-->
+        
     </div><!--End of Container-->
 @endsection
 
@@ -215,8 +247,12 @@
         $(".board").click(function(){
             $(".board").find("h4:first").removeClass("highlight");
             $(this).find("h4:first").addClass("highlight");
+        });        
+        //Input Masks
 
-        });
+        $('#CreditCardNumber').mask("9999-9999-9999-9999");
+        $('#ExpiryDate').mask("99/99");
+
 
         var damt=0;
         $("#amt").html(damt);
@@ -236,6 +272,8 @@
             var p = sessionStorage.getItem('project');
             $('.proevent').val(p);
             $('.type').val(type);
+            $(".onetime").show();
+            $(".monthly").show();
             // $(".title").html(p);
             $.ajax({
                 url: '../projects/'+p,
@@ -255,7 +293,10 @@
         else if(sessionStorage.getItem('event') != null){
             var type = "events";
             var e = sessionStorage.getItem('event');
-            $(".monthly").attr("style","display:none");
+            $(".volunteer").show();
+
+            $('.volunteer input[type=radio]').attr('checked','checked');
+                donatecheck();
              // $("#proj").html(e.key);
             $('.type').val(type);
             $('.proevent').val(e);
@@ -276,7 +317,7 @@
                     
                     $('.title').html(name);
                     
-                    $("#image").attr("src",'../images/'+response[0].event_Image);
+                    $(".image").attr("src",'../images/'+response[0].event_Image);
                     
                 }
             });
@@ -284,12 +325,17 @@
         else if(sessionStorage.getItem('foundation') != null){
             var type = "foundation";
             var p = sessionStorage.getItem('foundation');
-            $(".volunteer").attr("style","display:none");
+            $(".onetime").show();
+            $(".monthly").show();
             // $("#proj").html(e.key);
             $('.type').val(type);
             $('.proevent').val(p);
             $(".title").html(p);
         }
+
+        calamt();
+
+        //EventListeners
 
         $('button[name="inputbtn"]').click(function(){
 
@@ -300,32 +346,7 @@
         $(".donate-method").click(function(){
 
             donatecheck();
-
         });
-
-            
-
-        function calamt(){
-
-            if ($("#other-amt").val() == '') {
-
-                $("#amt").html(" ");
-                $("button[name=inputbtn]").click(function(e){
-                    damt = e.target.value;
-                    $("#other-amt").val(damt);
-                    $("#amt").html(damt);
-                });
-            }
-
-            else{
-
-                damt = $("#other-amt").val();
-                $("#amt").html(damt);
-                $('button[name="inputbtn"]').removeClass("active");
-            }
-        };
-
-        calamt();
 
         $("#other-amt").on("change",function(){
 
@@ -337,7 +358,6 @@
             calamt();
         });
 
-
         $("button[name=inputbtn]").on("click",function(){
 
             $("#paymentform").bootstrapValidator('revalidateField', "otheramt");
@@ -345,15 +365,50 @@
 
         $("#CreditCardNumber").on("keyup",function(){
 
-            var cc = $("#CreditCardNumber").val();
-            $("#ccnum").html(cc);
+            cccheck();
         });
 
-        $("#NameOnCard").on("keyup",function(){
+        $("#ExpiryDate").on("keyup",function(){
+
+            $("#paymentform").bootstrapValidator('revalidateField', "ExpiryDate");
+        });
+
+        $("#CreditCardNumber").on("blur",function(){
+            cccheck();
+        });
+
+        $("#NameOnCard").on("blur",function(){
 
             var cname = $("#NameOnCard").val();
-            $("#ccname").html(cname);
+
+            if($("#paymentform").data("bootstrapValidator").isValidField("NameOnCard")){
+                $("#ccname").html(cname);
+                $("#ccname").css("border-bottom","2px solid #0000b3");  
+            }
+
+            else{
+                $("#ccnum").html(" ");
+                $("#ccnum").css("border-bottom","2px solid #FFFFFF"); 
+            }
         });
+
+        //Functions
+
+        function cccheck(){
+            $("#paymentform").bootstrapValidator('revalidateField', "CreditCardNumber");
+            var cc = $("#CreditCardNumber").val();
+
+            if($("#paymentform").data("bootstrapValidator").isValidField("CreditCardNumber")){
+                cc = cc.slice(-4);
+                $("#ccnum").html(cc);
+                $("#ccnum").css("border-bottom","2px solid #0000b3");  
+            }
+
+            else{
+                $("#ccnum").html(" ");
+                $("#ccnum").css("border-bottom","2px solid #FFFFFF"); 
+            }
+        }
 
         function donatecheck(){
 
@@ -405,6 +460,27 @@
             }
         }
 
+        function calamt(){
+
+            if ($("#other-amt").val() == '') {
+
+                $("#amt").html(" ");
+                $("button[name=inputbtn]").click(function(e){
+                    damt = e.target.value;
+                    $("#other-amt").val(damt);
+                    $("#amt").html(damt);
+                    $("#amt").css("border-bottom","2px solid #0000b3");
+                });
+            }
+
+            else{
+
+                damt = $("#other-amt").val();
+                $("#amt").html(damt);
+                $("#amt").css("border-bottom","2px solid #0000b3");
+                $('button[name="inputbtn"]').removeClass("active");
+            }
+        };
     }); // End of jQuery 1
 
 
@@ -489,20 +565,91 @@ $(document).ready(function(){
                 
             },
 
+            // expMonth: {
+            //     row: '.col-xs-3',
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Month is required'
+            //         },
+            //         digits: {
+            //             message: 'Month can contain digits only'
+            //         },
+            //         callback: {
+            //             message: 'Expired',
+            //             callback: function(value, validator, $field) {
+            //                 value = parseInt(value, 10);
+            //                 var year         = validator.getFieldElements('expYear').val(),
+            //                     currentMonth = new Date().getMonth() + 1,
+            //                     currentYear  = new Date().getFullYear();
+            //                 if (value < 0 || value > 12) {
+            //                     return false;
+            //                 }
+            //                 if (year == '') {
+            //                     return true;
+            //                 }
+            //                 year = parseInt(year, 10);
+            //                 if (year > currentYear || (year == currentYear && value >= currentMonth)) {
+            //                     validator.updateStatus('expYear', 'VALID');
+            //                     return true;
+            //                 } else {
+            //                     return false;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // }, 
+            // expYear: {
+            //     row: '.col-xs-3',
+            //     transformer: function($field, validatorName, validator) {
+            //         var year = parseInt($field.val(), 10);
+            //         if (isNaN(year)) {
+            //             return year;
+            //         } else {
+            //             // Add 2000 to year
+            //             return 2000 + year;
+            //         }
+            //     },
+            //     validators: {
+            //         notEmpty: {
+            //             message: 'Year is required'
+            //         },
+            //         digits: {
+            //             message: 'Year can contain digits only'
+            //         },
+            //         callback: {
+            //             // message: 'Expired',
+            //             callback: function(value, validator, $field) {
+            //                 value = parseInt(value, 10);
+            //                 var month        = validator.getFieldElements('expMonth').val(),
+            //                     currentMonth = new Date().getMonth() + 1,
+            //                     currentYear  = new Date().getFullYear();
+            //                 if (value < currentYear || value > currentYear + 10) {
+            //                     return false;
+            //                 }
+            //                 if (month == '') {
+            //                     return false;
+            //                 }
+            //                 month = parseInt(month, 10);
+            //                 if (value > currentYear || (value == currentYear && month >= currentMonth)) {
+            //                     validator.updateStatus('expMonth', 'VALID');
+            //                     return true;
+            //                 } else {
+            //                     return false;
+            //                 }
+            //             }
+            //         }
+            //     }
+            // } //end of year
             ExpiryDate:{
-
                 verbose:false,
-
                 validators:{
                     notEmpty:{
                         message:"Expiry date is required"
                     },
-
                     regexp: {
-                            message: 'The expiration date must be YYYY/MM',
-                            regexp: /^\d{4}\/\d{1,2}$/
+                            message: 'The expiration date must be MM/YY',
+                            regexp: /^(0[1-9]|1[0-2])\/[0-9]{2}$/
                     },
-
                     callback: {
                         message: 'The expiration date is expired',
                         callback: function(value, validator, $field) {
@@ -513,19 +660,17 @@ $(document).ready(function(){
                                     message: 'The date is not valid'
                                 };
                             }
-
-                            var year         = parseInt(sections[0], 10),
-                                month        = parseInt(sections[1], 10),
+                            var year         = parseInt(sections[1], 10),
+                                month        = parseInt(sections[0], 10),
                                 currentMonth = new Date().getMonth() + 1,
                                 currentYear  = new Date().getFullYear();
-
+                                year = year + 2000;
                             if (month <= 0 || month > 12 || year > currentYear + 10) {
                                 return {
                                     valid: false,
                                     message: 'The date is not valid'
                                 };
                             }
-
                             if (year < currentYear || (year == currentYear && month < currentMonth)) {
                                 // The date is expired
                                 return {
@@ -533,12 +678,11 @@ $(document).ready(function(){
                                     message: 'The date is expired'
                                 };
                             }
-
                             return true;
                         }
                     }
                 } //End of validators
-            } //End of expiry    
+            } //End of expiry
         } //End of Fields
     }); //End of Validation
 }); //End of jQuery 2
@@ -576,10 +720,6 @@ $(document).ready(function(){
                         notEmpty:{
                             message:'Email ID is required'
                         }
-                        // regexp: {
-                        //     regexp: /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                        //     message: 'The value is not a valid email address'
-                        //}
                     }
                 },
          

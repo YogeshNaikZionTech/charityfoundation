@@ -71,9 +71,9 @@ class Donate extends Controller
     {
         $this->validate($request, array(
            'other-amt' => 'required|min:1|max:255',
-            'creditCardNumber'=> 'required|max:20',
+            'CreditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
-            'ExpiryData'=>'required',
+            'ExpiryDate'=>'required',
             'ZipCode'=>'required',
             'dtype'=>'required',
             'proevent'=>'required',
@@ -85,17 +85,17 @@ class Donate extends Controller
         ));
 
         $damount = $request->input('other-amt');
-        $c_num = $request->input('creditCardNumber');
+        $c_num = $request->input('CreditCardNumber');
         $name_card = $request->input('NameOnCard');
-        $expiray_date= $request->input('ExpiryData');
-        $zip = $request->input('Zipcode');
+        $expiray_date= $request->input('ExpiryDate');
+        $zip = $request->input('ZipCode');
         $dtype = $request->input('dtype');
         $proevent = $request->input('proevent');
         $pname = $request->input('pname');
         $email = $request->input('Email');
         $phone_number = $request->input('phone');
 
-
+        
 
     }
 
