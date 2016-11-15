@@ -18,7 +18,7 @@
           <div class="modal-body">
             <div class="modal-header create" style="background-image: url('/images/moutain.jpg') ;background-color: rgba(0,0,0,0.5)">
               <button type="button" class="btn pull-right close" data-dismiss="modal" >&times;</button>
-              <h4 class="modal-title"></h4>
+              <h4 class="modal-title mTitle"></h4>
             </div>
             <div class="modal-body">
               <p class="des"></p>
@@ -348,7 +348,7 @@ $.ajax({
                   eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
                   eDate3 = dateObject.getFullYear();
                   var imageSrc = "background-image: url('/images/" +  response.project_Image +" ')";
-                    $('.modal-title').html(response.project_Title);
+                    $('.mTitle').html(response.project_Title);
                     $('.des').html(response.project_Description) ;
                     $('.loc').html(response.project_Location);
                     $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);

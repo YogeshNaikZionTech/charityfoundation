@@ -22,7 +22,7 @@
                         <div class="modal-content">
                             <div class="modal-header create">
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title"></h4>
+                                <h4 class="mTitle"></h4>
                             </div>
                                 <div class="modal-body">
                                   <img src="" atl='event_Image' class="eimg img-responsive" height="250px" width="250px">
@@ -301,7 +301,7 @@ $.ajax({
                   var imgstr = '/images/'+ response[0].event_Image;
                   // var title = val.event_Title;
                   $('.eimg').attr('src', imgstr)
-                    $('.modal-title').html(response[0].event_Title);
+                    $('.mTitle').html(response[0].event_Title);
                     $('.des').html(response[0].event_Description) ;
                     $('.loc').html(response[0].event_Location);
                     // $('.dat').html(response[0].event_Date);

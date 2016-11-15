@@ -75,7 +75,7 @@
                         </p>        
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default pp2" data-dismiss="modal">Close</button>
+                        <button type="button" class="pp2" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -182,7 +182,8 @@
                         </p> 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default pp2" data-dismiss="modal">Close</button>
+                        <button type="button" class="pp2" id="privacyBtn" data-dismiss="modal">Close</button>
+
                     </div>
                 </div>
             </div>
