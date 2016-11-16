@@ -7,10 +7,11 @@ body {
     background-color: #d5dae5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: start;
+
 }
-label, input, h3{
+label, input, h3, button{
     color:black;
+    text-align: start;
 }
 .header {
     position: absolute;

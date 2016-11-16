@@ -7,6 +7,14 @@ footer{
     z-index: 100;
     background-color: rgb(173,202,197);
 }
+.privacyterm{
+    text-align:center;
+    margin-top: 0 !important;
+}
+.pagelinks{
+
+
+}
 #content{
     min-height:100vh;
 }
@@ -19,7 +27,7 @@ footer span.copyright{
 }
 footer ul.quicklinks{
     margin-bottom:0;
-    line-height:40px;
+    /*line-height:40px;*/
     font-family:Constantia, cursive;
     text-align:left;
 
@@ -63,12 +71,12 @@ a{color:black}
 
 .footerpara{font-size:18px; color: black; text-align:justify;}
 
-/*#ppModal{
+*#ppModal{
     font-style: normal;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     text-align: left;
-    
-}*/
+
+}
 
 .pp{
 

@@ -328,11 +328,6 @@
                             <fieldset id="Group2" name="Group2">
                                 <select id="Select1" name="Select1" class="form-control">
                                     <option>Select</option>
-                                    <option value="projrad 1" class="projrad">Project 1</option>
-                                    <option value="projrad 2" class="projrad">Project 2</option>
-                                    <option value="projrad 3" class="projrad">Project 3</option>
-                                    <option value="projrad 4" class="projrad">Project 4</option>
-                                    <option value="projrad 5" class="projrad">Project 5</option>
                                 </select>
                             </fieldset>
                         </div>
@@ -344,11 +339,12 @@
                             <textarea class="form-control" id="pdescription" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <select class="form-control">
+                            <select class="form-control" id="pstatus">
                                 <option>Project Status</option>
-                                <option>Active</option>
-                                <option>Completed</option>
-                                <option>Future</option>
+                                <option value="Current">Current</option>
+                                <option value="future">Future</option>
+                                <option value="completed">Completed</option>
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -366,13 +362,8 @@
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
 
-                                <select id="Select1" name="Select1" class="form-control">
+                                <select id="Select2" name="Select2" class="form-control">
                                     <option>Select</option>
-                                    <option value="eventrad 1" class="eventrad">Event 1</option>
-                                    <option value="eventrad 2" class="eventrad">Event 2</option>
-                                    <option value="eventrad 3" class="eventrad">Event 3</option>
-                                    <option value="eventrad 4" class="eventrad">Event 4</option>
-                                    <option value="eventrad 5" class="eventrad">Event 5</option>
                                 </select>
                             </fieldset>
                         </div>
@@ -387,11 +378,9 @@
                             <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <select class="form-control">
+                            <select class="form-control" id="estatus">
                                 <option>Event Status</option>
-                                <option>Active</option>
-                                <option>Completed</option>
-                                <option>Future</option>
+
                             </select>
                         </div>
                         <div class="form-group">
@@ -543,52 +532,64 @@
 {{--Modify Menu--}}
     <script type="text/javascript">
                $(document).ready(function() {
+                   $.ajaxSetup({
+                       headers: {
+                           'X-CSRF-Token': $('input[name="_token"]').val()
+                       }
+                   });
                    $("#modifyitem").click(function() {
-                       $.ajaxSetup({
-                           headers: {
-                               'X-CSRF-Token': $('input[name="_token"]').val()
-                           }
-                       });
                        //onload when projects is selected
                        $.ajax({
-                           url: 'projects/status/current',
+                           url: '../projects/status/current',
                            type: 'GET',
-                           // datatype: 'JSON',
+                           datatype: 'JSON',
                            success: function (response) {
                                response = JSON.parse(response);
+                               console.log(response);
+                               $.each(response, function(key,val){
+                                   var output = "<option value="+val.id+" class='projrad'>"+val.project_Title+"</option>";
+                                   $('#Select1').append(output);
+                               });
+
 
                            }
 
 
                        });
-                       //click on projects
-                       $("#radiosel1").click(function() {
-                           $.ajax({
-                               url: '',
-                               type: 'GET',
-                               // datatype: 'JSON',
-                               success: function (response) {
-                                   response = JSON.parse(response);
 
-                               }
-
-
-                           });
-                       });
                        //when click on events
                        $("#radiosel2").click(function(){
                            $.ajax({
-                               url: '',
+                               url: '../events/status/current',
                                type: 'GET',
-                               // datatype: 'JSON',
+                               datatype: 'JSON',
                                success: function (response) {
                                    response = JSON.parse(response);
-
+                                   $.each(response, function(key,val){
+                                       var output = "<option value="+val.id+" class='eventrad'>"+val.event_Title+"</option>";
+                                       $('#Select2').append(output);
+                                   });
                                }
 
 
                            });
                        });
+                   });
+                   $("body").on('change', '#Select1', function(){
+                       var id = $(this).val();
+                       $.ajax({
+                           url: '../projects/'+id,
+                           type: 'GET',
+                           datatype: 'JSON',
+                           success: function(response){
+                               response = JSON.parse(response);
+                               $('#updatepname').val(response.project_Title);
+                               $('#pdescription').val(response.project_Description);
+
+                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
+                           }
+                       })
+
                    });
                });
    </script>
