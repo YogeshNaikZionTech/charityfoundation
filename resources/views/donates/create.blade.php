@@ -129,9 +129,9 @@
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
                     <div class="col-md-10 middle">
                     
-                        <input class="form-control proevent" name="proevent" type="hidden" disabled> <!--Event/Project from select page-->
-                        <input id="vtype" class="form-control" name="vtype" type="hidden" disabled> <!--Donate Type-->
-                        <input id="type" class="form-control type" name="type" type="hidden" disabled><!--Project/Event-->
+                        <input class="form-control proevent" name="proevent" type="hidden" > <!--Event/Project from select page-->
+                        <input id="vtype" class="form-control" name="vtype" type="hidden" > <!--Donate Type-->
+                        <input id="type" class="form-control type" name="type" type="hidden" ><!--Project/Event-->
                         <div class="formdetails">
                             <div class="div6">
                                 <div class="form-group">

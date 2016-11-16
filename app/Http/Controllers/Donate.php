@@ -71,7 +71,7 @@ class Donate extends Controller
     public function store(Request $request)
     {
 
-        Log::info($request);
+       Log::infor('Request for the donation is recevied');
         $this->validate($request, array(
 
            'otheramt' => 'required|min:1|max:255',
@@ -85,16 +85,14 @@ class Donate extends Controller
             'SecurityCode'=>'required',
         ));
 
-        Log::info('all values are present: storing the values.');
-        $d_amount = $request->input('other-amt');
-        $u_cardnum = $request->input('creditCardNumber');
-        $u_cardname = $request->input('NameOnCard');
         $u_cardExpiry = $request->input('ExpiryDate');
-        $u_cardcvv = $request->input('SecurityCode');
-        $u_cardzip = $request->input('ZIPCode');
-
+        Log::info('all values are present: storing the values.');
+        $d_amount = $request->input('otheramt');
+        $u_month = substr($u_cardExpiry,0,2);
+        $u_year=substr($u_cardExpiry,3,4);
+        $uExpiry = $u_month.$u_year;
+        Log::info($uExpiry);
         //get the current user
-
         $user = Auth::user();
         Log::info('get the logedin user'. $user->lastname);
         $user_id = $user ->id;
@@ -102,15 +100,16 @@ class Donate extends Controller
         //make a card model;
         $card = new Ucard();
         $card->user_id = $user_id;
-        $encry_card = $request->input($u_cardnum);
-        $card->card_num = $encry_card;
-        $card->cvv_num = $u_cardcvv;
-        $card->expiry_date =$u_cardExpiry;
-        $card->name_card = $u_cardname;
-        $card->zip_code = $u_cardzip;
+
+        $card->card_num = $request->input('CreditCardNumber');
+        $card->cvv_num = $request->input('SecurityCode');
+        $card->expiry_date =$uExpiry;
+        $card->name_card = $request->input('NameOnCard');
+        $card->zip_code = $request->input('ZIPCode');
         $receipt = $this->generateReceipt();
         //save the card in to User-card table and attach the user to the user_id relationship.
-        Log::info('started saving card');
+
+
         $card->save();
         Log::info('card details saved');
         $user->Ucard()->save($card);
@@ -125,8 +124,8 @@ class Donate extends Controller
 
             //save the eent->users. relation is achieved.
         //attaching user
-            $project= Event::where('id','=',$id)->first();
-            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'type'=>$type_payment]]);
+            $project= Project::where('id','=',$id)->first();
+            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'donation_type'=>$type_payment]]);
 
 
             Log::info('user donate to project request recevied');
@@ -157,19 +156,9 @@ class Donate extends Controller
         $day = date('d');
         $rand = mt_rand(1000,9999);
         $prefix='A';
+        Log::info('Receipt generated');
         return $prefix.$d_date.$rand.$month.$day;
 
-
-        $damount = $request->input('otheramt');
-        $c_num = $request->input('CreditCardNumber');
-        $name_card = $request->input('NameOnCard');
-        $expiray_date= $request->input('ExpiryDate');
-        $zip = $request->input('ZipCode');
-        $dtype = $request->input('dtype');
-        $proevent = $request->input('proevent');
-        $pname = $request->input('pname');
-        $email = $request->input('Email');
-        $phone_number = $request->input('phone');
 
         
 
