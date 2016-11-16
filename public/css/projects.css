@@ -1,5 +1,5 @@
 html,body{
-    min-width: 492px;
+    /*min-width: 492px;*/
 }
 
 .container, .container-fluid {
@@ -9,6 +9,8 @@ html,body{
 .thumbnail{
     padding: 0px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+    max-width: 400px;
+    margin: auto;
 }
 hr{
     border-top: 1px solid #ddd;

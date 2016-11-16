@@ -4,10 +4,6 @@
             <div class="col-md-12">
                 <div class="pull-left">
                     <ul class="style list-inline quicklinks">
-                        <li><a data-toggle="modal" data-target="#ppModal" class="privacy">Privacy Policy</a>
-                        </li>
-                        <li><a data-toggle="modal" data-target="#touModal" class="terms">Terms of Use</a>
-                        </li>
                         <li>
                             <a href="{{url('aboutus')}}"><b>About Us</b></a>
                         </li>
@@ -27,6 +23,18 @@
                          </li>
                          <li><a href="#"><i class="fa fa-instagram"></i></a>
                          </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row privacyterm">
+            <div class="col-md-12">
+                <div class="col-centered">
+                    <ul class="style list-inline quicklinks">
+                        <li><a data-toggle="modal" data-target="#ppModal" class="privacy">Privacy Policy</a>
+                        </li>
+                        <li><a data-toggle="modal" data-target="#touModal" class="terms">Terms of Use</a>
+                        </li>
                     </ul>
                 </div>
             </div>
