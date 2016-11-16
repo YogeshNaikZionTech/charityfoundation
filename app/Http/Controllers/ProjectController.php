@@ -155,7 +155,7 @@ class ProjectController extends Controller
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
 
-        $current_list = Project::where("project_Status","=","Current")->take($perpage)->skip($start)->get();
+        $current_list = Project::where("project_Status","=","Current")->skip($start)->take($perpage)    ->get();
         Log::info('Requesting for pagination for current projects:'. $current_list);
 
 
@@ -238,7 +238,7 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo 'Great you got it.';e
+        echo 'Great you got it.';
 
     }
 

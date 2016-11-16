@@ -16,7 +16,7 @@ class CreateUserdonationTable extends Migration
         Schema::create('user_card', function (Blueprint $table) {
             $table->increments('id');
             $table ->integer('user_id')->references('id')->on('users') ->onDelete('cascade');;
-            $table->string('card_num');
+            $table->string('card_num',500);
             $table->string('cvv_num');
             $table->string('expiry_date');
             $table->string('name_card');

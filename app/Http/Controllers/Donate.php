@@ -77,11 +77,12 @@ class Donate extends Controller
            'otheramt' => 'required|min:1|max:255',
             'CreditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
+            'type'=>'required',
             'ExpiryDate'=>'required',
-            'ZipCode'=>'required',
-            'dtype'=>'required',    //1-time, or monthly, voulnteer
+            'ZIPCode'=>'required',
+            'dtype'=>'required',    //1-time    , or monthly, voulnteer
             'proevent'=>'required', //id of project
-            'securitycode'=>'required',
+            'SecurityCode'=>'required',
         ));
 
         Log::info('all values are present: storing the values.');
@@ -89,28 +90,31 @@ class Donate extends Controller
         $u_cardnum = $request->input('creditCardNumber');
         $u_cardname = $request->input('NameOnCard');
         $u_cardExpiry = $request->input('ExpiryDate');
-        $u_cardcvv = $request->input('securitycode');
-        $u_cardzip = $request->input('zipCode');
+        $u_cardcvv = $request->input('SecurityCode');
+        $u_cardzip = $request->input('ZIPCode');
 
         //get the current user
 
         $user = Auth::user();
-        Log::infor('get the logedin user'. $user->lastname);
+        Log::info('get the logedin user'. $user->lastname);
         $user_id = $user ->id;
 
         //make a card model;
         $card = new Ucard();
         $card->user_id = $user_id;
-        $encry_card = Crypt::encrypt($request->input($u_cardnum));
+        $encry_card = $request->input($u_cardnum);
         $card->card_num = $encry_card;
         $card->cvv_num = $u_cardcvv;
-        $card->expiry_data =$u_cardExpiry;
+        $card->expiry_date =$u_cardExpiry;
         $card->name_card = $u_cardname;
         $card->zip_code = $u_cardzip;
         $receipt = $this->generateReceipt();
         //save the card in to User-card table and attach the user to the user_id relationship.
+        Log::info('started saving card');
         $card->save();
+        Log::info('card details saved');
         $user->Ucard()->save($card);
+        Log::info('card attached to the user');
         $card_id = $card->id;
         $id = $request->input('proevent');
         $type_payment = $request->input('dtype');

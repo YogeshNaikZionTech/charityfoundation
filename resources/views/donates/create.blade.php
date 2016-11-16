@@ -53,9 +53,9 @@
                 <form id="paymentform" action="{{url('/donates')}}" method="post" target="myIframe">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                     <div class="col-md-10 middle">
-                        <input id="proevent" name="proevent" class="form-control proevent" type="hidden" disabled> <!--Event/Project from select page-->
-                        <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime" disabled><!--Donate Type-->
-                        <input id="type" name="type" class="form-control type" type="hidden" disabled><!--Project/Event-->
+                        <input id="proevent" name="proevent" class="form-control proevent" type="hidden" > <!--Event/Project from select page-->
+                        <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime" ><!--Donate Type-->
+                        <input id="type" name="type" class="form-control type" type="hidden" ><!--Project/Event-->
                         <div class="formdetails">
                             <div class="div6">              
                                 <div class="amount-placeholder">
