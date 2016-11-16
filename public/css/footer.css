@@ -5,15 +5,17 @@ footer{
     bottom: 0;
     left: 0;
     z-index: 100;
+    text-align:center;
     background-color: rgb(173,202,197);
 }
 .privacyterm{
     text-align:center;
     margin-top: 0 !important;
+    line-height:10px;
+    margin-bottom:0 !important;
 }
-.pagelinks{
-
-
+.centereditems{
+    margin-top:20px;
 }
 #content{
     min-height:100vh;
@@ -142,58 +144,82 @@ a{color:black}
     font-size:12px;
 }
 *{margin:0 ;padding:0}
-body{
-    text-align: center;
- }
 .col-centered{
     display:inline-block;
     margin:0 auto;
     text-align:center;
 }
-@media(max-width: 670px){
-   footer{
-       overflow: hidden;
-       width: 100%;
-       max-height:100%;
-       text-align: center;
-   }
-   .pagelinks div.pull-left ol li a, .pagelinks div.footerpara.pull-right, .pagelinks div.col-centered ol li a{
-       display: inline-block;
-       margin:0 auto;
+@media(max-width: 600px){
+   .centereditems, .privacyterm{
        text-align:center;
+       display:inline-block;
+       margin:0 auto;
        float:none;
-       font-size: 12px;
    }
-   #copyright span.copyright{
-       font-size: 12px;
-   }
-   /*#copyright ul li a {*/
-       /*display: inline-block;*/
-       /*margin:0 auto;*/
-       /*text-align:center;*/
-       /*float:none;*/
-       /*font-size: 10px;*/
-       /*padding: 0 auto;*/
-   /*}*/
-    /*#copyright ul.pull-left{*/
-       /*float:none;*/
-        /*text-align:center;*/
-    /*}*/
-    /*#copyright ul.pull-right{*/
+    .pull-right, .pull-left{
+        float:none!important;
+    }
+    footer span.copyright{
+        line-height:20px;
+        font-family:Constantia, cursive;
+        color:black;
+        font-size:12px;
 
-    /*}*/
+    }
+    footer ul.quicklinks{
+        margin-bottom:0;
+        font-family:Constantia, cursive;
+        text-align:left;
+
+    }
+    ul.social-buttons{
+        margin-bottom:0
+    }
     ul.social-buttons li a{
         text-align:center;
-        background-color: rgb(173,202,197);;
+        display:block;
+        background-color: rgb(173,202,197);
         height:20px;
         width:20px;
         border-radius:100%;
-        font-size:10px;
+        font-size:12px;
         line-height:20px;
+        font-weight:bold;
         color:black;
         outline:0;
         -webkit-transition:all .3s;
         -moz-transition:all .3s;
         transition:all .3s;
+    }
+    ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
+        background-color:rgba(30, 112, 155, 0.52);
+        text-align:center;
+    }
+    .btn:focus,.btn:active,.btn.active,.btn:active:focus{
+        outline:0;
+        text-align:center;
+    }
+    a{
+        color:black
+    }
+    .form-data{
+        padding:20px; text-align:center;
+    }
+    .style{
+        display: block;
+        list-style-type: none;
+        text-align: left;
+    }
+    .style>li>a{
+        color:black;text-align: left;font-size:12px;
+    }
+    .style>li>a:hover{
+        color:black;  text-decoration: none;
+    }
+    .footerpara{
+        font-size:18px; color: black; text-align:justify;
+    }
+    .pull-left, .pull-right{
+        float:none;
     }
 }

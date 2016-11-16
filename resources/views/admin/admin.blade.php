@@ -197,7 +197,6 @@
                             <h3>New Project Creation</h3>
                             <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
                                 <div class="form-group">
-                                    {{--<input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
                                     <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
                                     <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
                                     <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
@@ -249,9 +248,7 @@
                             <h3>New Event Creation</h3>
 
                             <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
-
                                     <div class="form-group">
-                                        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}" />--}}
                                     <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
                                         <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
                                              <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
@@ -380,19 +377,24 @@
                         <div class="form-group">
                             <select class="form-control" id="estatus">
                                 <option>Event Status</option>
+                                <option value="current">Current</option>
+                                <option value="future">Future</option>
+                                <option value="completed">Completed</option>
+
+
 
                             </select>
                         </div>
                         <div class="form-group">
                             <div>
                                 <div class="datetimepicker1 input-append date">
-                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="Start Time">
+                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="estarttime" name="estarttime" placeholder="Start Time">
                                     <span class="add-on" style="height:28px;">
                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                                 </span>
                                 </div>
                                 <div class="datetimepicker1 input-append date">
-                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" placeholder="End Time">
+                                    <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="eendtime" name="eendtime"  placeholder="End Time">
                                     <span class="add-on" style="height:28px;">
                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                                 </span>
@@ -587,6 +589,23 @@
                                $('#pdescription').val(response.project_Description);
 
                                $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
+                           }
+                       })
+
+                   });
+                   $("body").on('change', '#Select2', function(){
+                       var id = $(this).val();
+                       $.ajax({
+                           url: '../events/'+id,
+                           type: 'GET',
+                           datatype: 'JSON',
+                           success: function(response){
+                               response = JSON.parse(response);
+                               $('#updateename').val(response[0].event_Title);
+                               $('#edescription').html(response[0].event_Description);
+                               $('#updatevenue').val(response[0].event_Location);
+                               $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
+                               $('')
                            }
                        })
 
