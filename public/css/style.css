@@ -7,7 +7,7 @@ body{
     background-color: rgba(69, 62, 14, 0.08);
 
 }
-.container-fluid{padding:5px;}
+.container-fluid , .col-xs-12{padding:5px;}
 h1{font-size:40px;}
 .div1{
 
@@ -51,7 +51,7 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:330px;
+        height:400px;
         margin-top: 80%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -71,7 +71,7 @@ h3{
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
 
 }
-@media (min-width: 320px) {
+@media (min-width: 310px) {
     .carousel {
         min-height: 140px;
         margin-bottom: 60px;
@@ -94,7 +94,7 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:400px;
+        height:500px;
         margin-top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -115,7 +115,7 @@ h3{
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
 
 }
-@media screen and (min-width: 320px) {
+@media screen and (min-width: 310px) {
     .carousel {
         min-height: 140px;
         margin-bottom: 60px;
@@ -138,8 +138,9 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:330px;
-        margin-top: 50%;
+        position: relative;
+        height: 250px;
+        top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -183,9 +184,10 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:330px;
-        margin-top: 50%;
-        font-size: 14px;
+        position: relative;
+        height: 250px;
+        top: 30%;
+        font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
         padding: 20px 10px;
@@ -228,7 +230,7 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:170px;
+        height:200px;
         margin-top: 35%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -527,14 +529,14 @@ h3{
     top:30%;
     left:10%;
 }
-    .donate_carousel{
-        height:150px;
-        top: 50%;
-        font-size: 16px;
-        background: rgba(17, 0, 8, 0.46);
-        border-radius: 20px;
-        padding: 20px 10px;
-    }
+    /*.donate_carousel{*/
+        /*height:150px;*/
+        /*top: 60%;*/
+        /*font-size: 16px;*/
+        /*background: rgba(17, 0, 8, 0.46);*/
+        /*border-radius: 20px;*/
+        /*padding: 20px 10px;*/
+    /*}*/
 }
 
 
@@ -579,7 +581,7 @@ h3{
     .donate_carousel{
         height:150px;
         top: 40%;
-        font-size: 16px;
+        font-size: 18px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
         padding: 20px 10px;
@@ -638,15 +640,15 @@ h3{
 .homeEvents > .head {
     position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
 }
-.donate_carousel{
-    position: relative;
-    height:150px;
-    top: 14%;
-    font-size: 16px;
-    background: rgba(17, 0, 8, 0.46);
-    border-radius: 20px;
-    padding: 20px 10px;
-}
+/*.donate_carousel{*/
+    /*position: relative;*/
+    /*height:150px;*/
+    /*top: 14%;*/
+    /*font-size: 16px;*/
+    /*background: rgba(17, 0, 8, 0.46);*/
+    /*border-radius: 20px;*/
+    /*padding: 20px 10px;*/
+/*}*/
 .donate_carousel > .btn-lg ,.carousel-caption > .btn-lg{ color: white;border: 2px white solid;}
 .donors1{padding-bottom: 30px;}
 .donors1 > p { font-size: 23px; text-align: justify;padding-left: 10px;color:white;}
