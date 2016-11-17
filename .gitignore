@@ -2,7 +2,8 @@
 storage/framework/cache/*
 storage/framework/views/*
 storage/framework/sessions/*
-storage/log/laravel.log
 vendor/
 !*gitkeep
-_ide_helper.php
+i_ide_helper.php
+storage/logs/laravel.log
+
