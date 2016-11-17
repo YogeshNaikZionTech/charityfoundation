@@ -85,7 +85,7 @@
             <h1> Educate yourself</h1>
             <div>
 
-                <iframe class="col-lg-8 col-xs-12 col-sm-8 col-md-8" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
+                <iframe class="col-lg-8 col-xs-12 col-sm-8 col-md-8" src="https://www.youtube.com/embed/6Q5Ndz0RQa4" frameborder="0" allowfullscreen></iframe>
 
             </div>
             <div class="col-lg-4 col-xs-12 col-md-10 col-sm-4 pull-left">
