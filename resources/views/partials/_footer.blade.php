@@ -3,7 +3,7 @@
         <div class="row pagelinks">
             <div class="col-md-12">
                 <div class="pull-left">
-                    <ul class="style list-inline quicklinks">
+                    <ul class="style list-inline quicklinks centereditems">
                         <li>
                             <a href="{{url('aboutus')}}"><b>About Us</b></a>
                         </li>
@@ -16,7 +16,7 @@
                     <span class="copyright">Copyright &copy; AA Foundation 2016</span>
                 </div>
                 <div class="pull-right">
-                    <ul class="list-inline social-buttons">
+                    <ul class="list-inline social-buttons centereditems">
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                          </li>
                         <li><a href="#"><i class="fa fa-facebook"></i></a>
