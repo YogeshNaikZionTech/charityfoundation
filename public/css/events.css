@@ -4,12 +4,18 @@ html,body{
 body{
    margin: 0px;
    padding: 0px;
-   font-family: Constantia cursive;
+   font-family: Constantia, cursive;
  }
 
-
-.navbar-inverse{
-    border-radius: 0px;
+.eventTabs li a
+{
+    color: orange ;
+}
+.eventTabs li a:hover{
+    color: #0000b3;
+}
+.eventTabs li.active a, .eventTabs li.active a:focus, .eventTabs li.active a:hover{
+    color: #777;
 }
 
 .thumbnail{
