@@ -5,13 +5,13 @@
     <link href="{{URL::asset('/css/donate.css')}}" rel="stylesheet" type="text/css"/>
     @endsection
 @section('content')
-<div class="main container" id="content">
+<div class="main container-fluid" id="content">
 
     <div class="row">
-        <div class="board col-md-4"> 
+        <div class="board col-md-4 col-lg-4"> 
             <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
             <div class="left">
-                <div class="col-md-12">
+                <div class="col-md-12 col-lg-12">
                     <div class="div4">
                         <div class="div3">
                             <h3 class="animated fadeInUp"">How would you like to contribute?</h3>
@@ -47,12 +47,12 @@
             </div>
         </div>
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-2"> -->
-        <div class="board col-md-4">
+        <div class="board col-md-4 col-lg-4">
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
                 <form id="paymentform" action="{{url('/donates')}}" method="post" target="myIframe">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
-                    <div class="col-md-10 middle">
+                    <div class="col-md-10 col-lg-10 middle">
                         <input id="proevent" name="proevent" class="form-control proevent" type="hidden" disabled> <!--Event/Project from select page-->
                         <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime" disabled><!--Donate Type-->
                         <input id="type" name="type" class="form-control type" type="hidden" disabled><!--Project/Event-->
@@ -127,7 +127,7 @@
             <div class="volform" style="display: none">
                 <form id="vform" action="{{url('/volunteer')}}" method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
-                    <div class="col-md-10 middle">
+                    <div class="col-md-10 col-lg-10 middle">
                     
                         <input class="form-control proevent" name="proevent" type="hidden" disabled> <!--Event/Project from select page-->
                         <input id="vtype" class="form-control" name="vtype" type="hidden" disabled> <!--Donate Type-->
@@ -165,65 +165,63 @@
         </div>
             <!-- </div> --><!--End of step-2-->
             <!-- <div role="tabpanel" class="tab-pane fade" id="step-3"> -->
-            <div class="board col-md-4">
+            <div class="board col-md-4 col-lg-4">
                 <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
                 <div class="right review1 ">
-                    <div class="col-md-12  div7">
+                    <div class="col-md-12  col-lg-12 div7">
                         <div id="donatepay">
                             <h4>Selected Cause:</h4>
-                            <div class="cause col-md-12">
-                                <div class="col-md-3 reset">
+                            <div class="cause col-md-12 col-lg-12">
+                                <div class="col-md-3 col-lg-3 reset">
                                     <img class="image">
                                 </div>
 
-                                <div class="col-md-9 reset">
+                                <div class="col-md-9 col-lg-9 reset">
                                     <h4 class="title"></h4>
                                 </div>
                             </div>
 
-                            <div class="summary">    
-                                <div class="col-md-12 reset" style="margin-bottom: 10%;">
-                                    <div class="col-md-6 reset reset2" style="color:#b3b3b3">Your Donation</div>
-                                        <div class="col-md-1 reset text-center dollar">$</div>
-                                        <div id="amt"  class="col-md-2 reset text-center"></div> 
+                            <div class="summary col-md-12 col-lg-12" style="margin-bottom: 5%">    
+                                <div class="col-md-12 col-lg-12 reset sum1" style="margin-bottom: 2%;display: none">
+                                    <div class="col-md-6 col-lg-6 reset reset2" style="color:#777;font-size:medium">Your Donation</div>
+                                    <div class="reset dollar pull-right">$<span id="amt"></span></div>         
                                 </div>
 
-                                <div class="col-md-12 reset" style="margin-bottom: 10%">
-                                    <div class="col-md-7 reset reset2" style="color:#b3b3b3;font-size:medium">Card number ending with</div> 
-                                     <div id="ccnum" class="col-md-2 reset text-center"></div> 
+                                <div class="col-md-12 col-lg-12 reset sum2" style="margin-bottom: 2%;display: none">
+                                    <div class="col-md-7 col-lg-7 reset reset2" style="color:#777;font-size:medium">Card ending in</div> 
+                                     <span id="ccnum" class=" reset  pull-right"></span> 
                                 </div>
 
-                                <div class="col-md-12 reset" style="margin-bottom: 10%">
-                                    <div class="col-md-3 reset reset2" style="color:#b3b3b3">Name</div> 
-                                    <div id="ccname" class="col-md-9 reset text-center"></div> 
+                                <div class="col-md-12 col-lg-12 reset sum3" style="margin-bottom: 2%;display: none">
+                                    <div class="col-md-3 col-lg-3 reset reset2" style="color:#777;font-size:medium">Name</div> 
+                                    <span id="ccname" class=" reset  pull-right"></span> 
                                 </div>
                             </div>
-
                         </div>
 
                         <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
                         <span class="align-middle">DONATE</span></label>
                     </div>
-                    <div class="col-md-12 appre">
+                    <div class="col-md-12 col-lg-12 appre">
                         <p>Thank You!!!</p>
                         
                     </div>
                 </div>
                 <div class="right review2 " style="display: none">
-                    <div class="col-md-12 div7">
+                    <div class="col-md-12 col-lg-12 div7">
                         <div id="vol">
                             <h4>Selected Cause:</h4>
-                            <div class="cause col-md-12">
-                                <div class="col-md-3 reset">
+                            <div class="cause col-md-12 col-lg-12">
+                                <div class="col-md-3 col-lg-3 reset">
                                     <img class="image">
                                 </div>
 
-                                <div class="col-md-9 reset">
+                                <div class="col-md-9 col-lg-9 reset">
                                     <h4 class="title"></h4>
                                 </div>
                             </div>
 
-                            <div class="col-md-12 reset" style="margin-bottom: 10%">
+                            <div class="col-md-12 col-lg-12 reset" style="margin-bottom: 10%">
 
                             </div>
                         </div>
@@ -379,21 +377,31 @@
         });
 
         $("#NameOnCard").on("blur",function(){
+            namecheck();
 
+        });
+        // $("#NameOnCard").on("keyup",function(){
+        //     namecheck();
+
+        // });
+
+        //Functions
+
+        function namecheck(){
             var cname = $("#NameOnCard").val();
 
             if($("#paymentform").data("bootstrapValidator").isValidField("NameOnCard")){
                 $("#ccname").html(cname);
-                $("#ccname").css("border-bottom","2px solid #0000b3");  
+                $(".sum3").fadeIn();
+                // $("#ccname").css("border-bottom","2px solid #0000b3");  
             }
 
             else{
-                $("#ccnum").html(" ");
-                $("#ccnum").css("border-bottom","2px solid #FFFFFF"); 
+                $("#ccname").html(" ");
+                $(".sum3").fadeOut();
+                // $("#ccname").css("border-bottom","2px solid #FFFFFF"); 
             }
-        });
-
-        //Functions
+        }
 
         function cccheck(){
             $("#paymentform").bootstrapValidator('revalidateField', "CreditCardNumber");
@@ -402,12 +410,14 @@
             if($("#paymentform").data("bootstrapValidator").isValidField("CreditCardNumber")){
                 cc = cc.slice(-4);
                 $("#ccnum").html(cc);
-                $("#ccnum").css("border-bottom","2px solid #0000b3");  
+                $(".sum2").fadeIn();
+                // $("#ccnum").css("border-bottom","2px solid #0000b3");  
             }
 
             else{
                 $("#ccnum").html(" ");
-                $("#ccnum").css("border-bottom","2px solid #FFFFFF"); 
+                $(".sum2").fadeOut();
+                // $("#ccnum").css("border-bottom","2px solid #FFFFFF"); 
             }
         }
 
@@ -465,21 +475,31 @@
 
             if ($("#other-amt").val() == '') {
 
+                $(".sum1").fadeOut();
                 $("#amt").html(" ");
+
                 $("button[name=inputbtn]").click(function(e){
                     damt = e.target.value;
                     $("#other-amt").val(damt);
-                    $("#amt").html(damt);
-                    $("#amt").css("border-bottom","2px solid #0000b3");
+                    $("#paymentform").bootstrapValidator('revalidateField', "otheramt");
+                    if($("#paymentform").data("bootstrapValidator").isValidField("otheramt")){
+                        $("#amt").html(damt);
+                        $(".sum1").fadeIn();
+                    }
+                    // $("#amt").css("border-bottom","2px solid #0000b3");
                 });
             }
 
             else{
+                $("#paymentform").bootstrapValidator('revalidateField', "otheramt");
 
-                damt = $("#other-amt").val();
-                $("#amt").html(damt);
-                $("#amt").css("border-bottom","2px solid #0000b3");
-                $('button[name="inputbtn"]').removeClass("active");
+                if($("#paymentform").data("bootstrapValidator").isValidField("otheramt")){
+                    damt = $("#other-amt").val();
+                    $("#amt").html(damt);
+                    $(".sum1").fadeIn();
+                    // $("#amt").css("border-bottom","2px solid #0000b3");
+                    $('button[name="inputbtn"]').removeClass("active");
+                }
             }
         };
     }); // End of jQuery 1

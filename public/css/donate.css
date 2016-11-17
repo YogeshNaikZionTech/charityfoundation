@@ -79,7 +79,7 @@
 
 
 .div2 ul li{
-  color: #AAAAAA;
+  color: #777;
   display: block;
   position: relative;
   /*width: 100%;*/
@@ -110,7 +110,7 @@
 .div2 ul li .check{
   display: block;
   position: absolute;
-  border: 5px solid #AAAAAA;
+  border: 5px solid #777;
   border-radius: 100%;
   height: 25px;
   width: 25px;
@@ -192,17 +192,13 @@ margin-top: 20px;
 
 
 .security-code-group{
-  /*display: inline-block;*/
-/*  float: left;
-  width: 48%;*/
+
   float: right;
   width: 50%;  
 }
 
 .zip-code-group {
-  /*display: inline-block;*/
-/*  float: right;
-  width: 50%;*/
+
  clear: both;
 }
 
@@ -256,24 +252,36 @@ margin-top: 20px;
   line-height: 30px;
 }
 
-#amt,#ccnum,#ccname{
+#ccnum,#ccname{
   display: inline-block;
   height: 30px;
-  font-size: x-large;
+  font-size: large;
   /*border-bottom: 1px solid #0000b3;*/
   line-height: 30px;
   color: #ff6600;
-    transition: border-bottom .50s ease-in-out;
-  -webkit-transition: border-bottom .50s ease-in-out;
+/*    transition: border-bottom .50s ease-in-out;
+  -webkit-transition: border-bottom .50s ease-in-out;*/
   
 }
 
 .dollar{ 
   display: inline-block;
   height: 30px;
-  font-size: x-large;
+  font-size: large;
   line-height: 30px;
-  color: #0000b3; 
+  color: #ff6600;
+  /*border: 1px solid black; */
+}
+
+.summary{
+  -moz-box-shadow: 0px 0px 20px #4c5a5d;
+  -webkit-box-shadow: 0px 0px 20px #4c5a5d;
+  box-shadow: 0px 0px 20px #4c5a5d;
+  background: -moz-linear-gradient(-45deg,  rgba(186,186,186,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  rgba(186,186,186,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  rgba(186,186,186,1) 0%,rgba(125,185,232,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bababa', endColorstr='#007db9e8',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
 }
 
 /*.note1{
