@@ -28,6 +28,16 @@ hr{
 .projectDesc{
    border: 1px solid #ddd; 
 }
+.projectTabs li a
+{
+    color: orange ;
+}
+.projectTabs li a:hover{
+    color: #0000b3;
+}
+.projectTabs li.active a, .projectTabs li.active a:focus, .projectTabs li.active a:hover{
+    color: #777;
+}
 
 .h h2{
     display: inline-block;
