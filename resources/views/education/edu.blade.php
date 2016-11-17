@@ -18,24 +18,21 @@
     <h1> Educate yourself</h1>
 
     <div class="row container-fluid">
-    <div class="container col-lg-12 col-md-12 col-xs-11 col-sm-12  "  >
-        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6" >
-            <div class="col-lg-10 col-xs-10 col-md-10 col-sm-10 ">
-                <h2>India the-future superpower reclaiming</h2>
-                <p>Some description  about video or Main theme of the video</p>
+    <div class="container col-lg-12 col-md-12 col-xs-12 col-sm-12  "  >
+        <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6" >
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 ">
+                <h2><b>IQ Test</b></h2>
+                <p>Try It today, You can do It.</p>
             </div>
-            <iframe  class="col-lg-11 col-xs-11 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/ijvVHdF7Ekc" frameborder="0" allowfullscreen></iframe>
-
-
-
+            <iframe class="col-lg-11 col-xs-12 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/J_g7p5x-LUs" frameborder="0" allowfullscreen></iframe>
         </div>
 
-        <div class="col-lg-6 col-xs-6 col-sm-6 col-md-6" >
-            <div class="col-lg-10 col-xs-10 col-md-10 col-sm-10 ">
-                <h2>India the-future superpower reclaiming</h2>
+        <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6" >
+            <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 ">
+                <h2><b>India the-future superpower reclaiming</b></h2>
                 <p>Some description  about video or Main theme of the video</p>
             </div>
-            <iframe  class="col-lg-11 col-xs-11 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/Ndh58GGCTQo" frameborder="0" allowfullscreen></iframe>
+            <iframe  class="col-lg-11 col-xs-12 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/Ndh58GGCTQo" frameborder="0" allowfullscreen></iframe>
 
         </div>
 

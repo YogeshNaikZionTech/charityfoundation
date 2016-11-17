@@ -152,3 +152,9 @@ background: linear-gradient(to right,  rgba(173,202,197,1) 0%,rgba(218,237,239,1
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#adcac5', endColorstr='#adcac5',GradientType=1 ); /* IE6-9 */
 
 }
+.nav > li{padding-left:2px;padding-right:5px;}
+.nav > li.active{
+    background-color: #eee;
+    /*background-color:#98cbe8;*/
+    border-radius: 5px;
+}
