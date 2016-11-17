@@ -178,9 +178,9 @@
                             country: {
                                 validMessage: 'The country looks great',
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The country is required'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The country is required'
+//                                    },
                                     regexp: {
                                         regexp: /^[a-zA-z ]*$/,
                                         message: 'The country can only consist of alphabets'
@@ -191,9 +191,9 @@
                                 validMessage: 'The state looks great',
 
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The field is required'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The field is required'
+//                                    },
                                     regexp: {
                                         regexp: /^[a-zA-z ]*$/,
                                         message: 'The state can only consist of alphabets'
@@ -202,9 +202,9 @@
                             },
                             phonenum: {
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The phone number is required and cannot be empty'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The phone number is required and cannot be empty'
+//                                    },
                                     phone: {
                                         country: 'US',
                                         message: 'The phone number is not valid'
@@ -217,9 +217,9 @@
                             },
                             zipcode: {
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The zipcode is required and cannot be empty'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The zipcode is required and cannot be empty'
+//                                    },
                                     zipcode: {
                                         country: 'US',
                                         message: 'The value is not valid zipcode'
@@ -233,23 +233,23 @@
                             street: {
                                 icon: 'false',
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The address is required and cannot be empty'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The address is required and cannot be empty'
+//                                    },
                                     regexp: {
                                         regexp: /(\d+) ((\w+)+ )/,
                                         message: 'The address should be like Ex: "2933 Glen Crow Court"'
                                     }
                                 }
-                            },
-                            aptNo: {
-                                icon: false,
-                                validators: {
-                                    notEmpty: {
-                                        message: 'The #apt number is required and cannot be empty'
-                                    }
-                                }
                             }
+//                            aptNo: {
+//                                icon: false,
+//                                validators: {
+//                                    notEmpty: {
+//                                        message: 'The #apt number is required and cannot be empty'
+//                                    }
+//                                }
+//                            }
 
                         }
                     })
