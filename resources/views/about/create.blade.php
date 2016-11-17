@@ -35,7 +35,7 @@
 
 
     <h2>Our Team</h2>
-    <img class="img-responsive img-circle" id="img1" src="images/ourteam.jpg" width="80px" height="80px">
+    <img class="img-responsive img-circle" id="img1" src="images/people1.jpg" width="80px" height="80px">
     <!-- <img id="img1" src="images/people1.jpg" width="100px" height="100px"> -->
     <p>We have a dedicated team of engineers, designers and developers who have worked very hard trying to making this venture a success and deserve a special mention. </p>
    <ul style="display: inline-block" class="list-group">
