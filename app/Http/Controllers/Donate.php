@@ -147,8 +147,14 @@ class Donate extends Controller
 
 //decide on time
 
+
     }
 
+    public function sendmail(){
+
+
+
+    }
     public function generateReceipt(){
 
         $d_date = date('y');
