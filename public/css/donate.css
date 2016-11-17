@@ -6,7 +6,7 @@
 }
 
 .board{
-  margin-bottom: 40px;
+  margin-bottom: 80px;
 }
 
 .board > h4{
@@ -51,7 +51,7 @@
 }
 
 .div1{
-  width: 65%;
+  width: 210px;
   float: none;
   margin: 9% auto;
   -moz-box-shadow: 0px 0px 20px #4c5a5d;
@@ -152,13 +152,17 @@
 }
 
 #note{
-margin-top: 20px;
+margin-bottom: 20px auto;
 }
 
 #day{
   color: #ff6600;
 }
 
+.btnwidth{
+  width: 240px;
+  text-align: center;
+}
 .div6{
   overflow: hidden;
   color: white;
@@ -247,30 +251,30 @@ margin-top: 20px;
 
 .reset2{
   display: inline-block;
-  font-size: large;
+  
   height: 30px;
   line-height: 30px;
+  color:#777;
+  font-size:medium;
 }
 
-#ccnum,#ccname{
+#ccnum,#ccname,#amt{
   display: inline-block;
   height: 30px;
-  font-size: large;
-  /*border-bottom: 1px solid #0000b3;*/
+  font-size: medium;
   line-height: 30px;
   color: #ff6600;
-/*    transition: border-bottom .50s ease-in-out;
-  -webkit-transition: border-bottom .50s ease-in-out;*/
+
   
 }
 
 .dollar{ 
   display: inline-block;
   height: 30px;
-  font-size: large;
+  font-size: medium;
   line-height: 30px;
   color: #ff6600;
-  /*border: 1px solid black; */
+  
 }
 
 .summary{
@@ -323,5 +327,10 @@ margin-top: 20px;
   font-size:40px;
   margin-top: 30px;
   color: #ff6600;
+}
+
+.sum1,.sum2,.sum3{
+  margin-bottom: 2%;
+  display: none;
 }
 
