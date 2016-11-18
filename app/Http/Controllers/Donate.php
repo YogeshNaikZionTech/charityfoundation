@@ -4,21 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Project;
+
 use App\Ucard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class Donate extends Controller
 {
 	/**
 	 * Donate constructor.
 	 * author:Sandeep
+     *
 	 * Setting all the routes that come to donate page should be authenticated.
 	 */
     public function __construct() {
         $this->middleware( 'auth' );
+
     }
 
 	/**
@@ -129,6 +134,12 @@ class Donate extends Controller
 
 
             Log::info('user donate to project request recevied');
+
+        $d=['name'=>$user->lastname];
+        Mail::send('email.donateProject', $d, function($message) use ($user){
+            $message->to($user->email,$user->lastname)->subject('Donation Receipt');
+            $message->from('noreplyaafoundation@gmail.com','AAF');
+        });
             return view('/donates/receipt');
     }
 
@@ -150,11 +161,12 @@ class Donate extends Controller
 
     }
 
-    public function sendmail(){
+    public function sendDonatemail(){
 
-
+//
 
     }
+
     public function generateReceipt(){
 
         $d_date = date('y');
