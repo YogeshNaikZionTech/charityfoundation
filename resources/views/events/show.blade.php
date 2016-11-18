@@ -41,7 +41,7 @@
                     </div>
                 </div>
         <div class="container-fluid">
-          <ul class="nav nav-tabs nav-justified" role="tablist">
+          <ul class="nav nav-tabs nav-justified eventTabs" role="tablist">
             <li class="active"><a data-toggle="tab" href="#upcoming">Upcoming Events</a></li>
             <li><a data-toggle="tab" id="completedTab" href="#completed">Completed Events</a></li>
           </ul>

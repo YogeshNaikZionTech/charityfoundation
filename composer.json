@@ -10,7 +10,6 @@
         "laravelcollective/html":"5.3.*",
         "filp/whoops": "^2.1",
         "intervention/image": "^2.3",
-        "ext-gd": "*",
         "maatwebsite/excel": "^2.1"
     },
     "require-dev": {

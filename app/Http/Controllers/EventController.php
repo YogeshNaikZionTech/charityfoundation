@@ -240,7 +240,8 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+        echo 'Great you got it.';
+/**
         $event = Event::where("id","=", $id)->get();
 
 
@@ -278,6 +279,7 @@ class EventController extends Controller
         Log:info('Event that is being updated:'.$event);
         $event->update();
         \Session::flash( 'EventUpdate', 'Event updated' );
+**/
     }
 
     /**
@@ -288,9 +290,11 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        $event_delete = Event::Where('id','=',$id)->get();
-        $event_delete->delete();
-        echo 'deleted';
+
+        echo 'Great you got it.';
+//        $event_delete = Event::Where('id','=',$id)->get();
+//        $event_delete->delete();
+//        echo 'deleted';
 
     }
 }

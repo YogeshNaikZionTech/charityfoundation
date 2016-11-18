@@ -48,7 +48,7 @@
                     <div class="form-group">
                         <label for="phonenum" class="col-lg-3 control-label">Phone Number:</label>
                         <div class="col-lg-8">
-                            <input class="form-control" id="phonenum" name="phonenum" maxlength="10"  placeholder="Enter your 10 digit phone number" value="{{ Auth::user()->phonenum }}" type="text">
+                            <input  class="form-control" id="phonenum" name="phonenum" maxlength="10"  placeholder="Enter your 10 digit phone number" value="{{ Auth::user()->phonenum }}" type="tel">
                         </div>
                     </div>
                     <div class="form-group">
@@ -61,14 +61,14 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="street" class="col-md-3 control-label" >Address* :</label>
+                        <label for="street" class="col-md-3 control-label" >Address :</label>
                         <div class="col-md-8">
                             <input class="form-control" id="street" name="street" value="{{ Auth::user()->street }}"  placeholder="Enter Your Street Name" type="text">
 
                         </div>
                     </div>
                     <div class="form-group">
-                        <label id="aptNo" class="col-md-3 control-label">Address2 *:</label>
+                        <label id="aptNo" class="col-md-3 control-label">Address2 :</label>
                         <div class="col-md-8">
                             <input class="form-control" id="aptNo"  name="aptNo" value="{{ Auth::user()->aptNo }}"  placeholder="Enter Your aptNo" type="text">
                         </div>
@@ -178,9 +178,9 @@
                             country: {
                                 validMessage: 'The country looks great',
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The country is required'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The country is required'
+//                                    },
                                     regexp: {
                                         regexp: /^[a-zA-z ]*$/,
                                         message: 'The country can only consist of alphabets'
@@ -191,9 +191,9 @@
                                 validMessage: 'The state looks great',
 
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The field is required'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The field is required'
+//                                    },
                                     regexp: {
                                         regexp: /^[a-zA-z ]*$/,
                                         message: 'The state can only consist of alphabets'
@@ -202,9 +202,9 @@
                             },
                             phonenum: {
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The phone number is required and cannot be empty'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The phone number is required and cannot be empty'
+//                                    },
                                     phone: {
                                         country: 'US',
                                         message: 'The phone number is not valid'
@@ -217,9 +217,9 @@
                             },
                             zipcode: {
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The zipcode is required and cannot be empty'
-                                    },
+//                                    notEmpty: {
+//                                        message: 'The zipcode is required and cannot be empty'
+//                                    },
                                     zipcode: {
                                         country: 'US',
                                         message: 'The value is not valid zipcode'
@@ -233,20 +233,24 @@
                             street: {
                                 icon: 'false',
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The address is required and cannot be empty'
-                                    },
-                                    regexp: {
-                                        regexp: /(\d+) ((\w+)+ )/,
-                                        message: 'The address should be like Ex: "2933 Glen Crow Court"'
-                                    }
+//                                    notEmpty: {
+//                                        message: 'If you fill your address that should be great'
+//                                    },
+//                                    regexp: {
+//                                        regexp: /(\d+) ((\w+)+ )/,
+//                                        message: 'The address should be like Ex: "2933 Glen Crow Court"'
+//                                    }
                                 }
                             },
                             aptNo: {
                                 icon: false,
                                 validators: {
-                                    notEmpty: {
-                                        message: 'The #apt number is required and cannot be empty'
+//                                    notEmpty: {
+//                                        message: 'The #apt number is required and cannot be empty'
+//                                    },
+                                    regexp: {
+                                        regexp: /^[1-9]\d/,
+                                        message: 'integers only'
                                     }
                                 }
                             }

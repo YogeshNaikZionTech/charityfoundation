@@ -4,21 +4,26 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Project;
+
 use App\Ucard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class Donate extends Controller
 {
 	/**
 	 * Donate constructor.
 	 * author:Sandeep
+     *
 	 * Setting all the routes that come to donate page should be authenticated.
 	 */
     public function __construct() {
         $this->middleware( 'auth' );
+
     }
 
 	/**
@@ -71,44 +76,49 @@ class Donate extends Controller
     public function store(Request $request)
     {
 
-        Log::info($request);
+       Log::info('Request for the donation is recevied');
         $this->validate($request, array(
 
            'otheramt' => 'required|min:1|max:255',
             'CreditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
+            'type'=>'required',
             'ExpiryDate'=>'required',
-            'ZipCode'=>'required',
-            'dtype'=>'required',    //1-time, or monthly, voulnteer
+            'ZIPCode'=>'required',
+            'dtype'=>'required',    //1-time    , or monthly, voulnteer
             'proevent'=>'required', //id of project
-            'securitycode'=>'required',
+            'SecurityCode'=>'required',
         ));
-        $d_amount = $request->input('other-amt');
-        $u_cardnum = $request->input('creditCardNumber');
-        $u_cardname = $request->input('NameOnCard');
+
         $u_cardExpiry = $request->input('ExpiryDate');
-        $u_cardcvv = $request->input('securitycode');
-        $u_cardzip = $request->input('zipCode');
-
+        Log::info('all values are present: storing the values.');
+        $d_amount = $request->input('otheramt');
+        $u_month = substr($u_cardExpiry,0,2);
+        $u_year=substr($u_cardExpiry,3,4);
+        $uExpiry = $u_month.$u_year;
+        Log::info($uExpiry);
         //get the current user
-
         $user = Auth::user();
-        Log::infor('get the logedin user'. $user->lastname);
+        Log::info('get the logedin user'. $user->lastname);
         $user_id = $user ->id;
 
         //make a card model;
         $card = new Ucard();
         $card->user_id = $user_id;
-        $encry_card = Crypt::encrypt($request->input($u_cardnum));
-        $card->card_num = $encry_card;
-        $card->cvv_num = $u_cardcvv;
-        $card->expiry_data =$u_cardExpiry;
-        $card->name_card = $u_cardname;
-        $card->zip_code = $u_cardzip;
+
+        $card->card_num = $request->input('CreditCardNumber');
+        $card->cvv_num = $request->input('SecurityCode');
+        $card->expiry_date =$uExpiry;
+        $card->name_card = $request->input('NameOnCard');
+        $card->zip_code = $request->input('ZIPCode');
         $receipt = $this->generateReceipt();
         //save the card in to User-card table and attach the user to the user_id relationship.
+
+
         $card->save();
+        Log::info('card details saved');
         $user->Ucard()->save($card);
+        Log::info('card attached to the user');
         $card_id = $card->id;
         $id = $request->input('proevent');
         $type_payment = $request->input('dtype');
@@ -119,11 +129,17 @@ class Donate extends Controller
 
             //save the eent->users. relation is achieved.
         //attaching user
-            $project= Event::where('id','=',$id)->first();
-            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'type'=>$type_payment]]);
+            $project= Project::where('id','=',$id)->first();
+            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'donation_type'=>$type_payment]]);
 
 
             Log::info('user donate to project request recevied');
+
+        $d=['name'=>$user->lastname];
+        Mail::send('email.donateProject', $d, function($message) use ($user){
+            $message->to($user->email,$user->lastname)->subject('Donation Receipt');
+            $message->from('noreplyaafoundation@gmail.com','AAF');
+        });
             return view('/donates/receipt');
     }
 
@@ -142,6 +158,13 @@ class Donate extends Controller
 
 //decide on time
 
+
+    }
+
+    public function sendDonatemail(){
+
+//
+
     }
 
     public function generateReceipt(){
@@ -151,22 +174,8 @@ class Donate extends Controller
         $day = date('d');
         $rand = mt_rand(1000,9999);
         $prefix='A';
+        Log::info('Receipt generated');
         return $prefix.$d_date.$rand.$month.$day;
-
-
-        $damount = $request->input('otheramt');
-        $c_num = $request->input('CreditCardNumber');
-        $name_card = $request->input('NameOnCard');
-        $expiray_date= $request->input('ExpiryDate');
-        $zip = $request->input('ZipCode');
-        $dtype = $request->input('dtype');
-        $proevent = $request->input('proevent');
-        $pname = $request->input('pname');
-        $email = $request->input('Email');
-        $phone_number = $request->input('phone');
-
-        
-
     }
 
     /**
@@ -201,6 +210,7 @@ class Donate extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, array(
+
             'other-amt' => 'required|min:1|max:255',
             'creditCardNumber'=> 'required|max:20',
             'NameOnCard'=>'required|max:35',
@@ -214,6 +224,7 @@ class Donate extends Controller
             'phone'=>'required|max:15',
 
         ));
+        Log::info('all values are prest, updating the values.');
             $event_update =Event::where('id','=', $id)->get();
 
         $damount = $request->input('other-amt');

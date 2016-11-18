@@ -43,7 +43,7 @@ Route::get('/setproject', function (){
 
 
 });
-Route::post('/recipte', 'Donate@showRecipte');
+Route::get('/receipt', 'Donate@showRecipte');
 
 /*
  * Resource for About us
@@ -97,7 +97,7 @@ Route::get('projects/page/future/{id}', 'ProjectController@paginateUpcomingProje
 Route::get('projects/page/current/{id}', 'ProjectController@paginateCurrentProjects'); //Get pagination for current projects
 Route::get('projects/page/completed/{id}', 'ProjectController@paginateCompletedProjects'); //Get pagination for completed projects
 
-
+Route::get('/email', 'Donate@sendmail');
 /**
  *
  *  pagination links

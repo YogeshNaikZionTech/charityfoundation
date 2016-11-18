@@ -20,12 +20,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
 	        $table->string('avatar')->default('default.png');
-	        $table->string('phonenum')->default(0000);
+	        $table->string('phonenum')->default(1234567890);
 	        $table->string('street')->default('None');
-	        $table->integer('aptNo')->default(00000);
+	        $table->integer('aptNo')->default(123);
 	        $table->string('state')->default('None');
 	        $table->string('country')->default('None');
-	        $table->integer('zipcode')->default(00000);
+	        $table->integer('zipcode')->default(12345);
 	        $table->boolean('isAdmin')->default(false);
             $table->rememberToken();
             $table->timestamps();
