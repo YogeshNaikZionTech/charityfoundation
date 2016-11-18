@@ -16,15 +16,16 @@
             </div>
         @endif
 
-        <h2 id="support">Choose what your donation will support</h2>
-        <h4>Where it is needed the most</h4>
+        <h2 id="support">What would you like to do?</h2>
+        <h4>Donate to the foundation</h4>
 
         <div class="row">
             <div class="col-md-6 col-sm-9 col-xs-12 center-col">
                 <a style="display: block" class="thumbnail option default">
-                    <img src="{{URL::asset('/images/aa.png')}}" alt="AA Logo" class="img-thumbnail img-responsive">
+                    <img src="{{URL::asset('/images/aafoundationlogo(1).jpg')}}" alt="AA Logo" class="img-thumbnail img-responsive">
                     <!-- <h1>AA Foundation</h1> -->
-                    <p value="AA Foundation">AA Foundation</p>
+                    <p value="AA Foundation" style="font-size: 17px">The foundation will utilize the funds where it is most urgently required. </p>
+                    <p></p>
                 </a>
             </div> 
         </div>
