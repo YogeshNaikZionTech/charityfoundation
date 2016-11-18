@@ -211,7 +211,7 @@ a{color:black}
         text-align: left;
     }
     .style>li>a{
-        color:black;text-align: left;font-size:12px;
+        color:black;text-align: left;font-size:12px; padding:0; margin:0;
     }
     .style>li>a:hover{
         color:black;  text-decoration: none;
