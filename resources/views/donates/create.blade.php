@@ -183,19 +183,19 @@
                                 </div>
                             </div>
 
-                            <div class="summary col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 5%">    
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 5%">    
                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum1">
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2 ">Your Donation</div>
+                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2 "><span class="glyphicon glyphicon-star glyclr"></span> Your Donation </div>
                                     <div class="reset dollar pull-right">$<span id="amt"></span></div>         
                                 </div>
 
                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum2">
-                                    <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 reset reset2">Card ending in</div> 
+                                    <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 reset reset2"><span class="glyphicon glyphicon-credit-card glyclr"></span> Card ending in</div> 
                                      <span id="ccnum" class=" reset  pull-right"></span> 
                                 </div>
 
                                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum3">
-                                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">Name</div> 
+                                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2"><span class="glyphicon glyphicon-user glyclr"></span> Name</div> 
                                     <span id="ccname" class=" reset  pull-right"></span> 
                                 </div>
                             </div>
@@ -204,10 +204,10 @@
                         <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
                         <span class="align-middle">DONATE</span></label>
                     </div>
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
+<!--                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
                         <p>Thank You!!!</p>
                         
-                    </div>
+                    </div> -->
                 </div>
                 <div class="right review2 " style="display: none">
                     <div class="col-md-12 col-lg-12 col-xs-12 div7">
