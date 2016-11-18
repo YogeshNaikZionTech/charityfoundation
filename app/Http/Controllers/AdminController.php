@@ -53,21 +53,16 @@ class AdminController extends Controller
                 $tsum =0;
                $esum=0;
                $psum =0;
-               $event =$user_slug->Event()->get();
+
                $project =$user_slug->Project()->get();
 
-             if($event->count() >0) {
-                 foreach ($event as $e) {
-                     $esum += $e->pivot->event_cents;
-                 }
-             }
              if($project->count()){
                  foreach($project as $p){
                      $psum += $p->pivot->project_cents;
                  }
              }
-             $tsum = $esum +$psum;
-                $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum, "project_donation"=>$psum,"event_donation"=>$esum,"total_donation" => $tsum);
+             $tsum = $psum;
+                $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum,"total_donation" => $tsum);
                 array_push($user_response, $user_check);
             }
         }
