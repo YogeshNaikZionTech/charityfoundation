@@ -32,7 +32,7 @@ class DonateProjectSeeder extends Seeder
         $project->User()->attach([$user->id=>['project_cents'=>900, 'user_card'=>2, 'receipt_num'=>3345,'donation_type'=>'monthly']]);
         /**
          * ---------get donat project table values-----
-         * $user = \App\User::where('id','=','3')->first();
+         * $user = \App\User::where('id','=','2')->first();
          * $pri = $user->Project()->first()
          * $pri->pivot->project_cents
          * }

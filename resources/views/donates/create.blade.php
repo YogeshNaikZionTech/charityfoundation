@@ -50,7 +50,7 @@
         <div class="board col-md-4 col-lg-4">
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
-                <form id="paymentform" action="{{url('/donates')}}" method="post" target="myIframe">
+                <form id="paymentform" action="{{url('/donates')}}" method="post" >
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                     <div class="col-md-10 col-lg-10 middle">

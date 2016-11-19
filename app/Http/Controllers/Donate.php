@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use App\Project;
+use App\PVNotiff;
 use App\Ucard;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -128,11 +129,25 @@ class Donate extends Controller
             $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'donation_type'=>$type_payment]]);
 
 
-            Log::info('user donate to project request recevied');
+            Log::info('user donate to project request received');
+
             return view('/donates/receipt');
     }
 
     public function manageVoulnteer(Request $request){
+
+        /**
+        array:8 [▼
+      "_token" => "kvJlhBGWn9xkqQQJjl86ZaKSuT3pEro5CDaSCx72"
+      "proevent" => "1"
+      "vtype" => "volunteer"
+      "type" => "events"
+      "Name" => "sandeep"
+      "Email" => "s@ff.com"
+      "Phone" => "999-123-2333"
+      "Comments" => "testing for event volunteer"
+    ]
+         * **/
 
         $this->validate($request, array(
 
@@ -143,6 +158,30 @@ class Donate extends Controller
             'Phone'=>'required',
             'type'=>'required', // project or event.
         ));
+        Log::info('All values received');
+        $type = $request->input('type');
+        $id = $request->input('proevent');
+        $user = Auth::user();
+        if($type == 'events'){
+
+
+            $event= Event::where('id','=',$id)->first();
+            $event->User()->attach($user->id);
+
+            //saving to the event voulnteer notification table
+            $evnotif = new EVNotiff();
+            $evnotif->user_id = $user->user_id;
+            $evnotif->event_id = $event->id;
+            $evnotif->save();
+
+        }else{
+
+            $project =Project::where('id','=',$id)->first();
+            $pvnotify = new PVNotiff();
+            $ppnotif->user_id = $user->user_id;
+            $pvnotif->event_id = $project->id;
+            $pvnotif->save();
+        }
 
 
 //decide on time
@@ -150,11 +189,7 @@ class Donate extends Controller
 
     }
 
-    public function sendmail(){
 
-
-
-    }
     public function generateReceipt(){
 
         $d_date = date('y');
