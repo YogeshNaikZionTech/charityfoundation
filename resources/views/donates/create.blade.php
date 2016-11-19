@@ -38,28 +38,26 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!--<button id="step-1-next" class="btn btn-success nextBtn pull-right">Continue</button> -->
                         </div>
                         <div id="note" class= "animated pulse" style="color: black; display: none;font-size: medium">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
                     </div>
-                    <!-- <div class="note1"><h4><span class="imp"><i class="glyphicon glyphicon-asterisk"></i></span> Founder takes care of all administrative costs</h4></div> -->
-                </div><!--End of Donation Type-->
-            </div>
+                </div><!--End of Donation Content-->
+            </div><!--End of Donation-->
         </div>
-            <!-- <div role="tabpanel" class="tab-pane fade" id="step-2"> -->
-        <div class="board col-md-4 col-lg-4 col-sm-6 col-xs-12">
+        <div class="board col-md-4 col-lg-4 col-sm-6 col-xs-12"> <!--Payment/Volunteeer Details-->
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
                 <form id="paymentform" action="{{url('/donates')}}" method="post" target="myIframe">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
 
-                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12 middle">
+                    <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12 middle"><!--Payment-->
                         <input id="proevent" name="proevent" class="form-control proevent" type="hidden" > <!--Event/Project from select page-->
                         <input id="dtype" name="dtype" class="form-control" type="hidden" value="onetime" ><!--Donate Type-->
                         <input id="type" name="type" class="form-control type" type="hidden" ><!--Project/Event-->
 
                         <div class="formdetails">
-                            <div class="div6">              
+                            <div class="div6">
+
                                 <div class="amount-placeholder">
                                     <div class="form-group">
                                     <label for="other-amt">Donate Amount</label>
@@ -79,54 +77,38 @@
                                       <input type="text" class="form-control" id="other-amt" name="otheramt" placeholder="Other Amount">
                                     </div>
                                 </div>
+
                                 <div class="form-group" id="cc_number">
                                     <label for="CreditCardNumber">Card number</label>
                                     <input id="CreditCardNumber" class="null card-image form-control" type="text" name="CreditCardNumber">
                                 </div>
+
                                 <div class="form-group">
                                     <label for="NameOnCard">Name on card</label>
                                     <input id="NameOnCard" class="form-control" type="text" maxlength="255" name="NameOnCard">
                                 </div>
 
-<!--                                 <div class="expiry-date-group">
-                                    
-                                    <div class="month-group form-group">
-                                        <label for="expMonth">Month</label>
-                                        <input id="expMonth" class="form-control" type="text" placeholder="MM" name="expMonth">
-                                    </div>
-
-                                    <div class="year-group form-group">   
-                                        <label for="expYear">Year</label>
-                                        <input id="expYear" class="form-control" type="text" placeholder="YYYY" name="expYear">
-                                    </div>
-                                </div> -->
                                 <div class="expiry-date-group form-group">
                                     <label for="ExpiryDate">Expiry date</label>
                                     <input id="ExpiryDate" class="form-control" type="text" placeholder="MM/YY" name="ExpiryDate">
                                 </div>
 
+                                <div class="security-code-group form-group">
+                                    <label for="SecurityCode">CVV</label>
+                                    <input id="SecurityCode" class="form-control" type="text" name="SecurityCode">
+                                </div>
 
-                                
-                                    
-                                    <div class="security-code-group form-group">
-                                        <label for="SecurityCode">CVV</label>
-                                        <input id="SecurityCode" class="form-control" type="text" name="SecurityCode" >
-                                    </div>
-
-                                    <div class="zip-code-group form-group">
-                                        <label for="ZIPCode">ZIP code</label>
-                                        <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode" >
-                                    </div>   
-                                
+                                <div class="zip-code-group form-group">
+                                    <label for="ZIPCode">ZIP code</label>
+                                    <input id="ZIPCode" class="form-control" type="text" maxlength="5" name="ZIPCode">
+                                </div>        
                                 <input id="PayButton" class="hidden" type="submit">
                             </div>
-                        </div> <!--End of payment form details--> 
-                    </div>
-                </form><!--End of Form-->
-                <!--<button id="step-2-next" class="btn btn-success nextBtn formv pull-right">Continue</button> -->
+                        </div> 
+                    </div><!--End of Payment Details--> 
+                </form>
             </div><!--End of Payment-->
-
-            <div class="volform" style="display: none">
+            <div class="volform" style="display: none"> <!--Volunteer Form-->
                 <form id="vform" action="{{url('/volunteer')}}" method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
                     <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12 middle">
@@ -146,7 +128,7 @@
 
                                 <div class="form-group">
                                     <label for="Email">Email</label>
-                                    <input id="Email" name="Email" class="form-control" type="text" maxlength="255">
+                                    <input id="Email" name="Email" class="form-control" type="text" maxlength="255" placeholder="example@domain.com">
                                 </div>
 
                                 <div class="form-group">
@@ -160,83 +142,78 @@
                                 </div> 
                                 <input id="volButton" class="hidden" type="submit">
                             </div>
-                        </div> <!--End of payment form details--> 
+                        </div> 
                     </div>              
-                </form><!--End of Form-->   
+                </form>   
+            </div><!--End of Volunteer-->             
+        </div><!--End of Details-->
+
+        <div class="board col-md-4 col-lg-4 col-sm-6 col-xs-12">
+            <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
+            <div class="right review1 ">
+                <div class="col-md-12  col-lg-12 col-sm-12 col-xs-12 div7">
+                    <div id="donatepay">
+                        <h4>Selected Cause:</h4>
+                        <div class="cause col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                            <div class="col-md-3 col-sm-3 col-xs-3 reset">
+                                <img class="image">
+                            </div>
+
+                            <div class="col-md-9 col-sm-9 col-xs-9 reset">
+                                <h4 class="title"></h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 5%">    
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum1">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2 "><span class="glyphicon glyphicon-star glyclr"></span> Your Donation </div>
+                                <div class="reset dollar pull-right">$<span id="amt"></span></div>         
+                            </div>
+
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum2">
+                                <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 reset reset2"><span class="glyphicon glyphicon-credit-card glyclr"></span> Card ending in</div> 
+                                 <span id="ccnum" class=" reset  pull-right"></span> 
+                            </div>
+
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum3">
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2"><span class="glyphicon glyphicon-user glyclr"></span> Name</div> 
+                                <span id="ccname" class=" reset  pull-right"></span> 
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
+                    <span class="align-middle">DONATE</span></label>
+                </div>
+                <!--<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
+                    <p>Thank You!!!</p>   
+                </div> -->
+            </div>
+            <div class="right review2 " style="display: none">
+                <div class="col-md-12 col-lg-12 col-xs-12 div7">
+                    <div id="vol">
+                        <h4>Selected Cause:</h4>
+                        <div class="cause col-md-12 col-lg-12 col-xs-12">
+                            <div class="col-md-3 col-lg-3 col-xs-3 reset">
+                                <img class="image">
+                            </div>
+
+                            <div class="col-md-9 col-lg-9 col-xs-9 reset">
+                                <h4 class="title"></h4>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 col-lg-12 col-xs-12 reset" style="margin-bottom: 10%">
+
+                        </div>
+                    </div>
+                    <label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
+                    <span class="align-middle">VOLUNTEER</span></label>
+                </div>
             </div>
         </div>
-            <!-- </div> --><!--End of step-2-->
-            <!-- <div role="tabpanel" class="tab-pane fade" id="step-3"> -->
-            <div class="board col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-ok"></span> Confirmation</h4>
-                <div class="right review1 ">
-                    <div class="col-md-12  col-lg-12 col-sm-12 col-xs-12 div7">
-                        <div id="donatepay">
-                            <h4>Selected Cause:</h4>
-                            <div class="cause col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                <div class="col-md-3 col-sm-3 col-xs-3 reset">
-                                    <img class="image">
-                                </div>
-
-                                <div class="col-md-9 col-sm-9 col-xs-9 reset">
-                                    <h4 class="title"></h4>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 5%">    
-                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum1">
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2 "><span class="glyphicon glyphicon-star glyclr"></span> Your Donation </div>
-                                    <div class="reset dollar pull-right">$<span id="amt"></span></div>         
-                                </div>
-
-                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum2">
-                                    <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 reset reset2"><span class="glyphicon glyphicon-credit-card glyclr"></span> Card ending in</div> 
-                                     <span id="ccnum" class=" reset  pull-right"></span> 
-                                </div>
-
-                                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum3">
-                                    <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2"><span class="glyphicon glyphicon-user glyclr"></span> Name</div> 
-                                    <span id="ccname" class=" reset  pull-right"></span> 
-                                </div>
-                            </div>
-                        </div>
-
-                        <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
-                        <span class="align-middle">DONATE</span></label>
-                    </div>
-<!--                     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
-                        <p>Thank You!!!</p>
-                        
-                    </div> -->
-                </div>
-                <div class="right review2 " style="display: none">
-                    <div class="col-md-12 col-lg-12 col-xs-12 div7">
-                        <div id="vol">
-                            <h4>Selected Cause:</h4>
-                            <div class="cause col-md-12 col-lg-12 col-xs-12">
-                                <div class="col-md-3 col-lg-3 col-xs-3 reset">
-                                    <img class="image">
-                                </div>
-
-                                <div class="col-md-9 col-lg-9 col-xs-9 reset">
-                                    <h4 class="title"></h4>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12 col-lg-12 col-xs-12reset" style="margin-bottom: 10%">
-
-                            </div>
-                        </div>
-                        <label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
-                        <span class="align-middle">VOLUNTEER</span></label>
-                    </div>
-                </div>
-            </div>
-                <!-- </div> --><!--End of step-3-->
-            <!-- </div> --> <!--End of Tab Content-->
-        </div><!--End of Row-->
-        
-    </div><!--End of Container-->
+    </div><!--End of Row-->        
+</div><!--End of Container-->
 @endsection
 
 @section('scripts')
@@ -248,11 +225,13 @@
         $(".board").click(function(){
             $(".board").find("h4:first").removeClass("highlight");
             $(this).find("h4:first").addClass("highlight");
-        });        
+        });
+
         //Input Masks
 
-        $('#CreditCardNumber').mask("9999-9999-9999-9999");
-        $('#ExpiryDate').mask("99/99");
+        $('#CreditCardNumber').inputmask("9999-9999-9999-9999");
+        $('#ExpiryDate').inputmask("99/99");
+        $('#Phone').inputmask("(999) 999-9999");
 
 
         var damt=0;
@@ -264,9 +243,7 @@
         $(".review1").show();
         $(".review2").hide();
 
-        // $(".proevent").attr("style","display:none");
-        // $("#dtype").attr("style","display:none");
-        // $("#vtype").attr("style","display:none");
+
 
         if(sessionStorage.getItem('project') != null){
             var type = "projects";
