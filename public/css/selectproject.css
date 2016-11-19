@@ -30,9 +30,11 @@ margin: 10px auto;
 a>p{
 color: black;
 }
+
 .option:hover{
     background-color: lightgrey;
     cursor: pointer;
+    text-decoration: none;
     /*height: 170px;*/
 }
 .option p{
@@ -41,6 +43,10 @@ color: black;
 .option img{
     height: 250px;
     width: 100%;
+}
+.default img{
+    height: auto;
+    width: auto;
 }
 #sub{
     margin: 10px auto;

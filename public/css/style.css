@@ -28,13 +28,14 @@ h3{
     min-height: 50px;}
 
 /*-------------------------------------------------Preethi Changes------------------------------------------------*/
-@media screen and (min-width: 200px) {
+@media (max-width: 200px) {
     .carousel {
         min-height: 140px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
+        top: 10%;
         z-index: 10;
     }
 
@@ -51,7 +52,7 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:400px;
+        height:200px;
         margin-top: 80%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -69,21 +70,100 @@ h3{
     }
     .carousel-caption p{font-size: 19px;}
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 28px;
+        height: 28px;
+        margin-left: -22px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        content: '';
+        width: 10px;
+        height: 10px;
+        margin: -7px 0 0 -5px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 @media (min-width: 310px) {
     .carousel {
         min-height: 140px;
+        height: 400px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
         z-index: 10;
+        top:15%;
+        height: 400px;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
+        height: 400px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -92,6 +172,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
+        height: 400px;
     }
     .donate_carousel{
         height:500px;
@@ -113,21 +194,99 @@ h3{
     }
     .carousel-caption p{font-size: 19px;}
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 28px;
+        height: 28px;
+        margin-left: -22px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        content: '';
+        width: 10px;
+        height: 10px;
+        margin: -7px 0 0 -5px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 @media screen and (min-width: 310px) {
     .carousel {
         min-height: 140px;
-        margin-bottom: 60px;
+        height: 400px;
+        margin-bottom: 10px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
         z-index: 10;
+        top:10%;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
+        height:400px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -136,6 +295,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
+        height: 400px;
     }
     .donate_carousel{
         position: relative;
@@ -158,7 +318,82 @@ h3{
     }
     .carousel-caption p{font-size: 19px;}
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 28px;
+        height: 28px;
+        margin-left: -22px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        content: '';
+        width: 10px;
+        height: 10px;
+        margin: -7px 0 0 -5px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 
 @media screen and (min-width: 360px) {
@@ -204,7 +439,82 @@ h3{
     }
     .carousel-caption p{font-size: 19px;}
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 28px;
+        height: 28px;
+        margin-left: -22px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        content: '';
+        width: 10px;
+        height: 10px;
+        margin: -7px 0 0 -5px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 }
 
 @media screen and (min-width: 520px) {
@@ -230,7 +540,7 @@ h3{
         min-height: 140px;
     }
     .donate_carousel{
-        height:200px;
+        height:150px;
         margin-top: 35%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -249,7 +559,82 @@ h3{
     }
     .carousel-caption p{font-size: 22px;}
     .carousel-caption > .btn-lg{ width:105px; font-size: 18px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 28px;
+        height: 28px;
+        margin-left: -22px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        content: '';
+        width: 10px;
+        height: 10px;
+        margin: -7px 0 0 -5px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
 }
 
@@ -333,7 +718,82 @@ h3{
     .carousel-caption p{font-size: 25px;}
     .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
 
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
 }
 @media screen and (min-width: 1292px) {
@@ -374,7 +834,82 @@ h3{
     }
     .carousel-caption p{font-size: 25px;}
     .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
 }
 @media screen and (min-width: 1392px) {
@@ -406,7 +941,7 @@ h3{
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
-        padding: 20px 10px;
+        /*padding: 20px 10px;*/
     }
     .donate_carousel >.donors1 > p {
         font-size: 25px;}
@@ -415,7 +950,82 @@ h3{
     }
     .carousel-caption p{font-size: 25px;}
     .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
 
 }
@@ -483,14 +1093,89 @@ h3{
     }
     .carousel-caption p{font-size: 25px;}
     .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
 
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
 
 
 }
 
 
 .carousel {
-    height: 666px;
+    height: 600px;
     border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
 
 }
@@ -505,7 +1190,7 @@ h3{
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-    height: 666px;
+    height: 600px;
     background-color: #777;
 }
 .carousel-inner > .item > img {
@@ -513,7 +1198,7 @@ h3{
     top: 0;
     left: 0;
     width: 100%;
-    height: 666px;
+    height: 600px;
 }
 .carousel-inner1 > .item > img {
     position: relative;
@@ -523,29 +1208,70 @@ h3{
 .second > a , .second > h1 , .second >p { color :black; }
 .second > a{border-color:rgba(3, 56, 69, 0.76) }
 .third > a{ color :white;}
-@media screen and (max-width: 768px){
+@media screen and (max-width: 520px){
+    .carousel {
+        height: 500px;
+        border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
+
+    }
+    .carousel .item {
+        height: 500px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 500px;
+    }
     .carousel-caption {
     text-align: left;
-    top:30%;
+    top:15%;
     left:10%;
 }
-    /*.donate_carousel{*/
-        /*height:150px;*/
-        /*top: 60%;*/
-        /*font-size: 16px;*/
-        /*background: rgba(17, 0, 8, 0.46);*/
-        /*border-radius: 20px;*/
+    .donate_carousel{
+        height:150px;
+        top: 60%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+        padding: 20px 10px;
+    }
+    .donate_carousel{
+        position: relative;
+        height: 200px;
+        top: 35%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
         /*padding: 20px 10px;*/
-    /*}*/
+    }
+    .donate_carousel >.btn{
+        width:85px;
+        font-size: 16px;
+    }
+
+    .donate_carousel >.donors1 > p {
+        font-size: 16px;}
+    h1 {
+        font-size: 18px;
+    }
+    .carousel-caption p{font-size: 16px;}
+    .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
+
+
+
 }
 
-
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px )  {
+    .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev
+    {
+        margin-left: -10px;
+    }
     .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
         margin-right: -10px;
     }
-}
-@media screen and (min-width: 768px )  {
         .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
             width: 30px;
             height: 30px;
@@ -586,6 +1312,82 @@ h3{
         border-radius: 20px;
         padding: 20px 10px;
     }
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
     }
 @media screen and (min-width: 768px) and (min-width:1290px) and (min-width:320px) and (max-width: 320px) {
     .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
@@ -603,13 +1405,84 @@ h3{
         border-radius: 20px;
         padding: 20px 10px;
     }
-}
-@media screen and (min-width: 768px) {
-            .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev
-            {
-                margin-left: -10px;
-            }
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
         }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
 .header_projects
 {
     margin-top: 10px;
@@ -686,82 +1559,7 @@ h3{
 
 }
 
-#section03 a {
-    padding-top: 60px;
-}
 
-#section03 a span {
-    z-index:9999;
-    background-color: rgba(63, 200, 180, 0.16);
-    position: absolute;
-    bottom:4%;
-    right:12%;
-    width: 46px;
-    height: 46px;
-    margin-left: -24px;
-    border: 3px solid #fff;
-    border-radius: 100%;
-    box-sizing: border-box;
-}
-#section03 a span::after {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    content: '';
-    width: 16px;
-    height: 16px;
-    margin: -12px 0 0 -8px;
-    border-left: 3px solid #fff;
-    border-bottom: 3px solid #fff;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    box-sizing: border-box;
-}
-#section03 a span::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    content: '';
-    width: 40px;
-    height: 40px;
-    box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
-    border-radius: 100%;
-    opacity: 0;
-    -webkit-animation: sdb03 3s infinite;
-    animation: sdb03 3s infinite;
-    box-sizing: border-box;
-}
-@-webkit-keyframes sdb03 {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 1;
-    }
-    60% {
-        box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-@keyframes sdb03 {
-    0% {
-        opacity: 0;
-    }
-    30% {
-        opacity: 1;
-    }
-    60% {
-        box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
-        opacity: 1;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 /*------------------------------------------------------------------header Education----------------------------------------*/
 .header_education{
     /*background-color: rgba(179, 139, 112, 0.37);*/

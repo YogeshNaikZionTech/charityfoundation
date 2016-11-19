@@ -471,66 +471,60 @@
 
 
     <script>
-        $(document).ready(function(){
-            $.ajax(
-                    {
-                        url: "/admin/users/search",
-                        type: "GET",
-                        dataType: "json",
-                        success: function (data) {
+        $(document).ready(function() {
+            if ($("#input").val().length == 0) {
+                $.ajax(
+                        {
+                            url: "/admin/users/search",
+                            type: "GET",
+                            dataType: "json",
+                            success: function (data) {
 
-                            var trHTML = '';
+                                var trHTML = '';
 
-                            $.each(data, function (i, item) {
+                                $.each(data, function (i, item) {
 
-                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' +item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
-                            });
+                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
+                                });
 
-                            $('#example').append(trHTML);
+                                $('#example').append(trHTML);
 
-                        },
+                            }
 
-                        // error: function (msg) {
-                                                        //This is causing the pop-up on admin page.
-                        //     alert(msg.responseText);
-                        // }
-                    });
-          $("#searchitem").click(function(){
-            $("#input").keyup(function(){
-                $.ajaxSetup({
-                    headers:
-                    {
-                        'X-CSRF-Token': $('input[name="_token"]').val()
-                    }
-                });
-                var sval = $("#input").val();
-                $.ajax({
-                    url			: "/admin/users/search",
-                    type		: "POST",
-                    data		: {'search_var':sval},
-                    datatype	: "json",
-                    success		: function(response,status,request){
-
-                        console.log(response);
-                        var output='';
-                        response = JSON.parse(response);
-                        $.each(response, function(key,val){
-                            output += "<td>" + " "+val.firstname + "</td>";
-                            output += "<td>" + " "+val.lastname + "</td>";
-                            output += "<td>" + "  "+val.email + "</td>";
-                            output += "<td>" + " "+val.phonenum + "</td>";
-                            output += "<td>" + " "+val.usersince + "</td>";
-                            output += "<td>" + " "+val.amountreceived + "</td>";
-                            output += '<hr width="15%" align="left"><br/>'
+                        })
+            }
+            ;
+            $("#searchitem").click(function () {
+                $("#input").keyup(function () {
+                    if ($("#input").val().length >= 1) {
+                        $.ajaxSetup({
+                            headers: {
+                                'X-CSRF-Token': $('input[name="_token"]').val()
+                            }
                         });
-                        $(".output").html(output);
+                        var sval = $("#input").val();
+                        $.ajax({
+                            url: "/admin/users/search",
+                            type: "POST",
+                            data: {'search_var': sval},
+                            datatype: "json",
+                            success: function (response, status, request) {
+
+                                console.log(response);
+                                var output = '';
+                                response = JSON.parse(response);
+                                $.each(response, function (key, val) {
+                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.usersince + '</td><td>' + val.amountreceived + '</td></tr>';
+                                });
+                                $(".output").html(output);
+                            }
+                        });
                     }
                 });
             });
-          });
-        });
 
-    </script>
+        });
+         </script>
 {{--Modify Menu--}}
     <script type="text/javascript">
                $(document).ready(function() {

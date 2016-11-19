@@ -6,6 +6,7 @@ use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
@@ -28,11 +29,11 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-
+protected $email='';
     /**
      * Create a new controller instance.
      *
-     * @return void
+     *
      */
     public function __construct()
     {
@@ -65,7 +66,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'firstname' => $data['firstname'],
 	        'lastname'=> $data['lastname'],
             'email' => $data['email'],
@@ -73,5 +74,21 @@ class RegisterController extends Controller
             'state' => $data['state'],
             'country' => $data['country'],
         ]);
+
+        $d=['name'=>$data['lastname']];
+        Mail::send('email.welcome', $d, function($message) use ($data){
+            $message->to($data['email'],$data['lastname'])->subject('Welcome to AA Foundation');
+            $message->from('noreplyaafoundation@gmail.com','AAF');
+        });
+
+
+        return $user;
+
     }
+
+    public function sendmail(User $user){
+
+    }
+
+
 }

@@ -10,16 +10,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+
 
 class Donate extends Controller
 {
 	/**
 	 * Donate constructor.
 	 * author:Sandeep
+     *
 	 * Setting all the routes that come to donate page should be authenticated.
 	 */
     public function __construct() {
         $this->middleware( 'auth' );
+
     }
 
 	/**
@@ -129,8 +133,18 @@ class Donate extends Controller
             $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'donation_type'=>$type_payment]]);
 
 
+<<<<<<< HEAD
             Log::info('user donate to project request received');
 
+=======
+            Log::info('user donate to project request recevied');
+
+        $d=['name'=>$user->lastname];
+        Mail::send('email.donateProject', $d, function($message) use ($user){
+            $message->to($user->email,$user->lastname)->subject('Donation Receipt');
+            $message->from('noreplyaafoundation@gmail.com','AAF');
+        });
+>>>>>>> master
             return view('/donates/receipt');
     }
 
@@ -183,13 +197,21 @@ class Donate extends Controller
             $pvnotif->save();
         }
 
+<<<<<<< HEAD
 
 //decide on time
+=======
+    public function sendDonatemail(){
+>>>>>>> master
 
+//
 
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     public function generateReceipt(){
 
         $d_date = date('y');

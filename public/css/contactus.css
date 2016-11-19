@@ -20,7 +20,7 @@ h1{
 
 
 .media1{background-color:rgba(52, 52, 52, 0.51) ;padding:5px;margin-top: 5%;margin-bottom:3%;}
-.submit-form{position: relative; margin-bottom: 10px;}
+.submit-form{position: relative; float:none; margin:0 auto; margin-bottom: 10px;}
 .contact{margin-bottom:10px;}
 
 

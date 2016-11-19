@@ -47,7 +47,7 @@
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
                             {{--<h2>Urgent Cause</h2>--}}
-                            <div class="donors1 col-md-10 col-lg-10 col-xs-10 col-sm-10">
+                            <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
                                 <p>Founder take care of all the administrative cost</p>
 
                             </div>
@@ -85,7 +85,7 @@
             <h1> Educate yourself</h1>
             <div>
 
-                <iframe class="col-lg-8 col-xs-12 col-sm-8 col-md-8" src="https://www.youtube.com/embed/PHe0bXAIuk0"  frameborder="0" allowfullscreen></iframe>
+                <iframe class="col-lg-8 col-xs-12 col-sm-8 col-md-8" src="https://www.youtube.com/embed/6Q5Ndz0RQa4" frameborder="0" allowfullscreen></iframe>
 
             </div>
             <div class="col-lg-4 col-xs-12 col-md-10 col-sm-4 pull-left">
@@ -133,7 +133,7 @@
                                     <img src="images/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
-                                    <div style="padding-left: 10px;padding-bottom: 10px;"><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
+                                    <div><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
                             </div>
                         </div>
                     @endforeach
@@ -205,7 +205,7 @@
         <div class="suggest_donors container-fluid">
             <div class="row">
 
-                <div class="suggest1 col-lg-offset-4 col-md-offset-3 col-sm-offset-2 col-md-7 col-lg-7 col-xs-12 col-sm-7">
+                <div class="suggest1 col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-md-7 col-lg-7 col-xs-12 col-sm-7">
                     <h2>Suggest Here</h2>
                     <form class="form-horizontal col-md-12 col-lg-10 col-xs-11 col-sm-12" id="suggestform">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-right: 10px;">
@@ -213,9 +213,10 @@
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <input class="form-control email  " name="email" type="email"  placeholder="Email :*"></div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <textarea class="form-control suggestarea" name="suggestarea"  placeholder="Suggestion :*"> </textarea></div>
+                        <textarea rows="5" cols="30" class="form-control suggestarea" name="suggestarea"   placeholder="Suggestion :*"> </textarea>
+                        </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                            <button class="btn btn2 col-lg-offset-12 btn-md">Shoot It !</button></div>
+                            <button class="btn btn2 col-lg-offset-12 btn-md">Suggest</button></div>
                     </form>
                 </div>
 
