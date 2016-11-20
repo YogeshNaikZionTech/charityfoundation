@@ -154,7 +154,7 @@
                     response = JSON.parse(response);
                     // console.log(response);
                     var currentPages = Math.ceil(response.projects_Current/8);
-                    if(currentPages > 1){
+                     if(currentPages > 1){
                     for( var i=1; i<=currentPages; i++){
                     $('#currerntPages').append('<li><a class="cuPageClick" name=' +i+ '>'+i+'</a></li>');
                     }

@@ -34,6 +34,14 @@ class ProjectController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     *  "pname" => "sandeep"
+    "plocation" => "at my home"
+    "pdate" => "98/99/99"
+    "pstime" => "08:21:56"
+    "pdescription" => "sandeep"
+    "pimage" => ""
+    "_token" => "C7vEztsZQtOe6swjnB8bZcaA8YaPsg14T8dhxMJZ"
+    ]
      */
     public function store(Request $request)
     {
@@ -56,6 +64,7 @@ class ProjectController extends Controller
         $project->project_Image = $request->input('pimage');
         $project->project_Location = $request->input('plocation');
         $pdate = $request->input('pdate');
+        
         if($pdate == date("Y,m,d")){
 
             $project->project_Status = 'current';
