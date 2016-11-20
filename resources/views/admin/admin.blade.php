@@ -479,21 +479,14 @@
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
-
                                 var trHTML = '';
-
                                 $.each(data, function (i, item) {
-
                                     trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
                                 });
-
                                 $('#example').append(trHTML);
-
                             }
-
                         })
             }
-            ;
             $("#searchitem").click(function () {
                 $("#input").keyup(function () {
                     if ($("#input").val().length >= 1) {
@@ -509,7 +502,6 @@
                             data: {'search_var': sval},
                             datatype: "json",
                             success: function (response, status, request) {
-
                                 console.log(response);
                                 var output = '';
                                 response = JSON.parse(response);
@@ -522,9 +514,9 @@
                     }
                 });
             });
-
         });
-         </script>
+
+    </script>
 {{--Modify Menu--}}
     <script type="text/javascript">
                $(document).ready(function() {
