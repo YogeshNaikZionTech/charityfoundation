@@ -16,92 +16,72 @@ use Illuminate\Support\Facades\Mail;
 
 class Donate extends Controller
 {
-	/**
-	 * Donate constructor.
-	 * author:Sandeep
-     *
-	 * Setting all the routes that come to donate page should be authenticated.
-	 */
-    public function __construct() {
-        $this->middleware( 'auth' );
-
-    }
-
-	/**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+    /**
+     * Donate constructor.
+     * author:Sandeep
+     * Setting all the routes that come to donate page should be authenticated.
      */
-    public function index()
+    public function __construct()
     {
+        $this->middleware('auth');
 
     }
 
     /**
      * Show the form for creating a new resource.
-     *
      * @return \Illuminate\Http\Response
      */
-    public function create() {
-
-            if (!Auth::check() ) {
-                \Session::put( 'EventCreated', 'Event created' );
-            return view ('auth/login');
+    public function create()
+    {
+        if (!Auth::check()) {
+            \Session::put('EventCreated', 'Event created');
+            return view('auth/login');
         }
-
-
-	return view('donates/create');
-
+        return view('donates/create');
     }
 
-	/**
-	 * show the select project page to the user.
-	 */
-	public function showselectproject(){
-
-
-		$events = Event::where('event_Status','=','current')->orWhere('event_Status','=','future')->get();
-		$project = Project::where('project_Status','=','current')->orWhere('project_Status','=','future')->get();
-		return view( 'donates/selectproject')->withEvents($events)->withProjects($project);
-
-	}
-
+    /**
+     * show the select project page to the user.
+     */
+    public function showselectproject()
+    {
+        $events = Event::where('event_Status', '=', 'current')->orWhere('event_Status', '=', 'future')->get();
+        $project = Project::where('project_Status', '=', 'current')->orWhere('project_Status', '=', 'future')->get();
+        return view('donates/selectproject')->withEvents($events)->withProjects($project);
+    }
 
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-
-       Log::info('Request for the donation is recevied');
+        Log::info('Request for the donation is recevied');
         $this->validate($request, array(
-
-           'otheramt' => 'required|min:1|max:255',
-            'CreditCardNumber'=> 'required|max:20',
-            'NameOnCard'=>'required|max:35',
-            'type'=>'required',
-            'ExpiryDate'=>'required',
-            'ZIPCode'=>'required',
-            'dtype'=>'required',    //1-time    , or monthly, voulnteer
-            'proevent'=>'required', //id of project
-            'SecurityCode'=>'required',
+            'otheramt' => 'required|min:1|max:255',
+            'CreditCardNumber' => 'required|max:20',
+            'NameOnCard' => 'required|max:35',
+            'type' => 'required',
+            'ExpiryDate' => 'required',
+            'ZIPCode' => 'required',
+            'dtype' => 'required',    //1-time    , or monthly, voulnteer
+            'proevent' => 'required', //id of project
+            'SecurityCode' => 'required',
         ));
-
         $u_cardExpiry = $request->input('ExpiryDate');
         Log::info('all values are present: storing the values.');
         $d_amount = $request->input('otheramt');
-        $u_month = substr($u_cardExpiry,0,2);
-        $u_year=substr($u_cardExpiry,3,4);
-        $uExpiry = $u_month.$u_year;
+        $u_month = substr($u_cardExpiry, 0, 2);
+        $u_year = substr($u_cardExpiry, 3, 4);
+        $uExpiry = $u_month . $u_year;
         Log::info($uExpiry);
         //get the current user
         $user = Auth::user();
-        Log::info('get the logedin user'. $user->lastname);
-        $user_id = $user ->id;
+        Log::info('get the logedin user' . $user->lastname);
+        $user_id = $user->id;
 
         //make a card model;
         $card = new Ucard();
@@ -109,7 +89,7 @@ class Donate extends Controller
 
         $card->card_num = $request->input('CreditCardNumber');
         $card->cvv_num = $request->input('SecurityCode');
-        $card->expiry_date =$uExpiry;
+        $card->expiry_date = $uExpiry;
         $card->name_card = $request->input('NameOnCard');
         $card->zip_code = $request->input('ZIPCode');
         $receipt = $this->generateReceipt();
@@ -124,23 +104,24 @@ class Donate extends Controller
         $id = $request->input('proevent');
         $type_payment = $request->input('dtype');
 
-//        as no money in involved with the events.
-//            $event = Event::where('id','=',$id)->first();
-//            $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
+        /**
+          as no money in involved with the events.
+          $event = Event::where('id','=',$id)->first();
+          $event->User()->attach([$user->id=>['event_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt]]);
+          save the eent->users. relation is achieved.
+          attaching user
+         * **/
+        $project = Project::where('id', '=', $id)->first();
+        $project->User()->attach([$user->id => ['project_cents' => $d_amount, 'user_card' => $card_id, 'receipt_num' => $receipt, 'donation_type' => $type_payment]]);
+        Log::info('user donate to project request recevied');
 
-            //save the eent->users. relation is achieved.
-        //attaching user
-            $project= Project::where('id','=',$id)->first();
-            $project->User()->attach([$user->id=>['project_cents'=>$d_amount, 'user_card'=>$card_id, 'receipt_num'=>$receipt,'donation_type'=>$type_payment]]);
-            Log::info('user donate to project request recevied');
-
-        $d=['name'=>$user->lastname];
-        Mail::send('email.donateProject', $d, function($message) use ($user){
-            $message->to($user->email,$user->lastname)->subject('Donation Receipt');
-            $message->from('noreplyaafoundation@gmail.com','AAF');
+        $d = ['name' => $user->lastname];
+        Mail::send('email.donateProject', $d, function ($message) use ($user) {
+            $message->to($user->email, $user->lastname)->subject('Donation Receipt');
+            $message->from('noreplyaafoundation@gmail.com', 'AAF');
         });
 
-            return view('/donates/receipt');
+        return view('/donates/receipt') ;
     }
 
     public function manageVoulnteer(Request $request)
@@ -194,25 +175,27 @@ class Donate extends Controller
             $pvnotif->save();
         }
 
-        return view ("/");
+        return view("/");
 
 
     }
-    public function generateReceipt(){
+
+    public function generateReceipt()
+    {
 
         $d_date = date('y');
         $month = date('m');
         $day = date('d');
-        $rand = mt_rand(1000,9999);
-        $prefix='A';
+        $rand = mt_rand(1000, 9999);
+        $prefix = 'A';
         Log::info('Receipt generated');
-        return $prefix.$d_date.$rand.$month.$day;
+        return $prefix . $d_date . $rand . $month . $day;
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -223,7 +206,7 @@ class Donate extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -234,8 +217,8 @@ class Donate extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -243,25 +226,25 @@ class Donate extends Controller
         $this->validate($request, array(
 
             'other-amt' => 'required|min:1|max:255',
-            'creditCardNumber'=> 'required|max:20',
-            'NameOnCard'=>'required|max:35',
-            'ExpiryData'=>'required',
-            'ZipCode'=>'required',
-            'dtype'=>'required',
-            'proevent'=>'required',
-            'pname'=>'required',
-            'name'=>'required',
-            'Email'=>'required|email',
-            'phone'=>'required|max:15',
+            'creditCardNumber' => 'required|max:20',
+            'NameOnCard' => 'required|max:35',
+            'ExpiryData' => 'required',
+            'ZipCode' => 'required',
+            'dtype' => 'required',
+            'proevent' => 'required',
+            'pname' => 'required',
+            'name' => 'required',
+            'Email' => 'required|email',
+            'phone' => 'required|max:15',
 
         ));
         Log::info('all values are prest, updating the values.');
-            $event_update =Event::where('id','=', $id)->get();
+        $event_update = Event::where('id', '=', $id)->get();
 
         $damount = $request->input('other-amt');
         $c_num = $request->input('creditCardNumber');
         $name_card = $request->input('NameOnCard');
-        $expiray_date= $request->input('ExpiryData');
+        $expiray_date = $request->input('ExpiryData');
         $zip = $request->input('Zipcode');
         $dtype = $request->input('dtype');
         $proevent = $request->input('proevent');
@@ -273,7 +256,7 @@ class Donate extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
@@ -281,9 +264,10 @@ class Donate extends Controller
         //
     }
 
-    public function showRecipte(){
+    public function showRecipte()
+    {
 
 
-	return vieW ('donates/receipt');
+        return vieW('donates/receipt');
     }
 }
