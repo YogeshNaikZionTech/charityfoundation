@@ -459,8 +459,9 @@
         }
     </script>
     <script>
+
         $(document).ready(function() {
-            if ($("#input").val().length === 0) {
+            if ($("#input").val().length == 0) {
                 $.ajax(
                         {
                             url: "/admin/users/search",
@@ -475,16 +476,17 @@
                                     trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
                                 });
 
-                                $('#example').append(trHTML);
+                                $('.output').html(trHTML);
 
                             }
 
                         })
             }
-            ;
-            $("#searchitem").click(function () {
-                $("#input").keyup(function () {
-                    if ($("#input").val().length > 0) {
+            else ($("#input").val().length > 0)
+            {
+                $("#searchitem").click(function () {
+                    $("#input").keyup(function () {
+
                         $.ajaxSetup({
                             headers: {
                                 'X-CSRF-Token': $('input[name="_token"]').val()
@@ -505,11 +507,34 @@
                                     output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.usersince + '</td><td>' + val.amountreceived + '</td></tr>';
                                 });
                                 $(".output").html(output);
-                                }
+                            }
                         });
-                    }
+                        if ($("#input").val().length == 0) {
+                            $.ajax(
+                                    {
+                                        url: "/admin/users/search",
+                                        type: "GET",
+                                        dataType: "json",
+                                        success: function (data) {
+
+                                            var trHTML = '';
+
+                                            $.each(data, function (i, item) {
+
+                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
+                                            });
+
+                                            $('.output').html(trHTML);
+
+                                        }
+
+                                    })
+                        }
+
+                    });
+
                 });
-            });
+            }
 
         });
          </script>
