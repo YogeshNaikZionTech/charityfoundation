@@ -320,7 +320,7 @@
                     </label>
                 </div>
                 <div class="project program">
-                    <form class="form-group col-md-6" action="{{url('/projects')}}" method="PUT">
+                    <form class="form-group col-md-6" action="{{url('/projects')}}" method="POST">
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
                                 <select id="Select1" name="Select1" class="form-control">
@@ -328,12 +328,13 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <input type="hidden" class="project_id" name="id">
 
                         <div class="form-group">
                             <input class="form-control" id="updatepname" name="updatepname" placeholder="Project Name" style="height:28px;" type="text">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="pdescription" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
+                            <textarea class="form-control" id="proj_description" name="proj_description" placeholder="Project Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <select class="form-control" id="pstatus">
@@ -355,7 +356,7 @@
                     </form>
                 </div>
                 <div class="event program">
-                    <form class="form-group col-md-6"  action="{{url('/events')}}" method="PUT">
+                    <form class="form-group col-md-6"  action="{{url('/events')}}" method="POST">
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
 
@@ -364,12 +365,13 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <input type="hidden" class="event_id" name="id">
 
                         <div class="form-group">
                             <input class="form-control" id="updateename" name="updateename" placeholder="Event Name" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="edescription" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                            <textarea class="form-control" id="eve_description" name="eve_description" placeholder="Event Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
@@ -604,8 +606,9 @@
                            success: function(response){
                                response = JSON.parse(response);
                                $('#updatepname').val(response.project_Title);
-                               $('#pdescription').val(response.project_Description);
-                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);                           }
+                               $('#proj_description').val(response.project_Description);
+                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
+                               $('.project_id').val(response.id);                           }
                        })
 
                    });
@@ -618,11 +621,12 @@
                            success: function(response){
                                response = JSON.parse(response);
                                $('#updateename').val(response[0].event_Title);
-                               $('#edescription').val(response[0].event_Description);
+                               $('#eve_description').val(response[0].event_Description);
                                $('#updatevenue').val(response[0].event_Location);
                                $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
-                               $('#stime').val(response[0].start_time);
-                               $('#etime').val(response[0].end_time);
+                               $('#estarttime').val( response[0].event_StartTime);
+                               $('#eendtime').val(response[0].event_EndTime);
+                               $('.event_id').val(response[0].id);
 
                            }
                        })

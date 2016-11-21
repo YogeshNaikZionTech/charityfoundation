@@ -166,13 +166,13 @@ class EventController extends Controller
      * pagination for current events
      */
 
-    public function paginateCurrentEvents(Request $request){
+    public function paginateCompletedEvents(Request $request){
 
         $id = $request->input('id');
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
 
-        $current_list = Event::where("event_Status","=","current")->take($perpage)->skip($start)->get();
+        $current_list = Event::where("event_Status","=","completed")->take($perpage)->skip($start)->get();
         Log::info($current_list);
 
 
@@ -239,8 +239,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
+        
         echo 'Great you got it.';
 /**
         $event = Event::where("id","=", $id)->get();
