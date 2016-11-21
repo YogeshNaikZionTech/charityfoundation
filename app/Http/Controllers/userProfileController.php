@@ -30,7 +30,7 @@ class userProfileController extends Controller {
             $avatar = $request->file('avatar');
 
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save(public_path('/avatars/' . $filename));
+            Image::make($avatar)->resize(300, 300)->save(public_path('/avatars/f' . $filename));
             Log::info($filename );
         }
         $user = \Auth::user();

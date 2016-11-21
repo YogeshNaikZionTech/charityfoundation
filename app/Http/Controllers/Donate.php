@@ -59,6 +59,7 @@ class Donate extends Controller
      */
     public function store(Request $request)
     {
+        dd($request);
         Log::info('Request for the donation is recevied');
         $this->validate($request, array(
             'otheramt' => 'required|min:1|max:255',

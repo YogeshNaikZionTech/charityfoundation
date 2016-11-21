@@ -239,11 +239,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        echo 'Great you got it.';
-/**
-        $event = Event::where("id","=", $id)->get();
+        $id = $request->input('id');
+ $event = Event::where("id","=", $id)->get();
 
 
 
@@ -280,7 +279,7 @@ class EventController extends Controller
         Log:info('Event that is being updated:'.$event);
         $event->update();
         \Session::flash( 'EventUpdate', 'Event updated' );
-**/
+
     }
 
     /**
