@@ -41,6 +41,7 @@ class EventController extends Controller
 
     public function store(Request $request)
     {
+
         Log::info('Request that recevied' . $request);
         $event_Title = $request->input('ename');
         $event_Description = $request->input('edescription');
