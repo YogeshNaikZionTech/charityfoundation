@@ -472,27 +472,15 @@
                                 $.each(data, function (i, item) {
                                     trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
                                 });
-<<<<<<< HEAD
-                                $('#example').append(trHTML);
-=======
 
                                 $('.output').html(trHTML);
-
->>>>>>> admin_sk
                             }
                         })
             }
-<<<<<<< HEAD
-            $("#searchitem").click(function () {
-                $("#input").keyup(function () {
-                    if ($("#input").val().length > 0) {
-=======
             else ($("#input").val().length > 0)
             {
                 $("#searchitem").click(function () {
                     $("#input").keyup(function () {
-
->>>>>>> admin_sk
                         $.ajaxSetup({
                             headers: {
                                 'X-CSRF-Token': $('input[name="_token"]').val()
@@ -539,12 +527,8 @@
                     });
 
                 });
-<<<<<<< HEAD
-            });
-=======
             }
 
->>>>>>> admin_sk
         });
 
     </script>
