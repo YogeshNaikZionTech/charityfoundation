@@ -195,7 +195,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
+                            <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
                                 <div class="form-group">
                                     <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
                                     <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
@@ -203,7 +203,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Location" class="col-md-3 control-label">Venue :</label>
+                                    <label for="plocation" class="col-md-3 control-label">Venue :</label>
                                     <div class="col-md-8">
                                         <input id="plocation" type="text"  name="plocation" class="form-control" style="height:28px;" />
                                     </div>
@@ -225,16 +225,16 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Project Description</label>
+                                    <label for="pdescription" class="control-label col-md-3">Project Description</label>
                                     <div class="col-md-8">
-                                        <textarea name="pdescription" placeholder="Description of the project" class="form-control"></textarea>
+                                        <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="pimage" class="control-label col-md-3">Upload an image</label>
                                     <div class="col-md-8">
-                                    <input id="pimage" type="file" Name="pimage" accept="image/*">
+                                    <input id="pimage" type="file" name="pimage" accept="image/*">
                                     </div>
                                 </div>
                                     <div>
@@ -247,7 +247,7 @@
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
 
-                            <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
+                            <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="post">
                                     <div class="form-group">
                                     <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
                                         <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
@@ -309,7 +309,7 @@
 
                 </div>
             </div>
-
+{{--Modify--}}
             <div class="admin-content" id="update">
                 <h3>Update Projects/Events</h3>
 
@@ -375,7 +375,7 @@
                             <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="estatus">
+                            <select class="form-control" id="estatus" name="estatus">
                                 <option>Event Status</option>
                                 <option value="current">Current</option>
                                 <option value="future">Future</option>
@@ -422,6 +422,7 @@
 
 @endsection
 @section('scripts')
+    {{--Navigation Menu--}}
 <script src="js/nav.js" type="text/javascript"></script>
     <script type="text/javascript">
     $(document).ready(function()
@@ -451,26 +452,14 @@
     });
     });
     </script>
+   {{--Search Users Menu--}}
     <script>
-
-        $(document).ready(function(){
-            $(".event").hide();
-        $('input[type="radio"]').change(function(){
-            if($(this).attr("value")=="projects"){
-                $(".program").not(".project").hide();
-                $(".project").show();
-            }
-            if($(this).attr("value")=="events"){
-                $(".program").not(".event").hide();
-                $(".event").show();
-            }
-        });
-
-    });
+        function FocusOnInput() {
+            document.forms['search_form'].elements['input'].focus();
+        }
     </script>
-
-
     <script>
+
         $(document).ready(function() {
             if ($("#input").val().length == 0) {
                 $.ajax(
@@ -479,24 +468,19 @@
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
-
                                 var trHTML = '';
-
                                 $.each(data, function (i, item) {
-
                                     trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
                                 });
 
-                                $('#example').append(trHTML);
-
+                                $('.output').html(trHTML);
                             }
-
                         })
             }
-            ;
-            $("#searchitem").click(function () {
-                $("#input").keyup(function () {
-                    if ($("#input").val().length >= 1) {
+            else ($("#input").val().length > 0)
+            {
+                $("#searchitem").click(function () {
+                    $("#input").keyup(function () {
                         $.ajaxSetup({
                             headers: {
                                 'X-CSRF-Token': $('input[name="_token"]').val()
@@ -509,7 +493,6 @@
                             data: {'search_var': sval},
                             datatype: "json",
                             success: function (response, status, request) {
-
                                 console.log(response);
                                 var output = '';
                                 response = JSON.parse(response);
@@ -519,13 +502,54 @@
                                 $(".output").html(output);
                             }
                         });
-                    }
+                        if ($("#input").val().length == 0) {
+                            $.ajax(
+                                    {
+                                        url: "/admin/users/search",
+                                        type: "GET",
+                                        dataType: "json",
+                                        success: function (data) {
+
+                                            var trHTML = '';
+
+                                            $.each(data, function (i, item) {
+
+                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
+                                            });
+
+                                            $('.output').html(trHTML);
+
+                                        }
+
+                                    })
+                        }
+
+                    });
+
                 });
+            }
+
+        });
+
+    </script>
+{{--Modify Menu--}}
+    <script>
+        $(document).ready(function(){
+            $(".event").hide();
+            $('input[type="radio"]').change(function(){
+                if($(this).attr("value")=="projects"){
+                    $(".program").not(".project").hide();
+                    $(".project").show();
+                }
+                if($(this).attr("value")=="events"){
+                    $(".program").not(".event").hide();
+                    $(".event").show();
+                }
             });
 
         });
-         </script>
-{{--Modify Menu--}}
+    </script>
+
     <script type="text/javascript">
                $(document).ready(function() {
                    $.ajaxSetup({
@@ -581,9 +605,7 @@
                                response = JSON.parse(response);
                                $('#updatepname').val(response.project_Title);
                                $('#pdescription').val(response.project_Description);
-
-                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
-                           }
+                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);                           }
                        })
 
                    });
@@ -596,18 +618,21 @@
                            success: function(response){
                                response = JSON.parse(response);
                                $('#updateename').val(response[0].event_Title);
-                               $('#edescription').html(response[0].event_Description);
+                               $('#edescription').val(response[0].event_Description);
                                $('#updatevenue').val(response[0].event_Location);
                                $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
-                               $('')
+                               $('#stime').val(response[0].start_time);
+                               $('#etime').val(response[0].end_time);
+
                            }
                        })
 
                    });
                });
+
    </script>
 
-
+{{--Date Picker--}}
     <script type="text/javascript">
         $(function() {
             $('#starttime').datetimepicker({
@@ -628,6 +653,7 @@
             });
         });
     </script>
+    {{--Create Projects and Events--}}
     <script type="text/javascript"
             src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
     </script>
@@ -796,12 +822,6 @@
                         $field.next('.validMessage[data-field="' + field + '"]').hide();
                     });
         });
-    </script>
-
-    <script>
-        function FocusOnInput() {
-            document.forms['search_form'].elements['input'].focus();
-        }
     </script>
 
     <script type="text/javascript">

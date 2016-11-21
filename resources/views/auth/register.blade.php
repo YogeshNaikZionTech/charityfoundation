@@ -11,7 +11,14 @@
         <div class="col-md-6 col-md-offset-3 panelbody">
             <div class="panel panel-primary">
                 <div class="panel-heading">Register</div>
-                <div class="panel-body">
+                <div class="panel-body" >
+                    <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pull-left">
+                        <a class="btn btn-link" href="{{ url('/login') }}">
+                            <b>Already a member ? Please login here.</b>
+                        </a>
+                        <br/>
+                    </div>
+                    <div class="container-fluid" >
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -124,6 +131,7 @@
                             </div>
                         </div>
                     </form>
+                    </div>
                 </div>
             </div>
         </div>

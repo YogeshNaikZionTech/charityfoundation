@@ -10,8 +10,11 @@ body {
     background-size:cover;
     background-color: rgba(0, 0, 0, 0.6);
     font-family: Constantia, cursive;
+    font-style: normal;
     overflow-x:hidden;
+
 }
+.container, form{font-style: normal;}
 
 h1 {
     color: #fff;
