@@ -21,7 +21,7 @@
                 <i class="fa fa-tachometer"></i>
                 <span>Admin Panel</span>
             </div>
-            <a href="#" class="nav-trigger"><span></span></a>
+            {{--<a href="#" class="nav-trigger"><span></span></a>--}}
         </div>
         <div class="flexbox">
         <div class="side-nav col">
@@ -60,7 +60,7 @@
             </nav>
         </div>
         <div class="main-content col">
-            <div class="admin-content" id="history">
+            <div class="admin-content col-md-6" id="history">
                 <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
                 <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
@@ -462,9 +462,11 @@
     </script>
     <script type="text/javascript">
     $(document).ready(function() {
-    $('.nav-trigger').click(function() {
-    $('.side-nav').toggleClass('visible');
-    });
+        $('#history').show();
+        $('#users').hide();
+        $('#create').hide();
+        $('update').hide();
+
     });
     </script>
    {{--Search Users Menu--}}
