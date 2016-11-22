@@ -273,10 +273,26 @@ input[type="text"]{ min-height: 28px;}
         background-color: yellow;
     }
     .wrapper .input{
-        margin-left:20px;
+        margin-left:2px;
+    }
+    .main-content{
+        font-size:10px;
+        overflow: hidden;
+    }
+
+    .admin-content h3{
+        font-size: 18px;
     }
 }
-
+@media screen and (max-width: 1080px){
+    .wrapper .input{
+        margin-left:12px;
+    }
+    .main-content{
+        font-size:10px;
+        overflow: hidden;
+    }
+}
 /* main box container */
 .main {
     display: flex;
@@ -380,8 +396,9 @@ body{min-height:100%;}
 #flexbox {
     height: 100%;
 }
-#display tr td{
+.display tr td{
     padding: 0 auto;
     margin:0 auto;
 }
+
 

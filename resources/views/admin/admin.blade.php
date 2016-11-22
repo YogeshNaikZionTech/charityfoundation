@@ -61,7 +61,7 @@
         <div class="main-content col">
             <div class="admin-content" id="history">
                 <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
-                <table class="display dt-responsive table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
+                <table class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
                         <th>#</th>
@@ -174,7 +174,7 @@
             </div>
             <div class="admin-content" id="create">
                 <h3>Create Projects/Events</h3>
-                <div class="container col-md-12">
+                <div class="container">
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills" role="tab-list">
@@ -196,43 +196,43 @@
                             <h3>New Project Creation</h3>
                             <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
                                 <div class="form-group">
-                                    <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
-                                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <label for="pname" class="col-md-6 control-label"  >Project Name</label>
+                                    <div class="col-md-6">
                                     <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="plocation" class="col-md-3 control-label">Venue :</label>
-                                    <div class="col-md-8">
+                                    <label for="plocation" class="col-md-6 control-label">Venue :</label>
+                                    <div class="col-md-6">
                                         <input id="plocation" type="text"  name="plocation" class="form-control" style="height:28px;" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="pdate"  class="col-md-3 control-label">Date :</label>
-                                    <div class="col-md-8">
+                                    <label for="pdate"  class="col-md-6 control-label">Date :</label>
+                                    <div class="col-md-6">
                                         <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="pstime" class="col-md-3 control-label">Start Time :</label>
-                                    <div id="pstarttime" class="input-append col-md-8" >
-                                        <input class="col-md-11" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                    <label for="pstime" class="col-md-6 control-label">Start Time :</label>
+                                    <div id="pstarttime" class="input-append col-md-6" >
+                                        <input class="col-md-11 form-control" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
                                         <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="pdescription" class="control-label col-md-3">Project Description</label>
-                                    <div class="col-md-8">
+                                    <label for="pdescription" class="control-label col-md-6">Project Description</label>
+                                    <div class="col-md-6">
                                         <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="pimage" class="control-label col-md-3">Upload an image</label>
-                                    <div class="col-md-8">
+                                    <label for="pimage" class="control-label col-md-6">Upload an image</label>
+                                    <div class="col-md-6">
                                     <input id="pimage" type="file" name="pimage" accept="image/*">
                                     </div>
                                 </div>
@@ -248,8 +248,8 @@
 
                             <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="post">
                                     <div class="form-group">
-                                    <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
-                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <label  for="ename" class="col-md-3 control-label" >Event Name :</label>
+                                        <div class="col-md-8">
                                              <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
                                         </div>
                                     </div>
@@ -464,8 +464,7 @@
         $('#history').show();
         $('#users').hide();
         $('#create').hide();
-        $('update').hide();
-
+        $('#update').hide();
     });
     </script>
    {{--Search Users Menu--}}
