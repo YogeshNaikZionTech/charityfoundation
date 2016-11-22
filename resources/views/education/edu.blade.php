@@ -6,11 +6,11 @@
     @endsection
 @section('content')
 
-	    {{--<video src="https://s3.amazonaws.com/codecademy-content/projects/excursion/bg.mp4" autoplay muted loop></video>--}}
+	    {{--<video src="{{URL::asset('/video/Book.mp4')}}" autoplay muted loop></video>--}}
         <div class="videos">
 
             <video autoplay loop muted class="video-bg">
-                <source src="https://s3.amazonaws.com/codecademy-content/projects/excursion/bg.mp4"  type="video/mp4" />
+                <source src="{{URL::asset('/video/Book.mp4')}}"  type="video/mp4" />
 
             </video>
         </div>
