@@ -87,22 +87,25 @@
         $(document).ready(function () {
             $('.projects').hide();
             $('.volunteer').hide();
-            if(sessionStorage.getItem('donation') != null) {
-                var type = "donation";
-                var e = sessionStorage.getItem('donation');
-                $(".projects").show();
-                $('.type').val(type);
-                $('.proevent').val(e);
-                $(".title").html(e);
-            }
-            else if(sessionStorage.getItem('volunteer') != null){
+//            if(sessionStorage.getItem('donates') != null) {
+//                var type = "donates";
+//                var e = sessionStorage.getItem('donates');
+//                $(".projects").show();
+//                $('.type').val(type);
+//                $('.proevent').val(e);
+//                $(".title").html(e);
+//            }
+             if(sessionStorage.getItem('volunteer') != null){
                 var type = "volunteer";
                 var e = sessionStorage.getItem('volunteer');
                 $(".volunteer").show();
-                //$('.type').val(type);
-//                $('.proevent').val(e);
-//                $(".title").html(e);
+                $('.type').val(type);
+                $('.proevent').val(e);
+                $(".title").html(e);
 
+            }
+            else{
+                $('.projects').show();
             }
         })
 
