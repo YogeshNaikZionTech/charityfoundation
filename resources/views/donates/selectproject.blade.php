@@ -38,7 +38,7 @@
             <h4>Select a specific cause</h4>
             <!-- <h2>What cause would you like to donate to?</h2> -->
 
-            <ul class="nav nav-tabs select-cause" role="tablist">
+            <ul class="nav nav-tabs select-cause nav-justified" role="tablist">
                 <li class="active"><a data-toggle="tab" href="#projects">Donate to a Project</a></li>
                 <li><a data-toggle="tab" href="#events">Volunteer for an Event</a></li>
             </ul>

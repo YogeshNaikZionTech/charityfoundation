@@ -66,7 +66,7 @@
                                         <button type="button" class="btn btn-default" name="inputbtn" value="20">$20</button>
                                         <button type="button" class="btn btn-default" name="inputbtn" value="25">$25</button>
                                         <button type="button" class="btn btn-default" name="inputbtn" value="30">$30</button>
-                                        <button type="button" class="btn btn-default hidden-md" name="inputbtn" value="40">$40</button>
+                                        <!-- <button type="button" class="btn btn-default hidden-md" name="inputbtn" value="40">$40</button> -->
                                       </div>
                                     </div>
                                 </div>
@@ -278,7 +278,6 @@
             $('.type').val(type);
             $(".onetime").show();
             $(".monthly").show();
-            // $(".title").html(p);
             $.ajax({
                 url: '../projects/'+p,
                 type:'GET',
@@ -300,11 +299,9 @@
             $(".volunteer").show();
 
             $('.volunteer input[type=radio]').attr('checked','checked');
-                donatecheck();
-             // $("#proj").html(e.key);
+            donatecheck();
             $('.type').val(type);
             $('.proevent').val(e);
-            // $(".title").html(e);
             if(sessionStorage.getItem('volunteer')=== "true"){
                 $('.volunteer input[type=radio]').attr('checked','checked');
                 donatecheck();
@@ -314,15 +311,11 @@
                 url: '../events/'+e,
                 type:'GET',
                 datatype:'JSON',
-                success: function(response){
-                    
+                success: function(response){                   
                     response = JSON.parse(response);
-                    var name = response[0].event_Title;
-                    
-                    $('.title').html(name);
-                    
-                    $(".image").attr("src",'../images/'+response[0].event_Image);
-                    
+                    var name = response[0].event_Title;                    
+                    $('.title').html(name);                    
+                    $(".image").attr("src",'../images/'+response[0].event_Image);                    
                 }
             });
         }
@@ -331,7 +324,6 @@
             var p = sessionStorage.getItem('foundation');
             $(".onetime").show();
             $(".monthly").show();
-            // $("#proj").html(e.key);
             $('.type').val(type);
             $('.proevent').val(p);
             $(".title").html(p);
@@ -385,10 +377,6 @@
             namecheck();
 
         });
-        // $("#NameOnCard").on("keyup",function(){
-        //     namecheck();
-
-        // });
 
         //Function for Volunteer
         $("#Name").on('blur', function () {
@@ -454,14 +442,12 @@
 
             if($("#paymentform").data("bootstrapValidator").isValidField("NameOnCard")){
                 $("#ccname").html(cname);
-                $(".sum3").fadeIn();
-                // $("#ccname").css("border-bottom","2px solid #0000b3");  
+                $(".sum3").fadeIn(); 
             }
 
             else{
                 $("#ccname").html(" ");
                 $(".sum3").fadeOut();
-                // $("#ccname").css("border-bottom","2px solid #FFFFFF"); 
             }
         }
 
@@ -473,13 +459,11 @@
                 cc = cc.slice(-4);
                 $("#ccnum").html(cc);
                 $(".sum2").fadeIn();
-                // $("#ccnum").css("border-bottom","2px solid #0000b3");  
             }
 
             else{
                 $("#ccnum").html(" ");
                 $(".sum2").fadeOut();
-                // $("#ccnum").css("border-bottom","2px solid #FFFFFF"); 
             }
         }
 
@@ -497,9 +481,6 @@
             }
 
             if(a==="monthly"){
-                // $("#onetime").closest('label').removeAttr("style");
-                // $("#volunteer").closest('label').removeAttr("style");
-                // $("#monthly").closest('label').attr("style","color:#ff944d");
                 $("#note").show();
                 $(".payment").show();
                 $(".review1").show();
@@ -509,9 +490,7 @@
                 
             }
             else if(a==="onetime"){
-                // $("#monthly").closest('label').removeAttr("style");
-                // $("#volunteer").closest('label').removeAttr("style");
-                // $("#onetime").closest('label').attr("style","color:#ff944d");
+
                 $("#note").hide();
                 $(".payment").show();
                 $(".review1").show();
@@ -521,9 +500,7 @@
                 
             }
             else if(a==="volunteer"){
-                // $("#onetime").closest('label').removeAttr("style");
-                // $("#monthly").closest('label').removeAttr("style");
-                // $("#volunteer").closest('label').attr("style","color:#ff944d");
+
                 $("#note").hide();
                 $(".payment").hide();
                 $(".review1").hide();
@@ -548,7 +525,6 @@
                         $("#amt").html(damt);
                         $(".sum1").fadeIn();
                     }
-                    // $("#amt").css("border-bottom","2px solid #0000b3");
                 });
             }
 
@@ -559,7 +535,6 @@
                     damt = $("#other-amt").val();
                     $("#amt").html(damt);
                     $(".sum1").fadeIn();
-                    // $("#amt").css("border-bottom","2px solid #0000b3");
                     $('button[name="inputbtn"]').removeClass("active");
                 }
             }
@@ -567,11 +542,6 @@
     }); // End of jQuery 1
 
         $(document).ready(function(){
-        // $('.formv').click(function(){
-        // $('#paymentform').bootstrapValidator('validate');
-         //$('#vform').bootstrapValidator('validate');
-    // });
-
 
          $('#paymentform').bootstrapValidator({
 
@@ -644,82 +614,6 @@
                 }
                 
             },
-
-            // expMonth: {
-            //     row: '.col-xs-3',
-            //     validators: {
-            //         notEmpty: {
-            //             message: 'Month is required'
-            //         },
-            //         digits: {
-            //             message: 'Month can contain digits only'
-            //         },
-            //         callback: {
-            //             message: 'Expired',
-            //             callback: function(value, validator, $field) {
-            //                 value = parseInt(value, 10);
-            //                 var year         = validator.getFieldElements('expYear').val(),
-            //                     currentMonth = new Date().getMonth() + 1,
-            //                     currentYear  = new Date().getFullYear();
-            //                 if (value < 0 || value > 12) {
-            //                     return false;
-            //                 }
-            //                 if (year == '') {
-            //                     return true;
-            //                 }
-            //                 year = parseInt(year, 10);
-            //                 if (year > currentYear || (year == currentYear && value >= currentMonth)) {
-            //                     validator.updateStatus('expYear', 'VALID');
-            //                     return true;
-            //                 } else {
-            //                     return false;
-            //                 }
-            //             }
-            //         }
-            //     }
-            // }, 
-            // expYear: {
-            //     row: '.col-xs-3',
-            //     transformer: function($field, validatorName, validator) {
-            //         var year = parseInt($field.val(), 10);
-            //         if (isNaN(year)) {
-            //             return year;
-            //         } else {
-            //             // Add 2000 to year
-            //             return 2000 + year;
-            //         }
-            //     },
-            //     validators: {
-            //         notEmpty: {
-            //             message: 'Year is required'
-            //         },
-            //         digits: {
-            //             message: 'Year can contain digits only'
-            //         },
-            //         callback: {
-            //             // message: 'Expired',
-            //             callback: function(value, validator, $field) {
-            //                 value = parseInt(value, 10);
-            //                 var month        = validator.getFieldElements('expMonth').val(),
-            //                     currentMonth = new Date().getMonth() + 1,
-            //                     currentYear  = new Date().getFullYear();
-            //                 if (value < currentYear || value > currentYear + 10) {
-            //                     return false;
-            //                 }
-            //                 if (month == '') {
-            //                     return false;
-            //                 }
-            //                 month = parseInt(month, 10);
-            //                 if (value > currentYear || (value == currentYear && month >= currentMonth)) {
-            //                     validator.updateStatus('expMonth', 'VALID');
-            //                     return true;
-            //                 } else {
-            //                     return false;
-            //                 }
-            //             }
-            //         }
-            //     }
-            // } //end of year
             ExpiryDate:{
                 verbose:false,
                 validators:{

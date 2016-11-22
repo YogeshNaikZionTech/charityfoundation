@@ -21,8 +21,7 @@
                 <i class="fa fa-tachometer"></i>
                 <span>Admin Panel</span>
             </div>
-            <a href="#" class="nav-trigger"><span></span></a>
-        </div>
+           </div>
         <div class="flexbox">
         <div class="side-nav col">
             <div class="logo">
@@ -62,13 +61,13 @@
         <div class="main-content col">
             <div class="admin-content" id="history">
                 <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
-                <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
+                <table class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
                         <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Full Name</th>
                         <th>Donation Type</th>
+                        <th>Project/Event Name</th>
                         <th>Date of Donation</th>
                         <th>Donation Amount</th>
                     </tr>
@@ -76,65 +75,65 @@
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <td>Mark Otto</td>
                         <td>Donated Project</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$25</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
+                        <td>Jacob Thornton</td>
                         <td>Donated Event</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$30</td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
+                        <td>Larry the Bird</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$20</td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
-                        <td>John</td>
-                        <td>Smith</td>
+                        <td>John Smith</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
-                        <td>Owen</td>
-                        <td>Murphy</td>
+                        <td>Owen Murphy</td>
                         <td>Donated Event</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$55</td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
-                        <td>Ernesto</td>
-                        <td>Gomez</td>
+                        <td>Ernesto Gomez</td>
                         <td>Donated Project</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$15</td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
-                        <td>David</td>
-                        <td>Turner</td>
+                        <td>David Turner</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$50</td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
-                        <td>Yasha</td>
-                        <td>Karant</td>
+                        <td>Yasha Karan</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
@@ -175,7 +174,7 @@
             </div>
             <div class="admin-content" id="create">
                 <h3>Create Projects/Events</h3>
-                <div class="container col-md-12">
+                <div class="container">
 
                     <!-- Nav tabs -->
                     <ul class="nav nav-pills" role="tab-list">
@@ -195,46 +194,46 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="POST">
+                            <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
                                 <div class="form-group">
-                                    <label for="pname" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label"  >Project Name</label>
-                                    <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <label for="pname" class="col-md-6 control-label"  >Project Name</label>
+                                    <div class="col-md-6">
                                     <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="Location" class="col-md-3 control-label">Venue :</label>
-                                    <div class="col-md-8">
+                                    <label for="plocation" class="col-md-6 control-label">Venue :</label>
+                                    <div class="col-md-6">
                                         <input id="plocation" type="text"  name="plocation" class="form-control" style="height:28px;" />
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="pdate"  class="col-md-3 control-label">Date :</label>
-                                    <div class="col-md-8">
+                                    <label for="pdate"  class="col-md-6 control-label">Date :</label>
+                                    <div class="col-md-6">
                                         <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="pstime" class="col-md-3 control-label">Start Time :</label>
-                                    <div id="pstarttime" class="input-append col-md-8" >
-                                        <input class="col-md-11" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                    <label for="pstime" class="col-md-6 control-label">Start Time :</label>
+                                    <div id="pstarttime" class="input-append col-md-6" >
+                                        <input class="col-md-11 form-control" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
                                         <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="control-label col-md-3">Project Description</label>
-                                    <div class="col-md-8">
-                                        <textarea name="pdescription" placeholder="Description of the project" class="form-control"></textarea>
+                                    <label for="pdescription" class="control-label col-md-6">Project Description</label>
+                                    <div class="col-md-6">
+                                        <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="pimage" class="control-label col-md-3">Upload an image</label>
-                                    <div class="col-md-8">
-                                    <input id="pimage" type="file" Name="pimage" accept="image/*">
+                                    <label for="pimage" class="control-label col-md-6">Upload an image</label>
+                                    <div class="col-md-6">
+                                    <input id="pimage" type="file" name="pimage" accept="image/*">
                                     </div>
                                 </div>
                                     <div>
@@ -247,10 +246,10 @@
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
 
-                            <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="POST">
+                            <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="post">
                                     <div class="form-group">
-                                    <label  for="ename" class="col-md-3 col-lg-3 col-xs-10 col-sm-3 control-label" >Event Name :</label>
-                                        <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8">
+                                    <label  for="ename" class="col-md-3 control-label" >Event Name :</label>
+                                        <div class="col-md-8">
                                              <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
                                         </div>
                                     </div>
@@ -309,7 +308,7 @@
 
                 </div>
             </div>
-
+{{--Modify--}}
             <div class="admin-content" id="update">
                 <h3>Update Projects/Events</h3>
 
@@ -319,8 +318,11 @@
                         <input type="radio" name="program" id="radiosel2" value="events"> Events
                     </label>
                 </div>
+               <!--  Form to Modify an Event -->
                 <div class="project program">
-                    <form class="form-group col-md-6" action="{{url('/projects')}}" method="PUT">
+                    <form class="form-group col-md-6" action="{{url('/putprojects')}}" method="POST">
+                    <!-- <input name="_method" type="hidden" value="PUT"> -->
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
                                 <select id="Select1" name="Select1" class="form-control">
@@ -328,12 +330,13 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <input type="hidden" class="project_id" name="id">
 
                         <div class="form-group">
-                            <input class="form-control" id="updatepname" name="updatepname" placeholder="Project Name" style="height:28px;" type="text">
+                            <input class="form-control" id="updatepname" name="pname" placeholder="Project Name" style="height:28px;" type="text">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="pdescription" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
+                            <textarea class="form-control" id="proj_description" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <select class="form-control" id="pstatus">
@@ -346,7 +349,7 @@
                         </div>
                         <div class="form-group">
                             <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                            <input id="files" style="visibility:hidden;" type="file" Name="pimage" accept="image/*">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary">
@@ -354,8 +357,12 @@
                         </div>
                     </form>
                 </div>
+               <!--  Form to Modify an Event -->
                 <div class="event program">
-                    <form class="form-group col-md-6"  action="{{url('/events')}}" method="PUT">
+                    <form class="form-group col-md-6"  action="{{url('/putevents')}}" method="POST">
+                    <!-- <input name="_method" type="hidden" value="PUT"> -->
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
 
@@ -364,18 +371,19 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <input type="hidden" id="event_id" name="id">
 
                         <div class="form-group">
-                            <input class="form-control" id="updateename" name="updateename" placeholder="Event Name" type="text" style="height:28px;">
+                            <input class="form-control" id="updateename" name="ename" placeholder="Event Name" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="edescription" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                            <textarea class="form-control" id="eve_description" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
+                            <input class="form-control" id="updatevenue" name="location" placeholder="Venue" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" id="estatus">
+                            <select class="form-control" id="estatus" name="estatus">
                                 <option>Event Status</option>
                                 <option value="current">Current</option>
                                 <option value="future">Future</option>
@@ -387,6 +395,11 @@
                         </div>
                         <div class="form-group">
                             <div>
+                                <div>
+                                <label>Date</label>
+                                    <input type="date" id="edate" name="edate">
+                               
+                                </div>
                                 <div class="datetimepicker1 input-append date">
                                     <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="estarttime" name="estarttime" placeholder="Start Time">
                                     <span class="add-on" style="height:28px;">
@@ -399,11 +412,12 @@
                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                                 </span>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                            <input id="files" style="visibility:hidden;" type="file" name="eimage" accept="image/*">
                         </div>
 
                         <div class="form-group">
@@ -422,6 +436,7 @@
 
 @endsection
 @section('scripts')
+    {{--Navigation Menu--}}
 <script src="js/nav.js" type="text/javascript"></script>
     <script type="text/javascript">
     $(document).ready(function()
@@ -446,31 +461,20 @@
     </script>
     <script type="text/javascript">
     $(document).ready(function() {
-    $('.nav-trigger').click(function() {
-    $('.side-nav').toggleClass('visible');
+        $('#history').show();
+        $('#users').hide();
+        $('#create').hide();
+        $('#update').hide();
     });
-    });
+    </script>
+   {{--Search Users Menu--}}
+    <script>
+        function FocusOnInput() {
+            document.forms['search_form'].elements['input'].focus();
+        }
     </script>
     <script>
 
-        $(document).ready(function(){
-            $(".event").hide();
-        $('input[type="radio"]').change(function(){
-            if($(this).attr("value")=="projects"){
-                $(".program").not(".project").hide();
-                $(".project").show();
-            }
-            if($(this).attr("value")=="events"){
-                $(".program").not(".event").hide();
-                $(".event").show();
-            }
-        });
-
-    });
-    </script>
-
-
-    <script>
         $(document).ready(function() {
             if ($("#input").val().length == 0) {
                 $.ajax(
@@ -483,13 +487,15 @@
                                 $.each(data, function (i, item) {
                                     trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
                                 });
-                                $('#example').append(trHTML);
+
+                                $('.output').html(trHTML);
                             }
                         })
             }
-            $("#searchitem").click(function () {
-                $("#input").keyup(function () {
-                    if ($("#input").val().length >= 1) {
+            else ($("#input").val().length > 0)
+            {
+                $("#searchitem").click(function () {
+                    $("#input").keyup(function () {
                         $.ajaxSetup({
                             headers: {
                                 'X-CSRF-Token': $('input[name="_token"]').val()
@@ -511,13 +517,54 @@
                                 $(".output").html(output);
                             }
                         });
-                    }
+                        if ($("#input").val().length == 0) {
+                            $.ajax(
+                                    {
+                                        url: "/admin/users/search",
+                                        type: "GET",
+                                        dataType: "json",
+                                        success: function (data) {
+
+                                            var trHTML = '';
+
+                                            $.each(data, function (i, item) {
+
+                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
+                                            });
+
+                                            $('.output').html(trHTML);
+
+                                        }
+
+                                    })
+                        }
+
+                    });
+
                 });
-            });
+            }
+
         });
 
     </script>
 {{--Modify Menu--}}
+    <script>
+        $(document).ready(function(){
+            $(".event").hide();
+            $('input[type="radio"]').change(function(){
+                if($(this).attr("value")=="projects"){
+                    $(".program").not(".project").hide();
+                    $(".project").show();
+                }
+                if($(this).attr("value")=="events"){
+                    $(".program").not(".event").hide();
+                    $(".event").show();
+                }
+            });
+
+        });
+    </script>
+
     <script type="text/javascript">
                $(document).ready(function() {
                    $.ajaxSetup({
@@ -572,10 +619,9 @@
                            success: function(response){
                                response = JSON.parse(response);
                                $('#updatepname').val(response.project_Title);
-                               $('#pdescription').val(response.project_Description);
-
+                               $('#proj_description').val(response.project_Description);
                                $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
-                           }
+                               $('.project_id').val(response.id);                           }
                        })
 
                    });
@@ -587,19 +633,25 @@
                            datatype: 'JSON',
                            success: function(response){
                                response = JSON.parse(response);
+                               $('#edate').val(response[0].event_Date);
+
                                $('#updateename').val(response[0].event_Title);
-                               $('#edescription').html(response[0].event_Description);
+                               $('#eve_description').val(response[0].event_Description);
                                $('#updatevenue').val(response[0].event_Location);
                                $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
-                               $('')
+                               $('#estarttime').val( response[0].event_StartTime);
+                               $('#eendtime').val(response[0].event_EndTime);
+                               $('#event_id').val(response[0].id);
+
                            }
                        })
 
                    });
                });
+
    </script>
 
-
+{{--Date Picker--}}
     <script type="text/javascript">
         $(function() {
             $('#starttime').datetimepicker({
@@ -620,6 +672,7 @@
             });
         });
     </script>
+    {{--Create Projects and Events--}}
     <script type="text/javascript"
             src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
     </script>
@@ -788,12 +841,6 @@
                         $field.next('.validMessage[data-field="' + field + '"]').hide();
                     });
         });
-    </script>
-
-    <script>
-        function FocusOnInput() {
-            document.forms['search_form'].elements['input'].focus();
-        }
     </script>
 
     <script type="text/javascript">

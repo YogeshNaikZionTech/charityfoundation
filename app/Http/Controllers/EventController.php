@@ -166,13 +166,13 @@ class EventController extends Controller
      * pagination for current events
      */
 
-    public function paginateCurrentEvents(Request $request){
+    public function paginateCompletedEvents(Request $request){
 
         $id = $request->input('id');
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
 
-        $current_list = Event::where("event_Status","=","current")->take($perpage)->skip($start)->get();
+        $current_list = Event::where("event_Status","=","completed")->take($perpage)->skip($start)->get();
         Log::info($current_list);
 
 
@@ -236,26 +236,23 @@ class EventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        echo 'Great you got it.';
-/**
+       
+
+        $id = $request->input('id');
         $event = Event::where("id","=", $id)->get();
-
-
-
-
-        Log::info('Request that recevied' . $request);
+            Log::info('Input that is to be updated' . $event);
         $event_Title = $request->input('ename');
         $event_Description = $request->input('edescription');
         $event_location = $request->input('location');
         $event_Date = $request->input('edate');
 
-        $start_time =   $event_Date.' '.$request->input('stime');
-        $end_time = $event_Date.' '.$request->input('etime');
+        $start_time =  $request->input('stime');
+        $end_time = $request->input('etime');
 
         $filename = 'event.jpg';
         if ($request->hasFile('eimage')) {
@@ -277,10 +274,10 @@ class EventController extends Controller
             $event->event_Status = $request->input('estatus');
         }
 
-        Log:info('Event that is being updated:'.$event);
+        Log::info('Event that is being updated:'.$event);
         $event->update();
         \Session::flash( 'EventUpdate', 'Event updated' );
-**/
+
     }
 
     /**
@@ -292,10 +289,10 @@ class EventController extends Controller
     public function destroy($id)
     {
 
-        echo 'Great you got it.';
-//        $event_delete = Event::Where('id','=',$id)->get();
-//        $event_delete->delete();
-//        echo 'deleted';
+
+      $event_delete = Event::Where('id','=',$id)->get();
+        $event_delete->delete();
+        \Session::flash( 'EventDeleted', 'Event Deleted' );
 
     }
 }

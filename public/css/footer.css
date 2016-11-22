@@ -1,87 +1,120 @@
 footer{
-    color:white;
-    position: relative;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
+
     text-align:center;
     background-color: rgb(173,202,197);
+    z-index: 100;
 }
-.privacyterm{
-    text-align:center;
-    margin-top: 0 !important;
-    line-height:10px;
-    margin-bottom:0 !important;
-}
-.centereditems{
-    margin-top:20px;
-}
+
 #content{
     min-height:100vh;
 }
-footer span.copyright{
-    line-height:40px;
-    font-family:Constantia, cursive;
+.copyright{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     color:black;
-    font-size:18px;
-
+    font-size:14px;
+    padding-top: 10px;
+    font-style: normal;
+    height: 80px;
 }
-footer ul.quicklinks{
-    margin-bottom:0;
-    /*line-height:40px;*/
-    font-family:Constantia, cursive;
-    text-align:left;
-
+.quicklinks{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-style: normal;
+    height:80px;
+    line-height:80px;
+    margin-bottom: 0px;
+    
 }
-ul.social-buttons{
-    margin-bottom:0
+.social{
+    height:80px;
+    line-height:80px;
+    text-align: right;
+    margin-bottom: 0px;
+    
 }
-ul.social-buttons li a{
+.social li a{
     text-align:center;
     display:block;
     background-color: rgb(173,202,197);
-    height:40px;
+    
     width:40px;
-    border-radius:100%;
+    
     font-size:20px;
-    line-height:40px;
+    
     font-weight:bold;
     color:black;
-    outline:0;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
+    text-decoration: none;
 }
-ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
-    background-color:rgba(30, 112, 155, 0.52);
+.social li a:hover,.social li a:focus{
+    color:#ff6600;
     text-align:center;
+    text-decoration: none;
+}
+
+.privacyterm{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color:black;
+    text-align: center;
+    font-style: italic;
+    position: absolute;
+    bottom:0;
+    left: 0;
+    right: 0;
+    top:50px;
+    margin-bottom: 0px;
+}
+
+.privacyterm li a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
 }
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{
     outline:0;
     text-align:center;
 }
-a{color:black}
-.form-data{padding:20px; text-align:center;}
+
+/*.form-data{padding:20px; text-align:center;}*/
+
 .style{
     display: block;
     list-style-type: none;
     text-align: left;
 }
-.style>li>a{ color:black;text-align: left;font-size:18px;}
-.style>li>a:hover{ color:black;  text-decoration: none;}
+.style>li>a{ 
+    color:black;
+    text-align: left;
+    font-size:14px;
+    text-decoration: none;
+}
+.style>li>a:hover{
+    color:black;  
+    text-decoration: none;
+}
 
-.footerpara{font-size:18px; color: black; text-align:justify;}
+/*.footerpara{font-size:14px; color: black; text-align:justify;}*/
 
-*#ppModal{
+
+.privacy, .terms{
+  cursor: pointer;
+}
+.style .privacy, .style .terms{
+    font-size:12px;
+}
+
+.links,.copy{
+    display: inline-block;
+}
+
+#ppModal{
     font-style: normal;
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     text-align: left;
-
 }
 
 .pp{
-
     position: relative;
     padding: 15px;
     text-align: left;
@@ -92,11 +125,11 @@ a{color:black}
 }
 
 .pp p{
-        margin: 0 0 10px;
-        font-size: unset;
-        font-weight: unset;
-        text-align: unset;
-        padding:unset;
+    margin: 0 0 10px;
+    font-size: unset;
+    font-weight: unset;
+    text-align: unset;
+    padding:unset;
 }
 
 .pp ul, .pp ol{
@@ -133,68 +166,42 @@ a{color:black}
 }
 
 .pp2:hover{
-      color: #333;
+    color: #333;
     background-color: #e6e6e6;
     border-color: #adadad;
 }
-.privacy, .terms{
-  cursor: pointer;
-}
-.style .privacy, .style .terms{
-    font-size:12px;
-}
-*{margin:0 ;padding:0}
-.col-centered{
-    display:inline-block;
-    margin:0 auto;
-    text-align:center;
-}
-@media(max-width: 600px){
-   .centereditems, .privacyterm{
+
+
+@media(max-width: 700px){
+/*   .centereditems, .privacyterm{
        text-align:center;
        display:inline-block;
        margin:0 auto;
        float:none;
-   }
-    .pull-right, .pull-left{
-        float:none!important;
-    }
-    footer span.copyright{
-        line-height:20px;
-        font-family:Constantia, cursive;
-        color:black;
-        font-size:12px;
+   }*/
 
+   .links,.social,.copy{
+    display:block;
     }
-    footer ul.quicklinks{
-        margin-bottom:0;
-        font-family:Constantia, cursive;
-        text-align:left;
 
+    .social{
+        text-align: center;
     }
-    ul.social-buttons{
-        margin-bottom:0
+
+    .social li a, .quicklinks li a {
+        line-height: normal;
     }
-    ul.social-buttons li a{
-        text-align:center;
-        display:block;
-        background-color: rgb(173,202,197);
-        height:20px;
-        width:20px;
-        border-radius:100%;
-        font-size:12px;
-        line-height:20px;
-        font-weight:bold;
+
+    .copyright{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         color:black;
-        outline:0;
-        -webkit-transition:all .3s;
-        -moz-transition:all .3s;
-        transition:all .3s;
     }
-    ul.social-buttons li a:hover,ul.social-buttons li a:focus,ul.social-buttons li a:active{
-        background-color:rgba(30, 112, 155, 0.52);
+    .links .quicklinks{
+        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         text-align:center;
     }
+
+
     .btn:focus,.btn:active,.btn.active,.btn:active:focus{
         outline:0;
         text-align:center;
@@ -202,24 +209,29 @@ a{color:black}
     a{
         color:black
     }
-    .form-data{
+/*    .form-data{
         padding:20px; text-align:center;
-    }
+    }*/
     .style{
         display: block;
         list-style-type: none;
         text-align: left;
     }
     .style>li>a{
-        color:black;text-align: left;font-size:12px; padding:0; margin:0;
+        color:black;
+        text-align: 
+        left;
+        font-size:14px; 
+        padding:0; 
+        margin:0;
+        text-decoration: none;
     }
     .style>li>a:hover{
         color:black;  text-decoration: none;
     }
-    .footerpara{
-        font-size:18px; color: black; text-align:justify;
-    }
-    .pull-left, .pull-right{
-        float:none;
-    }
+/*    .footerpara{
+        font-size:14px; color: black; text-align:justify;
+    }*/
+
 }
+
