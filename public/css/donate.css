@@ -3,10 +3,7 @@
   margin-bottom: 2%;
   font-style: normal;
   font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-
 }
-
-
 
 .board{
   margin-bottom: 80px;
@@ -36,14 +33,6 @@
   color: white;
   position: relative;
   height: 320px;
-  /*width: 400px;*/
-  /*left: 27%;*/
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#a90329+0,8f0222+38,8f0222+73,6d0019+100 */
-  /*background: rgb(169,3,41); /* Old browsers */
-  /*background: -moz-linear-gradient(left,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 38%, rgba(143,2,34,1) 73%, rgba(109,0,25,1) 100%); /* FF3.6-15 */
-  /*background: -webkit-linear-gradient(left,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 38%,rgba(143,2,34,1) 73%,rgba(109,0,25,1) 100%);  Chrome10-25,Safari5.1-6 */
-  /*background: linear-gradient(to right,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 38%,rgba(143,2,34,1) 73%,rgba(109,0,25,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  /*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 ); /* IE6-9 */
 }
 
 .div3{
@@ -61,15 +50,6 @@
   width: 210px;
   float: none;
   margin: 30px auto;
-/*  -moz-box-shadow: 0px 0px 20px #4c5a5d;
-  -webkit-box-shadow: 0px 0px 20px #4c5a5d;
-  box-shadow: 0px 0px 20px #4c5a5d;*/
-  /*IE 7 AND 8 DO NOT SUPPORT BLUR PROPERTY OF SHADOWS*/
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bababa+0,7db9e8+100&1+0,0+100 */
-  /*background: -moz-linear-gradient(-45deg,  rgba(186,186,186,1) 0%, rgba(125,185,232,0) 100%); /* FF3.6-15 */*/
-  /*background: -webkit-linear-gradient(-45deg,  rgba(186,186,186,1) 0%,rgba(125,185,232,0) 100%); /* Chrome10-25,Safari5.1-6 */*/
-  /*background: linear-gradient(135deg,  rgba(186,186,186,1) 0%,rgba(125,185,232,0) 100%);*/ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
- /* filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bababa', endColorstr='#007db9e8',GradientType=1 );*/ /* IE6-9 fallback on horizontal gradient */
 }
 
 .div2{
@@ -80,7 +60,6 @@
 .div2 ul{
   list-style: none;
   height: 100%;
-  /*margin-left: 20px;*/
   padding: 0;
 }
 
@@ -89,7 +68,6 @@
   color: #d6d6d6;
   display: block;
   position: relative;
-  /*width: 100%;*/
 }
 
 .div2 ul li input[type=radio]{
@@ -104,7 +82,6 @@
   font-size: 1.35em;
   padding: 10px 0px 0px 30px;
   margin: 10px auto;
-  /*height: 30px;*/
   z-index: 9;
   cursor: pointer;
   -webkit-transition: all 0.25s linear;
@@ -180,19 +157,16 @@ margin: 20px auto;
   background-color: #d6d6d6; 
 }
 
-
 .month-group{
   display: inline-block;
   float: left;
-  width: 50%;
-  
+  width: 50%; 
 }
 
 .year-group{
   display: inline-block;
   float: right;
   width: 50%;
-  
 }
 
 .expiry-date-group{
@@ -200,16 +174,12 @@ margin: 20px auto;
   width: 50%;
 }
 
-
-
 .security-code-group{
-
   float: right;
   width: 50%;  
 }
 
 .zip-code-group {
-
  clear: both;
 }
 
@@ -221,13 +191,6 @@ margin: 20px auto;
 .formv{
   clear: both;
 }
-
-
-/*.highlight{
-  border-bottom: 3px solid #0000b3;
-  transition: border-bottom .25s ease-in-out;
-  -webkit-transition: border-bottom .25s ease-in-out;
-}*/
 
 .cause{
   margin-bottom: 10%;
@@ -292,23 +255,9 @@ margin: 20px auto;
 
 }
 
-/*.note1{
-  text-align: center;
-  margin-top: 5%;
-  background-color: #d6d6d6; 
-  color: white;
-  padding: 2px;
-}*/
-
-/*.imp{
-  color: #93001d;
-
-}*/
-
 #donatepay, #vol{
   float: none;
   margin: 0 auto;
-  /*vertical-align: top;*/
 }
 
 .middle{
@@ -328,7 +277,7 @@ margin: 20px auto;
 .appre{
   font-family: 'Playball', cursive;
   text-align: center;
-  font-size:40px;
+  font-size:30px;
   margin-top: 30px;
   color: #ff6600;
 }

@@ -44,6 +44,7 @@
                 </div><!--End of Donation Content-->
             </div><!--End of Donation-->
         </div>
+
         <div class="board col-md-4 col-lg-4 col-sm-6 col-xs-12"> <!--Payment/Volunteeer Details-->
             <h4 class="text-center animated fadeInDown"><span class="glyphicon glyphicon-list"></span> Details</h4>
             <div class="payment">   
@@ -108,6 +109,7 @@
                     </div><!--End of Payment Details--> 
                 </form>
             </div><!--End of Payment-->
+
             <div class="volform" style="display: none"> <!--Volunteer Form-->
                 <form id="vform" action="{{url('/volunteer')}}" method="post">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">  
@@ -189,11 +191,11 @@
                     <a  href="{{url('receipt')}}"><label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
                     <span class="align-middle">DONATE</span></label></a>
                 </div>
-                <!--<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
-                    <p>Thank You!!!</p>   
-                </div> -->
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
+                    <p>Thank you for your contribution</p>   
+                </div> 
             </div>
-            <div class="right review2 " style="display: none">
+            <div class="right review2" style="display: none">
                 <div class="col-md-12 col-lg-12 col-xs-12 div7">
                     <div id="vol">
                         <h4>Selected Cause:</h4>
@@ -215,30 +217,26 @@
                         </div>
 
 
-                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidemail">
-                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
-                                    <span class="glyphicon glyphicon-user glyclr"></span> Email
-                                </div>
-                                <span id="volemail" class="col-lg-6 col-md-6 col-xs-6 col-sm-6 "></span>
-
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidemail">
+                            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
+                                <span class="glyphicon glyphicon-user glyclr"></span> Email
                             </div>
-                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidphone">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2">
-                                    <span class="glyphicon glyphicon-user glyclr"></span> Phone number
-                                </div>
-                                <span id="volphone" class="col-lg-6 col-md-6 col-xs-6 col-sm-6"></span>
-
-                            </div>
+                            <span id="volemail" class="col-lg-6 col-md-6 col-xs-6 col-sm-6 "></span>
                         </div>
-                    <a  href="{{url('receipt')}}"><label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit">
-                        <span class="submit-button-lock"></span>
-                         <span class="align-middle">VOLUNTEER</span> </label></a>
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidphone">
+                            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2">
+                                <span class="glyphicon glyphicon-user glyclr"></span> Phone number
+                            </div>
+                            <span id="volphone" class="col-lg-6 col-md-6 col-xs-6 col-sm-6"></span>
+                        </div>
+                    </div>
+                    <a href="{{url('receipt')}}"><label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
+                    <span class="align-middle">VOLUNTEER</span></label></a>
                 </div>
             </div>
         </div>
-    </div>
     </div><!--End of Row-->
-    </div><!--End of Container-->
+</div><!--End of Container-->
 @endsection
 
 @section('scripts')
@@ -255,7 +253,7 @@
 
         //Input Masks
 
-        $('#CreditCardNumber').inputmask("9999-9999-9999-9999");
+        $('#CreditCardNumber').inputmask("9999 9999 9999 9999");
         $('#ExpiryDate').inputmask("99/99");
         $('#Phone').inputmask("(999) 999-9999");
 
@@ -403,7 +401,7 @@
             else{
                 $("#volname").html(" ");
                 $(".volnotvalidname").hide();
-                // $("#ccname").css("border-bottom","2px solid #FFFFFF");
+                
             }
         }
             function volunteeremail(){
@@ -416,7 +414,7 @@
                 else{
                     $("#volemail").html(" ");
                     $(".volnotvalidemail").hide();
-                    // $("#ccname").css("border-bottom","2px solid #FFFFFF");
+                    
                 }
             }
             function volunteerphone(){
@@ -429,12 +427,13 @@
                 else{
                     $("#volphone").html(" ");
                     $(".volnotvalidphone").hide();
-                    // $("#ccname").css("border-bottom","2px solid #FFFFFF");
+                    
                 }
             }
 
 
 //Volunteer ending
+
         //Functions
 
         function namecheck(){
@@ -545,7 +544,7 @@
 $(document).ready(function(){
 
 
-         $('#paymentform').bootstrapValidator({
+    $('#paymentform').bootstrapValidator({
 
         feedbackIcons:{
 
@@ -662,7 +661,7 @@ $(document).ready(function(){
     }); //End of Validation
 }); //End of jQuery 2
 
-        $(document).ready(function(){
+    $(document).ready(function(){
         $('#vform').bootstrapValidator({ 
 
             feedbackIcons:{
