@@ -380,4 +380,8 @@ body{min-height:100%;}
 #flexbox {
     height: 100%;
 }
+#display tr td{
+    padding: 0 auto;
+    margin:0 auto;
+}
 

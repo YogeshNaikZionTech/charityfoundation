@@ -21,8 +21,7 @@
                 <i class="fa fa-tachometer"></i>
                 <span>Admin Panel</span>
             </div>
-            {{--<a href="#" class="nav-trigger"><span></span></a>--}}
-        </div>
+           </div>
         <div class="flexbox">
         <div class="side-nav col">
             <div class="logo">
@@ -60,15 +59,15 @@
             </nav>
         </div>
         <div class="main-content col">
-            <div class="admin-content col-md-6" id="history">
+            <div class="admin-content" id="history">
                 <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
-                <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
+                <table class="display dt-responsive table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
                         <th>#</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
+                        <th>Full Name</th>
                         <th>Donation Type</th>
+                        <th>Project/Event Name</th>
                         <th>Date of Donation</th>
                         <th>Donation Amount</th>
                     </tr>
@@ -76,65 +75,65 @@
                     <tbody>
                     <tr>
                         <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
+                        <td>Mark Otto</td>
                         <td>Donated Project</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$25</td>
                     </tr>
                     <tr>
                         <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
+                        <td>Jacob Thornton</td>
                         <td>Donated Event</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$30</td>
                     </tr>
                     <tr>
                         <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
+                        <td>Larry the Bird</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$20</td>
                     </tr>
                     <tr>
                         <th scope="row">4</th>
-                        <td>John</td>
-                        <td>Smith</td>
+                        <td>John Smith</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
                     <tr>
                         <th scope="row">5</th>
-                        <td>Owen</td>
-                        <td>Murphy</td>
+                        <td>Owen Murphy</td>
                         <td>Donated Event</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$55</td>
                     </tr>
                     <tr>
                         <th scope="row">6</th>
-                        <td>Ernesto</td>
-                        <td>Gomez</td>
+                        <td>Ernesto Gomez</td>
                         <td>Donated Project</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$15</td>
                     </tr>
                     <tr>
                         <th scope="row">7</th>
-                        <td>David</td>
-                        <td>Turner</td>
+                        <td>David Turner</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$50</td>
                     </tr>
                     <tr>
                         <th scope="row">8</th>
-                        <td>Yasha</td>
-                        <td>Karant</td>
+                        <td>Yasha Karan</td>
                         <td>Direct Donation</td>
+                        <td>Name</td>
                         <td>mm/dd/yyyy</td>
                         <td>$45</td>
                     </tr>
