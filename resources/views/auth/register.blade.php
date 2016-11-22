@@ -5,11 +5,11 @@
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
 @endsection
 @section('content')
-<div class="container reg-form" id= "content">
+<div class="reg-form" id= "content">
     <h1>AA Foundation User Registration</h1>
     <div class="row">
         <div class="col-md-6 col-md-offset-3 panelbody">
-            <div class="panel panel-primary">
+            <div class="panel panel-info">
                 <div class="panel-heading">Register</div>
                 <div class="panel-body" >
                     <div class="col-lg-12 col-xs-12 col-sm-12 col-md-12 pull-left">
@@ -18,7 +18,6 @@
                         </a>
                         <br/>
                     </div>
-                    <div class="container-fluid" >
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
@@ -39,7 +38,7 @@
                         <div class="form-group{{ $errors->has('lastname') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Last Name</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-6 ">
                                 <input id="name" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autofocus>
 
                                 @if ($errors->has('lastname'))
@@ -55,7 +54,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
-
+                                <i class="fa fa-user"></i>
                                 @if ($errors->has('email'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -69,7 +68,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
-
+                                <i class="fa fa-lock"></i>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -131,7 +130,7 @@
                             </div>
                         </div>
                     </form>
-                    </div>
+
                 </div>
             </div>
         </div>
