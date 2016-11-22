@@ -241,19 +241,18 @@ class EventController extends Controller
      */
     public function update(Request $request)
     {
-<<<<<<< HEAD
-        
+       
 
         $id = $request->input('id');
         $event = Event::where("id","=", $id)->get();
-            Log::info('Request that recevied' . $request);
+            Log::info('Input that is to be updated' . $event);
         $event_Title = $request->input('ename');
         $event_Description = $request->input('edescription');
         $event_location = $request->input('location');
         $event_Date = $request->input('edate');
 
-        $start_time =   $event_Date.' '.$request->input('stime');
-        $end_time = $event_Date.' '.$request->input('etime');
+        $start_time =  $request->input('stime');
+        $end_time = $request->input('etime');
 
         $filename = 'event.jpg';
         if ($request->hasFile('eimage')) {
@@ -275,7 +274,7 @@ class EventController extends Controller
             $event->event_Status = $request->input('estatus');
         }
 
-        Log:info('Event that is being updated:'.$event);
+        Log::info('Event that is being updated:'.$event);
         $event->update();
         \Session::flash( 'EventUpdate', 'Event updated' );
 
