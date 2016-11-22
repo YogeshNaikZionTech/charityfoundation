@@ -542,11 +542,7 @@
     }); // End of jQuery 1
 
 
-
-    
-
 $(document).ready(function(){
-
 
 
          $('#paymentform').bootstrapValidator({
