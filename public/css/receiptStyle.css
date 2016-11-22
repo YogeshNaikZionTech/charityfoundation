@@ -8,7 +8,7 @@
     text-align:right;
 }
 h2{
-    color:orange;
+    color:#ff6600;
 }
 h4{
     color:darkcyan;
@@ -22,3 +22,5 @@ h4{
 .container{
     color:black;
 }
+h1{
+    color: #ff6600;}
