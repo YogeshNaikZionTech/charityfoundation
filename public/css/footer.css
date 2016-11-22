@@ -35,11 +35,8 @@ footer{
     text-align:center;
     display:block;
     background-color: rgb(173,202,197);
-    
     width:40px;
-    
     font-size:20px;
-    
     font-weight:bold;
     color:black;
     -webkit-transition:all .3s;
@@ -66,6 +63,10 @@ footer{
     margin-bottom: 0px;
 }
 
+.privacyterm ul{
+    margin-bottom: 0px;
+}
+
 .privacyterm li a{
     text-decoration: none;
     color: black;
@@ -75,8 +76,6 @@ footer{
     outline:0;
     text-align:center;
 }
-
-/*.form-data{padding:20px; text-align:center;}*/
 
 .style{
     display: block;
@@ -93,9 +92,6 @@ footer{
     color:black;  
     text-decoration: none;
 }
-
-/*.footerpara{font-size:14px; color: black; text-align:justify;}*/
-
 
 .privacy, .terms{
   cursor: pointer;
@@ -173,12 +169,6 @@ footer{
 
 
 @media(max-width: 700px){
-/*   .centereditems, .privacyterm{
-       text-align:center;
-       display:inline-block;
-       margin:0 auto;
-       float:none;
-   }*/
 
    .links,.social,.copy{
     display:block;
@@ -190,6 +180,10 @@ footer{
 
     .social li a, .quicklinks li a {
         line-height: normal;
+    }
+
+    .social li a{
+        font-size: 16px;
     }
 
     .copyright{
@@ -209,9 +203,7 @@ footer{
     a{
         color:black
     }
-/*    .form-data{
-        padding:20px; text-align:center;
-    }*/
+
     .style{
         display: block;
         list-style-type: none;
@@ -229,9 +221,19 @@ footer{
     .style>li>a:hover{
         color:black;  text-decoration: none;
     }
-/*    .footerpara{
-        font-size:14px; color: black; text-align:justify;
-    }*/
 
+    .quicklinks{
+        height: 0px;
+        line-height: 0px;
+        padding: 20px 0;
+    }
+    .social{
+        height: 0px;
+        line-height: 0px;
+        padding-bottom:30px;
+    }
+    .privacyterm{
+        top:40px;
+    }
 }
 
