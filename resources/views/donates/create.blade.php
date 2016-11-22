@@ -14,7 +14,7 @@
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="div4">
                         <div class="div3">
-                            <h3 class="animated fadeInUp"">How would you like to contribute?</h3>
+                            <h3 class="animated fadeInUp">How would you like to contribute?</h3>
                         </div>  
                         <div class="div1">
                             <div class="div2">
@@ -166,17 +166,21 @@
 
                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 5%">    
                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum1">
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2 "><span class="glyphicon glyphicon-star glyclr"></span> Your Donation </div>
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2 ">
+                                    <span class="glyphicon glyphicon-star glyclr"></span> Your Donation </div>
                                 <div class="reset dollar pull-right">$<span id="amt"></span></div>         
                             </div>
 
                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum2">
-                                <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 reset reset2"><span class="glyphicon glyphicon-credit-card glyclr"></span> Card ending in</div> 
+                                <div class="col-md-7 col-lg-7 col-sm-7 col-xs-7 reset reset2">
+                                    <span class="glyphicon glyphicon-credit-card glyclr"></span> Card ending in</div>
                                  <span id="ccnum" class=" reset  pull-right"></span> 
                             </div>
 
                             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset sum3">
-                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2"><span class="glyphicon glyphicon-user glyclr"></span> Name</div> 
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
+                                    <span class="glyphicon glyphicon-user glyclr"></span> Name
+                                </div>
                                 <span id="ccname" class=" reset  pull-right"></span> 
                             </div>
                         </div>
@@ -203,24 +207,46 @@
                             </div>
                         </div>
 
-                        <div class="col-md-12 col-lg-12 col-xs-12 reset" style="margin-bottom: 10%">
-
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidname">
+                            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
+                                <span class="glyphicon glyphicon-user glyclr"></span> Name
+                            </div>
+                            <span id="volname" class="col-lg-6 col-md-6 col-xs-6 col-sm-6"></span>
                         </div>
-                    </div>
-                    <label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
-                    <span class="align-middle">VOLUNTEER</span></label>
+
+
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidemail">
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
+                                    <span class="glyphicon glyphicon-user glyclr"></span> Email
+                                </div>
+                                <span id="volemail" class="col-lg-6 col-md-6 col-xs-6 col-sm-6 "></span>
+
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidphone">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2">
+                                    <span class="glyphicon glyphicon-user glyclr"></span> Phone number
+                                </div>
+                                <span id="volphone" class="col-lg-6 col-md-6 col-xs-6 col-sm-6"></span>
+
+                            </div>
+                        </div>
+                    <a  href="{{url('receipt')}}"><label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit">
+                        <span class="submit-button-lock"></span>
+                         <span class="align-middle">VOLUNTEER</span> </label></a>
                 </div>
             </div>
         </div>
-    </div><!--End of Row-->        
-</div><!--End of Container-->
+    </div>
+    </div><!--End of Row-->
+    </div><!--End of Container-->
 @endsection
 
 @section('scripts')
 
-<script type="text/javascript">
+    <script src="{{URL::asset('/js/nav.js')}}"></script>
+        <script type="text/javascript">
 
-    $(document).ready(function(){
+        $(document).ready(function(){
 
         $(".board").click(function(){
             $(".board").find("h4:first").removeClass("highlight");
@@ -364,6 +390,63 @@
 
         // });
 
+        //Function for Volunteer
+        $("#Name").on('blur', function () {
+            $(".volnotvalidname").hide();
+            volunteername();
+        });
+            $("#Email").on('blur', function () {
+                $(".volnotvalidemail").hide();
+                volunteeremail();
+            });
+            $("#Phone").on('blur', function () {
+                $(".volnotvalidphone").hide();
+                volunteerphone();
+            });
+
+
+        function volunteername(){
+         var name = $("#Name").val();
+            if($("#vform").data("bootstrapValidator").isValidField('Name')){
+
+                $("#volname").html(name);
+                $(".volnotvalidname").show();
+            }
+            else{
+                $("#volname").html(" ");
+                $(".volnotvalidname").hide();
+                // $("#ccname").css("border-bottom","2px solid #FFFFFF");
+            }
+        }
+            function volunteeremail(){
+                var email = $("#Email").val();
+                if($("#vform").data("bootstrapValidator").isValidField('Email')){
+
+                    $("#volemail").html(email);
+                    $(".volnotvalidemail").show();
+                }
+                else{
+                    $("#volemail").html(" ");
+                    $(".volnotvalidemail").hide();
+                    // $("#ccname").css("border-bottom","2px solid #FFFFFF");
+                }
+            }
+            function volunteerphone(){
+                var phone = $("#Phone").val();
+                if($("#vform").data("bootstrapValidator").isValidField('Phone')){
+
+                    $("#volphone").html(phone);
+                    $(".volnotvalidphone").show();
+                }
+                else{
+                    $("#volphone").html(" ");
+                    $(".volnotvalidphone").hide();
+                    // $("#ccname").css("border-bottom","2px solid #FFFFFF");
+                }
+            }
+
+
+//Volunteer ending
         //Functions
 
         function namecheck(){
@@ -483,17 +566,14 @@
         };
     }); // End of jQuery 1
 
-
-    
-
-$(document).ready(function(){
+        $(document).ready(function(){
         // $('.formv').click(function(){
         // $('#paymentform').bootstrapValidator('validate');
-        // $('#vform').bootstrapValidator('validate');
+         //$('#vform').bootstrapValidator('validate');
     // });
 
 
-    $('#paymentform').bootstrapValidator({ 
+         $('#paymentform').bootstrapValidator({
 
         feedbackIcons:{
 
@@ -687,7 +767,7 @@ $(document).ready(function(){
     }); //End of Validation
 }); //End of jQuery 2
 
-    $(document).ready(function(){
+        $(document).ready(function(){
         $('#vform').bootstrapValidator({ 
 
             feedbackIcons:{
@@ -747,20 +827,6 @@ $(document).ready(function(){
     });// End of jQuery 3
 
 </script>
-   <script>
-        $(document).ready(function(){
-            var scroll_start = 5;
-            var startChange = $('.nav1');
-            var offset = startChange.offset();
-            $(document).scroll(function() {
-                scroll_start = $(this).scrollTop();
-                if(scroll_start > offset.top) {
-                    $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-                } else {
-                    $('.nav1').css('background-color', 'transparent');
-                }
-            });
-        });
-    </script>
+
 
 @endsection

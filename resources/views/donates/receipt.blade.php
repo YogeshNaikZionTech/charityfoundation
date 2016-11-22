@@ -6,8 +6,8 @@
 @endsection
 @section('content')
 <div class="container page-wrap" id="printableArea">
-    <div class="row">
-        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
+    <div  class="row">
+        <div class="well projects col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
             <div class="row">
                 <div class="col-xs-6 col-sm-6 col-md-6">
                     <address>
@@ -58,6 +58,12 @@
             </button>
 
         </div>
+        <div class="well col-md-6 volunteer">
+            <h1>Thank you for your time</h1>
+            <label>Event Name:---------</label><br/>
+            <label>Time :-----------</label><br/>
+            <label>Venue:------------</label><br/>
+        </div>
     </div>
 </div>
 
@@ -76,19 +82,29 @@
         document.body.innerHTML = originalContents;
     }
 </script>
-<script>
-    $(document).ready(function(){
-        var scroll_start = 5;
-        var startChange = $('.nav1');
-        var offset = startChange.offset();
-        $(document).scroll(function() {
-            scroll_start = $(this).scrollTop();
-            if(scroll_start > offset.top) {
-                $('.nav1').css('background-color', 'rgba(34,34,34,0.9)');
-            } else {
-                $('.nav1').css('background-color', 'transparent');
+<script src="{{URL::asset('/js/nav.js')}}"></script>
+    <Script type="text/javascript">
+        $(document).ready(function () {
+            $('.projects').hide();
+            $('.volunteer').hide();
+            if(sessionStorage.getItem('donation') != null) {
+                var type = "donation";
+                var e = sessionStorage.getItem('donation');
+                $(".projects").show();
+                $('.type').val(type);
+                $('.proevent').val(e);
+                $(".title").html(e);
             }
-        });
-    });
-</script>
+            else if(sessionStorage.getItem('volunteer') != null){
+                var type = "volunteer";
+                var e = sessionStorage.getItem('volunteer');
+                $(".volunteer").show();
+                //$('.type').val(type);
+//                $('.proevent').val(e);
+//                $(".title").html(e);
+
+            }
+        })
+
+    </Script>
 @endsection
