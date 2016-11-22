@@ -56,14 +56,15 @@ class ProjectController extends Controller
         $project_image = $filename;
 
         $project = new Project();
-
+        $project_Date = $request->input('pdate');
         $project->project_Title = $pname;
         $project->project_Description =$pdescription;
        $project->project_Date = $request->input('pdate');
-        $project->project_StartTIme = $request->input('pstime');
+        $project->project_StartTIme =$project_Date.' '.$request->input('pstime');
         $project->project_Image = $request->input('pimage');
         $project->project_Location = $request->input('plocation');
         $pdate = $request->input('pdate');
+        Log::info("Before date");
         
         if($pdate == date("Y,m,d")){
 
@@ -74,7 +75,8 @@ class ProjectController extends Controller
             $project->project_Status = 'future';
 
         }
-
+        Log::info($project);
+        $project->save();
         \Session::flash( 'ProjectCreated', 'Project created' );
         return view('/projects/show');
     }
