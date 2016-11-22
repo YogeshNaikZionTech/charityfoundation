@@ -236,18 +236,14 @@ class EventController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
     {
         $id = $request->input('id');
- $event = Event::where("id","=", $id)->get();
-
-
-
-
-        Log::info('Request that recevied' . $request);
+        $event = Event::where("id","=", $id)->get();
+            Log::info('Request that recevied' . $request);
         $event_Title = $request->input('ename');
         $event_Description = $request->input('edescription');
         $event_location = $request->input('location');
@@ -291,10 +287,10 @@ class EventController extends Controller
     public function destroy($id)
     {
 
-        echo 'Great you got it.';
-//        $event_delete = Event::Where('id','=',$id)->get();
-//        $event_delete->delete();
-//        echo 'deleted';
+
+      $event_delete = Event::Where('id','=',$id)->get();
+        $event_delete->delete();
+        \Session::flash( 'EventDeleted', 'Event Deleted' );
 
     }
 }

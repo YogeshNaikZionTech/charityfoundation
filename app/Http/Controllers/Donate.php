@@ -176,7 +176,7 @@ class Donate extends Controller
             $pvnotif->save();
         }
 
-        return view("/");
+        return view("events/show");
 
 
     }
