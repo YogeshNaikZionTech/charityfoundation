@@ -278,6 +278,45 @@ class EventController extends Controller
 
     }
 
+    public function updateEvent(Request $request)
+    {
+        echo 'hi';
+        $id = $request->input('id');
+        $event = Event::where("id","=", $id)->get();
+        Log::info('Request that recevied' . $request);
+        $event_Title = $request->input('ename');
+        $event_Description = $request->input('edescription');
+        $event_location = $request->input('location');
+        $event_Date = $request->input('edate');
+
+        $start_time =   $event_Date.' '.$request->input('stime');
+        $end_time = $event_Date.' '.$request->input('etime');
+
+        $filename = 'event.jpg';
+        if ($request->hasFile('eimage')) {
+            $event_image = $request->file('eimage');
+            $filename = time() . '.' . $event_image->getClientOriginalExtension();
+            Image::make($event_image)->resize(300, 300)->save(public_path('/events/' . $filename));
+        }
+
+
+        $event->event_Title = $event_Title;
+        $event->event_Description = $event_Description;
+        $event->event_location = $event_location;
+        $event->event_Date = $event_Date;
+        $event->event_StartTime = $start_time;
+        $event->event_EndTime = $end_time;
+        $event->event_Image = $filename;
+        if(Input::has('estatus')){
+
+            $event->event_Status = $request->input('estatus');
+        }
+
+        Log:info('Event that is being updated:'.$event);
+        $event->update();
+        \Session::flash( 'EventUpdate', 'Event updated' );
+
+    }
     /**
      * Remove the specified resource from storage.
      *
