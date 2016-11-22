@@ -58,7 +58,7 @@
             </button>
 
         </div>
-        <div class="well col-md-6 volunteer">
+        <div class=" col-md-offset-3 col-sm-offset-2 col-xs-offset-1 col-lg-offset-3 well col-md-6  col-lg-6 col-xs-10 col-sm-8 volunteer container">
             <h1>Thank you for your time</h1>
             <label>Event Name:---------</label><br/>
             <label>Time :-----------</label><br/>
@@ -85,28 +85,9 @@
 <script src="{{URL::asset('/js/nav.js')}}"></script>
     <Script type="text/javascript">
         $(document).ready(function () {
-            $('.projects').hide();
-            $('.volunteer').hide();
-//            if(sessionStorage.getItem('donates') != null) {
-//                var type = "donates";
-//                var e = sessionStorage.getItem('donates');
-//                $(".projects").show();
-//                $('.type').val(type);
-//                $('.proevent').val(e);
-//                $(".title").html(e);
-//            }
-             if(sessionStorage.getItem('volunteer') != null){
-                var type = "volunteer";
-                var e = sessionStorage.getItem('volunteer');
-                $(".volunteer").show();
-                $('.type').val(type);
-                $('.proevent').val(e);
-                $(".title").html(e);
+            $('.projects').show();
+            $('.volunteer').show();
 
-            }
-            else{
-                $('.projects').show();
-            }
         })
 
     </Script>

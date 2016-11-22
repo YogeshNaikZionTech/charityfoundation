@@ -95,7 +95,7 @@
 
                                 <div class="security-code-group form-group">
                                     <label for="SecurityCode">CVV</label>
-                                    <input id="SecurityCode" class="form-control" type="text" name="SecurityCode">
+                                    <input id="SecurityCode" maxlength="3" class="form-control" type="text" name="SecurityCode">
                                 </div>
 
                                 <div class="zip-code-group form-group">
@@ -186,8 +186,8 @@
                         </div>
                     </div>
 
-                    <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
-                    <span class="align-middle">DONATE</span></label>
+                    <a  href="{{url('receipt')}}"><label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
+                    <span class="align-middle">DONATE</span></label></a>
                 </div>
                 <!--<div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
                     <p>Thank You!!!</p>   
@@ -573,8 +573,7 @@ $(document).ready(function(){
                     notEmpty:{
                         message:"Enter Your CVV"
                         },
-
-                    cvv:{
+                     cvv:{
                         creditCardField: 'CreditCardNumber',
                         message: 'The CVV number is not valid'
                     }

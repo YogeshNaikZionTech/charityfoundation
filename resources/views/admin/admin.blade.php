@@ -194,7 +194,7 @@
                     <div class="tab-content">
                         <div class="tab-pane fade active in" id="proj">
                             <h3>New Project Creation</h3>
-                            <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
+                            <form enctype="multipart/form-data" name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
                                 <div class="form-group">
                                     <label for="pname" class="col-md-6 control-label"  >Project Name</label>
                                     <div class="col-md-6">
@@ -246,7 +246,7 @@
                         <div class="tab-pane fade" id="eve">
                             <h3>New Event Creation</h3>
 
-                            <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="post">
+                            <form enctype="multipart/form-data" name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="post">
                                     <div class="form-group">
                                     <label  for="ename" class="col-md-3 control-label" >Event Name :</label>
                                         <div class="col-md-8">
@@ -320,7 +320,7 @@
                 </div>
                <!--  Form to Modify an Event -->
                 <div class="project program">
-                    <form class="form-group col-md-6" action="{{url('/putprojects')}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-group col-md-6" action="{{url('/putprojects')}}" method="POST">
                     <!-- <input name="_method" type="hidden" value="PUT"> -->
                                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
@@ -359,7 +359,7 @@
                 </div>
                <!--  Form to Modify an Event -->
                 <div class="event program">
-                    <form class="form-group col-md-6"  action="{{url('/putevents')}}" method="POST">
+                    <form enctype="multipart/form-data" class="form-group col-md-6"  action="{{url('/putevents')}}" method="POST">
                     <!-- <input name="_method" type="hidden" value="PUT"> -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
