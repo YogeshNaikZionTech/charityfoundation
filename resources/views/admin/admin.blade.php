@@ -21,7 +21,7 @@
                 <i class="fa fa-tachometer"></i>
                 <span>Admin Panel</span>
             </div>
-            <a href="#" class="nav-trigger"><span></span></a>
+            {{--<a href="#" class="nav-trigger"><span></span></a>--}}
         </div>
         <div class="flexbox">
         <div class="side-nav col">
@@ -60,7 +60,7 @@
             </nav>
         </div>
         <div class="main-content col">
-            <div class="admin-content" id="history">
+            <div class="admin-content col-md-6" id="history">
                 <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
                 <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
@@ -319,8 +319,11 @@
                         <input type="radio" name="program" id="radiosel2" value="events"> Events
                     </label>
                 </div>
+               <!--  Form to Modify an Event -->
                 <div class="project program">
-                    <form class="form-group col-md-6" action="{{url('/projects')}}" method="PUT">
+                    <form class="form-group col-md-6" action="{{url('/putprojects')}}" method="POST">
+                    <!-- <input name="_method" type="hidden" value="PUT"> -->
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
                                 <select id="Select1" name="Select1" class="form-control">
@@ -328,12 +331,13 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <input type="hidden" class="project_id" name="id">
 
                         <div class="form-group">
-                            <input class="form-control" id="updatepname" name="updatepname" placeholder="Project Name" style="height:28px;" type="text">
+                            <input class="form-control" id="updatepname" name="pname" placeholder="Project Name" style="height:28px;" type="text">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="pdescription" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
+                            <textarea class="form-control" id="proj_description" name="pdescription" placeholder="Project Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
                             <select class="form-control" id="pstatus">
@@ -346,7 +350,7 @@
                         </div>
                         <div class="form-group">
                             <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                            <input id="files" style="visibility:hidden;" type="file" Name="pimage" accept="image/*">
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary">
@@ -354,8 +358,12 @@
                         </div>
                     </form>
                 </div>
+               <!--  Form to Modify an Event -->
                 <div class="event program">
-                    <form class="form-group col-md-6"  action="{{url('/events')}}" method="PUT">
+                    <form class="form-group col-md-6"  action="{{url('/putevents')}}" method="POST">
+                    <!-- <input name="_method" type="hidden" value="PUT"> -->
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+
                         <div class="form-group">
                             <fieldset id="Group2" name="Group2">
 
@@ -364,15 +372,16 @@
                                 </select>
                             </fieldset>
                         </div>
+                        <input type="hidden" id="event_id" name="id">
 
                         <div class="form-group">
-                            <input class="form-control" id="updateename" name="updateename" placeholder="Event Name" type="text" style="height:28px;">
+                            <input class="form-control" id="updateename" name="ename" placeholder="Event Name" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" id="edescription" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                            <textarea class="form-control" id="eve_description" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" id="updatevenue" name="updatevenue" placeholder="Venue" type="text" style="height:28px;">
+                            <input class="form-control" id="updatevenue" name="location" placeholder="Venue" type="text" style="height:28px;">
                         </div>
                         <div class="form-group">
                             <select class="form-control" id="estatus" name="estatus">
@@ -387,6 +396,11 @@
                         </div>
                         <div class="form-group">
                             <div>
+                                <div>
+                                <label>Date</label>
+                                    <input type="date" id="edate" name="edate">
+                               
+                                </div>
                                 <div class="datetimepicker1 input-append date">
                                     <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="estarttime" name="estarttime" placeholder="Start Time">
                                     <span class="add-on" style="height:28px;">
@@ -399,11 +413,12 @@
                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
                                 </span>
                                 </div>
+                                
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                            <input id="files" style="visibility:hidden;" type="file" Name="pic" accept="image/*">
+                            <input id="files" style="visibility:hidden;" type="file" name="eimage" accept="image/*">
                         </div>
 
                         <div class="form-group">
@@ -447,9 +462,11 @@
     </script>
     <script type="text/javascript">
     $(document).ready(function() {
-    $('.nav-trigger').click(function() {
-    $('.side-nav').toggleClass('visible');
-    });
+        $('#history').show();
+        $('#users').hide();
+        $('#create').hide();
+        $('update').hide();
+
     });
     </script>
    {{--Search Users Menu--}}
@@ -604,8 +621,9 @@
                            success: function(response){
                                response = JSON.parse(response);
                                $('#updatepname').val(response.project_Title);
-                               $('#pdescription').val(response.project_Description);
-                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);                           }
+                               $('#proj_description').val(response.project_Description);
+                               $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
+                               $('.project_id').val(response.id);                           }
                        })
 
                    });
@@ -617,12 +635,15 @@
                            datatype: 'JSON',
                            success: function(response){
                                response = JSON.parse(response);
+                               $('#edate').val(response[0].event_Date);
+
                                $('#updateename').val(response[0].event_Title);
-                               $('#edescription').val(response[0].event_Description);
+                               $('#eve_description').val(response[0].event_Description);
                                $('#updatevenue').val(response[0].event_Location);
                                $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
-                               $('#stime').val(response[0].start_time);
-                               $('#etime').val(response[0].end_time);
+                               $('#estarttime').val( response[0].event_StartTime);
+                               $('#eendtime').val(response[0].event_EndTime);
+                               $('#event_id').val(response[0].id);
 
                            }
                        })

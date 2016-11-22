@@ -173,7 +173,7 @@ if(upcomingPages > 1){
 //Loading Completed Events on load
 
 $.ajax({
-        url: 'events/page/current/',
+        url: 'events/page/completed/',
         type: 'POST',
         data: {'id': 1},
         datatype: 'JSON',
@@ -232,12 +232,12 @@ $.ajax({
                   $('#upPages').find("a[name="+id+"]").closest('li').addClass('active');
               });
 
-      //Getting the content based on Page number for upcoming
+      //Getting the content based on Page number for completed
           $('body').on('click', '.comPageClick', function(){
    
                var id =  $(this).attr('name');
                   $.ajax({
-                    url: 'events/page/current/',
+                    url: 'events/page/completed/',
                     type: 'POST',
                     data: {'id' : id},
                     datatype: 'JSON',

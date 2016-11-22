@@ -246,10 +246,28 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        echo 'Great you got it.';
 
+        //Sandeep - I just wrote this update function to test - please check if its ok (-Kim)
+        $id = $request->input('id');
+        $project = Project::where("id","=", $id)->get();
+            Log::info('Input that is to be updated' . $project);
+        $project_Title = $request->input('pname');
+        $project_Description = $request->input('pdescription');
+        $filename = 'project1.jpg';
+        if ($request->hasFile('pimage')) {
+            $project_image = $request->file('pimage');
+            $filename = time() . '.' . $project_image->getClientOriginalExtension();
+            Image::make($project_image)->resize(300, 300)->save(public_path('/projects/' . $filename));
+        }
+         if(Input::has('pstatus')){
+
+            $project->project_Status = $request->input('pstatus');
+        }
+
+ Log::info('Project that is being updated:'.$project);
+        $project->update();
     }
 
     /**
