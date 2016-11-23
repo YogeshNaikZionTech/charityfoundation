@@ -5,7 +5,12 @@
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-<div class="main container-fluid" >
+<div class="main container-fluid" id="content">
+    @if(Session::has('ProjectCreated'))
+        <div class="alert alert-success" role="alert">
+            <strong>{{\Session::get('ProjectCreated')}}</strong>
+        </div>
+    @endif
   <div class="h">
       <h2>Projects</h2>
    
@@ -176,7 +181,7 @@
                         $.each(response, function (key,val) {
                           setTimeout(function(){
 
-                            var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                            var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/projects/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
                                
                             var k = $('<div>'+output+'</div>').hide();
                   $('.currentContent').append(k);
@@ -208,7 +213,7 @@ $.ajax({
                     $.each(response, function (key,val) {
                       // setTimeout(function(){
 
-                   var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
+                   var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/projects/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>"
                  
                  var k = $('<div class="row">'+output+'</div>').hide();
                   $('.futureContent').append(output);
@@ -235,7 +240,7 @@ $.ajax({
                  
                  $.each(response, function (key,val) {
 
-                   output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
+                   output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img src='/images/projects/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
                  });
                  output+="</div>";
                   $('.completedContent').html(output);
@@ -260,7 +265,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                    setTimeout(function(){
-                            var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
+                            var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/projects/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a href='{{url('donates/create')}}'><button type='button' class='btn btn-warning donate'>Donate Now</button></a> </div></div></div>";
 
           var k = $('<div>'+output+'</div>').hide();
                   $('.currentContent').append(k);
@@ -294,7 +299,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                   setTimeout(function(){
-                   var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>";
+                   var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/projects/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <button class='btn btn-warning noclick'>Coming Soon!</button> </div></div></div>";
 
 
           var k = $('<div>'+output+'</div>').hide();
@@ -328,7 +333,7 @@ $.ajax({
                  response = JSON.parse(response);
                  $.each(response, function (key,val) {
                    setTimeout(function(){
-               var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button type='button' name='"+val.id+"' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
+               var output = "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img src='/images/projects/"+ val.project_Image+"' class='img-responsive'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button type='button' name='"+val.id+"' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
 
 
                   var k = $('<div>'+output+'</div>').hide();

@@ -85,11 +85,17 @@ class AdminController extends Controller
      */
     public function exportUsers(){
 
-
-        $users = User::select('id', 'firstname', 'lastname','email','phonenum', 'street','aptNo','state','country','zipcode','created_at')->get();
-        \Excel::create('users', function($excel) use($users) {
-            $excel->sheet('Sheet 1', function($sheet) use($users) {
-                $sheet->fromArray($users);
+        $user_response = array();
+        $user_check=array();
+        //$users = User::select('id', 'firstname', 'lastname','email','phonenum', 'street','aptNo','state','country','zipcode','created_at')->get();
+        $users = User::all();
+        foreach($users as $user){
+            $user_check = array('id'=>$user->id, 'firstname'=>$user->firstname, 'lastname'=>$user->lastname,'email'=>$user->email,'phonenum'=>$user->phonenum, 'street'=>$user->street,'aptNo'=>$user->street,'state'=>$user->state,'country'=>$user->country,'zipcode'=>$user->zipcode,'user_since'=>$user->created_at);
+            array_push($user_response,$user_check);
+        }
+        \Excel::create('users', function($excel) use($user_response) {
+            $excel->sheet('Sheet 1', function($sheet) use($user_response) {
+                $sheet->fromArray($user_response, null, 'A1', false, true);
             });
         })->export('xls');
     }
@@ -113,7 +119,6 @@ class AdminController extends Controller
         $perpage =10;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         $user_list = User::take($perpage)->skip($start)->get();
-        Log::info($user_list);
         foreach($user_list as $u){
             $esum =0;
             $psum =0;
@@ -123,28 +128,82 @@ class AdminController extends Controller
             foreach($project as $p){
                 $psum += $p->pivot->project_cents;
             }
-
-                foreach ($event as $e) {
-                    $esum += $e->pivot->event_cents;
+            foreach ($event as $e) {
+                $esum += $e->pivot->event_cents;
                 }
                 $tsum = $esum+$psum;
                 array_push($user_donation,array("firstname" => $u->firstname, "lastname" => $u->lastname, "email" => $u->email, "phonenum" => $u->phonenum, "project_donation"=>$psum,"event_donation"=>$esum,"total_donation" => $tsum));
-
-//                Log::info($user_donation);
-//                array_push($user_donation,array("firstname" => $u->firstname, "lastname" => $u->lastname, "email" => $u->email, "phonenum" => $u->phonenum, "total_donation" => $sum));
-//                Log::info($user_donation);
-
         }
         echo json_encode($user_donation);
     }
 
 
-    public function donationView(){
+    public function donationTable(){
 
-        //
+        $donation_respose = array();
+        $donation_check = array();
+        //gives array of all the user who have donated to projects
+        $users = User::has('project')->get();
+
+        //get the list of project for each user.
+        foreach($users as  $user){
+
+            $project_c = $user->project->count();
+            if($project_c > 1){
+                $projects = $user->project;
+                foreach($projects as $p){
+
+                    $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
+                    array_push($donation_respose, $donation_check);
+                }
+            }else{
+                $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
+                array_push($donation_respose, $donation_check);
+            }
+        }
+        echo json_encode($donation_respose);
     }
 
-    
+
+    public function exportDonation(){
+
+        $donation_response = array();
+        $donation_check = array();
+        //gives array of all the user who have donated to projects
+        $users = User::has('project')->get();
+
+        //get the list of project for each user.
+        foreach($users as  $user){
+
+            $project_c = $user->project->count();
+            if($project_c > 1){
+                $projects = $user->project;
+                foreach($projects as $p){
+
+                    $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
+                    array_push($donation_response, $donation_check);
+                }
+            }else{
+                $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
+                array_push($donation_response, $donation_check);
+            }
+        }
+
+        \Excel::create('Donations', function($excel) use ($donation_response) {
+
+            // Set the spreadsheet title, creator, and description
+            $excel->setTitle('Donations');
+            $excel->setCreator('Web Autogenerated')->setCompany('AAFoundation');
+            $excel->setDescription('donations');
+
+            // Build the spreadsheet, passing in the payments array
+            $excel->sheet('sheet1', function($sheet) use ($donation_response) {
+
+                $sheet->fromArray($donation_response, null, 'A1', false, true);
+            });
+
+        })->export('xls');
+    }
 
 
 

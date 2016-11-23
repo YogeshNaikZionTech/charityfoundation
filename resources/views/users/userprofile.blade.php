@@ -20,7 +20,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
-                        <img src="/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg" id="profileimg"/>
+                        <img src="/images/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg" id="profileimg"/>
                         <h6>Upload New Picture</h6>
 
                         <input type="file" name="avatar" class="text-center center-block well well-sm" onchange="readURL(this);">

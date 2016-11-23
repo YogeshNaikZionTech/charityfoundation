@@ -6,7 +6,8 @@ use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Requests;
-
+use Intervention;
+use Intervention\Image\ImageManagerStatic as Image;
 class ProjectController extends Controller
 {
     /**
@@ -34,49 +35,54 @@ class ProjectController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
-     *  "pname" => "sandeep"
-    "plocation" => "at my home"
-    "pdate" => "98/99/99"
-    "pstime" => "08:21:56"
-    "pdescription" => "sandeep"
-    "pimage" => ""
-    "_token" => "C7vEztsZQtOe6swjnB8bZcaA8YaPsg14T8dhxMJZ"
+     *
+    " "pname" => "sandeeep tetin"
+    "plocation" => "fdsafdfa"
+    "pdate" => "2017-01-01"
+    "pstime" => "11:00:00"
+    "pdescription" => "dfasfadfadfasdfasdfsdf"
+    "pimage" => "dfd.jpg"
+    "_token" => "CL0vpG4NRX0D4kaM6IYwRWvS0rN9IJ5g94DIMq16"
     ]
      */
     public function store(Request $request)
     {
-        $filename= 'default.png';
+Log::info('Request to store'.$request->pname);
+        $filename= 'event.png';
         if ( $request->hasFile('pimage') ) {
             $project_image = $request->file('pimage');
+            Log::info($project_image->getClientOriginalExtension());
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
-            Image::make($project_image)->resize(300, 300)->save(public_path('/avatars/' . $filename));
+            Log::info('Image name'. $filename);
+            Image::make($project_image)->resize(300, 300)->save(public_path('/images/projects/'.$filename));
         }
+        $project = new Project();
         $pname =  $request->input('pname');
         $pdescription =  $request->input('pdescription');
         $project_image = $filename;
 
-        $project = new Project();
-        $project_Date = $request->input('pdate');
+
         $project->project_Title = $pname;
         $project->project_Description =$pdescription;
        $project->project_Date = $request->input('pdate');
-        $project->project_StartTIme =$project_Date.' '.$request->input('pstime');
-        $project->project_Image = $request->input('pimage');
+        $project->project_StartTIme = $request->pdate.' '.$request->input('pstime');
+        $project->project_Image =$project_image;
         $project->project_Location = $request->input('plocation');
         $pdate = $request->input('pdate');
-        Log::info("Before date");
+        
         
         if($pdate == date("Y,m,d")){
 
             $project->project_Status = 'current';
+            Log::infod('Project status current');
 
         }elseif ($pdate > date("Y,m,d")){
 
             $project->project_Status = 'future';
-
+            Log::info('Project status future');
         }
-        Log::info($project);
-        $project->save();
+
+            $project->save();
         \Session::flash( 'ProjectCreated', 'Project created' );
         return view('/projects/show');
     }
@@ -95,7 +101,7 @@ class ProjectController extends Controller
             $project_show = Project::Where('id','=',$id)->get();
             $project_count = Project::all()->count();
             Log::info('Total project count:'. $project_count);
-        Log::info($project_show);
+
 
             if($id < $project_count ){
 
@@ -162,16 +168,11 @@ class ProjectController extends Controller
      */
 
     public function paginateCurrentProjects($id){
-
-
-
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         Log::info("start flag:".$start);
         $current_list = Project::where("project_Status","=","Current")->skip($start)->take($perpage)->get();
-        Log::info('Requesting for pagination for current projects:'. $current_list);
-
-
+        Log::info('Requesting for pagination for current projects');
         echo json_encode($current_list);
 
     }
@@ -181,27 +182,19 @@ class ProjectController extends Controller
      * pagination for current events
      */
     public function paginateUpcomingProjects($id){
-
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         Log::info("start flag:".$start);
-        Log::info($upcoming_list = Project::where("project_Status","=","future")->get());
         $upcoming_list = Project::where("project_Status","=","future")->skip($start)->take($perpage)->get();
-        Log::info('Requesting for pagination for upcoming projects '.$upcoming_list);
-
-
+        Log::info('Requesting for pagination for upcoming projects ');
         echo json_encode($upcoming_list);
 
     }
      public function paginateCompletedProjects($id){
-
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
-
         $current_list = Project::where("project_Status","=","completed")->take($perpage)->skip($start)->get();
-        Log::info('Requesting for pagination for completed projects:'. $current_list);
-
-
+        Log::info('Requesting for pagination for completed projects:');
         echo json_encode($current_list);
 
     }
@@ -230,46 +223,29 @@ class ProjectController extends Controller
         echo $project_future;
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+
+    public function updateProject(Request $request)
     {
 
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
-    {
-
-        //Sandeep - I just wrote this update function to test - please check if its ok (-Kim)
         $id = $request->input('id');
-        $project = Project::where("id","=", $id)->get();
-            Log::info('Input that is to be updated' . $project);
+        $project = Project::where("id","=", $id)->first();
+        Log::info('Input that is to be updated' . $project);
         $project_Title = $request->input('pname');
         $project_Description = $request->input('pdescription');
         $filename = 'project1.jpg';
         if ($request->hasFile('pimage')) {
             $project_image = $request->file('pimage');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
-            Image::make($project_image)->resize(300, 300)->save(public_path('/projects/' . $filename));
+            Image::make($project_image)->resize(300, 300)->save(public_path('images/projects/' . $filename));
+            Log::info('project Iamge Name:'. $filename);
         }
-         if(Input::has('pstatus')){
-
+         if($request->has('pstatus')){
             $project->project_Status = $request->input('pstatus');
         }
-
- Log::info('Project that is being updated:'.$project);
         $project->update();
+        Log::info('Project that is being updated:'.$id);
+        \Session::flash( 'ProjectUpdated', 'Project is updated' );
+        return view('/events/show');
     }
 
     /**
@@ -280,9 +256,8 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        echo 'Great you got it.';
-//        $project_delete= Event::Where('id','=',$id)->get();
-//        $project_delete->delete();
-//        echo 'deleted';
+        $project_delete= Event::Where('id','=',$id)->get();
+        $project_delete->delete();
+        echo 'deleted';
     }
 }
