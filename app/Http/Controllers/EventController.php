@@ -42,41 +42,39 @@ class EventController extends Controller
     public function store(Request $request)
     {
 
-        Log::info('Request that recevied' . $request);
+        Log::info('Request that recevied to store Event');
         $event_Title = $request->input('ename');
         $event_Description = $request->input('edescription');
         $event_location = $request->input('location');
         $event_Date = $request->input('edate');
-
         $start_time =   $event_Date.' '.$request->input('stime');
         $end_time = $event_Date.' '.$request->input('etime');
-
         $filename = 'event.jpg';
         if ($request->hasFile('eimage')) {
+
             $event_image = $request->file('eimage');
             $filename = time() . '.' . $event_image->getClientOriginalExtension();
-            Image::make($event_image)->resize(300, 300)->save(public_path('/events/' . $filename));
+            Image::make($event_image)->resize(300, 300)->save(public_path('images/events/' . $filename));
+            Log::info('Event Iamge Name:'. $filename);
         }
-
-            $event = new Event();
-            $event->event_Title = $event_Title;
-            $event->event_Description = $event_Description;
-            $event->event_location = $event_location;
-            $event->event_Date = $event_Date;
-            $event->event_StartTime = $start_time;
-            $event->event_EndTime = $end_time;
-            $event->event_Image = $filename;
+        $event = new Event();
+        $event->event_Title = $event_Title;
+        $event->event_Description = $event_Description;
+        $event->event_location = $event_location;
+        $event->event_Date = $event_Date;
+        $event->event_StartTime = $start_time;
+        $event->event_EndTime = $end_time;
+        $event->event_Image = $filename;
         if($event_Date == date("Y,m,d")){
 
             $event->event_Status = 'current';
-
         }elseif ($event_Date > date("Y,m,d")){
 
             $event->event_Status = 'future';
-
         }
-            Log:info('Event that is being saved:'.$event);
-            $event->save();
+
+        $event->save();
+        Log:info('Event that is being saved:'. $event->id);
         \Session::flash( 'EventCreated', 'Event created' );
             return view('/events/show');
 
@@ -96,7 +94,6 @@ class EventController extends Controller
         $event_count = Event::all()->count();
         Log::info('Total project count:'. $event_count);
         if($id < $event_count ){
-
             foreach($event_show as $value){Log::info('the values'. $value->id);
                 $response_check= array("id"=>$value->id,"event_Image"=>$value->event_Image, "event_Title"=>$value->event_Title, "event_Description"=>$value->event_Description, "event_Date"=>$value->event_Date,"event_Location"=>$value->event_Location,"event_StartTime"=>$value->event_StartTime, "event_EndTime"=>$value->event_EndTime,"event_Status"=>$value->event_Status);
                 array_push($response_array, $response_check);
@@ -119,7 +116,7 @@ class EventController extends Controller
     public function allEvents(){
 
         $event_list = Event::all()  ;
-        Log::info($event_list);
+        Log::info('Ajax Response: All events');
         echo json_encode($event_list);
     }
 
@@ -132,12 +129,11 @@ class EventController extends Controller
      */
     public  function  paginateEvents(Request $request){
 
-            $id = $request->input('id');
-            $perpage =8;
-
-            $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
-        Log:info('Requesting for Events(pagination) from :'. $start);
-            $event_all = Event::take($perpage)->skip($start)->get();
+        $id = $request->input('id');
+        $perpage =8;
+        $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+        Log:info('Ajax Response: Events(pagination) from :'. $start);
+        $event_all = Event::take($perpage)->skip($start)->get();
         echo json_encode($event_all);
 
     }
@@ -152,11 +148,7 @@ class EventController extends Controller
         $id = $request->input('id');
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
-
         $upcoming_list = Event::where("event_Status","=","future")->take($perpage)->skip($start)->get();
-        Log::info($upcoming_list);
-
-
         echo json_encode($upcoming_list);
 
     }
@@ -171,11 +163,7 @@ class EventController extends Controller
         $id = $request->input('id');
         $perpage =8;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
-
         $current_list = Event::where("event_Status","=","completed")->take($perpage)->skip($start)->get();
-        Log::info($current_list);
-
-
         echo json_encode($current_list);
 
     }
@@ -221,84 +209,27 @@ class EventController extends Controller
 
 
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request)
-    {
-       
-
-        $id = $request->input('id');
-        $event = Event::where("id","=", $id)->get();
-            Log::info('Input that is to be updated' . $event);
-        $event_Title = $request->input('ename');
-        $event_Description = $request->input('edescription');
-        $event_location = $request->input('location');
-        $event_Date = $request->input('edate');
-
-        $start_time =  $request->input('stime');
-        $end_time = $request->input('etime');
-
-        $filename = 'event.jpg';
-        if ($request->hasFile('eimage')) {
-            $event_image = $request->file('eimage');
-            $filename = time() . '.' . $event_image->getClientOriginalExtension();
-            Image::make($event_image)->resize(300, 300)->save(public_path('/events/' . $filename));
-        }
-
-
-        $event->event_Title = $event_Title;
-        $event->event_Description = $event_Description;
-        $event->event_location = $event_location;
-        $event->event_Date = $event_Date;
-        $event->event_StartTime = $start_time;
-        $event->event_EndTime = $end_time;
-        $event->event_Image = $filename;
-        if(Input::has('estatus')){
-
-            $event->event_Status = $request->input('estatus');
-        }
-
-        Log::info('Event that is being updated:'.$event);
-        $event->update();
-        \Session::flash( 'EventUpdate', 'Event updated' );
-
-    }
 
     public function updateEvent(Request $request)
     {
-        echo 'hi';
+
+
         $id = $request->input('id');
-        $event = Event::where("id","=", $id)->get();
-        Log::info('Request that recevied' . $request);
+        $event = Event::where("id","=", $id)->first();
+        Log::info('Request that recevied to update event: '. $id);
         $event_Title = $request->input('ename');
         $event_Description = $request->input('edescription');
         $event_location = $request->input('location');
         $event_Date = $request->input('edate');
 
-        $start_time =   $event_Date.' '.$request->input('stime');
-        $end_time = $event_Date.' '.$request->input('etime');
+        $start_time =  $request->input('estarttime');
+        $end_time = $request->input('eendtime');
 
         $filename = 'event.jpg';
         if ($request->hasFile('eimage')) {
             $event_image = $request->file('eimage');
             $filename = time() . '.' . $event_image->getClientOriginalExtension();
-            Image::make($event_image)->resize(300, 300)->save(public_path('/events/' . $filename));
+            Image::make($event_image)->resize(300, 300)->save(public_path('/images/events/' . $filename));
         }
 
 
@@ -314,9 +245,11 @@ class EventController extends Controller
             $event->event_Status = $request->input('estatus');
         }
 
-        Log:info('Event that is being updated:'.$event);
-        $event->update();
-        \Session::flash( 'EventUpdate', 'Event updated' );
+
+        $event->save();
+        Log:info('Event that is being updated:'.$event->id);
+        \Session::flash( 'EventUpdated', 'Event updated' );
+        return view('/admin/admin');
 
     }
     /**

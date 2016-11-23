@@ -24,14 +24,15 @@ class userProfileController extends Controller {
     public function updateUser( Request $request ) {
 
         $filename='default.png';
-        Log::info('Request'. $request);
+        Log::info('Request for updating user profile');
 
         if ( $request->hasFile('avatar') ) {
-            $avatar = $request->file('avatar');
 
+            $avatar = $request->file('avatar');
+            Log::info($avatar->getClientOriginalExtension());
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
-            Image::make($avatar)->resize(300, 300)->save(public_path('/avatars/f' . $filename));
-            Log::info($filename );
+            Image::make($avatar)->resize(300, 300)->save(public_path('/images/avatars/' . $filename));
+
         }
         $user = \Auth::user();
         $user->avatar   = $filename;
