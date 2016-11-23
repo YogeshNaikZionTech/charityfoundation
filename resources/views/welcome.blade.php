@@ -17,7 +17,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active ">
-                    <img class="first-slide img-responsive" src="{{URL::asset('/images/slider6.jpg')}}" alt="First slide">
+                    <img class="first-slide img-responsive" src="{{URL::asset('/homeimages/slider6.jpg')}}" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>CAUSE1: Education benefit society</h1>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="second-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="Second slide">
+                    <img class="second-slide img-responsive" src="{{URL::asset('/homeimages/education3.jpg')}}" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption second col-md-7 col-lg-7 col-sm-6 col-xs-6" >
                             <h1 >CAUSE2:Solar panels to Schools</h1>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="third-slide img-responsive" src="{{URL::asset('/images/education2.jpg')}}" alt="Third slide">
+                    <img class="third-slide img-responsive" src="{{URL::asset('/homeimages/education2.jpg')}}" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
                             <h1>CAUSE3:Digitize Classrooms</h1>
@@ -222,7 +222,7 @@
 
             </div>
             <div class=" col-md-2 col-lg-2 col-xs-3 col-sm-2 col-lg-offset-9 pull-right" >
-                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/images/back_to_top_icon.png')}}"/></a>
+                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/homeimages/back_to_top_icon.png')}}"/></a>
             </div>
         </div>
 
