@@ -136,7 +136,7 @@
           }
           else if (response.projects_Current == 0){
             // load 'no projects to show' page
-            $('.currentContent').html("<h3 class='noprojects'> We're still working on this and will update our projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
+            $('.currentContent').html("<h3 class='noprojects'> We're still working on this and will update our current projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
           }
           if(response.projects_Future > 0){
           var futurePages = Math.ceil(response.projects_Future/8);
@@ -150,7 +150,7 @@
           }
             else if (response.projects_Future == 0){
             // load 'no projects to show' page
-            $('.futureContent').html("<h3 class='noprojects'> We're still working on this and will update our projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
+            $('.futureContent').html("<h3 class='noprojects'> We're still working on this and will update our future projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
           }
           if(response.projects_Completed > 0){
           var completedPages = Math.ceil(response.projects_Completed/8);
@@ -164,7 +164,7 @@
           }
             else if (response.projects_Completed == 0){
             // load 'no projects to show' page
-            $('.completedContent').html("<h3 class='noprojects'> We're still working on this and will update our projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
+            $('.completedContent').html("<h3 class='noprojects'> We're still working on this and will update our completed projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
           }
         }
       });

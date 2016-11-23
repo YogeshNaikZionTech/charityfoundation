@@ -28,7 +28,7 @@ class projectTabelSeeder extends Seeder
   DB::table( 'project' )->insert( [
 
 				    'project_Title'       => 'Classroom Digitization',
-				    'project_Description' => 'The need for technology in the field of education is clearly pronounced. Yet, majority of children in rural India are denied this necessity. AA Foundation strives to help the children from less fortunate economic backgrounds to keep up with this trend.  We provide projectors etc etc etc to schools in rural areas to give the children a more visual learning experience and improving the quality of learning. Help us help children get acquainted with technology from early on.' ,
+				    'project_Description' => 'The need for technology in the field of education is clearly pronounced. Yet, majority of children in rural India are denied this necessity. AA Foundation strives to help the children from less fortunate economic backgrounds to keep up with this trend.  We provide projectors to schools in rural areas to give the children a more visual learning experience and improving the quality of learning. Help us help children get acquainted with technology from early on.' ,
 				    'project_Date'        => \Carbon\Carbon::today(),
 				    'project_Location'     => 'Warangal District, Telangana',
 				    'project_StartTime'  => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
