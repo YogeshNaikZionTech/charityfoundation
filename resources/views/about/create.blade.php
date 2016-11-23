@@ -43,15 +43,15 @@ If you know anyone in dire need of help or have any ideas on how to help childre
     <h2>Our Team</h2>
     <!-- <img class="img-responsive img-circle" id="img1" src="images/people1.jpg" width="80px" height="80px"> -->
     <!-- <img id="img1" src="images/people1.jpg" width="100px" height="100px"> -->
-    <p>We have a dedicated team of engineers, designers and developers who have worked very hard trying to making this venture a success and deserve a special mention. </p>
+    <p>We have a dedicated team of engineers, designers and developers who have worked hard to put together this website and deserve a special mention. </p>
    <ul style="display: inline-block" class="list-group">
-       <li>Yogesh Naik</li>
-       <li>Sandeepyadav Mukkamala</li>
-       <li>Sravanthi Kalusani</li>
-       <li>Saumya Telang</li>
-       <li>Preethi Gunugula</li>
-       <li>Nithin Thomas</li>
        <li>Kimsuka Ramesh</li>
+       <li>Nithin Thomas</li>
+       <li>Preethi Gunugula</li>
+       <li>Sandeepyadav Mukkamala</li>
+       <li>Saumya Telang</li>
+       <li>Sravanthi Kalusani</li>
+       <li>Yogesh Naik</li>
 
    </ul>
      <div class="clearfix"></div>

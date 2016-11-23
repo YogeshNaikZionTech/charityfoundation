@@ -5,7 +5,7 @@
     <link href="{{URL::asset('/css/projects.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 @section('content')
-<div class="main container-fluid" id="content">
+<div class="main container-fluid" >
   <div class="h">
       <h2>Projects</h2>
    
@@ -118,34 +118,57 @@
       // datatype: 'JSON',
       success: function(response){
           response = JSON.parse(response);
-          var currentPages = Math.ceil(response.projects_Current/8);
-          var futurePages = Math.ceil(response.projects_Future/8);
-          var completedPages = Math.ceil(response.projects_Completed/8);
 
+          if (response.projects_Current > 0){
+          var currentPages = Math.ceil(response.projects_Current/8);
           if(currentPages > 1){
             for( var i=1; i<=currentPages; i++){
               $('#cuPages').append('<li><a class="cuPageClick" name=' +i+   '>'+i+'</a></li>');
               }
             }
-          if(futurePages > 1){
+            //load the current projects
+            loadcurrentprojects();
+          }
+          else if (response.projects_Current == 0){
+            // load 'no projects to show' page
+            $('.currentContent').html("<h3 class='noprojects'> We're still working on this and will update our projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
+          }
+          if(response.projects_Future > 0){
+          var futurePages = Math.ceil(response.projects_Future/8);
+           if(futurePages > 1){
             for( var i=1; i<=futurePages; i++){
               $('#fuPages').append('<li><a class="fuPageClick" name=' +i+   '>'+i+'</a></li>');
               }
-            }
-          if(completedPages > 1){
+            } 
+            //load the future projects
+            loadfutureprojects();
+          }
+            else if (response.projects_Future == 0){
+            // load 'no projects to show' page
+            $('.futureContent').html("<h3 class='noprojects'> We're still working on this and will update our projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
+          }
+          if(response.projects_Completed > 0){
+          var completedPages = Math.ceil(response.projects_Completed/8);
+            if(completedPages > 1){
             for( var i=1; i<=completedPages; i++){
               $('#comPages').append('<li><a class="comPageClick" name=' +i+   '>'+i+'</a></li>');
               }
             }
+            //load completed projects
+            loadcompletedprojects();
+          }
+            else if (response.projects_Completed == 0){
+            // load 'no projects to show' page
+            $('.completedContent').html("<h3 class='noprojects'> We're still working on this and will update our projects soon! </h3> <br> <h5 class='noprojects'>If you have any ideas/suggestions please get in touch with us <a href='{{url('/contact')}}' >here</a>. </h5>")
+          }
         }
-
       });
-        // Load the current projects on load
+        // Load the current projects on load (only if current projects exists i.e count > 0)
+        function loadcurrentprojects(){
         $.ajax({
                 url: 'projects/page/current/'+1,
                 type: 'GET',
-                //data: {'id': 1}
-                // datatype: 'JSON',
+                datatype: 'JSON',
                 success: function (response) {
                   console.log(response);
                     var time =0 ;
@@ -170,8 +193,9 @@
 
                             }
              });
+      }
 //Loading Future Projects on load
-
+function loadfutureprojects(){
 $.ajax({
         url: 'projects/page/future/'+1,
         type: 'GET',
@@ -197,8 +221,9 @@ $.ajax({
 
         }
       });
+}
 //Loading Completed Projects on load
-
+function loadcompletedprojects(){
 $.ajax({
         url: 'projects/page/completed/'+1,
         type: 'GET',
@@ -218,6 +243,7 @@ $.ajax({
 
         }
       });
+}
  //Getting the content based on Page number for current
           $('body').on('click', '.cuPageClick', function(){
                   $('.currentContent').empty();
