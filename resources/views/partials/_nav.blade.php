@@ -1,17 +1,18 @@
 <nav class= "nav1 navbar navbar-fixed-top ">
 
     <div class="navbar-header">
+    <a class="navbar-brand" href="/"> <img src="/images/aafoundationlogo(1).jpg"></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
             <span class="sr-only">Toggle navigation</span>
             <span style="background-color: cadetblue" class="icon-bar"></span>
             <span style="background-color: cadetblue" class="icon-bar"></span>
             <span  style="background-color: cadetblue" class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/"> <img src="/images/aafoundationlogo(1).jpg"></a>
+        
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav pull-right">
-            <li class="{{Request::path() == '/' ? 'active' : ''}}"><a href="/">Home</a></li>
+            <!-- <li class="{{Request::path() == '/' ? 'active' : ''}}"><a href="/">Home</a></li> -->
             <li class="{{Request::path() == 'education' ? 'active' : ''}}"><a href="{{url('education')}}">Education</a></li>
             <li class="{{Request::path() == 'projects' ? 'active' : ''}}"><a href="{{url('projects')}}">Projects</a></li>
             <li class="{{Request::path() == 'events' ? 'active' : ''}}"><a href="{{url('events')}}">Events</a></li>
@@ -21,14 +22,14 @@
                 <li class="{{Request::path() == 'login' ? 'active' : ''}}"><a href="{{url('/login')}}" >Login</a></li>
             @else
 
-                <li class="dropdown">
+                <li class="dropdown profile">
 
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="position:relative; padding-left:50px;">
-                        <img src="/avatars/{{Auth::user()->avatar}}" style="width:32px; height:32px; position:absolute; top:10px; left:10px; border-radius:50%">
+                    <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false" style="padding-top: 5px; padding-bottom: 5px;">
+                        <img src="/avatars/{{Auth::user()->avatar}}" class="avatar img-circle">
                         {{ Auth::user()->firstname }} <span class="caret"></span>
                     </a>
 
-                    <ul class="dropdown-menu" role="menu">
+                    <ul class="dropdown-menu" role="menu" id="dropdown-menu">
                         <li>
                             <a href ="{{url('/userprofile')}}">Profile</a>
 
