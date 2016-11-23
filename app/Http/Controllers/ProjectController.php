@@ -69,7 +69,7 @@ Log::info('Request to store'.$request->pname);
         $project->project_Image =$project_image;
         $project->project_Location = $request->input('plocation');
         $pdate = $request->input('pdate');
-        
+
         
         if($pdate == date("Y,m,d")){
 
