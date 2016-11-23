@@ -46,12 +46,12 @@
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
-                            {{--<h2>Urgent Cause</h2>--}}
+
                             <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
                                 <p>Founder take care of all the administrative cost</p>
 
                             </div>
-                            {{--<a href="{{url('/select')}}" class="btn btn2 btn-lg">DONATE</a>--}}
+
                         </div>
 
                     </div>
@@ -109,7 +109,7 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title"></h4>
                                 </div>
-                            <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
+                             {{--<form class="form-group" action="{{url('/projects')}}" action="POST"> --}}
                                 <div class="modal-body">
                                     <p class="des"><p>
                                     <h2 style="color: green">Location: <span class="loc"></span> </h2>

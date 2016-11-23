@@ -76,7 +76,7 @@ footer{
     text-align:center;
 }
 
-/*.form-data{padding:20px; text-align:center;}*/
+
 
 .style{
     display: block;
@@ -93,8 +93,6 @@ footer{
     color:black;  
     text-decoration: none;
 }
-
-/*.footerpara{font-size:14px; color: black; text-align:justify;}*/
 
 
 .privacy, .terms{
@@ -173,12 +171,7 @@ footer{
 
 
 @media(max-width: 700px){
-/*   .centereditems, .privacyterm{
-       text-align:center;
-       display:inline-block;
-       margin:0 auto;
-       float:none;
-   }*/
+
 
    .links,.social,.copy{
     display:block;
@@ -209,9 +202,7 @@ footer{
     a{
         color:black
     }
-/*    .form-data{
-        padding:20px; text-align:center;
-    }*/
+
     .style{
         display: block;
         list-style-type: none;
@@ -229,9 +220,6 @@ footer{
     .style>li>a:hover{
         color:black;  text-decoration: none;
     }
-/*    .footerpara{
-        font-size:14px; color: black; text-align:justify;
-    }*/
 
 }
 
