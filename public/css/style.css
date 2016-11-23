@@ -641,6 +641,7 @@ h3{
 @media screen and (min-width: 992px) {
     .carousel {
         min-height: 140px;
+        height:666px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -693,6 +694,7 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
+        height:666px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -701,6 +703,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
+        height:666px;
     }
     .donate_carousel{
         height:150px;
@@ -934,6 +937,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
+
     }
     .donate_carousel{
         height:150px;
@@ -941,7 +945,7 @@ h3{
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
-        /*padding: 20px 10px;*/
+
     }
     .donate_carousel >.donors1 > p {
         font-size: 25px;}
@@ -1175,22 +1179,22 @@ h3{
 
 
 .carousel {
-    height: 600px;
+    height: 660px;
     border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
 
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
-    /*z-index: 10;*/
+
     text-align: left;
     top:30%;
     left:10%;
-    /*width:700px;*/
+
 }
 
 /* Declare heights because of positioning of img element */
 .carousel .item {
-    height: 600px;
+    height: 660px;
     background-color: #777;
 }
 .carousel-inner > .item > img {
@@ -1198,7 +1202,7 @@ h3{
     top: 0;
     left: 0;
     width: 100%;
-    height: 600px;
+    height: 660px;
 }
 .carousel-inner1 > .item > img {
     position: relative;
@@ -1513,15 +1517,6 @@ h3{
 .homeEvents > .head {
     position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
 }
-/*.donate_carousel{*/
-    /*position: relative;*/
-    /*height:150px;*/
-    /*top: 14%;*/
-    /*font-size: 16px;*/
-    /*background: rgba(17, 0, 8, 0.46);*/
-    /*border-radius: 20px;*/
-    /*padding: 20px 10px;*/
-/*}*/
 .donate_carousel > .btn-lg ,.carousel-caption > .btn-lg{ color: white;border: 2px white solid;}
 .donors1{padding-bottom: 30px;}
 .donors1 > p { font-size: 23px; text-align: justify;padding-left: 10px;color:white;}
@@ -1536,7 +1531,7 @@ h3{
 .btn-group-lg>.btn, .btn-lg {
  padding: 6px 6px;
 }
-/*background-color: rgba(155, 147, 12, 0.69) ;background-color: rgba(1, 2, 1, 0.53);*/
+
 .btn-lg:hover{ color:black;font-weight: bold;background-color:rgba(20, 58, 69, 0.52)}
 .suggest_donors{padding:20px; align-content: center;}
 .donors1 >span{font-size:30px;color:white;font-weight:600 ;text-align: center;padding-bottom: 30px;}

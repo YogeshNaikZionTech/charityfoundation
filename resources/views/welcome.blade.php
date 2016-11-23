@@ -17,7 +17,7 @@
             </ol>
             <div class="carousel-inner" role="listbox">
                 <div class="item active ">
-                    <img class="first-slide img-responsive" src="{{URL::asset('/images/slider6.jpg')}}" alt="First slide">
+                    <img class="first-slide img-responsive" src="{{URL::asset('/homeimages/slider6.jpg')}}" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>CAUSE1: Education benefit society</h1>
@@ -38,7 +38,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <img class="second-slide img-responsive" src="{{URL::asset('/images/education3.jpg')}}" alt="Second slide">
+                    <img class="second-slide img-responsive" src="{{URL::asset('/homeimages/education3.jpg')}}" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption second col-md-7 col-lg-7 col-sm-6 col-xs-6" >
                             <h1 >CAUSE2:Solar panels to Schools</h1>
@@ -46,18 +46,18 @@
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
-                            {{--<h2>Urgent Cause</h2>--}}
+
                             <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
                                 <p>Founder take care of all the administrative cost</p>
 
                             </div>
-                            {{--<a href="{{url('/select')}}" class="btn btn2 btn-lg">DONATE</a>--}}
+
                         </div>
 
                     </div>
                 </div>
                 <div class="item">
-                    <img class="third-slide img-responsive" src="{{URL::asset('/images/education2.jpg')}}" alt="Third slide">
+                    <img class="third-slide img-responsive" src="{{URL::asset('/homeimages/education2.jpg')}}" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
                             <h1>CAUSE3:Digitize Classrooms</h1>
@@ -109,7 +109,7 @@
                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     <h4 class="modal-title"></h4>
                                 </div>
-                            <!-- <form class="form-group" action="{{url('/projects')}}" action="POST"> -->
+                             {{--<form class="form-group" action="{{url('/projects')}}" action="POST"> --}}
                                 <div class="modal-body">
                                     <p class="des"><p>
                                     <h2 style="color: green">Location: <span class="loc"></span> </h2>
@@ -222,7 +222,7 @@
 
             </div>
             <div class=" col-md-2 col-lg-2 col-xs-3 col-sm-2 col-lg-offset-9 pull-right" >
-                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/images/back_to_top_icon.png')}}"/></a>
+                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/homeimages/back_to_top_icon.png')}}"/></a>
             </div>
         </div>
 
