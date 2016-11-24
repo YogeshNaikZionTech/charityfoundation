@@ -286,7 +286,7 @@
                     var name = response.project_Title;
                     
                     $('.title').html(name);
-                    $(".image").attr("src",'../images/'+response.project_Image);
+                    $(".image").attr("src",'../images/projects/'+response.project_Image);
                 }
             });
         } 
@@ -313,7 +313,7 @@
                     response = JSON.parse(response);
                     var name = response[0].event_Title;                    
                     $('.title').html(name);                    
-                    $(".image").attr("src",'../images/'+response[0].event_Image);                    
+                    $(".image").attr("src",'../images/events/'+response[0].event_Image);                    
                 }
             });
         }

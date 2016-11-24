@@ -54,22 +54,6 @@ DB::table( 'event' )->insert( [
 
 		$Faker = Faker::create( 'App\Event' );
 		
-		// for ( $i = 0; $i < 1; $i ++ ) {
-		// 	DB::table( 'event' )->insert( [
-
-
-		// 		'event_Title'       => $Faker->sentence,
-		// 		'event_Description' => $Faker->paragraph( 8 ),
-		// 		'event_Date'        => \Carbon\Carbon::today(),
-		// 		'event_StartTime'   => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-		// 		'event_Location'    => 'Land of Snow',
-		// 		'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-		// 		'event_Image'       => 'thumb.jpg',
-		// 		'event_Status'      => 'completed',
-
-
-		// 	] );
-		// }
 		for ( $i = 0; $i < 1; $i ++ ) {
 			DB::table( 'event' )->insert( [
 
