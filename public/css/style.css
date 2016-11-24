@@ -29,6 +29,7 @@ h3{
 
 /*-------------------------------------------------Preethi Changes------------------------------------------------*/
 @media (max-width: 200px) {
+    .img-responsive {max-height:50px;}
     .carousel {
         min-height: 140px;
         margin-bottom: 60px;

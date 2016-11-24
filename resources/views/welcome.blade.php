@@ -130,7 +130,7 @@
 
                                 <div class="head">{{$cproject->project_Status}}</div>
                                 <div class="project_image image">
-                                    <img src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
+                                    <img src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="width:100%;max-height: 250px;" alt="Image" ></div>
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
                                     <div><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
@@ -180,7 +180,7 @@
                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                         <div class="homeEvents">
                             <div class="head">{{$cevent->event_Status}}</div>
-                            <div class="project_image image"><img src="images/events/{{$cevent->event_Image}}" class="img-responsive" style="width:100%" alt="Image" height="50px"></div>
+                            <div class="project_image image"><img src="images/events/{{$cevent->event_Image}}" class="img-responsive" style="width:100%;max-height: 250px;" alt="Image"></div>
 
                             <div class="description_event">
                                 <div><h3>{{$cevent->event_Title}}</h3></div>
@@ -222,7 +222,7 @@
 
             </div>
             <div class=" col-md-2 col-lg-2 col-xs-3 col-sm-2 col-lg-offset-9 pull-right" >
-                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/homeimages/back_to_top_icon.png')}}"/></a>
+                <a href="#" class="scrollToTop"><img style="bottom: 0;" src="{{URL::asset('/images/homeimages/back_to_top_icon.png')}}"/></a>
             </div>
         </div>
 
