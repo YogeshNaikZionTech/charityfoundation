@@ -17,6 +17,10 @@ body{
 .eventTabs li.active a, .eventTabs li.active a:focus, .eventTabs li.active a:hover{
     color: #777;
 }
+.noevents{
+    font-style: italic;
+    text-align: center;
+}
 
 .thumbnail{
     /*border: solid black 1px;*/

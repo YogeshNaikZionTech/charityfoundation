@@ -178,9 +178,7 @@
                             country: {
                                 validMessage: 'The country looks great',
                                 validators: {
-//                                    notEmpty: {
-//                                        message: 'The country is required'
-//                                    },
+
                                     regexp: {
                                         regexp: /^[a-zA-z ]*$/,
                                         message: 'The country can only consist of alphabets'
@@ -191,9 +189,6 @@
                                 validMessage: 'The state looks great',
 
                                 validators: {
-//                                    notEmpty: {
-//                                        message: 'The field is required'
-//                                    },
                                     regexp: {
                                         regexp: /^[a-zA-z ]*$/,
                                         message: 'The state can only consist of alphabets'
@@ -202,10 +197,7 @@
                             },
                             phonenum: {
                                 validators: {
-//                                    notEmpty: {
-//                                        message: 'The phone number is required and cannot be empty'
-//                                    },
-                                    phone: {
+                                     phone: {
                                         country: 'US',
                                         message: 'The phone number is not valid'
                                     },
@@ -245,9 +237,7 @@
                             aptNo: {
                                 icon: false,
                                 validators: {
-//                                    notEmpty: {
-//                                        message: 'The #apt number is required and cannot be empty'
-//                                    },
+//
                                     regexp: {
                                         regexp: /^[1-9]\d/,
                                         message: 'integers only'

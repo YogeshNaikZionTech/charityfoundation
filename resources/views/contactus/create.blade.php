@@ -90,8 +90,7 @@
                 </form>
                 <div class="container maps col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                     <iframe class=" col-lg-11 col-md-12 col-sm-12 col-xs-12"   src="http://www.maps.ie/create-google-map/map.php?width=100%&amp;height=400&amp;hl=en&amp;coord=37.3876633,-121.93013960000002&amp;q=2665%20N%20First%20street+(Charity%20Foundation)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
-                        {{--<a href="http://www.mapsdirections.info/nl/maak-een-google-map/">Maak een Google Map</a>--}}
-                        {{--<a href="http://www.mapsdirections.info/nl/">Bereken route</a>--}}
+
                     </iframe>
                 </div><br />
 
