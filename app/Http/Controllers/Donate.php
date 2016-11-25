@@ -166,6 +166,13 @@ class Donate extends Controller
             $evnotif->event_id = $event->id;
             $evnotif->send_status = false;
             $evnotif->save();
+            $d = ['name' => $user->lastname,'type'=>'event', 'type_name'=>$event->event_Title];
+            Mail::send('email.Voultnteer', $d, function ($message) use ($user) {
+                $message->to($user->email, $user->lastname)->subject('Voulnteer conformation');
+                $message->from('noreplyaafoundation@gmail.com', 'AAF');
+            });
+
+            return view('/donates/receipt') ;
 
         } else {
 
@@ -174,6 +181,11 @@ class Donate extends Controller
             $ppnotif->user_id = $user->id;
             $pvnotif->event_id = $project->id;
             $pvnotif->save();
+            $d = ['name' => $user->lastname,'type'=>'project', 'type_name'=>$project->project_Title];
+            Mail::send('email.Voultnteer', $d, function ($message) use ($user) {
+                $message->to($user->email, $user->lastname)->subject('Voulnteer conformation');
+                $message->from('noreplyaafoundation@gmail.com', 'AAF');
+            });
         }
 
         return view ('/donates/receipt');
