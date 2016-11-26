@@ -93,6 +93,10 @@ label{
     text-decoration: underline;
     color: #8C918F;
 }
+
+.greycolor{
+    color:white;
+}
 @media (max-width:500px){
     h1{
         margin-top:15%;
