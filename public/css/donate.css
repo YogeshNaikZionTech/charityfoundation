@@ -24,7 +24,7 @@
 }
 
 .highlight{
-  border-bottom: 2px solid #0000b3;
+  border-bottom: 2px solid #176982;
   transition: border-bottom .20s ease-in-out;
   -webkit-transition: border-bottom .20s ease-in-out;
 }
@@ -279,11 +279,10 @@ margin: 20px auto;
   text-align: center;
   font-size:30px;
   margin-top: 30px;
-  color: #ff6600;
+  color: #176982;
 }
 
 .sum1,.sum2,.sum3{
   margin-bottom: 2%;
   display: none;
 }
-
