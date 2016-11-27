@@ -29,7 +29,7 @@
                 <span>Admin Panel</span>
             </div>
             <nav>
-                <ul class="admin-menu">
+                <ul class="admin-menu" id="admin">
                     <li class="active">
                         <a href="#" data-target-id="history">
                             <span><i class="fa fa-table"></i></span>
@@ -437,12 +437,13 @@
 @endsection
 @section('scripts')
     {{--Navigation Menu--}}
+
 <script src="js/nav.js" type="text/javascript"></script>
     <script type="text/javascript">
     $(document).ready(function()
     {
-    var navItems = $('.admin-menu li > a');
-    var navListItems = $('.admin-menu li');
+    var navItems = $('ul.admin-menu li > a');
+    var navListItems = $('ul.admin-menu li');
     var allWells = $('.admin-content');
     var allWellsExceptFirst = $('.admin-content:not(:first)');
 
@@ -459,15 +460,6 @@
     });
     });
     </script>
-    <script type="text/javascript">
-    $(document).ready(function() {
-        $('#history').show();
-        $('#users').hide();
-        $('#create').hide();
-        $('#update').hide();
-    });
-    </script>
-   {{--Search Users Menu--}}
     <script>
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();

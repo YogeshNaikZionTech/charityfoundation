@@ -6,7 +6,6 @@
     @endsection
 @section('content')
 
-	    {{--<video src="{{URL::asset('/video/Book.mp4')}}" autoplay muted loop></video>--}}
         <div class="videos">
 
             <video autoplay loop muted class="video-bg">
@@ -25,9 +24,6 @@
                 <p>Some description  about video or Main theme of the video</p>
             </div>
             <iframe class="col-lg-11 col-xs-12 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/J_g7p5x-LUs" frameborder="0" allowfullscreen></iframe>
-
-
-
         </div>
 
         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6" >

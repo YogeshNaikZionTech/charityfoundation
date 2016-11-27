@@ -205,7 +205,7 @@ Log::info('Request to store'.$request->pname);
         $project_total = Project::all()->count(); ;
         $project_future = Project::Where('project_Status','=','future')->count();
         $project_completed = Project::Where('project_Status','=','completed')->count();
-        $project_current = Project::Where('project_Status','=','current')->count();
+        $project_current = Project::Where('project_Status','=','Current')->count();
         $projects_counts = array('Total Projects'=>$project_total,'projects_Current'=>$project_current , 'projects_Future'=>$project_future , 'projects_Completed'=>$project_completed);
         echo  json_encode($projects_counts);
     }

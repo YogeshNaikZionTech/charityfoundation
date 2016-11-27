@@ -1,8 +1,6 @@
 footer{
-
     text-align:center;
-    background-color: rgb(173,202,197);
-    z-index: 100;
+    background-color: #176982;
 }
 
 #content{
@@ -10,7 +8,7 @@ footer{
 }
 .copyright{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:black;
+    color:#808080;
     font-size:14px;
     padding-top: 10px;
     font-style: normal;
@@ -25,7 +23,7 @@ footer{
     
 }
 .social{
-    height:80px;
+    /*height:80px;*/
     line-height:80px;
     text-align: right;
     margin-bottom: 0px;
@@ -34,11 +32,11 @@ footer{
 .social li a{
     text-align:center;
     display:block;
-    background-color: rgb(173,202,197);
+    background-color: transparent;
     width:40px;
     font-size:20px;
     font-weight:bold;
-    color:black;
+    color:#808080;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
@@ -52,7 +50,7 @@ footer{
 
 .privacyterm{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:black;
+    color:#808080;
     text-align: center;
     font-style: italic;
     position: absolute;
@@ -69,29 +67,41 @@ footer{
 
 .privacyterm li a{
     text-decoration: none;
-    color: black;
+   color:#808080;
     font-size: 14px;
+}
+
+.privacyterm li a:hover{
+    color:#ff6600;
 }
 .btn:focus,.btn:active,.btn.active,.btn:active:focus{
     outline:0;
     text-align:center;
 }
 
-.style{
+
+#style{
     display: block;
     list-style-type: none;
     text-align: left;
 }
-.style>li>a{ 
-    color:black;
+#style>li>a{ 
+    color:#808080;
     text-align: left;
-    font-size:14px;
+    font-size:16px;
+    text-decoration: none;
+    padding-left:15px;
+    font-weight: bold
+}
+#style>li>a:hover{
+    color:#ff6600;  
     text-decoration: none;
 }
-.style>li>a:hover{
-    color:black;  
+#style>li>a.active{
+    color:#ff6600;  
     text-decoration: none;
 }
+
 
 .privacy, .terms{
   cursor: pointer;
@@ -170,6 +180,7 @@ footer{
 
 @media(max-width: 700px){
 
+
    .links,.social,.copy{
     display:block;
     }
@@ -188,7 +199,6 @@ footer{
 
     .copyright{
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        color:black;
     }
     .links .quicklinks{
         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -200,26 +210,20 @@ footer{
         outline:0;
         text-align:center;
     }
-    a{
-        color:black
-    }
 
-    .style{
+
+    #style{
         display: block;
         list-style-type: none;
-        text-align: left;
+        text-align: center;
     }
-    .style>li>a{
-        color:black;
+    #style>li>a{
         text-align: 
         left;
         font-size:14px; 
         padding:0; 
         margin:0;
         text-decoration: none;
-    }
-    .style>li>a:hover{
-        color:black;  text-decoration: none;
     }
 
     .quicklinks{

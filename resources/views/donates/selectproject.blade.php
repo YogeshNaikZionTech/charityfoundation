@@ -172,7 +172,7 @@
                     var output ="<div class='row'>";
                     response = JSON.parse(response);
                     $.each(response, function (key,val) {
-                        output += "<div class='col-md-4'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option project'><img src='/images/projects/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
                     });
 
                     output+="</div>";
@@ -193,7 +193,7 @@
                         var output ="<div class='row'>";
                         response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                        output += "<div class='col-md-4'><a class='thumbnail option project'><img src='/images/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option project'><img src='/images/projects/"+val.project_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.project_Title+"</p></a></div>";
                         });
                     output+="</div>";
                     $('#projectcontent').html(output);
@@ -232,7 +232,7 @@
                     var output ="<div class='row'>";
                     response = JSON.parse(response);
                     $.each(response, function (key,val) {
-                        output += "<div class='col-md-4'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option eve'><img src='/images/events/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
                     });
 
                     output+="</div>";
@@ -252,7 +252,7 @@
                         var output ="<div class='row'>";
                         response = JSON.parse(response);
                         $.each(response, function (key,val) {
-                        output += "<div class='col-md-4'><a class='thumbnail option eve'><img src='/images/"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
+                        output += "<div class='col-md-4'><a class='thumbnail option eve'><img src='/images/events"+val.event_Image+"' class='img-thumbnail img-responsive'><p class='title' value='"+val.id+"'>"+val.event_Title+"</p></a></div>";
                     });
                     output+="</div>";
                     $('#eventcontent').html(output);
