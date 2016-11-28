@@ -2,12 +2,12 @@
  <div class="container-fluid">
         <div class="row">  
             <div class=" links col-md-4">
-                <ul class="style list-inline quicklinks">
+                <ul class="list-inline quicklinks" id="style">
                     <li>
-                        <a href="{{url('aboutus')}}">About Us</a>
+                        <a href="{{url('aboutus')}}" class="{{Request::path() == 'aboutus' ? 'active' : ''}}">About</a>
                     </li>
                     <li>
-                        <a href="{{url('contact')}}">Contact Us</a>
+                        <a href="{{url('contact')}}" class="{{Request::path() == 'contact' ? 'active' : ''}}">Contact</a>
                     </li>
                 </ul>
             </div>
