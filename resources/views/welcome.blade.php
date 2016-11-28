@@ -129,8 +129,8 @@
                             <div class="homeprojects" >
 
                                 <div class="head">{{$cproject->project_Status}}</div>
-                                <div class="project_image image">
-                                    <img src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="width:100%;max-height: 250px;" alt="Image" ></div>
+                                <div class="project_image ">
+                                    <img class="image" src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="" alt="Image" ></div>
                                     <div><h3>{{$cproject->project_Title}}</h3></div>
                                     <div><p>A community of lifelong learners, and champions of our own success.</p></div>
                                     <div><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>

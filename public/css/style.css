@@ -74,6 +74,7 @@ h3{
     #section03 a {
         padding-top: 60px;
     }
+    .image{min-height: 50px;width:100%;max-height: 50px;}
 
     #section03 a span {
         z-index:9999;
@@ -160,6 +161,7 @@ h3{
         top:15%;
         height: 400px;
     }
+    .image{min-height: 100px;width:100%;max-height: 100px;}
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
@@ -273,6 +275,7 @@ h3{
     }
 }
 @media screen and (min-width: 310px) {
+    .image{min-height: 100px;width:100%;max-height: 100px;}
     .carousel {
         min-height: 140px;
         height: 400px;
@@ -398,6 +401,7 @@ h3{
 }
 
 @media screen and (min-width: 360px) {
+    .image{min-height: 100px;width:100%;max-height: 100px;}
     .carousel {
         min-height: 140px;
         margin-bottom: 60px;
@@ -519,6 +523,8 @@ h3{
 }
 
 @media screen and (min-width: 520px) {
+    .image{min-height: 250px;width:100%;max-height: 250px;}
+
     .carousel {
         min-height: 140px;
         margin-bottom: 60px;
@@ -640,6 +646,7 @@ h3{
 }
 
 @media screen and (min-width: 992px) {
+    .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 140px;
         height:666px;
@@ -682,6 +689,7 @@ h3{
 
 }
 @media screen and (min-width: 1192px) {
+    .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         height: 666px;
         min-height: 200px;
@@ -801,6 +809,7 @@ h3{
 
 }
 @media screen and (min-width: 1292px) {
+    .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 400px;
         height: 666px;
@@ -917,6 +926,7 @@ h3{
 
 }
 @media screen and (min-width: 1392px) {
+    .image{min-height:250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 400px;
         height: 666px;
@@ -1035,6 +1045,7 @@ h3{
 
 }
 @media screen and (min-width: 1920px) {
+    .image{min-height: 250px;width:100%;max-height: 350px;}
     .carousel {
         min-height: 666px;
         height: 1000px;
@@ -1184,6 +1195,7 @@ h3{
     border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
 
 }
+.image{width:100%;max-height: 250px;}
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
 
@@ -1214,6 +1226,7 @@ h3{
 .second > a{border-color:rgba(3, 56, 69, 0.76) }
 .third > a{ color :white;}
 @media screen and (max-width: 520px){
+    .image{width:100%;max-height: 250px;}
     .carousel {
         height: 500px;
         border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
@@ -1498,6 +1511,8 @@ h3{
 .header_Events{margin-top: 40px;padding-bottom:20px; }
 .homeprojects > div> h3 ,.homeprojects > div> p  { padding-left:10px; }
 .homeprojects{
+    min-height: 500px;
+    max-height: 500px;
     padding-top: 10px;
     text-align: justify;
     color:black;
