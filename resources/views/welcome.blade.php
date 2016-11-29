@@ -20,7 +20,7 @@
                     <img class="first-slide img-responsive" src="{{URL::asset('/images/homeimages/slider6.jpg')}}" alt="First slide">
                     <div class="container">
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
-                            <h1>CAUSE1: Education benefit society</h1>
+                            <h1>Project1: Education Programs</h1>
                             <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
                             <a class="btn btn-lg btn2" href="{{url('projects')}}" role="button">Read More</a>
 
@@ -41,7 +41,7 @@
                     <img class="second-slide img-responsive" src="{{URL::asset('/images/homeimages/education3.jpg')}}" alt="Second slide">
                     <div class="container">
                         <div class="carousel-caption second col-md-7 col-lg-7 col-sm-6 col-xs-6" >
-                            <h1 >CAUSE2:Solar panels to Schools</h1>
+                            <h1 >Project2:Digitize classrooms</h1>
                             <p>We make a LIVING by what we GET but we make a LIFE by what we GIVE</p>
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
@@ -60,7 +60,7 @@
                     <img class="third-slide img-responsive" src="{{URL::asset('/images/homeimages/education2.jpg')}}" alt="Third slide">
                     <div class="container">
                         <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
-                            <h1>CAUSE3:Digitize Classrooms</h1>
+                            <h1>Project3:Green school initiative</h1>
                             <p>We rise by "LIFTING OTHERS"</p>
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
@@ -131,8 +131,8 @@
                                 <div class="head">{{$cproject->project_Status}}</div>
                                 <div class="project_image ">
                                     <img class="image" src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="" alt="Image" ></div>
-                                    <div><h3>{{$cproject->project_Title}}</h3></div>
-                                    <div><p>A community of lifelong learners, and champions of our own success.</p></div>
+                                    <div><h3 class="title">{{$cproject->project_Title}}</h3></div>
+                                    <div><p class="description">{{$cproject->project_Description}}</p></div>
                                     <div><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
                             </div>
                         </div>
@@ -183,8 +183,8 @@
                             <div class="project_image image"><img src="images/events/{{$cevent->event_Image}}" class="img-responsive" style="width:100%;max-height: 250px;" alt="Image"></div>
 
                             <div class="description_event">
-                                <div><h3>{{$cevent->event_Title}}</h3></div>
-                                <div><p>A community of lifelong learners, and champions of our own success.</p></div>
+                                <div><h3 class="title">{{$cevent->event_Title}}</h3></div>
+                                <div><p class="description">{{$cevent->event_Description}}</p></div>
 
                                 <a  name="{{$cevent->id}}" class="btn btn2 btn-lg eveseemore">See more </a>
                             </div>
@@ -259,6 +259,7 @@
 
         $(document).ready(function(){
 
+                    //Bootstrap form  validation stats from here  for Suggest form
             $("#suggestform").bootstrapValidator({
                 feedbackIcons:{
 
@@ -313,6 +314,8 @@
             });
 
         });
+        //Bootstrap form  validation stats ends here  for Suggest form
+//        Number Counting functionality for Total nunber of donors
         $('.count').each(function () {
             $(this).prop('Counter',0).animate({
                 Counter: $(this).text()
@@ -334,7 +337,7 @@
                 }
             });
 
-            //Call to get the description details based on project id
+            //Call to get the projects from the database when you click on the button  by USING AJAX based on project ID
             $('body').on('click','.seemore', function(){
 
 
@@ -367,7 +370,7 @@
                 }
             });
 
-            //Call to get the description details based on event id
+            //Call to get the projects from the database when you click on the button  by USING AJAX based on  ID
             $('body').on('click','.eveseemore', function(){
 
 
@@ -387,9 +390,9 @@
                         var start = new Date(response[0].event_StartTime);
                         var end = new Date(response[0].event_EndTime);
 
-                        var imgstr = '/images/'+ response[0].event_Image;
+                        var imgstr = '/images/events/'+ response[0].event_Image;
                         // var title = val.event_Title;
-                        $('.eimg').attr('src', imgstr)
+                        $('.eimg').attr('src', imgstr);
                         $('.modal-title').html(response[0].event_Title);
                         $('.des').html(response[0].event_Description) ;
                         $('.loc').html(response[0].event_Location);
