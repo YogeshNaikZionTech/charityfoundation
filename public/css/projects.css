@@ -10,7 +10,7 @@ html,body{
     padding: 0px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
     max-width: 400px;
-    margin: auto;
+    margin: 20px auto;
 }
 hr{
     border-top: 1px solid #ddd;
@@ -161,4 +161,9 @@ padding: 0px;
         border-bottom: 1px solid transparent !important;
   }
 
+}
+@media (min-width: 465px) and (max-width: 492px){
+.nav-tabs.nav-justified>li>a{
+    width: 123px;
+}
 }
