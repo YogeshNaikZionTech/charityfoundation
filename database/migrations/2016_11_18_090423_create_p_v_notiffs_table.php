@@ -14,13 +14,7 @@ class CreatePVNotiffsTable extends Migration
     public function up()
     {
 
-        Schema::create('pv_notiffs', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('project_id');
-            $table->boolean('send_status');
-            $table->timestamps();
-        });
+      //currently we do not need a one time table
     }
 
     /**
@@ -30,6 +24,6 @@ class CreatePVNotiffsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pv_notiffs');
+        Schema::dropIfExists('pot_notif');
     }
 }

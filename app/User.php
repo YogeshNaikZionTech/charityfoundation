@@ -35,7 +35,7 @@ class User extends Authenticatable
 
     public function Project(){
 
-        return $this->belongsToMany('App\Project', 'donate_project')->withPivot('project_cents')->withPivot('receipt_num')->withPivot('user_card')->withPivot('donation_type')->withTimestamps();
+        return $this->belongsToMany('App\Project', 'donate_project')->withPivot('receipt_id')->withPivot('donation_type')->withTimestamps();
     }
 
     public function Ucard(){

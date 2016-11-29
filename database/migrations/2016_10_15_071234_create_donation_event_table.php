@@ -16,9 +16,9 @@ class CreateDonationEventTable extends Migration
         Schema::create('voulnteer_event', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('event')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('event_id')->unsigned();
-            $table->foreign('event_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
 
             $table->timestamps();
     });
@@ -30,6 +30,6 @@ class CreateDonationEventTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donate_event');
+        Schema::dropIfExists('voulnteer_event');
     }
 }

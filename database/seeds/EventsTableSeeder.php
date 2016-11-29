@@ -20,7 +20,8 @@ DB::table( 'event' )->insert( [
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'event1.png',
 				'event_Status'      => 'future',
-
+    'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 
 			] );
 DB::table( 'event' )->insert( [
@@ -34,7 +35,8 @@ DB::table( 'event' )->insert( [
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'event2.jpg',
 				'event_Status'      => 'future',
-
+    'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 
 			] );
 DB::table( 'event' )->insert( [
@@ -48,6 +50,8 @@ DB::table( 'event' )->insert( [
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'event3.png',
 				'event_Status'      => 'future',
+    'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+    'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 
 
 			] );
@@ -66,7 +70,8 @@ DB::table( 'event' )->insert( [
 				'event_EndTime'     => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 				'event_Image'       => 'upcoming.jpg',
 				'event_Status'      => 'current',
-
+                'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+                'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 
 			] );
 		}

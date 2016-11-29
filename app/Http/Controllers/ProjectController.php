@@ -84,7 +84,7 @@ Log::info('Request to store'.$request->pname);
 
             $project->save();
         \Session::flash( 'ProjectCreated', 'Project created' );
-        return view('/projects/show');
+        return redirect('showprojects');
     }
 
     /**
@@ -245,7 +245,7 @@ Log::info('Request to store'.$request->pname);
         $project->update();
         Log::info('Project that is being updated:'.$id);
         \Session::flash( 'ProjectUpdated', 'Project is updated' );
-        return view('/events/show');
+        return redirect('/showprojects');
     }
 
     /**
@@ -258,6 +258,11 @@ Log::info('Request to store'.$request->pname);
     {
         $project_delete= Event::Where('id','=',$id)->get();
         $project_delete->delete();
-        echo 'deleted';
+
+    }
+
+    public function showProjectPage(){
+
+        return view('/projects/show');
     }
 }

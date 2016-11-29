@@ -22,7 +22,7 @@
                 <li class="dropdown profile">
 
                     <a href="#" class="dropdown-toggle" id="userp" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-top: 9px; padding-bottom: 9px;">
-                        <img src="/avatars/{{Auth::user()->avatar}}" class="avatar img-circle">
+                        <img src="images/avatars/{{Auth::user()->avatar}}" class="avatar img-circle">
 
                         {{ Auth::user()->firstname }} <span class="caret"></span>
                     </a>

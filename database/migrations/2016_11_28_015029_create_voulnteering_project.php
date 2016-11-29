@@ -4,20 +4,19 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonatesTable extends Migration
+class CreateVoulnteeringProject extends Migration
 {
     /**
      * Run the migrations.
-     *
+     * monthly donation table is created here.
      * @return void
      */
     public function up()
     {
-        Schema::create('projectd_receipt', function (Blueprint $table) {
+        Schema::create('pm_notif', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('card_id');
-            $table->integer('amount_cents');
-            $table->string('receipt_num');
+            $table->integer('pdonate_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateDonatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projectd_receipt');
+        Schema::dropIfExists('pm_notif');
     }
 }

@@ -76,7 +76,8 @@ class EventController extends Controller
         $event->save();
         Log:info('Event that is being saved:'. $event->id);
         \Session::flash( 'EventCreated', 'Event created' );
-            return view('/events/show');
+
+            return redirect('showevents');
 
 
     }
@@ -107,7 +108,7 @@ class EventController extends Controller
 
     /**
      *
-     * Returns the total number of :
+     * Returns the total numb   er of :
      *  Events:
      *  completed:
      *  future:
@@ -249,7 +250,7 @@ class EventController extends Controller
         $event->save();
         Log:info('Event that is being updated:'.$event->id);
         \Session::flash( 'EventUpdated', 'Event updated' );
-        return view('/admin/admin');
+        return redirect('showevents');
 
     }
     /**
@@ -267,4 +268,9 @@ class EventController extends Controller
         \Session::flash( 'EventDeleted', 'Event Deleted' );
 
     }
+
+public function showEventPage(){
+
+    return view ('/events/show');
+}
 }
