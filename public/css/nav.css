@@ -3,10 +3,13 @@
     font-style: italic; 
     color: black
 }
-
+#nav1{
+    border: 0;
+    margin-bottom: 0px;
+}
 #activity>li>a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size:17px;
+    font-size:16px;
     position: relative;
     display: block;
     padding: 14px;
@@ -50,7 +53,7 @@ a#userp{
 }
 
 /* Flip around the padding for proper display in narrow viewports */
-.navbar-wrapper > .container {
+/*.navbar-wrapper > .container {
     padding-right: 0;
     padding-left: 0;
 }
@@ -62,7 +65,7 @@ a#userp{
 .navbar-wrapper .navbar .container {
     width: auto;
     height:50px;
-}
+}*/
 
 .avatar{
     width:30px; 
@@ -129,7 +132,7 @@ a#userp{
 
 @media (max-width: 768px){
     #myNavbar{
-        max-height: 412px;
+        max-height: 414px;
         float: right;
         background: rgb(238,238,238); /* Old browsers */
         background: -moz-linear-gradient(left,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6-15 */

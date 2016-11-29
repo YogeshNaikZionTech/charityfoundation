@@ -8,7 +8,7 @@ footer{
 }
 .copyright{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:#808080;
+    color:#a6a6a6;
     font-size:14px;
     padding-top: 10px;
     font-style: normal;
@@ -36,7 +36,7 @@ footer{
     width:40px;
     font-size:20px;
     font-weight:bold;
-    color:#808080;
+    color:#a6a6a6;
     -webkit-transition:all .3s;
     -moz-transition:all .3s;
     transition:all .3s;
@@ -50,7 +50,7 @@ footer{
 
 .privacyterm{
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color:#808080;
+    color:#a6a6a6;
     text-align: center;
     font-style: italic;
     position: absolute;
@@ -67,7 +67,7 @@ footer{
 
 .privacyterm li a{
     text-decoration: none;
-   color:#808080;
+   color:#a6a6a6;
     font-size: 14px;
 }
 
@@ -86,7 +86,7 @@ footer{
     text-align: left;
 }
 #style>li>a{ 
-    color:#808080;
+    color:#a6a6a6;
     text-align: left;
     font-size:16px;
     text-decoration: none;
