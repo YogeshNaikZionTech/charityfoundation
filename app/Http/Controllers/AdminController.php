@@ -24,7 +24,7 @@ class AdminController extends Controller
         if (Auth::user()->isAdmin){
             return view('admin/admin');
         }else{
-            echo "your not Admin";
+            echo "you are not Admin";
         }
     }
 
