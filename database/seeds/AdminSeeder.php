@@ -25,6 +25,8 @@ class AdminSeeder extends Seeder
 		    'country'=> 'universe',
 		    'zipcode'=> '009009',
 		    'isAdmin' => true,
+            'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+            'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 
 	    ] );
 
@@ -41,7 +43,8 @@ class AdminSeeder extends Seeder
 		    'country'=> 'leaf',
 		    'zipcode'=> '5451',
 		    'isAdmin' => false,
-
+            'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+            'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
 	    ] );
 
         $Faker = Faker::create( 'App\User' );
@@ -59,7 +62,8 @@ class AdminSeeder extends Seeder
                 'country' => 'USA',
                 'zipcode' => '97654',
                 'isAdmin' => false,
-
+                'created_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+                'updated_at'      => \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
             ]);
         }
     }

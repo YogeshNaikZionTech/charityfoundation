@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PVNotiff extends Model
+class Receipt extends Model
 {
     public $timestamps =true;
-    public $table='pot_notif';
+    public $table='projectd_receipt';
     protected $fillable = [
-        'user_id','project_id','send_status',
+        'donate_id', 'card_id','amount_cents','receipt_num',
     ];
 }

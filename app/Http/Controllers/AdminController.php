@@ -34,6 +34,10 @@ class AdminController extends Controller
      *
      * TOdo
      *      have to join with the donation table to ge the value(total donation)
+     *
+     * to get the amount use:
+     *  check if ueer has card: User::has('Ucards')
+     *  check for each card in project_Receipt table using   ORM.
      */
     public function  searchUser(Request $request){
 
@@ -142,6 +146,7 @@ class AdminController extends Controller
 
         $donation_respose = array();
         $donation_check = array();
+
         //gives array of all the user who have donated to projects
         $users = User::has('project')->get();
 

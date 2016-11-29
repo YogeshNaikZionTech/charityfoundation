@@ -1,4 +1,4 @@
-<nav class= "nav1 navbar navbar-fixed-top ">
+<nav class= "nav1 navbar navbar-fixed-top" id="nav1">
     <div class="navbar-header">
         <a class="navbar-brand" href="/"> <img src="/images/aafoundationlogo(1).jpg" height="50px"></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -22,7 +22,7 @@
                 <li class="dropdown profile">
 
                     <a href="#" class="dropdown-toggle" id="userp" data-toggle="dropdown" role="button" aria-expanded="false" style="padding-top: 9px; padding-bottom: 9px;">
-                        <img src="/avatars/{{Auth::user()->avatar}}" class="avatar img-circle">
+                        <img src="images/avatars/{{Auth::user()->avatar}}" class="avatar img-circle">
 
                         {{ Auth::user()->firstname }} <span class="caret"></span>
                     </a>

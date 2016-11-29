@@ -389,7 +389,7 @@ $('body').on('click', '.comPageClick', function(){
           eDate1 = dateObject.getDate();
           eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
           eDate3 = dateObject.getFullYear();
-          var imageSrc = "background-image: url('/images/" +  response.project_Image +" ')";
+          var imageSrc = "background-image: url('/images/projects/" +  response.project_Image +" ')";
             $('.modal-title').html(response.project_Title);
             $('.des').html(response.project_Description) ;
             $('.loc').html(response.project_Location);
