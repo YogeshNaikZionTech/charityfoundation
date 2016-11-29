@@ -61,7 +61,17 @@
         <div class="main-content col">
             <div class="admin-content" id="history">
                 <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
-                <table class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-danger d-inline"  id="historytable" align="center">
+                <div class="col-xs-6" >
+                    <div class="wrapper">
+                        <form name="search_form">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                            <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
+                            <span class="underline"></span>
+                        </form>
+                    </div>
+                </div>
+                <br/>
+                <table id="donatehis" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-danger d-inline"  id="historytable" align="center">
                     <thead class="thead-inverse">
                     <tr>
                         <th>#</th>
@@ -467,6 +477,8 @@
         $('#update').hide();
     });
     </script>
+    {{--Serch Donation History Menu}}
+
    {{--Search Users Menu--}}
     <script>
         function FocusOnInput() {
