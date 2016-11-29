@@ -93,16 +93,10 @@ class EventController extends Controller
         $response_array = array();
         $event_show = Event::Where('id','=',$id)->get();
         $event_count = Event::all()->count();
-        Log::info('Total project count:'. $event_count);
-        if($id < $event_count ){
-            foreach($event_show as $value){Log::info('the values'. $value->id);
-                $response_check= array("id"=>$value->id,"event_Image"=>$value->event_Image, "event_Title"=>$value->event_Title, "event_Description"=>$value->event_Description, "event_Date"=>$value->event_Date,"event_Location"=>$value->event_Location,"event_StartTime"=>$value->event_StartTime, "event_EndTime"=>$value->event_EndTime,"event_Status"=>$value->event_Status);
-                array_push($response_array, $response_check);
-            }
-            echo json_encode($response_array);
-        }else{
-            echo 'No project present with that id';
-        }
+        Log::info($event_show);
+       
+            echo json_encode($event_show);
+           
     }
 
 
