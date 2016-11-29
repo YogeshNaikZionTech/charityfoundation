@@ -47,7 +47,23 @@ class userProfileController extends Controller {
         return view( '/users/userprofile', array( 'user' => \Auth::user() ) );
     }
 
+    /**
+     * @param request
+     */
+    public function updatePassword(Request $request){
 
+        
+
+
+
+
+
+}
+
+    public function showupdatePassword(){
+
+        return view('/users/resetpassword');
+    }
 
 
 

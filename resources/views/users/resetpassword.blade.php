@@ -1,8 +1,8 @@
-
+@extends('layouts.main')
 @section('title', '| reset Password')
 @section('content')
     <div class="container" id="content">
-        <form id="resetPassword" class="form-horizontal" method="POST">
+        <form id="resetPassword" class="form-horizontal" action="{{url('/userprofile/preset')}}" method="POST">
 
              <!-- Reset Password section -->
 

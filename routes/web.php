@@ -47,6 +47,8 @@ Route::get('/vreceipt', 'Donate@VoulnteerRecipte');
 Route::get('/dreceipt', 'Donate@donateRecipte');
 Route::get('showevents', 'EventController@showEventPage');
 Route::get('showprojects', 'ProjectController@showProjectPage');
+Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
+Route::post('userprofile/preset', 'userProfileController@updatePassword');
 /*
  * Resource for About us
  */
