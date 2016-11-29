@@ -5,7 +5,7 @@
         <form id="resetPassword" class="form-horizontal" action="{{url('/userprofile/preset')}}" method="POST">
 
              <!-- Reset Password section -->
-
+            <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <div class="form-group">
                     <label for="username" class="col-lg-3 control-label">Name:</label>
                     <div class="col-lg-8">
@@ -22,7 +22,7 @@
                 <div class="form-group">
                     <label class="col-md-3 control-label"> Current Password*:</label>
                     <div class="col-md-8">
-                        <input id="password" type="password" class="form-control" name="password" required>
+                        <input id="opassword" type="password" class="form-control" name="opassword" required>
                         <i class="fa fa-lock"></i>
                     </div>
                 </div>
