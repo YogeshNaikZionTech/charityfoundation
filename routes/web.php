@@ -28,6 +28,8 @@ Route::get('/userprofile', 'userProfileController@profile');
 
 Route::post('/userprofile', 'userProfileController@updateUser' );
 
+Route:: resource('history', 'HistoryController');
+
 Route::resource('admin','AdminController');
 
 Route::get('/select', 'Donate@showselectproject');
