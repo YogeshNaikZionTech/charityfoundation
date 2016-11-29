@@ -1,4 +1,4 @@
-<nav class= "nav1 navbar navbar-fixed-top ">
+<nav class= "nav1 navbar navbar-fixed-top" id="nav1">
     <div class="navbar-header">
         <a class="navbar-brand" href="/"> <img src="/images/aafoundationlogo(1).jpg" height="50px"></a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
