@@ -21,6 +21,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(UserPaymentTable::class);
         $this->call(UserCardseeder::class);
-
+        $this->call(ReceiptTableSeeder::class);
     }
 }

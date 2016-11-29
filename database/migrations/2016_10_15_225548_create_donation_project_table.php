@@ -16,13 +16,11 @@ class CreateDonationProjectTable extends Migration
         Schema::create('donate_project', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('project')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('project_id')->unsigned();
-            $table->foreign('project_id')->references('id')->on('users')->onDelete('cascade');;
-            $table->integer('project_cents');
-            $table->integer('user_card');
+            $table->foreign('project_id')->references('id')->on('project')->onDelete('cascade');;
             $table->string('donation_type');
-            $table->string('receipt_num');
+
             $table->timestamps();
 
         });
