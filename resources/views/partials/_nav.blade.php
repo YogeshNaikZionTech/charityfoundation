@@ -5,7 +5,7 @@
             <span class="sr-only">Toggle navigation</span>
             <span style="background-color: cadetblue" class="icon-bar"></span>
             <span style="background-color: cadetblue" class="icon-bar"></span>
-            <span  style="background-color: cadetblue" class="icon-bar"></span>
+            <span style="background-color: cadetblue" class="icon-bar"></span>
         </button>    
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
