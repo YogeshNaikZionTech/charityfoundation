@@ -6,17 +6,13 @@ html,body{
         font-style: normal;
     }
 
-.thumbnail{
-    padding: 0px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
-    max-width: 400px;
-    margin: 20px auto;
-}
+
 hr{
     border-top: 1px solid #ddd;
+        margin-top: 0px;
 }
 .main{
-  margin-top: 77px;
+  margin-top: 50px;
  font-style: normal;
 }
 
@@ -43,11 +39,12 @@ hr{
     color: #777;
 }
 
-.h h2{
+.h h1{
     display: inline-block;
-    margin-top: 0px;
-    color: black;
+    /*margin-top: 0px;*/
+    color: #777;
 }
+
 .page ul{
    display: flex;
 justify-content: center;
@@ -59,6 +56,12 @@ cursor: pointer;
 
 .noclick{
     cursor: default;
+}
+.thumbnail{
+    padding: 0px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .3);
+    max-width: 400px;
+    margin: 20px auto;
 }
 
 .image{

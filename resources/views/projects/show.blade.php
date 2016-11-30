@@ -12,10 +12,9 @@
         </div>
     @endif
   <div class="h">
-      <h2>Projects</h2>
-   
-  </div>
+      <h1 class="page-header">Projects</h1>
   <hr>
+  </div>
   <div class="descModal">
     <div id="projectDetails" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -353,18 +352,18 @@ $('body').on('click', '.comPageClick', function(){
                 datatype: 'JSON',
                 success: function(response){
                        response = JSON.parse(response);
-                  var dateObject = new Date(response.project_Date + 'PST');
+                  var dateObject = new Date(response[0].project_Date + 'PST');
                   eDate1 = dateObject.getDate();
                   eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
                   eDate3 = dateObject.getFullYear();
-                  var imageSrc = "background-image: url('/images/" +  response.project_Image +" ')";
-                    $('.mTitle').html(response.project_Title);
-                    $('.des').html(response.project_Description) ;
-                    $('.loc').html(response.project_Location);
+                  var imageSrc = "background-image: url('/images/projects/" +  response[0].project_Image +" ')";
+                    $('.mTitle').html(response[0].project_Title);
+                    $('.des').html(response[0].project_Description) ;
+                    $('.loc').html(response[0].project_Location);
                     $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                     $('.create').attr('style' , imageSrc);
-                 $('#donateBtn').attr('projId', response.id)
-                    if(response.project_Status == 'Current'){
+                 $('#donateBtn').attr('projId', response[0].id)
+                    if(response[0].project_Status == 'Current'){
                       $('#donateBtn').fadeIn("7000");
                     }
                     else{
@@ -385,18 +384,18 @@ $('body').on('click', '.comPageClick', function(){
         datatype: 'JSON',
         success: function(response){
                response = JSON.parse(response);
-          var dateObject = new Date(response.project_Date + 'PST');
+          var dateObject = new Date(response[0].project_Date + 'PST');
           eDate1 = dateObject.getDate();
           eDate2 = dateObject.toLocaleDateString("en-us",{month: "long"});
           eDate3 = dateObject.getFullYear();
-          var imageSrc = "background-image: url('/images/projects/" +  response.project_Image +" ')";
-            $('.modal-title').html(response.project_Title);
-            $('.des').html(response.project_Description) ;
-            $('.loc').html(response.project_Location);
+          var imageSrc = "background-image: url('/images/projects/" +  response[0].project_Image +" ')";
+            $('.modal-title').html(response[0].project_Title);
+            $('.des').html(response[0].project_Description) ;
+            $('.loc').html(response[0].project_Location);
             $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
             $('.modal-header').attr('style' , imageSrc);
-         $('#donateBtn').attr('projId', response.id)
-            if(response.project_Status == 'Current'){
+         $('#donateBtn').attr('projId', response[0].id)
+            if(response[0].project_Status == 'Current'){
               $('#donateBtn').fadeIn("7000");
             }
             else{
