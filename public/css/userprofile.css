@@ -27,3 +27,4 @@ label{
     margin-top:55px;
     }
 h2,h6{color: black}
+#profileimg{   min-width:150px; max-width: 200px; min-height: 150px;max-height: 200px;}

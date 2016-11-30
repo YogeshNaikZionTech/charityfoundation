@@ -20,13 +20,17 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 
-                        <img src="/images/avatars/{{Auth::user()->avatar}}" height="200px" width="200px"  class="avatar img-circle img-thumbnail" name="profileimg" id="profileimg"/>
+                        <img src="/images/avatars/{{Auth::user()->avatar}}" class="avatar img-circle img-thumbnail" name="profileimg" id="profileimg"/>
                         <h6>Upload New Picture</h6>
 
                         <input type="file" name="avatar" class="text-center center-block well well-sm" onchange="readURL(this);">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
 
+                        <input type="checkbox" id="checkbox"  name="removeimage"  />
+                            <label for="checkbox" class="col-md-10 col-sm-10 col-xs-10">Click here to remove the picture</label>
+
                     </div>
+
                 </div>
 
                 <!-- Personal Info -->
@@ -113,6 +117,7 @@
 @section('scripts')
 
     <script>
+        //Call to read the uploaded image URL
         function readURL(input) {
             if (input.files && input.files[0]) {
                 var reader = new FileReader();
@@ -122,9 +127,20 @@
                             .height(200);
                 };
 
-                reader.readAsDataURL(input.files[0])
+                reader.readAsDataURL(input.files[0]);
             }
         }
+        // Function to get the checkbox is checked or not
+        $(document).ready(function(){
+                $("#checkbox").click(function() {
+                    var checkbox = document.getElementById('checkbox');
+                    if (checkbox.checked) {
+                        document.getElementsByName("removeimage").value = 'true' ;
+                    }
+                });
+                document.getElementsByName("removeimage").value = 'false' ;
+        });
+
         $($(document).ready(function(){
             $('input:file').change(
                     function(){
@@ -134,6 +150,7 @@
                     }
             );
         }));
+        //Function for footer
         $(function()
         {
             $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
@@ -141,10 +158,12 @@
                 $('#main-content') .css({'height': (($(window).height()) - 361)+'px'});
             });
         });
+
     </script>
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
     <script type="text/javascript">
+        //Function to validate the form fields
         $(document).ready(function() {
             $('#userForm')
                     .on('init.field.fv', function(e, data) {
