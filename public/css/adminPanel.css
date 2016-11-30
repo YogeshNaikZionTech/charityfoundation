@@ -52,32 +52,6 @@ input[type="text"]{ min-height: 28px;}
     margin-left: 5px;
     text-transform: uppercase;
 }
-/*.nav-trigger {*/
-    /*position: relative;*/
-    /*float: right;*/
-    /*width: 20px;*/
-    /*height: 44px;*/
-    /*right: 30px;*/
-    /*display: block;*/
-/*}*/
-/*.nav-trigger span, .nav-trigger span:before, span:after {*/
-    /*width: 20px;*/
-    /*height: 2px;*/
-    /*background-color: #35475e;*/
-    /*position: absolute;*/
-/*}*/
-/*.nav-trigger span {*/
-    /*top: 50%;*/
-/*}*/
-/*.nav-trigger span:before, .nav-trigger span:after {*/
-    /*content: '';*/
-/*}*/
-/*.nav-trigger span:before {*/
-    /*top: -6px;*/
-/*}*/
-/*.nav-trigger span:after {*/
-    /*top: 6px;*/
-/*}*/
 /* side navigation styles */
 .flexbox .side-nav {
     position: fixed;
@@ -155,14 +129,14 @@ input[type="text"]{ min-height: 28px;}
     font-size: 18px;
 }
 /* set element styles to fit tablet and higher(desktop) */
-@media screen and (max-width: 590px) {
+@media screen and (max-width: 600px) {
     #content{
-        margin-top: 10%;
+        margin-top: 50%;
     }
 }
 @media screen and (min-width: 600px) {
     #content{
-        margin-top:5%;
+        margin-top:10%;
     }
     .header {
         background-color: #35475e;
@@ -171,12 +145,6 @@ input[type="text"]{ min-height: 28px;}
     .header .logo {
         display: none;
     }
-    /*.nav-trigger {*/
-        /*display: none;*/
-    /*}*/
-    /*.nav-trigger span, .nav-trigger span:before, span:after {*/
-        /*background-color: #fff;*/
-    /*}*/
     .flexbox .side-nav {
         display: block;
         width: 70px;
@@ -199,6 +167,11 @@ input[type="text"]{ min-height: 28px;}
     }
     .main-content {
         margin-left: 70px;
+    }
+}
+@media screen and (min-width: 900px){
+    #content{
+        margin-top:3.7%;
     }
 }
 /* set element styles for desktop */
@@ -225,12 +198,13 @@ input[type="text"]{ min-height: 28px;}
         margin-left: 200px;
     }
 }
+
 @media screen and (max-width: 600px){
     .flexbox .side-nav{
         display:none;
     }
     #content{
-        margin-top:5%;
+        margin-top:14%;
     }
     .header {
         background-color: #35475e;
