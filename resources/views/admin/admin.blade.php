@@ -230,7 +230,7 @@
 
                     </div>
                 </div>
-                {{--Modify--}}
+                {{--Modify--}} <!--Modify Projects/ Events-->
                 <div class="admin-content" id="update">
                     <h3>Update Projects/Events</h3>
 
@@ -240,18 +240,17 @@
                             <input type="radio" name="program" id="radiosel2" value="events"> Events
                         </label>
                     </div>
-                    <!--  Form to Modify an Event -->
+                    <!--  Form to Modify an Project -->
                     <div class="project program">
                         <form class="form-group col-md-6" action="{{url('/putprojects')}}" method="POST">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <div class="form-group">
                                 <fieldset id="Group2" name="Group2">
                                     <select id="Select1" name="Select1" class="form-control">
-                                        <option>Select</option>
                                     </select>
                                 </fieldset>
                             </div>
-                            <input type="hidden" class="project_id" name="id">
+                            <input type="hidden" id="project_id" name="id">
 
                             <div class="form-group">
                                 <input class="form-control" id="updatepname" name="pname" placeholder="Project Name" style="height:28px;" type="text">
@@ -274,7 +273,7 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-danger del-project">Delete</button>
                             </div>
                         </form>
                     </div>
@@ -343,7 +342,7 @@
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                                <button class="btn btn-danger">Delete</button>
+                                <button class="btn btn-danger del-event">Delete</button>
                             </div>
                         </form>
                     </div>
@@ -567,42 +566,41 @@
             });
             $("#modifyitem").click(function() {
                 //onload when projects is selected
+                $('#Select1').empty();
                 $.ajax({
-                    url: '../projects/status/current',
+                    url: '../projects/get/titles',
                     type: 'GET',
                     datatype: 'JSON',
                     success: function (response) {
                         response = JSON.parse(response);
-                        console.log(response);
+                        var output = "<option>Select</option>"
                         $.each(response, function(key,val){
-                            var output = "<option value="+val.id+" class='projrad'>"+val.project_Title+"</option>";
-                            $('#Select1').append(output);
+                            output += "<option value="+val.id+" class='projrad'>"+val.project_Title+"</option>";
                         });
-
-
+                            $('#Select1').append(output);
                     }
-
-
                 });
-
+    });
                 //when click on events
                 $("#radiosel2").click(function(){
+                $('#Select2').empty();
                     $.ajax({
-                        url: '../events/status/current',
+                        url: '../events/get/titles',
                         type: 'GET',
                         datatype: 'JSON',
                         success: function (response) {
                             response = JSON.parse(response);
+                            var output = "<option>Select</option>"
                             $.each(response, function(key,val){
-                                var output = "<option value="+val.id+" class='eventrad'>"+val.event_Title+"</option>";
-                                $('#Select2').append(output);
+                                output += "<option value="+val.id+" class='eventrad'>"+val.event_Title+"</option>";
                             });
+                                $('#Select2').append(output);
                         }
 
 
                     });
                 });
-            });
+        
             $("body").on('change', '#Select1', function(){
                 var id = $(this).val();
                 $.ajax({
@@ -611,10 +609,12 @@
                     datatype: 'JSON',
                     success: function(response){
                         response = JSON.parse(response);
-                        $('#updatepname').val(response.project_Title);
-                        $('#proj_description').val(response.project_Description);
-                        $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
-                        $('.project_id').val(response.id);                           }
+                        $('#updatepname').val(response[0].project_Title);
+                        $('#proj_description').val(response[0].project_Description);
+                        $('#pstatus>option[value='+response[0].project_Status +']').attr('selected', true);
+                        $('#project_id').val(response[0].id);  
+                        $('.del-event').attr('value', response[0].id);
+                   }
                 })
 
             });
@@ -635,11 +635,42 @@
                         $('#estarttime').val( response[0].event_StartTime);
                         $('#eendtime').val(response[0].event_EndTime);
                         $('#event_id').val(response[0].id);
+                        $('.del-event').attr('value', response[0].id);
+
 
                     }
                 })
 
             });
+//Project delete functionality
+$('.del-project').click(function(){
+    var id = $(this).attr('value') ;
+    $.ajax({
+        url: '../projects/delete',
+        type: 'POST',
+        data: {'id': id},
+        datatype: 'JSON',
+        success: function(){
+          // window.location.href = "{{url('events')}}";
+        }
+    });
+
+});
+//Event delete functionality
+$('.del-event').click(function(){
+    var id = $(this).attr('value') ;
+    $.ajax({
+        url: '../events/delete',
+        type: 'POST',
+        data: {'id': id},
+        datatype: 'JSON',
+        success: function(){
+          // window.location.href = "{{url('events')}}";
+        }
+    });
+
+});
+
         });
 
     </script>
