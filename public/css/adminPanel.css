@@ -98,6 +98,11 @@ input[type="text"]{ min-height: 28px;}
     font-size: 14px;
     font-weight: 600;
 }
+#content{
+    margin-top:50px;
+    padding-top:0;
+
+}
 /* main content styles */
 .main-content {
     padding: 40px;
@@ -129,15 +134,7 @@ input[type="text"]{ min-height: 28px;}
     font-size: 18px;
 }
 /* set element styles to fit tablet and higher(desktop) */
-@media screen and (max-width: 600px) {
-    #content{
-        margin-top: 50%;
-    }
-}
 @media screen and (min-width: 600px) {
-    #content{
-        margin-top:10%;
-    }
     .header {
         background-color: #35475e;
         z-index: 1;
@@ -169,11 +166,7 @@ input[type="text"]{ min-height: 28px;}
         margin-left: 70px;
     }
 }
-@media screen and (min-width: 900px){
-    #content{
-        margin-top:3.7%;
-    }
-}
+
 /* set element styles for desktop */
 @media screen and (min-width: 800px) {
     .flexbox .side-nav {
@@ -202,9 +195,6 @@ input[type="text"]{ min-height: 28px;}
 @media screen and (max-width: 600px){
     .flexbox .side-nav{
         display:none;
-    }
-    #content{
-        margin-top:14%;
     }
     .header {
         background-color: #35475e;
