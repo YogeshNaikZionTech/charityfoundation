@@ -325,7 +325,7 @@
             $('.type').val(type);
             $('.proevent').val(p);
             $(".title").html(p);
-            $(".image").attr({"src":'../images/rsz_aafoundationlogo1.png',"style":'height:39px'});
+            $(".image").attr({"src":'../images/aafoundationlogo(1).jpg',"style":'height:39px'});
         }
 
         calamt();
