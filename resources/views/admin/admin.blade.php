@@ -342,9 +342,12 @@
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                                <button class="btn btn-danger del-event">Delete</button>
                             </div>
                         </form>
+                            <div class="form-group">
+
+                                <button class="btn btn-danger del-event">Delete</button>
+</div>
                     </div>
 
                 </div>
@@ -646,9 +649,9 @@
 $('.del-project').click(function(){
     var id = $(this).attr('value') ;
     $.ajax({
-        url: '../projects/delete',
-        type: 'POST',
-        data: {'id': id},
+        url: '../projects/'+id,
+        type: 'DELETE',
+        // data: {'id': id},
         datatype: 'JSON',
         success: function(){
           // window.location.href = "{{url('events')}}";
@@ -660,9 +663,9 @@ $('.del-project').click(function(){
 $('.del-event').click(function(){
     var id = $(this).attr('value') ;
     $.ajax({
-        url: '../events/delete',
-        type: 'POST',
-        data: {'id': id},
+        url: '../events/'+id,
+        type: 'DELETE',
+        // data: {'id': id},
         datatype: 'JSON',
         success: function(){
           // window.location.href = "{{url('events')}}";

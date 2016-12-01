@@ -248,8 +248,8 @@ Log::info('Request to store'.$request->pname);
      */
     public function destroy($id)
     {
-         $id = $request->input('id');
-        Log:info('Im at the controller delete function');
+         // $id = $request->input('id');
+        Log::info('Im at the controller delete function');
         $project_delete= Event::Where('id','=',$id)->get();
         $project_delete->delete();
 

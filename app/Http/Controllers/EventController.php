@@ -253,11 +253,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request)
+    public function destroy($id)
     {
 
-        $id = $request->input('id');
-        Log:info('Im at the controller delete function');
+        // $id = $request->input('id');
+        Log::info('Im at the controller delete function');
 
       $event_delete = Event::Where('id','=',$id)->get();
         $event_delete->delete();
