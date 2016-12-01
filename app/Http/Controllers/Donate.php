@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\AAFdonate;
 use App\Event;
 use App\Project;
 use App\PVNotiff;
@@ -70,6 +71,7 @@ class Donate extends Controller
     public function store(Request $request)
     {
 
+
         Log::info('Request for the donation is recevied');
         $this->validate($request, array(
             'otheramt' => 'required|min:1|max:255',
@@ -108,18 +110,14 @@ class Donate extends Controller
         $user->Ucard()->save($card);
         Log::info('card attached to the user');
 
+
         $receipt_n = $this->generateReceipt();
 
         $card_id = $card->id;
-        $id = $request->input('proevent');
-        $type_payment = $request->input('dtype');
 
-        Log::info('saving the donation to d_p table');
-        $project = Project::where('id', '=', $id)->first();
-        Log::info($project);
-        $project->User()->attach([$user->id => ['donation_type' => $type_payment]]);
-        Log::info('user donate to project request recevied');
-        $curr_donation = DB::table('donate_project')->orderBy('updated_at', 'desc')->first();
+        $type_payment = $request->input('dtype');
+        $id = $request->input('proevent');
+
 
         //create receipt entry and save
         $receipt = new Receipt();
@@ -129,32 +127,59 @@ class Donate extends Controller
         $receipt->save();
         $receipt_id = $receipt->id;
 
-        //create receipt_donate record (project doantion and receipt table)
-        DB::table('receipt_donate')->insert(
-            ['pdonate_id' => $curr_donation->id, 'receipt_id'=>$receipt_id,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-                'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),]
-        );
+        if($request->input('proevent')=='AA Foundation'){
 
+            Log::info('Donation for AFF foundation');
+            $aff = new AAFdonate();
+            $aff->user_id = $user_id;
+            $aff->donation_type = $type_payment;
+            $aff->cardreceipt_id = $receipt_id;
+            $aff->save();
+            Log::info('Donation for AFF foundation saved');
 
-        //creating a montly donation trigger.
-        if($type_payment == 'monthly'){
-            Log::info('pushed in to monthlynotification tabel ');
-             DB::table('pm_notif')->insert(
-                ['pdonate_id' => $curr_donation->id, 'user_id'=>$user->user_id]
+            Log::info('mailing user about the donation');
+            $d = ['name' => $user->lastname];
+            Mail::send('email.donateProject', $d, function ($message) use ($user) {
+                $message->to($user->email, $user->lastname)->subject('Donation Receipt');
+                $message->from('noreplyaafoundation@gmail.com', 'AAF');
+            });
+            Log::info('User redirected to areceipt');
+            return redirect('/areceipt');
+        }else{
+
+            //saving to donate_project table
+            Log::info('saving the donation to d_p table');
+            $project = Project::where('id', '=', $id)->first();
+            Log::info($project);
+            $project->User()->attach([$user->id => ['donation_type' => $type_payment]]);
+            Log::info('user donate to project request recevied');
+            $curr_donation = DB::table('donate_project')->orderBy('updated_at', 'desc')->first();
+
+            //create receipt_donate record (project doantion and receipt table)
+            DB::table('receipt_donate')->insert(
+                ['pdonate_id' => $curr_donation->id, 'receipt_id'=>$receipt_id,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+                    'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),]
             );
 
-        }
-        Log::info('mailing user about the donation');
-        $d = ['name' => $user->lastname];
-        Mail::send('email.donateProject', $d, function ($message) use ($user) {
-            $message->to($user->email, $user->lastname)->subject('Donation Receipt');
-            $message->from('noreplyaafoundation@gmail.com', 'AAF');
-        });
+
+            //creating a montly donation trigger for project donation.
+            if($type_payment == 'monthly'){
+                Log::info('pushed in to monthlynotification tabel ');
+                DB::table('pm_notif')->insert(
+                    ['pdonate_id' => $curr_donation->id, 'user_id'=>$user->user_id]
+                );
+
+            }
+
+            Log::info('mailing user about the donation');
+            $d = ['name' => $user->lastname];
+            Mail::send('email.donateProject', $d, function ($message) use ($user) {
+                $message->to($user->email, $user->lastname)->subject('Donation Receipt');
+                $message->from('noreplyaafoundation@gmail.com', 'AAF');
+            });
             Log::info('User redirected to dreceipt');
-        return redirect('/dreceipt');
-
-
-      //  return redirect( '/donates/receipt' )->withReceipt_d($receipt_d);
+            return redirect('/dreceipt');
+        }
 
 
     }
@@ -205,11 +230,6 @@ class Donate extends Controller
                 $message->to($user->email, $user->lastname)->subject('Voulnteer conformation');
                 $message->from('noreplyaafoundation@gmail.com', 'AAF');
             });
-
-
-
-
-
         }
 
         return redirect('/vreceipt');
@@ -281,22 +301,15 @@ class Donate extends Controller
     public function donateRecipte()
 
     {   //get the latest entry in the pivot of donate_project
-                $donation = DB::table('donate_project')->orderBy('updated_at', 'desc')->first();
+        $donation = DB::table('donate_project')->orderBy('updated_at', 'desc')->first();
 
         //get receipt _id from above info
         $receipt=DB::table('receipt_donate')->where('pdonate_id', $donation->id)->orderBy('updated_at', 'desc')->first();
-
 
         //get receipt number using above project_donation_id
         $receiptd = Receipt::find($receipt->receipt_id);
         $card_id = $receiptd->card_id;
         $card = Ucard::find($card_id);
-
-
-
-
-
-
         $receipt_d= array(
             'type'=>'pd',
             'user_name' => $card->name_card,
@@ -307,13 +320,15 @@ class Donate extends Controller
         ,
         );
 
+        Log::info('Redirectin to Receipt from project donation');
         return view ('/donates/receipt')->withReceipt_d($receipt_d);
     }
 
     public function VoulnteerRecipte(){
-        $receipt_d = array();
+
         //get voulnteer event details.
-        $voul = DB::table('voulnteer_event')->orderBy('updated_at', 'desc')->first();
+        $user_id = Auth::user()->id;
+        $voul = DB::table('voulnteer_event')->where('user_id',$user_id)->orderBy('updated_at', 'desc')->first();
         //get event details
         $event = Event::where('id', '=', $voul->event_id)->first();
         $receipt_d= array(
@@ -322,6 +337,29 @@ class Donate extends Controller
             'time' => $event->event_StartTime,
             'name'=>$event->event_Title,
                 );
+        Log::info('Redirectin to Receipt from voulnteer');
         return view ('/donates/receipt')->withReceipt_d($receipt_d);
+    }
+
+    public function affReceipt(){
+        $user = Auth::user()    ;
+        //get latest entry in the aff_donation by the logged in user
+        $adonate = AAFdonate::where('user_id',$user->id)->orderBy('updated_at','desc')->first();
+        $receipt_id = $adonate->cardreceipt_id;
+        $adonate_details = DB::table('projectd_receipt')->where('id', $receipt_id)->first();
+            $card= $user->Ucard->where('id', $adonate_details->card_id)->first();
+
+        $receipt_d= array(
+            'type'=>'pd',
+            'user_name' => $card->name_card,
+            'card_num' => $card->card_num,
+            'receipt_num'=>$adonate_details->receipt_num,
+            'd_type'=>$adonate->donation_type,
+            'amount'=>$adonate_details->amount_cents
+        ,
+        );
+        Log::info('Redirectin to Receipt from AFFoudnation');
+        return view ('/donates/receipt')->withReceipt_d($receipt_d);
+
     }
 }
