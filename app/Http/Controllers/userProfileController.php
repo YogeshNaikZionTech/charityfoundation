@@ -25,6 +25,7 @@ class userProfileController extends Controller {
 
     public function updateUser( Request $request ) {
 
+
         $filename='default.png';
         Log::info('Request for updating user profile');
 
