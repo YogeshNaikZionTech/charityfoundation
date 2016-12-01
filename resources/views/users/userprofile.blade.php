@@ -25,10 +25,10 @@
 
                         <input type="file" name="avatar" class="text-center center-block well well-sm" onchange="readURL(this);">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
-
+                        @if(!(Auth::user()->avatar =='default.png'))
                         <input type="checkbox" id="checkbox"  name="removeimage"  />
                             <label for="checkbox" class="col-md-10 col-sm-10 col-xs-10">Click here to remove the picture</label>
-
+                        @endif
                     </div>
 
                 </div>

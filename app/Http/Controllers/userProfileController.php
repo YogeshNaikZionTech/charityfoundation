@@ -102,6 +102,7 @@ class userProfileController extends Controller {
 
         $default_avatar = 'default.png';
         $curr_user = Auth::user();
+        @unlink(public_path('images/avatar/s'.$curr_user->avatar));
         $curr_user->avatar = $default_avatar;
         $curr_user->save();
     }
