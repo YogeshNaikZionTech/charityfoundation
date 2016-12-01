@@ -6,7 +6,7 @@
 }
 
 .board{
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .board > h4{
@@ -190,6 +190,7 @@ margin: 20px auto;
 
 .formv{
   clear: both;
+
 }
 
 .cause{
@@ -227,7 +228,7 @@ margin: 20px auto;
   font-size:medium;
 }
 
-#ccnum,#ccname,#amt{
+#ccnum,#ccname,#amt,#volname,#volemail,#volphone{
   display: inline-block;
   height: 30px;
   font-size: medium;
@@ -242,6 +243,11 @@ margin: 20px auto;
   line-height: 30px;
   color: #ff6600;
   
+}
+
+.right > a{
+  text-decoration: none;
+
 }
 
 .summary{
@@ -282,7 +288,7 @@ margin: 20px auto;
   color: #176982;
 }
 
-.sum1,.sum2,.sum3{
+.sum1,.sum2,.sum3,.volnotvalidname,.volnotvalidemail,.volnotvalidphone{
   margin-bottom: 2%;
   display: none;
 }
