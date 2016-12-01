@@ -12,7 +12,7 @@
       </div>
     @endif
     <div class="h">
-      <h2>Events</h2>
+      <h1 class="page-header">Events</h1>
     </div>
     <hr>
     <!-- Event Description Modal -->
@@ -158,12 +158,13 @@
           var dateWithTimeZone = val.event_Date + "PST";
           var dateObject = new Date(dateWithTimeZone);
           eDate1 = dateObject.getDate();
-          locale = "en-us";
+          // eDate1 = dateObject.getHours() + ':' + dateObject.getMinutes();
+          locale = "en-GB";
           eDate2 = dateObject.toLocaleDateString(locale,{month: "short"});
           var start = new Date(val.event_StartTime);
           var end = new Date(val.event_EndTime);
           var title = val.event_Title;
-          output += "<div class='col-md-4 col-sm-6 col-xs-12'> <div class='thumbnail'>  <div class='image'> <img src='/images/events/"+ val.event_Image+"'> <a href='{{url('donates/create')}}' id='vol' role='button'>  <button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button>   </a>      </div>    <div class='caption col-md-12 col-sm-12 col-xs-12'>           <div class='date col-md-2 col-sm-2 col-xs-2'>            <h3>"+eDate2+"<br>"+eDate1+"</h3>        </div>          <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <div class='title col-md-12 col-sm-12 col-xs-12'>              <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a> </div> <div class='location col-md-4 col-lg-4 col-sm-4 col-xs-4'> <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6> </div>  <div class='time col-md-8 col-lg-8 col-sm-8 col-xs-8'>   <h6><span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6>   </div>  </div> </div>  </div></div>"
+          output += "<div class='col-md-4 col-sm-6 col-xs-12'> <div class='thumbnail'>  <div class='image'> <img src='/images/events/"+ val.event_Image+"'> <a href='{{url('donates/create')}}' id='vol' role='button'>  <button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button>   </a>      </div>    <div class='caption col-md-12 col-sm-12 col-xs-12'>           <div class='date col-md-2 col-sm-2 col-xs-2'>            <h3>"+eDate2+"<br>"+eDate1+"</h3>        </div>          <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <div class='title col-md-12 col-sm-12 col-xs-12'>              <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a> </div> <div class='location col-md-7 col-lg-7 col-sm-7 col-xs-7'> <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6> </div>  <div class='time col-md-5 col-lg-5 col-sm-5 col-xs-5'>   <h6><span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"-"+end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"</h6>   </div>  </div> </div>  </div></div>"
         });
         $('.upcomingContent').html(output);
         $('#upPages').children('li:first').addClass('active');
@@ -190,7 +191,7 @@
           var start = new Date(val.event_StartTime);
           var end = new Date(val.event_EndTime);
           var title = val.event_Title;
-          output = "<div class='col-md-4 col-sm-6' col-xs-12>    <div class='thumbnail'> <div class='image'> <img src='/images/events/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12 col-sm-12 col-xs-12'> <div class='date col-md-2 col-sm-2 col-xs-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <a><p><h3 class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>";
+          output = "<div class='col-md-4 col-sm-6 col-xs-12'>    <div class='thumbnail'> <div class='image'> <img src='/images/events/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12 col-sm-12 col-xs-12'> <div class='date col-md-2 col-sm-2 col-xs-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>   <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'>     <div class='title col-md-12 col-sm-12 col-xs-12'>                      <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a>        </div>      <div class='location col-md-7 col-lg-7 col-sm-7 col-xs-7'>          <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6></div>        <div class='time col-md-5 col-lg-5 col-sm-5 col-xs-5'>        <h6> <span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"-"+end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"</h6>   </div>  </div>      </div></div></div>";
         });
         $('.completedContent').html(output);
         $('#comPages').children('li:first').addClass('active');
@@ -218,7 +219,7 @@
           var start = new Date(val.event_StartTime);
           var end = new Date(val.event_EndTime);
           var title = val.event_Title;
-          output += "<div class='col-md-4 col-sm-6 col-xs-12'>    <div class='thumbnail'> <div class='image'> <img src='/images/events/"+ val.event_Image+"'><a href='{{url('donates/create')}}' id='vol' role='button'><button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button></a> </div> <div class='caption col-md-12 col-sm-12 col-xs-12'> <div class='date col-md-2 col-sm-2 col-xs-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <a><p><h3 class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>";
+          output += "<div class='col-md-4 col-sm-6 col-xs-12'> <div class='thumbnail'>  <div class='image'> <img src='/images/events/"+ val.event_Image+"'> <a href='{{url('donates/create')}}' id='vol' role='button'>  <button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button>   </a>      </div>    <div class='caption col-md-12 col-sm-12 col-xs-12'>           <div class='date col-md-2 col-sm-2 col-xs-2'>            <h3>"+eDate2+"<br>"+eDate1+"</h3>        </div>          <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <div class='title col-md-12 col-sm-12 col-xs-12'>              <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a> </div> <div class='location col-md-7 col-lg-7 col-sm-7 col-xs-7'> <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6> </div>  <div class='time col-md-5 col-lg-5 col-sm-5 col-xs-5'>   <h6><span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"-"+end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"</h6>   </div>  </div> </div>  </div></div>";
         });
         $('.upcomingContent').html(output);
       }
@@ -245,7 +246,7 @@
           var start = new Date(val.event_StartTime);
           var end = new Date(val.event_EndTime);
           var title = val.event_Title;
-          output += "<div class='col-md-4 col-sm-6 col-xs-12'>    <div class='thumbnail'> <div class='image'> <img src='/images/events/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12 col-sm-12 col-xs-12'> <div class='date col-md-2 col-sm-2 col-xs-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>  <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px' > <a><p><h3 class='eName' name='"+val.id+"'>"+title+"</h3></p></a> <p><h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"+"<span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString()+"-"+end.toLocaleTimeString()+"</h6></p> </div>      </div></div></div>";
+          output += "<div class='col-md-4 col-sm-6 col-xs-12'>    <div class='thumbnail'> <div class='image'> <img src='/images/events/"+ val.event_Image+"'><a role='button'><button type='button' class='btn btn-warning readMore' name='"+val.id+"'>Read More</button></a> </div> <div class='caption col-md-12 col-sm-12 col-xs-12'> <div class='date col-md-2 col-sm-2 col-xs-2'> <h3>"+eDate2+"<br>"+eDate1+"</h3></div>   <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'>     <div class='title col-md-12 col-sm-12 col-xs-12'>                      <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a>        </div>      <div class='location col-md-7 col-lg-7 col-sm-7 col-xs-7'>          <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6></div>        <div class='time col-md-5 col-lg-5 col-sm-5 col-xs-5'>        <h6> <span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"-"+end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+"</h6>   </div>  </div>      </div></div></div>";
         });
         output+= "</div>";
         $('.completedContent').html(output);

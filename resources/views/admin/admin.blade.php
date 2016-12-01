@@ -3,11 +3,8 @@
 @section('title', '| Admin Panel')
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
     <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
 @endsection
 @section('content')
     <div id="content">
@@ -141,45 +138,35 @@
                                 <h3>New Project Creation</h3>
                                 <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
                                     <div class="form-group">
-                                        <label for="pname" class="col-md-6 control-label"  >Project Name</label>
-                                        <div class="col-md-6">
-                                            <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
-                                        </div>
+                                        <label for="pname" class="control-label"  >Project Name</label>
+                                        <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
                                     </div>
                                     <div class="form-group">
-                                        <label for="plocation" class="col-md-6 control-label">Venue :</label>
-                                        <div class="col-md-6">
-                                            <input id="plocation" type="text"  name="plocation" class="form-control" style="height:28px;" />
-                                        </div>
+                                        <label for="plocation" class="control-label">Venue :</label>
+                                        <input id="plocation" type="text"  name="plocation" class="form-control" style="height:28px;" />
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="pdate"  class="col-md-6 control-label">Date :</label>
-                                        <div class="col-md-6">
-                                            <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
-                                        </div>
+                                        <label for="pdate"  class="control-label">Date :</label>
+                                        <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="pstime" class="col-md-6 control-label">Start Time :</label>
-                                        <div id="pstarttime" class="input-append col-md-6" >
-                                            <input class="col-md-11 form-control" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                        <label for="pstime" class="control-label">Start Time :</label>
+                                        <div id="pstarttime" class="input-append">
+                                            <input class="form-control" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
                                             <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="pdescription" class="control-label col-md-6">Project Description</label>
-                                        <div class="col-md-6">
+                                        <label for="pdescription" class="control-label">Project Description</label>
                                             <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
-                                        </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="pimage" class="control-label col-md-6">Upload an image</label>
-                                        <div class="col-md-6">
-                                            <input id="pimage" type="file" name="pimage" accept="image/*">
-                                        </div>
+                                        <label for="pimage" class="control-label">Upload an image</label>
+                                        <input id="pimage" type="file" name="pimage" accept="image/*">
                                     </div>
                                     <div>
                                         <input type="submit" class="btn btn-success" onclick="submitForm()">
@@ -193,51 +180,41 @@
 
                                 <form name="create" class="col-md-6" id="createvent" action="{{url('/events')}}" method="post">
                                     <div class="form-group">
-                                        <label  for="ename" class="col-md-3 control-label" >Event Name :</label>
-                                        <div class="col-md-8">
-                                            <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
-                                        </div>
+                                        <label  for="ename" class="control-label">Event Name :</label>
+                                        <input id="ename" type="text"  name="ename" class="form-control" style="height:28px;" />
                                     </div>
                                     <div class="form-group">
-                                        <label for="Location" class="col-md-3 control-label">Venue :</label>
-                                        <div class="col-md-8">
-                                            <input id="location" type="text"  name="location" class="form-control" style="height:28px;" />
-                                        </div>
+                                        <label for="Location" class="control-label">Venue :</label>
+                                        <input id="location" type="text"  name="location" class="form-control" style="height:28px;" />
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="dateeve"  class="col-md-3 control-label">Date :</label>
-                                        <div class="col-md-8">
-                                            <input  id="dateeve" type="date" name="edate"  class="form-control" style="height:28px;">
-                                        </div>
+                                        <label for="dateeve"  class="control-label">Date :</label>
+                                        <input  id="dateeve" type="date" name="edate"  class="form-control" style="height:28px;">
                                     </div>
-
                                     <div class="form-group">
-                                        <label for="stime" class="col-md-3 control-label">Start Time :</label>
-                                        <div id="starttime" class="input-append col-md-8" >
-                                            <input class="col-md-11" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
+                                        <label for="stime" class="control-label">Start Time :</label>
+                                        <div id="starttime" class="input-append" >
+                                            <input class="form-control" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
                                             <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="etime" class="col-md-3 control-label">End Time :</label>
-                                        <div id="endtime" class="input-append col-md-8" >
-                                            <input class="col-md-11" id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
+                                        <label for="etime" class="control-label">End Time :</label>
+                                        <div id="endtime" class="input-append" >
+                                            <input class="form-control" id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
                                             <span class="add-on" style=" height: 28px;">
                                                     <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="description" class="col-md-3 control-label" >Event Description :</label>
-                                        <div class="col-md-8">
-                                            <textarea id="edescription" name="edescription" placeholder="Description of the event" class="form-control"></textarea>
-                                        </div>
+                                        <label for="description" class="control-label" >Event Description :</label>
+                                        <textarea id="edescription" name="edescription" placeholder="Description of the event" class="form-control"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label class="col-md-3">Upload an image:</label>
+                                        <label class="control-label">Upload an image:</label>
                                         <input type="file" name="pic" accept="image/*">
                                     </div>
                                     <div>
@@ -253,7 +230,7 @@
 
                     </div>
                 </div>
-                {{--Modify--}}
+                {{--Modify--}} <!--Modify Projects/ Events-->
                 <div class="admin-content" id="update">
                     <h3>Update Projects/Events</h3>
 
@@ -263,19 +240,17 @@
                             <input type="radio" name="program" id="radiosel2" value="events"> Events
                         </label>
                     </div>
-                    <!--  Form to Modify an Event -->
+                    <!--  Form to Modify an Project -->
                     <div class="project program">
                         <form class="form-group col-md-6" action="{{url('/putprojects')}}" method="POST">
-                            <!-- <input name="_method" type="hidden" value="PUT"> -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                             <div class="form-group">
                                 <fieldset id="Group2" name="Group2">
                                     <select id="Select1" name="Select1" class="form-control">
-                                        <option>Select</option>
                                     </select>
                                 </fieldset>
                             </div>
-                            <input type="hidden" class="project_id" name="id">
+                            <input type="hidden" id="project_id" name="id">
 
                             <div class="form-group">
                                 <input class="form-control" id="updatepname" name="pname" placeholder="Project Name" style="height:28px;" type="text">
@@ -298,9 +273,11 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                                <button class="btn btn-danger">Delete</button>
                             </div>
                         </form>
+                        <div class="form-group">
+                                <button class="btn btn-danger del-project">Delete</button>
+                            </div>
                     </div>
                     <!--  Form to Modify an Event -->
                     <div class="event program">
@@ -367,9 +344,11 @@
 
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                                <button class="btn btn-danger">Delete</button>
                             </div>
                         </form>
+                            <div class="form-group">
+                                <button class="btn btn-danger del-event">Delete</button>
+                            </div>
                     </div>
 
                 </div>
@@ -591,42 +570,41 @@
             });
             $("#modifyitem").click(function() {
                 //onload when projects is selected
+                $('#Select1').empty();
                 $.ajax({
-                    url: '../projects/status/current',
+                    url: '../projects/get/titles',
                     type: 'GET',
                     datatype: 'JSON',
                     success: function (response) {
                         response = JSON.parse(response);
-                        console.log(response);
+                        var output = "<option>Select</option>"
                         $.each(response, function(key,val){
-                            var output = "<option value="+val.id+" class='projrad'>"+val.project_Title+"</option>";
-                            $('#Select1').append(output);
+                            output += "<option value="+val.id+" class='projrad'>"+val.project_Title+"</option>";
                         });
-
-
+                            $('#Select1').append(output);
                     }
-
-
                 });
-
+    });
                 //when click on events
                 $("#radiosel2").click(function(){
+                $('#Select2').empty();
                     $.ajax({
-                        url: '../events/status/current',
+                        url: '../events/get/titles',
                         type: 'GET',
                         datatype: 'JSON',
                         success: function (response) {
                             response = JSON.parse(response);
+                            var output = "<option>Select</option>"
                             $.each(response, function(key,val){
-                                var output = "<option value="+val.id+" class='eventrad'>"+val.event_Title+"</option>";
-                                $('#Select2').append(output);
+                                output += "<option value="+val.id+" class='eventrad'>"+val.event_Title+"</option>";
                             });
+                                $('#Select2').append(output);
                         }
 
 
                     });
                 });
-            });
+        
             $("body").on('change', '#Select1', function(){
                 var id = $(this).val();
                 $.ajax({
@@ -635,10 +613,12 @@
                     datatype: 'JSON',
                     success: function(response){
                         response = JSON.parse(response);
-                        $('#updatepname').val(response.project_Title);
-                        $('#proj_description').val(response.project_Description);
-                        $('#pstatus>option[value='+response.project_Status +']').attr('selected', true);
-                        $('.project_id').val(response.id);                           }
+                        $('#updatepname').val(response[0].project_Title);
+                        $('#proj_description').val(response[0].project_Description);
+                        $('#pstatus>option[value='+response[0].project_Status +']').attr('selected', true);
+                        $('#project_id').val(response[0].id);  
+                        $('.del-project').attr('value', response[0].id);
+                   }
                 })
 
             });
@@ -659,11 +639,42 @@
                         $('#estarttime').val( response[0].event_StartTime);
                         $('#eendtime').val(response[0].event_EndTime);
                         $('#event_id').val(response[0].id);
+                        $('.del-event').attr('value', response[0].id);
+
 
                     }
                 })
 
             });
+//Project delete functionality
+$('.del-project').click(function(){
+    var id = $(this).attr('value') ;
+    $.ajax({
+        url: '../projects/'+id,
+        type: 'DELETE',
+        // data: {'id': id},
+        datatype: 'JSON',
+        success: function(){
+          window.location.href = "{{url('projects')}}";
+        }
+    });
+
+});
+//Event delete functionality
+$('.del-event').click(function(){
+    var id = $(this).attr('value') ;
+    $.ajax({
+        url: '../events/'+id,
+        type: 'DELETE',
+        // data: {'id': id},
+        datatype: 'JSON',
+        success: function(){
+          window.location.href = "{{url('events')}}";
+        }
+    });
+
+});
+
         });
 
     </script>

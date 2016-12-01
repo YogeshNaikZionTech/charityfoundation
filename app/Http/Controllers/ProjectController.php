@@ -97,11 +97,11 @@ Log::info('Request to store'.$request->pname);
     public function show($id)
     {
 
-            $response_array = array();
+            // $response_array = array();
             $project_show = Project::Where('id','=',$id)->get();
             $project_count = Project::all()->count();
             Log::info('Total project count:'. $project_count);
-                echo json_encode($response_array);
+                echo json_encode($project_show);
 
 
 
@@ -142,9 +142,9 @@ Log::info('Request to store'.$request->pname);
      * send all the list fo event description.
      */
 
-    public  function  getAllETitles(){
+    public  function  getAllPTitles(){
 
-        $project_description = Project::Select('id','project_title')->get();
+        $project_description = Project::Select('id','project_Title')->get();
         echo json_encode($project_description);
     }
 
@@ -217,20 +217,24 @@ Log::info('Request to store'.$request->pname);
 
         $id = $request->input('id');
         $project = Project::where("id","=", $id)->first();
-        Log::info('Input that is to be updated' . $project);
+        Log::info('Project that is to be updated' . $project);
         $project_Title = $request->input('pname');
         $project_Description = $request->input('pdescription');
-        $filename = 'project1.jpg';
+        $filename = $project->project_Image;
         if ($request->hasFile('pimage')) {
             $project_image = $request->file('pimage');
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
             Image::make($project_image)->resize(300, 300)->save(public_path('images/projects/' . $filename));
-            Log::info('project Iamge Name:'. $filename);
+            Log::info('project Image Name:'. $filename);
         }
-         if($request->has('pstatus')){
+         
+        $project->project_Title = $project_Title;
+        $project->project_Description = $project_Description;
+        $project->project_Image = $filename;
+        if($request->has('pstatus')){
             $project->project_Status = $request->input('pstatus');
         }
-        $project->update();
+        $project->save();
         Log::info('Project that is being updated:'.$id);
         \Session::flash( 'ProjectUpdated', 'Project is updated' );
         return redirect('/showprojects');
@@ -244,7 +248,9 @@ Log::info('Request to store'.$request->pname);
      */
     public function destroy($id)
     {
-        $project_delete= Event::Where('id','=',$id)->get();
+         // $id = $request->input('id');
+        Log::info('Im at the controller delete function');
+        $project_delete= Project::Where('id','=',$id)->first();
         $project_delete->delete();
 
     }
