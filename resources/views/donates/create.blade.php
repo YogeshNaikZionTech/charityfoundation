@@ -188,8 +188,8 @@
                         </div>
                     </div>
 
-                    <a  href="{{url('receipt')}}"><label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button"><span class="submit-button-lock"></span>
-                    <span class="align-middle">DONATE</span></label></a>
+                    <label for="PayButton" id="PayBtn" class="formv btn btn-block btn-success submit-button">
+                    <span class="align-middle">DONATE</span></label>
                 </div>
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
                     <p>Thank you for your contribution</p>   
@@ -208,30 +208,29 @@
                                 <h4 class="title"></h4>
                             </div>
                         </div>
-
-                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidname">
-                            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
-                                <span class="glyphicon glyphicon-user glyclr"></span> Name
+                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" style="margin-bottom: 5%"> 
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidname">
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
+                                    <span class="glyphicon glyphicon-user glyclr"></span> Name
+                                </div>
+                                <span id="volname" class="reset pull-right"></span>
                             </div>
-                            <span id="volname" class="col-lg-6 col-md-6 col-xs-6 col-sm-6"></span>
-                        </div>
-
-
-                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidemail">
-                            <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
-                                <span class="glyphicon glyphicon-user glyclr"></span> Email
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidemail">
+                                <div class="col-md-3 col-lg-3 col-sm-3 col-xs-3 reset reset2">
+                                    <span class="glyphicon glyphicon-envelope glyclr"></span> Email
+                                </div>
+                                <span id="volemail" class=" reset  pull-right"></span>
                             </div>
-                            <span id="volemail" class="col-lg-6 col-md-6 col-xs-6 col-sm-6 "></span>
-                        </div>
-                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidphone">
-                            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2">
-                                <span class="glyphicon glyphicon-user glyclr"></span> Phone number
+                            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 reset volnotvalidphone">
+                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6 reset reset2">
+                                    <span class="glyphicon glyphicon-phone-alt glyclr"></span> Phone number
+                                </div>
+                                <span id="volphone" class=" reset  pull-right"></span>
                             </div>
-                            <span id="volphone" class="col-lg-6 col-md-6 col-xs-6 col-sm-6"></span>
                         </div>
                     </div>
-                    <a href="{{url('receipt')}}"><label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
-                    <span class="align-middle">VOLUNTEER</span></label></a>
+                    <label for="volButton" id="volBtn" class="formv btn btn-block btn-success submit-button" type="submit"><span class="submit-button-lock"></span>
+                    <span class="align-middle">VOLUNTEER</span></label>
                 </div>
             </div>
         </div>
@@ -283,10 +282,11 @@
                 success: function(response){
                     
                     response = JSON.parse(response);
-                    var name = response.project_Title;
+                    console.log(response);
+                    var name = response[0].project_Title;
                     
                     $('.title').html(name);
-                    $(".image").attr("src",'../images/projects/'+response.project_Image);
+                    $(".image").attr("src",'../images/projects/'+response[0].project_Image);
                 }
             });
         } 
@@ -325,6 +325,7 @@
             $('.type').val(type);
             $('.proevent').val(p);
             $(".title").html(p);
+            $(".image").attr({"src":'../images/aafoundationlogo(1).jpg',"style":'height:39px'});
         }
 
         calamt();
@@ -373,20 +374,19 @@
 
         $("#NameOnCard").on("blur",function(){
             namecheck();
-
         });
 
         //Function for Volunteer
         $("#Name").on('blur', function () {
-            $(".volnotvalidname").hide();
+            // $(".volnotvalidname").hide();
             volunteername();
         });
             $("#Email").on('blur', function () {
-                $(".volnotvalidemail").hide();
+                // $(".volnotvalidemail").hide();
                 volunteeremail();
             });
             $("#Phone").on('blur', function () {
-                $(".volnotvalidphone").hide();
+                // $(".volnotvalidphone").hide();
                 volunteerphone();
             });
 
@@ -396,11 +396,11 @@
             if($("#vform").data("bootstrapValidator").isValidField('Name')){
 
                 $("#volname").html(name);
-                $(".volnotvalidname").show();
+                $(".volnotvalidname").fadeIn();
             }
             else{
                 $("#volname").html(" ");
-                $(".volnotvalidname").hide();
+                $(".volnotvalidname").fadeOut();
                 
             }
         }
@@ -409,11 +409,11 @@
                 if($("#vform").data("bootstrapValidator").isValidField('Email')){
 
                     $("#volemail").html(email);
-                    $(".volnotvalidemail").show();
+                    $(".volnotvalidemail").fadeIn();
                 }
                 else{
                     $("#volemail").html(" ");
-                    $(".volnotvalidemail").hide();
+                    $(".volnotvalidemail").fadeOut();
                     
                 }
             }
@@ -422,11 +422,11 @@
                 if($("#vform").data("bootstrapValidator").isValidField('Phone')){
 
                     $("#volphone").html(phone);
-                    $(".volnotvalidphone").show();
+                    $(".volnotvalidphone").fadeIn();
                 }
                 else{
                     $("#volphone").html(" ");
-                    $(".volnotvalidphone").hide();
+                    $(".volnotvalidphone").fadeOut();
                     
                 }
             }
