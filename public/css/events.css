@@ -175,10 +175,16 @@ cursor: pointer;
 .right{
   display: inline-block;
   float: right;
-  margin-right: 7%;
+  margin-right: 3%;
+}
+.right h2{
+  margin-top: 0px;
 }
 .des{
   margin-top: 2%;
+}
+.eimg{
+    border: solid 1px #ddd;
 }
 @media (max-width: 768px){
     .nav-justified > li {
