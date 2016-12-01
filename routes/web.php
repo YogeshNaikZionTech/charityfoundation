@@ -47,6 +47,7 @@ Route::get('/setproject', function (){
 });
 Route::get('/vreceipt', 'Donate@VoulnteerRecipte');
 Route::get('/dreceipt', 'Donate@donateRecipte');
+Route::get('/areceipt', 'Donate@affReceipt');
 Route::get('showevents', 'EventController@showEventPage');
 Route::get('showprojects', 'ProjectController@showProjectPage');
 Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
@@ -102,10 +103,12 @@ Route::get('projects/lists/count', 'ProjectController@getProjectCount');
 Route::get('projects/page/future/{id}', 'ProjectController@paginateUpcomingProjects'); //Get pagination for future Projects
 Route::get('projects/page/current/{id}', 'ProjectController@paginateCurrentProjects'); //Get pagination for current projects
 Route::get('projects/page/completed/{id}', 'ProjectController@paginateCompletedProjects'); //Get pagination for completed projects
+Route::get('/projects/get/titles', 'ProjectController@getAllPTitles');
 Route::post('putevents', 'EventController@updateEvent');
 Route::post('putprojects','ProjectController@updateProject');
 Route::get('donationview','AdminController@donationTable'); //this will give you the donation view json. use ajax to get this.
 Route::get('exportd','AdminController@exportDonation'); // link to the export button on the donation: Admin page
+
 /**
  *
  *  pagination links

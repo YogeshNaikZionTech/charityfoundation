@@ -197,7 +197,7 @@ class EventController extends Controller
 
     public  function  getAllETitles(){
 
-        $event_description = Event::Select('id','event_title')->get();
+        $event_description = Event::Select('id','event_Title')->get();
         echo json_encode($event_description);
     }
 
@@ -256,8 +256,10 @@ class EventController extends Controller
     public function destroy($id)
     {
 
+        // $id = $request->input('id');
+        Log::info('Im at the controller delete function');
 
-      $event_delete = Event::Where('id','=',$id)->get();
+      $event_delete = Event::Where('id','=',$id)->first();
         $event_delete->delete();
         \Session::flash( 'EventDeleted', 'Event Deleted' );
 

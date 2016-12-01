@@ -25,7 +25,13 @@ class userProfileController extends Controller {
 
     public function updateUser( Request $request ) {
 
-        $filename='default.png';
+
+
+        if($request->has('removeimage')){
+
+            $this->removeUserImage();
+        }
+        $filename=Auth::user()->avatar;
         Log::info('Request for updating user profile');
 
         if ( $request->hasFile('avatar') ) {
@@ -91,6 +97,16 @@ class userProfileController extends Controller {
 
         return view('/users/resetpassword');
     }
+
+    public function removeUserImage(){
+
+        $default_avatar = 'default.png';
+        $curr_user = Auth::user();
+        @unlink(public_path('images/avatar/s'.$curr_user->avatar));
+        $curr_user->avatar = $default_avatar;
+        $curr_user->save();
+    }
+
 
 
 
