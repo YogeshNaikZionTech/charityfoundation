@@ -59,6 +59,7 @@
                 </nav>
             </div>
             <div class="main-content col">
+                {{--History content starts here--}}
                 <div class="admin-content" id="history">
                     <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
                     <div class="col-xs-6" >
@@ -86,6 +87,8 @@
                     </table>
 
                 </div>
+                {{--History content ends here--}}
+                {{--Users content starts here--}}
                 <div class="admin-content" id="users">
                     <h3>Users<a class="btn btn-warning btn-md export" href="/admin/export/users" >Export All</a></h3>
                     <div class="col-xs-6" >
@@ -117,6 +120,8 @@
 
                     </table>
                 </div>
+                {{--Users content starts here--}}
+                {{--Create project or event starts here--}}
                 <div class="admin-content" id="create">
                     <h3>Create Projects/Events</h3>
                     <div class="container">
@@ -253,7 +258,7 @@
 
                     </div>
                 </div>
-                {{--Modify--}}
+                {{--Modify project or event starts here--}}
                 <div class="admin-content" id="update">
                     <h3>Update Projects/Events</h3>
 
@@ -381,15 +386,18 @@
 
 @endsection
 @section('scripts')
+
     {{--Navigation Menu--}}
     <script src="js/nav.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function()
+       <script type="text/javascript">
+
+        $(function()
         {
             var navItems = $('.admin-menu li > a');
             var navListItems = $('.admin-menu li');
             var allWells = $('.admin-content');
             var allWellsExceptFirst = $('.admin-content:not(:first)');
+            console.log('allWellsExceptFirst');
 
             allWellsExceptFirst.hide();
             navItems.click(function(e)
@@ -401,17 +409,13 @@
                 allWells.hide();
                 var target = $(this).attr('data-target-id');
                 $('#' + target).show();
+
             });
+
         });
+
     </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#history').show();
-            $('#users').hide();
-            $('#create').hide();
-            $('#update').hide();
-        });
-    </script>
+
 
     <script>
         function FocusOnInput() {

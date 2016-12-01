@@ -17,28 +17,27 @@
     <h1> Educate yourself</h1>
 
     <div class="row container-fluid">
-    <div class="container col-lg-12 col-md-12 col-xs-12 col-sm-12  "  >
+    <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 ">
         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6" >
-            <div class="col-lg-10 col-xs-12 col-md-10 col-sm-12 ">
-                <h2>India the-future superpower reclaiming</h2>
-                <p>Some description  about video or Main theme of the video</p>
+            <div class="col-lg-11 col-xs-12 col-md-10 col-sm-12 ">
+                <h2>Are students failing or the system?! </h2>
+                <p>Sonam Wangchuk shares his experience of bringing education reforms in the region of Ladakh, India.Sonam Wangchuk is the founder of Students' Educational & Cultural Movement of Ladakh (SECMOL). </p>
             </div>
-            <iframe class="col-lg-11 col-xs-12 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/J_g7p5x-LUs" frameborder="0" allowfullscreen></iframe>
+            <iframe class="col-lg-11 col-xs-12 col-sm-11 col-md-11 " src="https://www.youtube.com/embed/qH1HCYy1NTc" frameborder="0" allowfullscreen></iframe>
         </div>
 
         <div class="col-lg-6 col-xs-12 col-sm-12 col-md-6" >
             <div class="col-lg-12 col-xs-12 col-md-12 col-sm-12 ">
-                <h2>India the-future superpower reclaiming</h2>
-                <p>Some description  about video or Main theme of the video</p>
+                <h2>Education in India - BBC </h2>
+                <p>Sanjeev visits some impressive young students taking time out of their school day to help teach street children the same syllabus. That's recycled learning, Indian style, and it makes a big impression on our presenter in this BBC Worldwide video clip.</p>
             </div>
-            <iframe  class="col-lg-11 col-xs-12 col-sm-11 col-md-11  " src="https://www.youtube.com/embed/Ndh58GGCTQo" frameborder="0" allowfullscreen></iframe>
+            <iframe class="col-lg-11 col-xs-12 col-sm-11 col-md-11  " src="https://www.youtube.com/embed/aKspt58JbsM" frameborder="0" allowfullscreen></iframe>
 
         </div>
 
     </div>
 
     </div>
-
 
 </div>
 
