@@ -103,6 +103,9 @@ input[type="text"]{ min-height: 28px;}
     padding-top:0;
 
 }
+#users, #create, #update{
+    display:none;
+}
 /* main content styles */
 .main-content {
     padding: 40px;
