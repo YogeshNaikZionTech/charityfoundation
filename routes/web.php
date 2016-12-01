@@ -107,8 +107,7 @@ Route::post('putevents', 'EventController@updateEvent');
 Route::post('putprojects','ProjectController@updateProject');
 Route::get('donationview','AdminController@donationTable'); //this will give you the donation view json. use ajax to get this.
 Route::get('exportd','AdminController@exportDonation'); // link to the export button on the donation: Admin page
-Route::post('projects/delete', 'ProjectController@destroy');
-Route::post('/events/delete', 'EventController@destroy');
+
 /**
  *
  *  pagination links
