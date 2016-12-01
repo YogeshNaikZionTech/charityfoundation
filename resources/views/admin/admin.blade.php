@@ -273,9 +273,11 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                                <button class="btn btn-danger del-project">Delete</button>
                             </div>
                         </form>
+                        <div class="form-group">
+                                <button class="btn btn-danger del-project">Delete</button>
+                            </div>
                     </div>
                     <!--  Form to Modify an Event -->
                     <div class="event program">
@@ -345,9 +347,8 @@
                             </div>
                         </form>
                             <div class="form-group">
-
                                 <button class="btn btn-danger del-event">Delete</button>
-</div>
+                            </div>
                     </div>
 
                 </div>
@@ -616,7 +617,7 @@
                         $('#proj_description').val(response[0].project_Description);
                         $('#pstatus>option[value='+response[0].project_Status +']').attr('selected', true);
                         $('#project_id').val(response[0].id);  
-                        $('.del-event').attr('value', response[0].id);
+                        $('.del-project').attr('value', response[0].id);
                    }
                 })
 
@@ -654,7 +655,7 @@ $('.del-project').click(function(){
         // data: {'id': id},
         datatype: 'JSON',
         success: function(){
-          // window.location.href = "{{url('events')}}";
+          window.location.href = "{{url('projects')}}";
         }
     });
 
@@ -668,7 +669,7 @@ $('.del-event').click(function(){
         // data: {'id': id},
         datatype: 'JSON',
         success: function(){
-          // window.location.href = "{{url('events')}}";
+          window.location.href = "{{url('events')}}";
         }
     });
 

@@ -259,7 +259,7 @@ class EventController extends Controller
         // $id = $request->input('id');
         Log::info('Im at the controller delete function');
 
-      $event_delete = Event::Where('id','=',$id)->get();
+      $event_delete = Event::Where('id','=',$id)->first();
         $event_delete->delete();
         \Session::flash( 'EventDeleted', 'Event Deleted' );
 
