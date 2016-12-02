@@ -143,7 +143,7 @@
                                 <h3>New Project Creation</h3>
                                 <form name="create" id="createproject" class=" col-md-6" action="{{url('/projects')}}" method="post">
                                     <div class="form-group">
-                                        <label for="pname" class="control-label"  >Project Name</label>
+                                        <label for="pname" class="control-label"  >Project Name :</label>
                                         <input id="pname" name="pname" type="text" class="form-control" style="height:28px;">
                                     </div>
                                     <div class="form-group">
@@ -165,12 +165,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="pdescription" class="control-label">Project Description</label>
+                                        <label for="pdescription" class="control-label">Project Description :</label>
                                             <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="pimage" class="control-label">Upload an image</label>
+                                        <label for="pimage" class="control-label">Upload an image :</label>
                                         <input id="pimage" type="file" name="pimage" accept="image/*">
                                     </div>
                                     <div>
@@ -487,7 +487,7 @@
                             success: function (data) {
                                 var trHTML = '';
                                 $.each(data, function (i, item) {
-                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
+                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.total_donation + '</td></tr>';
                                 });
 
                                 $('.output').html(trHTML);
@@ -514,7 +514,7 @@
                                 var output = '';
                                 response = JSON.parse(response);
                                 $.each(response, function (key, val) {
-                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.usersince + '</td><td>' + val.amountreceived + '</td></tr>';
+                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.usersince + '</td><td>' + val.total_donation + '</td></tr>';
                                 });
                                 $(".output").html(output);
                             }
@@ -531,7 +531,7 @@
 
                                             $.each(data, function (i, item) {
 
-                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.amountreceived + '</td></tr>';
+                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.total_donation + '</td></tr>';
                                             });
 
                                             $('.output').html(trHTML);
