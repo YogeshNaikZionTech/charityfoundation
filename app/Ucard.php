@@ -17,6 +17,9 @@ class Ucard extends Model
 
         return $this->belongsTo('App\User');
     }
+    public function Receipt(){
 
+        return $this->hasMany('App\Receipt');
+    }
 
 }

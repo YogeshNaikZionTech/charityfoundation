@@ -39,39 +39,59 @@ class AdminController extends Controller
      *  check if ueer has card: User::has('Ucards')
      *  check for each card in project_Receipt table using   ORM.
      */
-    public function  searchUser(Request $request){
+    public function  searchUser(Request $request)
+    {
 
         $search_var = $request->input('search_var');
-        Log:info('data:'.$search_var);
+        Log::info('Requesting seach for:data:' . $search_var);
         $user_list = User::all();
-        $user_count = User::all()->count();
-        Log::info($user_count);
-        Log::info($user_list);
-        Log::info($search_var);
         $user_check = array();
         $user_response = array();
-        foreach($user_list as $user_slug){
+
+        foreach ($user_list as $user_slug) {
             Log::info($user_slug->firstname);
             $user_name = $user_slug->firstname . $user_slug->lastname;
-            if(stripos($user_name, $search_var)!==false){
-                $tsum =0;
-               $esum=0;
-               $psum =0;
+            if (stripos($user_name, $search_var) !== false) {
+                $tsum = 0;
 
-               $project =$user_slug->Project()->get();
+                $user = $user_slug;
+                $response_arr = array();
+                $response_check = array();
 
-             if($project->count()){
-                 foreach($project as $p){
-                     $psum += $p->pivot->project_cents;
-                 }
-             }
-             $tsum = $psum;
-                $user_check = array("firstname"=>$user_slug->firstname, "lastname"=>$user_slug->lastname, "email" =>$user_slug->email, "phonenum"=>$user_slug->phonenum,"total_donation" => $tsum);
-                array_push($user_response, $user_check);
+
+                $card_count = $user->ucard->all();
+                if ($card_count > 0) {
+                    //get the list of card of loged in user
+                    $card_list = $user->Ucard->all();
+
+                    foreach ($card_list as $card) {
+                        $receipt_count = $card->receipt->count();
+                        //get list of receipts paid by the particular card
+                        $receipt_list = $card->receipt->all();
+                        if ($receipt_count > 0) {
+
+                            foreach ($receipt_list as $rlist) {
+
+                                $tsum += $rlist->amount_cents;
+
+                            }
+                            $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_slug->created_at, "total_donation" => $tsum);
+                            array_push($user_response, $user_check);
+                        }
+                    }
+                }
             }
+
+
         }
+        Log::info('search is sent ');
         echo json_encode($user_response);
-    }
+
+      }
+
+
+
+
 
 
     public  function getAllUsers(){

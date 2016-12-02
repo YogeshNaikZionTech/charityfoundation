@@ -121,10 +121,11 @@ class Donate extends Controller
 
         //create receipt entry and save
         $receipt = new Receipt();
-        $receipt->card_id = $card_id;
+        $receipt->ucard_id = $card_id;
         $receipt->amount_cents = $d_amount;
         $receipt->receipt_num = $receipt_n;
         $receipt->save();
+        $card->Receipt()->save($receipt);
         $receipt_id = $receipt->id;
 
         if($request->input('proevent')=='AA Foundation'){
@@ -158,7 +159,7 @@ class Donate extends Controller
             //create receipt_donate record (project doantion and receipt table)
             DB::table('receipt_donate')->insert(
                 ['pdonate_id' => $curr_donation->id, 'receipt_id'=>$receipt_id,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-                    'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),]
+                    'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' )]
             );
 
 
@@ -166,7 +167,8 @@ class Donate extends Controller
             if($type_payment == 'monthly'){
                 Log::info('pushed in to monthlynotification tabel ');
                 DB::table('pm_notif')->insert(
-                    ['pdonate_id' => $curr_donation->id, 'user_id'=>$user->user_id]
+                    ['pdonate_id' => $curr_donation->id, 'user_id'=>$user->id,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+                        'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' )]
                 );
 
             }
@@ -308,7 +310,7 @@ class Donate extends Controller
 
         //get receipt number using above project_donation_id
         $receiptd = Receipt::find($receipt->receipt_id);
-        $card_id = $receiptd->card_id;
+        $card_id = $receiptd->ucard_id;
         $card = Ucard::find($card_id);
         $receipt_d= array(
             'type'=>'pd',
@@ -347,7 +349,7 @@ class Donate extends Controller
         $adonate = AAFdonate::where('user_id',$user->id)->orderBy('updated_at','desc')->first();
         $receipt_id = $adonate->cardreceipt_id;
         $adonate_details = DB::table('projectd_receipt')->where('id', $receipt_id)->first();
-            $card= $user->Ucard->where('id', $adonate_details->card_id)->first();
+            $card= $user->Ucard->where('id', $adonate_details->ucard_id)->first();
 
         $receipt_d= array(
             'type'=>'pd',
