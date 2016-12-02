@@ -15,7 +15,7 @@ class CreateDonatesTable extends Migration
     {
         Schema::create('projectd_receipt', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('card_id');
+            $table->integer('ucard_id');
             $table->integer('amount_cents');
             $table->string('receipt_num');
             $table->timestamps();

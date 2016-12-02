@@ -28,7 +28,7 @@ Route::get('/userprofile', 'userProfileController@profile');
 
 Route::post('/userprofile', 'userProfileController@updateUser' );
 
-Route:: resource('history', 'HistoryController');
+Route:: resource('showhistory', 'HistoryController');
 
 Route::resource('admin','AdminController');
 
@@ -52,6 +52,10 @@ Route::get('showevents', 'EventController@showEventPage');
 Route::get('showprojects', 'ProjectController@showProjectPage');
 Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
 Route::post('userprofile/preset', 'userProfileController@updatePassword');
+
+Route::get('history', 'HistoryController@getHistory');
+
+
 /*
  * Resource for About us
  */
