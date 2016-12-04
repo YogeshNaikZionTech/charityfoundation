@@ -104,16 +104,12 @@ class Donate extends Controller
         $card->expiry_date = $uExpiry;
         $card->name_card = $request->input('NameOnCard');
         $card->zip_code = $request->input('ZIPCode');
+
+        $card_id = $this->isOldCard($card);
         //save the card in to User-card table and attach the user to the user_id relationship.
-        $card->save();
-        Log::info('card details saved');
-        $user->Ucard()->save($card);
-        Log::info('card attached to the user');
-
-
         $receipt_n = $this->generateReceipt();
 
-        $card_id = $card->id;
+
 
         $type_payment = $request->input('dtype');
         $id = $request->input('proevent');
@@ -362,6 +358,29 @@ class Donate extends Controller
         );
         Log::info('Redirectin to Receipt from AFFoudnation');
         return view ('/donates/receipt')->withReceipt_d($receipt_d);
+
+    }
+
+
+    public function isOldCard(Ucard $card){
+    Log::info('checking for iscacrd already avaible fo rthe user.');
+        $Allcards = Auth::user()->ucard->all();
+        $check_card = $card;
+        foreach($Allcards as $card){
+
+            if($card->card_num == $check_card->card_num){
+            Log::info('User has the same card returning the id');
+                return $card->id;
+            }
+
+        }
+
+        $card->save();
+        Log::info('card details saved');
+        Auth::user()->Ucard()->save($check_card);
+        Log::info('card attached to the user');
+        return $check_card->id;
+
 
     }
 }

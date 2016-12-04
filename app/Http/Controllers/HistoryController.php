@@ -108,10 +108,11 @@ class HistoryController extends Controller
                 if($receipt_count>0){
 
                     foreach($receipt_list as $rlist){
-
+                        Log::info($rlist);
                         $rlist->receipt_num;
                         //pdonate_reeipt and donate pvoit extraction
                         $pdonate=DB::table('receipt_donate')->where('receipt_id',$rlist->id)->first();
+                        Log::info('thisis'.$pdonate->pdonate_id);
                         //donate type and project id extraction
                         $donate_id=DB::table('donate_project')->where('id',$pdonate->pdonate_id)->first();
                         //project title extraction
