@@ -53,7 +53,8 @@ Route::get('showprojects', 'ProjectController@showProjectPage');
 Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
 Route::post('userprofile/preset', 'userProfileController@updatePassword');
 
-Route::get('history', 'HistoryController@getHistory');
+Route::get('dhistory', 'HistoryController@getDHistory');
+Route::get('vhistory', 'HistoryController@getVHistory');
 
 
 /*

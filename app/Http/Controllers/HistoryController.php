@@ -88,7 +88,7 @@ class HistoryController extends Controller
     }
 
 
-    public function getHistory(){
+    public function getDHistory(){
         Log::info('get history');
             $user = Auth::user();
         $response_arr = array();
@@ -133,6 +133,12 @@ class HistoryController extends Controller
 
         Log::info('Histoty is sent ');
         echo json_encode($response_arr);
+
+    }
+
+    public function getVhistory(){
+
+        echo "will send time";  
 
     }
 }
