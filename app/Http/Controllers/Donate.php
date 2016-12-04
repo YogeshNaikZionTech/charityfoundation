@@ -106,6 +106,7 @@ class Donate extends Controller
         $card->zip_code = $request->input('ZIPCode');
 
         $card_id = $this->isOldCard($card);
+        $user_card = Ucard::find($card_id);
         //save the card in to User-card table and attach the user to the user_id relationship.
         $receipt_n = $this->generateReceipt();
 
@@ -121,7 +122,7 @@ class Donate extends Controller
         $receipt->amount_cents = $d_amount;
         $receipt->receipt_num = $receipt_n;
         $receipt->save();
-        $card->Receipt()->save($receipt);
+        $user_card->Receipt()->save($receipt);
         $receipt_id = $receipt->id;
 
         if($request->input('proevent')=='AA Foundation'){
@@ -362,20 +363,21 @@ class Donate extends Controller
     }
 
 
-    public function isOldCard(Ucard $card){
+    public function isOldCard(Ucard $ccard){
     Log::info('checking for iscacrd already avaible fo rthe user.');
         $Allcards = Auth::user()->ucard->all();
-        $check_card = $card;
+        $check_card = $ccard;
         foreach($Allcards as $card){
 
             if($card->card_num == $check_card->card_num){
             Log::info('User has the same card returning the id');
+                Log::info('return id:'.$card->id);
                 return $card->id;
             }
 
         }
 
-        $card->save();
+        $check_card->save();
         Log::info('card details saved');
         Auth::user()->Ucard()->save($check_card);
         Log::info('card attached to the user');

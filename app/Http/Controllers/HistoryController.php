@@ -6,7 +6,7 @@ use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
-use DB;
+use Illuminate\Support\Facades\DB;
 class HistoryController extends Controller
 {
     /**
@@ -90,29 +90,33 @@ class HistoryController extends Controller
 
     public function getHistory(){
         Log::info('get history');
-        $user = Auth::user();
+            $user = Auth::user();
         $response_arr = array();
         $response_check = array();
         $user_name = $user->firstname.$user->lastname;
 
-        $card_count = $user->ucard->all();
-
+        $card_count = $user->ucard->count();
+    Log::info($card_count);
         if($card_count>0){
             //get the list of card of loged in user
-            $card_list = $user->Ucard->all();
+            $card_list = $user->Ucard;
 
             foreach($card_list as $card){
                 $receipt_count= $card->receipt->count();
       //get list of receipts paid by the particular card
-                $receipt_list= $card->receipt->all();
+                $receipt_list= $card->receipt;
+                Log::info('log: receiptlist');
+                Log::info($receipt_list);
                 if($receipt_count>0){
 
                     foreach($receipt_list as $rlist){
-                        Log::info($rlist);
+                        Log::info('rlistif');
                         $rlist->receipt_num;
-                        //pdonate_reeipt and donate pvoit extraction
+                          //pdonate_reeipt and donate pvoit extraction
+                        Log::info($rlist->id);
                         $pdonate=DB::table('receipt_donate')->where('receipt_id',$rlist->id)->first();
-                        Log::info('thisis'.$pdonate->pdonate_id);
+                        Log::info('log:Pdonate_id form receipt_donate');
+                        Log::info($pdonate->id);
                         //donate type and project id extraction
                         $donate_id=DB::table('donate_project')->where('id',$pdonate->pdonate_id)->first();
                         //project title extraction
@@ -120,6 +124,7 @@ class HistoryController extends Controller
 
                         $response_check =array("name"=>$user_name,"donation_type"=>$donate_id->donation_type,"project"=>$project->project_Title,"dod"=>$donate_id->updated_at,"amount"=>$rlist->amount_cents);
                         array_push($response_arr, $response_check);
+                        Log::info($response_arr);
 
                     }
                 }
