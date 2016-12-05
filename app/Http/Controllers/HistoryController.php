@@ -100,31 +100,38 @@ class HistoryController extends Controller
         if($card_count>0){
             //get the list of card of loged in user
             $card_list = $user->Ucard;
+            $project_count= $user->project->count();
 
+            if($project_count>0){
             foreach($card_list as $card){
                 $receipt_count= $card->receipt->count();
-      //get list of receipts paid by the particular card
                 $receipt_list= $card->receipt;
+      //get list of receipts paid by the particular card
+
                 Log::info('log: receiptlist');
-                Log::info($receipt_list);
-                if($receipt_count>0){
+                Log::info($project_count);
+
 
                     foreach($receipt_list as $rlist){
                         Log::info('rlistif');
-                        $rlist->receipt_num;
+                       $rnum= $rlist->receipt_num;
                           //pdonate_reeipt and donate pvoit extraction
                         Log::info($rlist->id);
                         $pdonate=DB::table('receipt_donate')->where('receipt_id',$rlist->id)->first();
-                        Log::info('log:Pdonate_id form receipt_donate');
-                        Log::info($pdonate->id);
-                        //donate type and project id extraction
-                        $donate_id=DB::table('donate_project')->where('id',$pdonate->pdonate_id)->first();
-                        //project title extraction
-                        $project = Project::find($donate_id->project_id);
+                        if(!$pdonate == null){
 
-                        $response_check =array("name"=>$user_name,"donation_type"=>$donate_id->donation_type,"project"=>$project->project_Title,"dod"=>$donate_id->updated_at,"amount"=>$rlist->amount_cents);
-                        array_push($response_arr, $response_check);
-                        Log::info($response_arr);
+                            Log::info('log:Pdonate_id form receipt_donate');
+
+                            //donate type and project id extraction
+                            $donate_id=DB::table('donate_project')->where('id',$pdonate->pdonate_id)->first();
+                            //project title extraction
+                            $project = Project::find($donate_id->project_id);
+
+                            $response_check =array("name"=>$user_name,"donation_type"=>$donate_id->donation_type,"project"=>$project->project_Title,"dod"=>$donate_id->updated_at,"amount"=>$rlist->amount_cents,"receipt_id"=>$rnum);
+                            array_push($response_arr, $response_check);
+                            Log::info($response_arr);
+                        }
+
 
                     }
                 }
@@ -138,7 +145,41 @@ class HistoryController extends Controller
 
     public function getVhistory(){
 
-        echo "will send time";  
+        //get Loged in user
+        $Loged_user = Auth::user();
+        $response_arr = array();
+        $response_check = array();
+        $event_list = $Loged_user->event->all();
 
+        foreach($event_list as $el){
+
+            $start_time = $el->event_StartTime;
+            $end_time = $el->event_EndTime;
+            $event_name = $el->event_Title;
+            $event_status = $el->Status;
+            $response_check =array("event_name"=>$event_name,"start_time"=>$start_time,"endt_time"=>$end_time,"event_status"=>$event_status);
+            array_push($response_arr, $response_check);
+        }
+
+        echo json_encode($response_arr);
+
+    }
+
+    public function getAAFHistory(){
+
+        $loged_user = Auth::user();
+        $response_arr = array();
+        $response_check = array();
+        Log::info('getting AAF history');
+        $donation_list = $loged_user->AAFdonate->all();
+        foreach($donation_list as $dl){
+
+            $creceipt = $dl->cardreceipt_id;
+            $pdonate=DB::table('projectd_receipt')->where('id',$creceipt)->first();
+            $response_check =array("donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dod"=>$pdonate->updated_at);
+            array_push($response_arr, $response_check);
+        }
+
+        echo json_encode($response_arr);
     }
 }

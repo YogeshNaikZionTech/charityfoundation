@@ -14,7 +14,7 @@ class AAFdonate extends Model
 
     public function User(){
 
-        return $this->belongsTo('App\AFFdonate');
+        return $this->belongsTo('App\AAFdonate');
     }
 
 }

@@ -17,4 +17,6 @@ class Project extends Model
 
         return $this->belongsToMany('App\User', 'donate_project')->withPivot('donation_type')->withTimestamps();
     }
+
+
 }

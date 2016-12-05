@@ -120,6 +120,7 @@ class Donate extends Controller
         $receipt = new Receipt();
         $receipt->ucard_id = $card_id;
         $receipt->amount_cents = $d_amount;
+        $receipt->amount_cents = $d_amount;
         $receipt->receipt_num = $receipt_n;
         $receipt->save();
         $user_card->Receipt()->save($receipt);
@@ -127,12 +128,13 @@ class Donate extends Controller
 
         if($request->input('proevent')=='AA Foundation'){
 
-            Log::info('Donation for AFF foundation');
+            Log::info('Donation for AAF foundation');
             $aff = new AAFdonate();
             $aff->user_id = $user_id;
             $aff->donation_type = $type_payment;
             $aff->cardreceipt_id = $receipt_id;
             $aff->save();
+            $user->AAFdonate()->save($aff);
             Log::info('Donation for AFF foundation saved');
 
             Log::info('mailing user about the donation');
@@ -141,6 +143,8 @@ class Donate extends Controller
                 $message->to($user->email, $user->lastname)->subject('Donation Receipt');
                 $message->from('noreplyaafoundation@gmail.com', 'AAF');
             });
+
+
             Log::info('User redirected to areceipt');
             return redirect('/areceipt');
         }else{

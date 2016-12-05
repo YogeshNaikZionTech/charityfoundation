@@ -184,7 +184,7 @@ class AdminController extends Controller
             foreach($card_list as $card) {
                 $receipt_count = $card->receipt->count();
                 //get list of receipts paid by the particular card
-                $receipt_list = $card->receipt->all();
+                $receipt_list = $card->receipt;
                 if ($receipt_count > 0) {
 
                     foreach ($receipt_list as $rlist) {
@@ -192,13 +192,17 @@ class AdminController extends Controller
                         $rlist->receipt_num;
                         //pdonate_reeipt and donate pvoit extraction
                         $pdonate = DB::table('receipt_donate')->where('receipt_id', $rlist->id)->first();
-                        //donate type and project id extraction
-                        $donate_id = DB::table('donate_project')->where('id', $pdonate->pdonate_id)->first();
-                        //project title extraction
-                        $project = Project::find($donate_id->project_id);
+                        if(!$pdonate==null){
+                            //donate type and project id extraction
+                            $donate_id = DB::table('donate_project')->where('id', $pdonate->pdonate_id)->first();
+                            //project title extraction
+                            $project = Project::find($donate_id->project_id);
 
-                        $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "amount" => $rlist->amount_cents);
-                        array_push($response_arr, $response_check);
+                            $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "amount" => $rlist->amount_cents);
+                            array_push($response_arr, $response_check);
+
+
+                        }
 
                     }
                 }
@@ -257,6 +261,28 @@ class AdminController extends Controller
 
         })->export('xls');
     }
+
+
+    public function getAllAFFHistory(){
+
+
+        $user_list = User::all();
+        foreach($user_list as $user)
+        $response_arr = array();
+        $response_check = array();
+        Log::info('getting AAF history');
+        $donation_list = $user->AAFdonate->all();
+        foreach($donation_list as $dl){
+
+            $creceipt = $dl->cardreceipt_id;
+            $pdonate=DB::table('projectd_receipt')->where('id',$creceipt)->first();
+            $response_check =array("donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dod"=>$pdonate->updated_at);
+            array_push($response_arr, $response_check);
+        }
+
+        echo json_encode($response_arr);
+    }
+
 
 
 
