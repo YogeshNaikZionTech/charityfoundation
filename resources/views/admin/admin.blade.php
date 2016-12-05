@@ -406,7 +406,7 @@
             if ($("#dinput").val().length == 0) {
                 $.ajax(
                         {
-                            url: "",
+                            url: "/donationview",
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
