@@ -53,8 +53,16 @@ Route::get('showprojects', 'ProjectController@showProjectPage');
 Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
 Route::post('userprofile/preset', 'userProfileController@updatePassword');
 
-Route::get('history', 'HistoryController@getHistory');
 
+/**
+ * show the history for admin and user
+ */
+Route::get('/history/project/user', 'HistoryController@getDHistory');// history of project donation for logged in user
+Route::get('/history/voulnteer/user', 'HistoryController@getVHistory');//history of project voulnteer for logged in user
+Route::get('/history/aaf/user', 'HistoryController@getAAFHistory'); //history of project aaf for logged in user
+Route::get('/history/project/all','AdminController@donationTable');//this will give you the donation view json. use ajax to get this.
+Route::get('/history/aaf/all','AdminController@getAllAFFHistory');//get all AAf donation for all the users
+Route::get('/history/voulnteer/all','AdminController@getAllVhistory');
 
 /*
  * Resource for About us
@@ -110,12 +118,6 @@ Route::get('projects/page/completed/{id}', 'ProjectController@paginateCompletedP
 Route::get('/projects/get/titles', 'ProjectController@getAllPTitles');
 Route::post('putevents', 'EventController@updateEvent');
 Route::post('putprojects','ProjectController@updateProject');
-Route::get('donationview','AdminController@donationTable'); //this will give you the donation view json. use ajax to get this.
+
 Route::get('exportd','AdminController@exportDonation'); // link to the export button on the donation: Admin page
 
-/**
- *
- *  pagination links
- *  post data to  : localhosts:8000/events/page/get/
- *           data: 1
- */

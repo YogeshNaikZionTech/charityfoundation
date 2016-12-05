@@ -104,16 +104,13 @@ class Donate extends Controller
         $card->expiry_date = $uExpiry;
         $card->name_card = $request->input('NameOnCard');
         $card->zip_code = $request->input('ZIPCode');
+
+        $card_id = $this->isOldCard($card);
+        $user_card = Ucard::find($card_id);
         //save the card in to User-card table and attach the user to the user_id relationship.
-        $card->save();
-        Log::info('card details saved');
-        $user->Ucard()->save($card);
-        Log::info('card attached to the user');
-
-
         $receipt_n = $this->generateReceipt();
 
-        $card_id = $card->id;
+
 
         $type_payment = $request->input('dtype');
         $id = $request->input('proevent');
@@ -123,19 +120,21 @@ class Donate extends Controller
         $receipt = new Receipt();
         $receipt->ucard_id = $card_id;
         $receipt->amount_cents = $d_amount;
+        $receipt->amount_cents = $d_amount;
         $receipt->receipt_num = $receipt_n;
         $receipt->save();
-        $card->Receipt()->save($receipt);
+        $user_card->Receipt()->save($receipt);
         $receipt_id = $receipt->id;
 
         if($request->input('proevent')=='AA Foundation'){
 
-            Log::info('Donation for AFF foundation');
+            Log::info('Donation for AAF foundation');
             $aff = new AAFdonate();
             $aff->user_id = $user_id;
             $aff->donation_type = $type_payment;
             $aff->cardreceipt_id = $receipt_id;
             $aff->save();
+            $user->AAFdonate()->save($aff);
             Log::info('Donation for AFF foundation saved');
 
             Log::info('mailing user about the donation');
@@ -144,6 +143,8 @@ class Donate extends Controller
                 $message->to($user->email, $user->lastname)->subject('Donation Receipt');
                 $message->from('noreplyaafoundation@gmail.com', 'AAF');
             });
+
+
             Log::info('User redirected to areceipt');
             return redirect('/areceipt');
         }else{
@@ -362,6 +363,30 @@ class Donate extends Controller
         );
         Log::info('Redirectin to Receipt from AFFoudnation');
         return view ('/donates/receipt')->withReceipt_d($receipt_d);
+
+    }
+
+
+    public function isOldCard(Ucard $ccard){
+    Log::info('checking for iscacrd already avaible fo rthe user.');
+        $Allcards = Auth::user()->ucard->all();
+        $check_card = $ccard;
+        foreach($Allcards as $card){
+
+            if($card->card_num == $check_card->card_num){
+            Log::info('User has the same card returning the id');
+                Log::info('return id:'.$card->id);
+                return $card->id;
+            }
+
+        }
+
+        $check_card->save();
+        Log::info('card details saved');
+        Auth::user()->Ucard()->save($check_card);
+        Log::info('card attached to the user');
+        return $check_card->id;
+
 
     }
 }

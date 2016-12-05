@@ -39,7 +39,7 @@
                         @endif
                         @if(Auth::check())
                             <li>
-                                <a href ="{{url('/history')}}">History</a>
+                                <a href ="{{url('/showhistory')}}">History</a>
                             </li>
                         @endif
                         <li>

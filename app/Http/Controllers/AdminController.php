@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Project;
 use Illuminate\Support\Facades\Log;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\admin;
-
+use DB;
 use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
@@ -164,30 +165,61 @@ class AdminController extends Controller
 
     public function donationTable(){
 
-        $donation_respose = array();
-        $donation_check = array();
 
-        //gives array of all the user who have donated to projects
-        $users = User::has('project')->get();
+        Log::info('Admin panel donation request recevied');
+            $user_l = User::has('ucard')->get();
+        $response_arr = array();
+        $response_check = array();
 
-        //get the list of project for each user.
-        foreach($users as  $user){
+        foreach($user_l as $user){
 
-            $project_c = $user->project->count();
-            if($project_c > 1){
-                $projects = $user->project;
-                foreach($projects as $p){
+        $user_name = $user->firstname.$user->lastname;
 
-                    $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
-                    array_push($donation_respose, $donation_check);
+        $card_count = $user->ucard->all();
+
+        if($card_count>0){
+            //get the list of card of loged in user
+            $card_list = $user->Ucard->all();
+
+            foreach($card_list as $card) {
+                $receipt_count = $card->receipt->count();
+                //get list of receipts paid by the particular card
+                $receipt_list = $card->receipt;
+                if ($receipt_count > 0) {
+
+                    foreach ($receipt_list as $rlist) {
+
+                        $rlist->receipt_num;
+                        //pdonate_reeipt and donate pvoit extraction
+                        $pdonate = DB::table('receipt_donate')->where('receipt_id', $rlist->id)->first();
+                        if(!$pdonate==null){
+                            //donate type and project id extraction
+                            $donate_id = DB::table('donate_project')->where('id', $pdonate->pdonate_id)->first();
+                            //project title extraction
+                            $project = Project::find($donate_id->project_id);
+
+                            $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "amount" => $rlist->amount_cents);
+                            array_push($response_arr, $response_check);
+
+
+                        }
+
+                    }
                 }
-            }else{
-                $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
-                array_push($donation_respose, $donation_check);
+            }
             }
         }
-        echo json_encode($donation_respose);
+
+        Log::info('Histoty is sent ');
+        echo json_encode($response_arr);
+
+
     }
+
+
+
+
+
 
 
     public function exportDonation(){
@@ -231,6 +263,52 @@ class AdminController extends Controller
     }
 
 
+    public function getAllAFFHistory(){
+
+
+        $user_list = User::all();
+        foreach($user_list as $user)
+        $response_arr = array();
+        $response_check = array();
+        Log::info('getting AAF history');
+        $donation_list = $user->AAFdonate->all();
+        foreach($donation_list as $dl){
+
+            $creceipt = $dl->cardreceipt_id;
+            $pdonate=DB::table('projectd_receipt')->where('id',$creceipt)->first();
+            $response_check =array("donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dod"=>$pdonate->updated_at);
+            array_push($response_arr, $response_check);
+        }
+
+        echo json_encode($response_arr);
+    }
+
+
+    public function getAllVhistory(){
+
+        $user_list = User::all();
+        $response_arr = array();
+        $response_check = array();
+
+        foreach($user_list as $user){
+
+            $event_list = $user->event->all();
+
+            foreach($event_list as $el){
+
+                $start_time = $el->event_StartTime;
+                $end_time = $el->event_EndTime;
+                $event_name = $el->event_Title;
+                $event_status = $el->Status;
+                $response_check =array("user_name"=>$user->lastname,"event_name"=>$event_name,"start_time"=>$start_time,"endt_time"=>$end_time,"event_status"=>$event_status);
+                array_push($response_arr, $response_check);
+            }
+
+
+        }
+
+        echo json_encode($response_arr);
+    }
 
 }
 
