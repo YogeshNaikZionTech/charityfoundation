@@ -57,12 +57,12 @@ Route::post('userprofile/preset', 'userProfileController@updatePassword');
 /**
  * show the history for admin and user
  */
-Route::get('/history/project/user', 'HistoryController@getDHistory');
-Route::get('/history/voulnteer/user', 'HistoryController@getVHistory');
-Route::get('/history/aaf/user', 'HistoryController@getAAFHistory');
+Route::get('/history/project/user', 'HistoryController@getDHistory');// history of project donation for logged in user
+Route::get('/history/voulnteer/user', 'HistoryController@getVHistory');//history of project voulnteer for logged in user
+Route::get('/history/aaf/user', 'HistoryController@getAAFHistory'); //history of project aaf for logged in user
 Route::get('/history/project/all','AdminController@donationTable');//this will give you the donation view json. use ajax to get this.
-Route::get('/history/aaf/all','AdminController@getAllAFFHistory');
-
+Route::get('/history/aaf/all','AdminController@getAllAFFHistory');//get all AAf donation for all the users
+Route::get('/history/voulnteer/all','AdminController@getAllVhistory');
 
 /*
  * Resource for About us

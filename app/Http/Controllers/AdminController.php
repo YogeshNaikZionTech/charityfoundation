@@ -284,7 +284,31 @@ class AdminController extends Controller
     }
 
 
+    public function getAllVhistory(){
 
+        $user_list = User::all();
+        $response_arr = array();
+        $response_check = array();
+
+        foreach($user_list as $user){
+
+            $event_list = $user->event->all();
+
+            foreach($event_list as $el){
+
+                $start_time = $el->event_StartTime;
+                $end_time = $el->event_EndTime;
+                $event_name = $el->event_Title;
+                $event_status = $el->Status;
+                $response_check =array("user_name"=>$user->lastname,"event_name"=>$event_name,"start_time"=>$start_time,"endt_time"=>$end_time,"event_status"=>$event_status);
+                array_push($response_arr, $response_check);
+            }
+
+
+        }
+
+        echo json_encode($response_arr);
+    }
 
 }
 
