@@ -481,13 +481,13 @@
             if ($("#input").val().length == 0) {
                 $.ajax(
                         {
-                            url: "/admin/users/search",
+                            url: "/admin/users/search/all",
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
                                 var trHTML = '';
                                 $.each(data, function (i, item) {
-                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.total_donation + '</td></tr>';
+                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.user_since + '</td><td>' + item.total_donation + '</td></tr>';
                                 });
 
                                 $('.output').html(trHTML);
@@ -514,7 +514,7 @@
                                 var output = '';
                                 response = JSON.parse(response);
                                 $.each(response, function (key, val) {
-                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.usersince + '</td><td>' + val.total_donation + '</td></tr>';
+                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.user_since + '</td><td>' + val.total_donation + '</td></tr>';
                                 });
                                 $(".output").html(output);
                             }
@@ -531,7 +531,7 @@
 
                                             $.each(data, function (i, item) {
 
-                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.total_donation + '</td></tr>';
+                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.user_since + '</td><td>' + item.total_donation + '</td></tr>';
                                             });
 
                                             $('.output').html(trHTML);
