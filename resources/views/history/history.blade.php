@@ -12,78 +12,14 @@
             <thead class="thead-inverse">
                 <tr>
                     <th>#</th>
-                    <th>Full Name</th>
-                    <th>Donation Type</th>
                     <th>Project/Event Name</th>
+                    <th>Donation Type</th>
                     <th>Date of Donation</th>
                     <th>Donation Amount</th>
+                    <th>Receipt No</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark Otto</td>
-                    <td>Donated Project</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$25</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob Thornton</td>
-                    <td>Donated Event</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$30</td>
-                </tr>
-                <!-- <tr>
-                    <th scope="row">3</th>
-                    <td>Larry the Bird</td>
-                    <td>Direct Donation</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$20</td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>John Smith</td>
-                    <td>Direct Donation</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$45</td>
-                </tr>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Owen Murphy</td>
-                    <td>Donated Event</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$55</td>
-                </tr>
-                <tr>
-                    <th scope="row">6</th>
-                    <td>Ernesto Gomez</td>
-                    <td>Donated Project</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$15</td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th>
-                    <td>David Turner</td>
-                    <td>Direct Donation</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$50</td>
-                </tr>
-                <tr>
-                    <th scope="row">8</th>
-                    <td>Yasha Karan</td>
-                    <td>Direct Donation</td>
-                    <td>Name</td>
-                    <td>mm/dd/yyyy</td>
-                    <td>$45</td>
-                </tr> -->
+            <tbody class="hdata">
             </tbody>
         </table>
     </div>  
@@ -95,5 +31,67 @@
 
 @section('scripts')
 <script src="{{URL::asset('/js/nav.js')}}"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
 
+        var count=0;
+
+        $.ajax({
+            url: ' /history/project/user',
+            type:'GET',
+            datatype:'JSON',
+            success: function(response){
+            $(".hdata").empty();
+            var output = " ";                   
+                response = JSON.parse(response);
+                $(".hdata").empty();
+                $.each(response, function (index,val) {
+                    count = index+1;
+                    output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.project+"</td><td>"+val.donation_type+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td><td>"+val.receipt_id+"</td></tr>"
+                });
+                count = response.length;
+                $(".hdata").append(output);
+                callvolh();
+            }
+        });
+        function callvolh(){
+            $.ajax({
+                url: '/history/voulnteer/user',
+                type:'GET',
+                datatype:'JSON',
+                success: function(response){
+                // $(".hdata").empty();
+                var output = " ";                   
+                    response = JSON.parse(response);
+                    console.log(response);
+                    $.each(response, function (index,val) {
+                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.event_name+"</td><td>volunteer</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>"
+                        count = count + 1;
+                    });
+                    $(".hdata").append(output);
+                    callaafh();
+                }
+            });
+        }
+        
+        function callaafh(){
+            $.ajax({
+                url: '/history/aaf/user',
+                type:'GET',
+                datatype:'JSON',
+                success: function(response){
+                // $(".hdata").empty();
+                var output = " ";                   
+                    response = JSON.parse(response);
+                    console.log(response);
+                    $.each(response, function (index,val) {
+                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td><td>"+val.receipt_num+"</td></tr>"
+                        count = count + 1;
+                    });
+                    $(".hdata").append(output);
+                }
+            });
+        }
+    });
+</script>
 @endsection
