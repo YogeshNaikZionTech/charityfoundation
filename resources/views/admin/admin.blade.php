@@ -402,11 +402,68 @@
         function FocusOnInput() {
             document.forms['donate_search_form'].elements['input'].focus();
         }
+        $(document).ready(function(){
+            var count=0;
+            $.ajax({
+                url: ' /history/project/user',
+                type:'GET',
+                datatype:'JSON',
+                success: function(response){
+                    $(".doutput").empty();
+                    var output = " ";
+                    response = JSON.parse(response);
+                    $(".doutput").empty();
+                    $.each(response, function (index,val) {
+                        count = index+1;
+                        output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.name+"</td><td>"+val.donation_type+"</td><td>"+val.project+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td></tr>"
+                    });
+                    count = response.length;
+                    $(".doutput").append(output);
+                    callvolh();
+                }
+            });
+            function callvolh(){
+                $.ajax({
+                    url: '/history/voulnteer/user',
+                    type:'GET',
+                    datatype:'JSON',
+                    success: function(response){
+                        var output = " ";
+                        response = JSON.parse(response);
+                        console.log(response);
+                        $.each(response, function (index,val) {
+                            output += "<tr><th scope='row'>"+count+"</th><td>"+val.name+"</td><td>"+val.donation_type+"</td><td>"+val.event_name+"</td><td>"+val.dod+"</td><td>"+val.amount+"</td></tr>"
+                            count = count + 1;
+                        });
+                        $(".doutput").append(output);
+                        callaafh();
+                    }
+                });
+            }
+
+            function callaafh(){
+                $.ajax({
+                    url: '/history/aaf/user',
+                    type:'GET',
+                    datatype:'JSON',
+                    success: function(response){
+                        var output = " ";
+                        response = JSON.parse(response);
+                        console.log(response);
+                        $.each(response, function (index,val) {
+                            output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+val.donation+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td></tr>"
+                            count = count + 1;
+                        });
+                        $(".doutput").append(output);
+                    }
+                });
+            }
+        });
         $(document).ready(function() {
             if ($("#dinput").val().length == 0) {
                 $.ajax(
                         {
-                            url: "/history/voulnteer/user",
+                            url: "",
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
