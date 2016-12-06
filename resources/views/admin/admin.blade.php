@@ -405,7 +405,7 @@
         $(document).ready(function(){
             var count=0;
             $.ajax({
-                url: ' /history/project/user',
+                url: '/history/project/all',
                 type:'GET',
                 datatype:'JSON',
                 success: function(response){
@@ -424,7 +424,7 @@
             });
             function callvolh(){
                 $.ajax({
-                    url: '/history/voulnteer/user',
+                    url: '/history/voulnteer/all',
                     type:'GET',
                     datatype:'JSON',
                     success: function(response){
@@ -432,7 +432,7 @@
                         response = JSON.parse(response);
                         console.log(response);
                         $.each(response, function (index,val) {
-                            output += "<tr><th scope='row'>"+count+"</th><td>"+val.name+"</td><td>"+val.donation_type+"</td><td>"+val.event_name+"</td><td>"+val.dod+"</td><td>"+val.amount+"</td></tr>"
+                            output += "<tr><th scope='row'>"+count+"</th><td>"+val.user_name+"</td><td>"+val.donation_type+"</td><td>"+val.event_name+"</td><td>"+val.dod+"</td><td>"+val.amount+"</td></tr>"
                             count = count + 1;
                         });
                         $(".doutput").append(output);
@@ -443,7 +443,7 @@
 
             function callaafh(){
                 $.ajax({
-                    url: '/history/aaf/user',
+                    url: '/history/aaf/all',
                     type:'GET',
                     datatype:'JSON',
                     success: function(response){
