@@ -481,7 +481,7 @@
             if ($("#input").val().length == 0) {
                 $.ajax(
                         {
-                            url: "/admin/users/search",
+                            url: "/admin/users/search/all",
                             type: "GET",
                             dataType: "json",
                             success: function (data) {

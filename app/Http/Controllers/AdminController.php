@@ -99,11 +99,10 @@ class AdminController extends Controller
 
 
     public  function getAllUsers(){
+
+        Log::info('sending all user for AD');
         if(Auth::check()&& Auth::user()->isAdmin){
 
-
-
-            Log::info('Requesting seach for all user from ad panel');
             $user_list = User::all();
             $user_check = array();
             $user_response = array();
@@ -132,14 +131,15 @@ class AdminController extends Controller
 
                             }
                         }
-                        $user_since= ($user_slug->created_at)->format('Y-m-d');
-                        Log::info($user_since);
-                        $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
-                        array_push($user_response, $user_check);
+
                     }
+                $user_since= ($user_slug->created_at)->format('Y-m-d');
+
+                $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
+                array_push($user_response, $user_check);
             }
-            Log::info('search is sent ');
-            echo json_encode($user_response);
+
+            return json_encode($user_response);
         }else{
             echo 'You are not authorized, please login';
         }
@@ -182,12 +182,13 @@ class AdminController extends Controller
     public function userPagination($id){
 
         //user with donation amount array
+
         $user_donation =array();
         $perpage =10;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         $user_list = User::take($perpage)->skip($start)->get();
         if(Auth::check()&& Auth::user()->isAdmin){
-            Log::info('Requesting ssuerpagination for all user from ad panel');
+            Log::info('this is userpagination');
             $user_check = array();
             $user_response = array();
             foreach ($user_list as $user_slug) {
@@ -215,13 +216,13 @@ class AdminController extends Controller
                         }
                     }
                     $user_since= ($user_slug->created_at)->format('Y-m-d');
-                    Log::info($user_since);
+
                     $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
                     array_push($user_response, $user_check);
                 }
             }
             Log::info('search is sent ');
-            echo json_encode($user_response);
+            return json_encode($user_response);
         }else{
             echo 'You are not authorized, please login';
         }
@@ -276,7 +277,7 @@ class AdminController extends Controller
         }
 
         Log::info('Histoty is sent ');
-        echo json_encode($response_arr);
+        return json_encode($response_arr);
 
 
     }
@@ -289,29 +290,51 @@ class AdminController extends Controller
 
     public function exportDonation(){
 
-        $donation_response = array();
-        $donation_check = array();
-        //gives array of all the user who have donated to projects
-        $users = User::has('project')->get();
+        Log::info('Admin panel export donation request recevied');
+        $user_l = User::has('ucard')->get();
+        $response_arr = array();
+        $response_check = array();
 
-        //get the list of project for each user.
-        foreach($users as  $user){
+        foreach($user_l as $user){
 
-            $project_c = $user->project->count();
-            if($project_c > 1){
-                $projects = $user->project;
-                foreach($projects as $p){
+            $user_name = $user->firstname.$user->lastname;
 
-                    $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
-                    array_push($donation_response, $donation_check);
+            $card_count = $user->ucard->all();
+
+            if($card_count>0){
+                //get the list of card of loged in user
+                $card_list = $user->Ucard->all();
+
+                foreach($card_list as $card) {
+                    $receipt_count = $card->receipt->count();
+                    //get list of receipts paid by the particular card
+                    $receipt_list = $card->receipt;
+                    if ($receipt_count > 0) {
+
+                        foreach ($receipt_list as $rlist) {
+
+                            $rlist->receipt_num;
+                            //pdonate_reeipt and donate pvoit extraction
+                            $pdonate = DB::table('receipt_donate')->where('receipt_id', $rlist->id)->first();
+                            if(!$pdonate==null){
+                                //donate type and project id extraction
+                                $donate_id = DB::table('donate_project')->where('id', $pdonate->pdonate_id)->first();
+                                //project title extraction
+                                $project = Project::find($donate_id->project_id);
+
+                                $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "amount" => $rlist->amount_cents);
+                                array_push($response_arr, $response_check);
+
+
+                            }
+
+                        }
+                    }
                 }
-            }else{
-                $donation_check = array("firstname"=>$user->firstname, "lastname"=>$user->lastname,"donation_type"=>$p->pivot->dontaion_type, "DOD"=>$p->pivot->created_at,"amount"=>$p->pivot->project_cents);
-                array_push($donation_response, $donation_check);
             }
         }
 
-        \Excel::create('Donations', function($excel) use ($donation_response) {
+        \Excel::create('Donations', function($excel) use ($response_arr) {
 
             // Set the spreadsheet title, creator, and description
             $excel->setTitle('Donations');
@@ -319,9 +342,9 @@ class AdminController extends Controller
             $excel->setDescription('donations');
 
             // Build the spreadsheet, passing in the payments array
-            $excel->sheet('sheet1', function($sheet) use ($donation_response) {
+            $excel->sheet('sheet1', function($sheet) use ($response_arr) {
 
-                $sheet->fromArray($donation_response, null, 'A1', false, true);
+                $sheet->fromArray($response_arr, null, 'A1', false, true);
             });
 
         })->export('xls');

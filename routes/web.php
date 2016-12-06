@@ -86,14 +86,14 @@ Route::get('/home', 'HomeController@index');
  *  api routes. I could not put them in api.php.    
  */
 
-Route::post('admin/users/search ', 'AdminController@searchUser');
+Route::post('admin/users/search', 'AdminController@searchUser');
 
 //Return paginated users i.e /admin/users/1 -> will give you 8 users
 Route::get('/admin/users/{id}','AdminController@userPagination');
 Route::Post('/volunteer', 'Donate@manageVoulnteer');
 
 
-Route::get('admin/users/search', 'AdminController@getAllUsers');
+Route::get('admin/users/search/all', 'AdminController@getAllUsers');
 Route::get('admin/export/users', 'AdminController@exportUsers');
 
 Route::get('events/lists/all', 'EventController@allEvents');
