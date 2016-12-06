@@ -15,7 +15,7 @@ class CreateVoulnteeringProject extends Migration
     {
         Schema::create('pm_notif', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('pdonate_id');
+            $table->integer('pdonate_id');//this id is from donate_project pivot table;
             $table->integer('user_id');
             $table->timestamps();
         });

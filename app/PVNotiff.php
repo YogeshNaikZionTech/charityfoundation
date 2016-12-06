@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class PVNotiff extends Model
 {
     public $timestamps =true;
-    public $table='pot_notif';
+    public $table='pm_notif';
     protected $fillable = [
-        'user_id','project_id','send_status',
+        'user_id','pdonate_id',
     ];
 }
