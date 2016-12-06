@@ -76,10 +76,13 @@ class AdminController extends Controller
                                 $tsum += $rlist->amount_cents;
 
                             }
-                            $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_slug->created_at, "total_donation" => $tsum);
-                            array_push($user_response, $user_check);
+
                         }
                     }
+                    $user_since= ($user_slug->created_at)->format('Y-m-d');
+                    Log::info($user_since);
+                    $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
+                    array_push($user_response, $user_check);
                 }
             }
 
@@ -97,8 +100,46 @@ class AdminController extends Controller
 
     public  function getAllUsers(){
         if(Auth::check()&& Auth::user()->isAdmin){
+
+
+
+            Log::info('Requesting seach for all user from ad panel');
             $user_list = User::all();
-            echo json_encode($user_list);
+            $user_check = array();
+            $user_response = array();
+
+            foreach ($user_list as $user_slug) {
+                    $tsum = 0;
+                    $user = $user_slug;
+                    $response_arr = array();
+                    $response_check = array();
+                    $card_count = $user->ucard->all();
+                    if ($card_count > 0) {
+                        //get the list of card of loged in user
+                        $card_list = $user->Ucard->all();
+
+                        foreach ($card_list as $card) {
+                            $receipt_count = $card->receipt->count();
+                            //get list of receipts paid by the particular card
+                            $receipt_list = $card->receipt->all();
+                            if ($receipt_count > 0) {
+
+                                foreach ($receipt_list as $rlist) {
+
+                                    $tsum += $rlist->amount_cents;
+
+                                }
+
+                            }
+                        }
+                        $user_since= ($user_slug->created_at)->format('Y-m-d');
+                        Log::info($user_since);
+                        $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
+                        array_push($user_response, $user_check);
+                    }
+            }
+            Log::info('search is sent ');
+            echo json_encode($user_response);
         }else{
             echo 'You are not authorized, please login';
         }
@@ -115,7 +156,8 @@ class AdminController extends Controller
         //$users = User::select('id', 'firstname', 'lastname','email','phonenum', 'street','aptNo','state','country','zipcode','created_at')->get();
         $users = User::all();
         foreach($users as $user){
-            $user_check = array('id'=>$user->id, 'firstname'=>$user->firstname, 'lastname'=>$user->lastname,'email'=>$user->email,'phonenum'=>$user->phonenum, 'street'=>$user->street,'aptNo'=>$user->street,'state'=>$user->state,'country'=>$user->country,'zipcode'=>$user->zipcode,'user_since'=>$user->created_at);
+            $user_since= ($user->created_at)->format('Y-m-d');
+            $user_check = array('id'=>$user->id, 'firstname'=>$user->firstname, 'lastname'=>$user->lastname,'email'=>$user->email,'phonenum'=>$user->phonenum, 'street'=>$user->street,'aptNo'=>$user->street,'state'=>$user->state,'country'=>$user->country,'zipcode'=>$user->zipcode,'user_since'=>$user_since);
             array_push($user_response,$user_check);
         }
         \Excel::create('users', function($excel) use($user_response) {
@@ -144,22 +186,45 @@ class AdminController extends Controller
         $perpage =10;
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         $user_list = User::take($perpage)->skip($start)->get();
-        foreach($user_list as $u){
-            $esum =0;
-            $psum =0;
-            $event =$u->Event()->get();
-            $project =$u->Project()->get();
+        if(Auth::check()&& Auth::user()->isAdmin){
+            Log::info('Requesting ssuerpagination for all user from ad panel');
+            $user_check = array();
+            $user_response = array();
+            foreach ($user_list as $user_slug) {
+                $tsum = 0;
+                $user = $user_slug;
+                $response_arr = array();
+                $response_check = array();
+                $card_count = $user->ucard->all();
+                if ($card_count > 0) {
+                    //get the list of card of loged in user
+                    $card_list = $user->Ucard->all();
 
-            foreach($project as $p){
-                $psum += $p->pivot->project_cents;
-            }
-            foreach ($event as $e) {
-                $esum += $e->pivot->event_cents;
+                    foreach ($card_list as $card) {
+                        $receipt_count = $card->receipt->count();
+                        //get list of receipts paid by the particular card
+                        $receipt_list = $card->receipt->all();
+                        if ($receipt_count > 0) {
+
+                            foreach ($receipt_list as $rlist) {
+
+                                $tsum += $rlist->amount_cents;
+
+                            }
+
+                        }
+                    }
+                    $user_since= ($user_slug->created_at)->format('Y-m-d');
+                    Log::info($user_since);
+                    $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
+                    array_push($user_response, $user_check);
                 }
-                $tsum = $esum+$psum;
-                array_push($user_donation,array("firstname" => $u->firstname, "lastname" => $u->lastname, "email" => $u->email, "phonenum" => $u->phonenum, "project_donation"=>$psum,"event_donation"=>$esum,"total_donation" => $tsum));
+            }
+            Log::info('search is sent ');
+            echo json_encode($user_response);
+        }else{
+            echo 'You are not authorized, please login';
         }
-        echo json_encode($user_donation);
     }
 
 
