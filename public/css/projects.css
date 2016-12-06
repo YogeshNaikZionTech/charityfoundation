@@ -83,6 +83,7 @@ cursor: pointer;
     -ms-transition: all 1s ease; /* Opera*/
     transition: all 1s ease;
     display: block;
+
     
 }
 
@@ -94,6 +95,7 @@ cursor: pointer;
      transform:scale(1.07);
      overflow: hidden;
      opacity: 0.7;
+     cursor: pointer;
 }
 
 .title{
