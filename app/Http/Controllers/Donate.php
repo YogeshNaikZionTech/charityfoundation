@@ -120,8 +120,8 @@ class Donate extends Controller
         $receipt = new Receipt();
         $receipt->ucard_id = $card_id;
         $receipt->amount_cents = $d_amount;
-        $receipt->amount_cents = $d_amount;
         $receipt->receipt_num = $receipt_n;
+        $receipt->type ='original';
         $receipt->save();
         $user_card->Receipt()->save($receipt);
         $receipt_id = $receipt->id;
@@ -136,6 +136,7 @@ class Donate extends Controller
             $aff->save();
             $user->AAFdonate()->save($aff);
             Log::info('Donation for AFF foundation saved');
+            $curr_donation=$aff->id;
 
             Log::info('mailing user about the donation');
             $d = ['name' => $user->lastname];
@@ -144,7 +145,16 @@ class Donate extends Controller
                 $message->from('noreplyaafoundation@gmail.com', 'AAF');
             });
 
+            $status_date= \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' );
+            //creating a montly donation trigger for project donation.
+            if($type_payment == 'monthly'){
+                Log::info('pushed in to monthlynotification tabel from AAF ');
+                DB::table('aafm_notif')->insert(
+                    ['aaf_id' => $curr_donation, 'user_id'=>$user->id,'status_date'=>$status_date,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+                        'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' )]
+                );
 
+            }
             Log::info('User redirected to areceipt');
             return redirect('/areceipt');
         }else{
@@ -160,15 +170,15 @@ class Donate extends Controller
             //create receipt_donate record (project doantion and receipt table)
             DB::table('receipt_donate')->insert(
                 ['pdonate_id' => $curr_donation->id, 'receipt_id'=>$receipt_id,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
-                    'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' )]
+                    'updated_at'=> \Carbon\Carbon::now()->format('Y-m-d H:i:s')]
             );
 
-
+            $status_date= \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' );
             //creating a montly donation trigger for project donation.
             if($type_payment == 'monthly'){
                 Log::info('pushed in to monthlynotification tabel ');
                 DB::table('pm_notif')->insert(
-                    ['pdonate_id' => $curr_donation->id, 'user_id'=>$user->id,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
+                    ['pdonate_id' => $curr_donation->id, 'user_id'=>$user->id,'status_date'=>$status_date,'created_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' ),
                         'updated_at'=> \Carbon\Carbon::now()->format( 'Y-m-d H:i:s' )]
                 );
 

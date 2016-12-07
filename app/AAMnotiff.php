@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PVNotiff extends Model
+class AAMnotiff extends Model
 {
     public $timestamps =true;
-    public $table='pm_notif';
+    public $table='aafm_notif';
     protected $fillable = [
-        'user_id','pdonate_id','status_date',
+        'user_id','aaf_id','status_date',
     ];
 }

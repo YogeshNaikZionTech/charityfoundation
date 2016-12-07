@@ -127,7 +127,7 @@ class HistoryController extends Controller
                             //project title extraction
                             $project = Project::find($donate_id->project_id);
 
-                            $response_check =array("name"=>$user_name,"donation_type"=>$donate_id->donation_type,"project"=>$project->project_Title,"dod"=>$donate_id->updated_at,"amount"=>$rlist->amount_cents,"receipt_id"=>$rnum);
+                            $response_check =array("name"=>$user_name,"donation_type"=>$donate_id->donation_type,"project"=>$project->project_Title,"dod"=>$donate_id->updated_at,"amount"=>$rlist->amount_cents,"type"=>$rlist->type,"receipt_id"=>$rnum);
                             array_push($response_arr, $response_check);
                             Log::info($response_arr);
                         }
@@ -176,7 +176,7 @@ class HistoryController extends Controller
 
             $creceipt = $dl->cardreceipt_id;
             $pdonate=DB::table('projectd_receipt')->where('id',$creceipt)->first();
-            $response_check =array("donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dod"=>$pdonate->updated_at);
+            $response_check =array("donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dtype"=>$pdonate->type,"dod"=>$pdonate->updated_at);
             array_push($response_arr, $response_check);
         }
 
