@@ -217,8 +217,8 @@ class EventController extends Controller
         $event_location = $request->input('location');
         $event_Date = $request->input('edate');
 
-        $start_time =  $request->input('estarttime');
-        $end_time = $request->input('eendtime');
+        $start_time =  $event_Date." ".$request->input('estarttime');
+        $end_time = $event_Date." ".$request->input('eendtime');
 
         $filename = 'event.jpg';
         if ($request->hasFile('eimage')) {

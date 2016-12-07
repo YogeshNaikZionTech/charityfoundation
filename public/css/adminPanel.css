@@ -317,10 +317,10 @@ input[type="text"]{ min-height: 28px;}
 input[type="text"]{
     height: 28px;
 }
-.datetimepicker1{
+/*.datetimepicker1{
     display:inline;
     padding:2px;
-}
+}*/
 .radiosel{
     font-weight: bold;
 }

@@ -3,8 +3,7 @@
 @section('title', '| Admin Panel')
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-    <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+
 @endsection
 @section('content')
     <div id="content">
@@ -153,17 +152,17 @@
 
                                     <div class="form-group">
                                         <label for="pdate"  class="control-label">Date :</label>
-                                        <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pstime" class="control-label">Start Time :</label>
-                                        <div id="pstarttime" class="input-append">
-                                            <input class="form-control" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
-                                            <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
+                                        <div class="input-group date" id="datetimepicker5">
+                                            <input  id="pdate" type="text" name="pdate"  class="form-control" style="height:28px;">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
                                         </div>
                                     </div>
+
+
+                                            <input class="form-control" id="pstime" name="pstime"   type="hidden"  style="height:28px;" value="00:00:00" />
+
                                     <div class="form-group">
                                         <label for="pdescription" class="control-label">Project Description :</label>
                                             <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
@@ -194,23 +193,30 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="dateeve"  class="control-label">Date :</label>
-                                        <input  id="dateeve" type="date" name="edate"  class="form-control" style="height:28px;">
+                                        <div class="input-group date" id="datetimepicker1">   
+                                            <input  id="dateeve" type="text" name="edate"  class="form-control" style="height:28px;">
+                                            <span class="input-group-addon" style="height:28px;">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="stime" class="control-label">Start Time :</label>
-                                        <div id="starttime" class="input-append" >
-                                            <input class="form-control" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
-                                            <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
+                                        <div id="starttime" class="input-group date" >
+                                            <input class="form-control" id="stime" name="stime" type="text"  style="height:28px;"/>
+                                            <span class="input-group-addon" style="height:28px;">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="etime" class="control-label">End Time :</label>
-                                        <div id="endtime" class="input-append" >
-                                            <input class="form-control" id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
-                                            <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                                        <div id="endtime" class="input-group date" >
+                                            <input class="form-control" id="etime" name="etime" type="text" style="height:28px;" />
+                                            <span class="input-group-addon" style="height:28px;">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
                                         </div>
                                     </div>
 
@@ -288,74 +294,94 @@
                     </div>
                     <!--  Form to Modify an Event -->
                     <div class="event program">
-                        <form class="form-group col-md-6"  action="{{url('/putevents')}}" method="POST">
+                        <form class="form-group col-md-12"  action="{{url('/putevents')}}" method="POST">
                             <!-- <input name="_method" type="hidden" value="PUT"> -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                            <div class="form-group">
-                                <fieldset id="Group2" name="Group2">
+                            <div class="row">
+                                <div class="col-md-6">
 
-                                    <select id="Select2" name="Select2" class="form-control">
-                                        <option>Select</option>
-                                    </select>
-                                </fieldset>
-                            </div>
-                            <input type="hidden" id="event_id" name="id">
+                                    <div class="form-group">
+                                        <fieldset id="Group2" name="Group2">
 
-                            <div class="form-group">
-                                <input class="form-control" id="updateename" name="ename" placeholder="Event Name" type="text" style="height:28px;">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" id="eve_description" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" id="updatevenue" name="location" placeholder="Venue" type="text" style="height:28px;">
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control" id="estatus" name="estatus">
-                                    <option>Event Status</option>
-                                    <option value="current">Current</option>
-                                    <option value="future">Future</option>
-                                    <option value="completed">Completed</option>
-
-
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <div>
-                                        <label>Date</label>
-                                        <input type="date" id="edate" name="edate">
-
+                                            <select id="Select2" name="Select2" class="form-control">
+                                                <option>Select</option>
+                                            </select>
+                                        </fieldset>
                                     </div>
-                                    <div class="datetimepicker1 input-append date">
-                                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="estarttime" name="estarttime" placeholder="Start Time">
-                                        <span class="add-on" style="height:28px;">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                </span>
-                                    </div>
-                                    <div class="datetimepicker1 input-append date">
-                                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="eendtime" name="eendtime"  placeholder="End Time">
-                                        <span class="add-on" style="height:28px;">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                </span>
-                                    </div>
+                                    <input type="hidden" id="event_id" name="id">
 
+                                    <div class="form-group">
+                                        <input class="form-control" id="updateename" name="ename" placeholder="Event Name" type="text" style="height:28px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="eve_description" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="updatevenue" name="location" placeholder="Venue" type="text" style="height:28px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="estatus" name="estatus">
+                                            <option>Event Status</option>
+                                            <option value="current">Current</option>
+                                            <option value="future">Future</option>
+                                            <option value="completed">Completed</option>
+
+
+
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
+
+                        <div class="row">
+                            
+                            <div class="form-group col-md-4">
+                                <label>Date</label>
+                                <div class="input-group date" id='datetimepicker2'>
+                                    
+                                    <input type="text" id="edate" name="edate" class="form-control">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>   
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Start Time</label>
+                                <div class="input-group date" id='datetimepicker3'>
+                                    <input type="text" id="estarttime" name="estarttime" placeholder="Start Time" class="form-control">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span> 
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>End Time</label>
+                                <div class="input-group date" id='datetimepicker4'>
+                                    <input type="text" id="eendtime" name="eendtime"  placeholder="End Time" class="form-control">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span> 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            
+                            <div class="form-group col-md-2">
                                 <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
                                 <input id="files" style="visibility:hidden;" type="file" name="eimage" accept="image/*">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group col-md-1">
                                 <input type="submit" class="btn btn-primary">
                             </div>
-                        </form>
-                            <div class="form-group">
+                            <div class="form-group col-md-1">
                                 <button class="btn btn-danger del-event">Delete</button>
                             </div>
+                        </div>        
+                        </form>
+                            
                     </div>
 
                 </div>
@@ -699,8 +725,15 @@
                         $('#eve_description').val(response[0].event_Description);
                         $('#updatevenue').val(response[0].event_Location);
                         $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
-                        $('#estarttime').val( response[0].event_StartTime);
-                        $('#eendtime').val(response[0].event_EndTime);
+                        var stime = response[0].event_StartTime;
+                        var etime = response[0].event_EndTime;
+
+                        stime = stime.split(" ");
+                        etime = etime.split(" ");
+
+                        $('#estarttime').val(stime[1]);
+                        $('#eendtime').val(etime[1]);
+
                         $('#event_id').val(response[0].id);
                         $('.del-event').attr('value', response[0].id);
 
@@ -744,30 +777,27 @@ $('.del-event').click(function(){
 
     {{--Date Picker--}}
     <script type="text/javascript">
-        $(function() {
-            $('#starttime').datetimepicker({
-                pickDate: false ,
-                pick12HourFormat: true
+            $(function () {
+                $('#datetimepicker3,#datetimepicker4,#starttime,#endtime').datetimepicker({
+                    
+                    format:'HH:mm:ss'
+                });
+
+                $('#pstarttime').datetimepicker({
+                    format:'HH:mm:ss'
+
+                });
+
+                $('#datetimepicker2,#datetimepicker1,#datetimepicker5').datetimepicker({
+                    
+                    format:'YYYY-MM-DD'
+                });
+
+
             });
-        });
-        $(function() {
-            $('#endtime').datetimepicker({
-                pickDate: false,
-                pick12HourFormat: true
-            });
-        });
-        $(function() {
-            $('#pstarttime').datetimepicker({
-                pickDate: false ,
-                pick12HourFormat: true
-            });
-        });
+
     </script>
     {{--Create Projects and Events--}}
-    <script type="text/javascript"
-            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#createvent')
@@ -935,9 +965,6 @@ $('.del-event').click(function(){
     </script>
 
     <script type="text/javascript">
-        $(function () {
-            $('.datetimepicker1').datetimepicker();
-        });
         function submitForm() {
             document.create.submit();
             document.create.reset();

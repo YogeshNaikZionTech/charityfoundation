@@ -47,7 +47,10 @@
                 $(".hdata").empty();
                 $.each(response, function (index,val) {
                     count = index+1;
-                    output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.project+"</td><td>"+val.donation_type+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td><td>"+val.receipt_id+"</td></tr>"
+                    var hdate = val.dod;
+                    hdate = hdate.split(" ");
+
+                    output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.project+"</td><td>"+val.donation_type+"</td><td>"+hdate[0]+"</td><td>$"+val.amount+"</td><td>"+val.receipt_id+"</td></tr>"
                 });
                 count = response.length;
                 $(".hdata").append(output);
@@ -85,7 +88,9 @@
                     response = JSON.parse(response);
                     console.log(response);
                     $.each(response, function (index,val) {
-                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td><td>"+val.receipt_num+"</td></tr>"
+                        var hdate = val.dod;
+                        hdate = hdate.split(" ");
+                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+hdate[0]+"</td><td>$"+val.amount+"</td><td>"+val.receipt_num+"</td></tr>"
                         count = count + 1;
                     });
                     $(".hdata").append(output);
