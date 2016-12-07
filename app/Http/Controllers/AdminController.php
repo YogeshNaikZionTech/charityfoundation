@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Event;
 use App\Project;
 use Illuminate\Support\Facades\Log;
 use App\User;
@@ -10,7 +11,7 @@ use App\admin;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class  AdminController extends Controller
 {
 
     public function __construct() {
@@ -384,12 +385,18 @@ class AdminController extends Controller
 
             foreach($event_list as $el){
 
-                $start_time = $el->event_StartTime;
-                $end_time = $el->event_EndTime;
-                $event_name = $el->event_Title;
-                $event_status = $el->Status;
-                $response_check =array("user_name"=>$user->lastname,"event_name"=>$event_name,"start_time"=>$start_time,"endt_time"=>$end_time,"event_status"=>$event_status);
-                array_push($response_arr, $response_check);
+                $pivot_value = DB::table('voulnteer_event')->get();
+
+                foreach($pivot_value as $pi){
+
+                    $user = User::find($pi->user_id);
+                    $event = Event::find($pi->event_id);
+                    $dov = ($pi->created_at);
+                    $response_check =array("lastname"=>$user->lastname,"firstname"=>$user->firstname,"event_name"=>$event->event_Title,"start_time"=>$event->event_StartTime,"endt_time"=>$event->end_EndTime,"dov"=>$dov,"event_status"=>$event->event_Status);
+                    array_push($response_arr, $response_check);
+                }
+
+
             }
 
 
