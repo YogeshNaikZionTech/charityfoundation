@@ -17,6 +17,7 @@ class CreateVoulnteeringProject extends Migration
             $table->increments('id');
             $table->integer('pdonate_id');//this id is from donate_project pivot table;
             $table->integer('user_id');
+            $table->dateTime('status_date');
             $table->timestamps();
         });
     }

@@ -170,7 +170,7 @@ class  AdminController extends Controller
 
     /**
      * @param $id
-     *
+     * @return json
      *
      * php tinker tries ;)
      * $user = \App\User::where('id','=','3')->first();
@@ -265,7 +265,7 @@ class  AdminController extends Controller
                             //project title extraction
                             $project = Project::find($donate_id->project_id);
 
-                            $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "amount" => $rlist->amount_cents);
+                            $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at,"type"=>$rlist->type,"amount" => $rlist->amount_cents);
                             array_push($response_arr, $response_check);
 
 
@@ -323,7 +323,7 @@ class  AdminController extends Controller
                                 //project title extraction
                                 $project = Project::find($donate_id->project_id);
 
-                                $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "amount" => $rlist->amount_cents);
+                                $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "type"=>$rlist->type,"amount" => $rlist->amount_cents);
                                 array_push($response_arr, $response_check);
 
 

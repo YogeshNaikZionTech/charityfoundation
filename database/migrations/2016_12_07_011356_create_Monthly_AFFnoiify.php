@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDonatesTable extends Migration
+class CreateMonthlyAFFnoiify extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateDonatesTable extends Migration
      */
     public function up()
     {
-        Schema::create('projectd_receipt', function (Blueprint $table) {
+        Schema::create('aafm_notif', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('ucard_id');
-            $table->integer('amount_cents');
-            $table->string('type');
-            $table->string('receipt_num');
+            $table->integer('aaf_id');//this id is from donate_project pivot table;
+            $table->integer('user_id');
+            $table->date('status_date');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateDonatesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('projectd_receipt');
+         Schema::dropIfExists('aafm_notif');
     }
 }

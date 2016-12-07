@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         'App\Console\Commands\StatusDBUpdate',
         'App\Console\Commands\MonthlyProjectnotif',
+        'App\Console\Commands\MonthlyAAFNotif',
     ];
 
     /**
@@ -29,6 +30,7 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         $schedule->command('mail:mpnotify')->daily();
+        $schedule->command('mail:aafmnotify')->daily();
     }
 
     /**
