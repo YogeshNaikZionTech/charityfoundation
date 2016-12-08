@@ -458,7 +458,7 @@
                         response = JSON.parse(response);
                         console.log(response);
                         $.each(response, function (index,val) {
-                            output += "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.user_name+"</td><td>volunteer</td><td>"+val.event_name+"</td><td>"+val.dod+"</td><td>N/A</td></tr>"
+                            output += "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.firstname+" "+val.lastname+"</td><td>volunteer</td><td>"+val.event_name+"</td><td>"+val.dov+"</td><td>N/A</td></tr>"
                             count = count + 1;
                         });
                         $(".doutput").append(output);
