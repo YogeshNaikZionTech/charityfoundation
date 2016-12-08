@@ -286,11 +286,9 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                            </div>
-                        </form>
-                        <div class="form-group">
                                 <button class="btn btn-danger del-project">Delete</button>
                             </div>
+                        </form>
                     </div>
                     <!--  Form to Modify an Event -->
                     <div class="event program">
