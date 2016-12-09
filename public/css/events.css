@@ -1,5 +1,5 @@
 html,body{
-    min-width: 320px;
+    /*min-width: 320px;*/
 }
 body{
    margin: 0px;
@@ -72,8 +72,16 @@ hr{
     display: block;
     text-overflow: ellipsis;
     cursor: pointer;
+    margin-bottom: 0px;
+    margin-top: 0px;
 }
-
+.location h6{
+  margin-top: 8px;
+}
+.time h6{
+  margin-top: 8px;
+  margin-bottom: 0px;
+}
 .page ul{
    display: flex;
 justify-content: center;
@@ -146,22 +154,25 @@ cursor: pointer;
 .details{
     padding: 0px;
 }
+.title a:hover{
+    text-decoration: none;
+}
 .title, .location, .time{
   padding: 0px;
 }
-.title h3{
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
+
 
 .date h3{
   margin-top: 0px;
     color: orange;
 }
 
-.caption span {
+.caption1 span {
   padding-right: 3px;
 }
+.caption1{
+    padding: 9px 0px;
+  }
 .create{
     background-color: green;
     color:white;
@@ -172,19 +183,34 @@ cursor: pointer;
 .modal-body .eimg{
   display: inline-block;
 }
-.right{
-  display: inline-block;
-  float: right;
-  margin-right: 3%;
-}
-.right h2{
+
+
+.right h3{
   margin-top: 0px;
+}
+.right h2, .right h3, .right h4{
+  color: green;
 }
 .des{
   margin-top: 2%;
 }
 .eimg{
     border: solid 1px #ddd;
+}
+.day, .month, .year{
+  padding: 0px;
+}
+.day h3, .month h3, .year h3{
+  margin-bottom: 0px;
+}
+.day h3{
+  font-size: 2.25em;
+}
+.month h3{
+ font-size:  1.3em;
+}
+.year h3{
+  font-size: 1.2em;
 }
 @media (max-width: 768px){
     .nav-justified > li {
@@ -201,4 +227,45 @@ cursor: pointer;
   }
 
 }
+@media (max-width: 1276px) and (min-width: 992px){
+  .time h6{
+    /*width:136px;*/
+    font-size: 11px;
+  }
+  .eName{
+    font-size: 20px;
+  }
+ 
+}
 
+@media (max-width: 796px) and (min-width: 768px){
+ /*  .time h6{
+    width:136px;
+    font-size: 11px;
+  } */
+  .eName{
+    font-size: 20px;
+  }
+}
+@media (max-width: 370px) {
+   .time h6{
+       font-size: 11px;
+       margin-top: 5px;
+  } 
+  .eName{
+    font-size: 18px;
+  }
+  .location h6{
+    font-size: 11px;
+    margin-top: 6px;
+  }
+  .day h3 {
+    font-size: 1.80em;
+}
+  .year h3 {
+    font-size: 0.9em;
+}
+.month h3 {
+    font-size: 1.1em;
+}
+  }
