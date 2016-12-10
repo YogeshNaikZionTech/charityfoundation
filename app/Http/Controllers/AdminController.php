@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\contactus;
 use App\Event;
 use App\Project;
 use Illuminate\Support\Facades\Log;
@@ -404,6 +405,38 @@ class  AdminController extends Controller
 
         echo json_encode($response_arr);
     }
+
+    public function getContactData()
+    {
+
+        $contact_data = contactus::all()->where('from','contact');
+        $response_arr = array();
+        $response_check = array();
+        foreach ($contact_data as $cd) {
+
+            $response_check = array("name" => $cd->name, "email" => $cd->email, "message" => $cd->message, "from" => $cd->from);
+            array_push($response_arr, $response_check);
+
+        }
+
+        echo json_encode($response_arr);
+    }
+
+
+        public function getSuggestData(){
+
+            $contact_data = contactus::all()->where('from','suggestion');
+            $response_arr = array();
+            $response_check = array();
+            foreach($contact_data as $cd){
+
+                $response_check = array("name"=>$cd->name,"email"=>$cd->email, "message"=>$cd->message, "from"=>$cd->from);
+                array_push($response_arr, $response_check);
+
+            }
+
+            echo json_encode($response_arr);
+        }
 
 }
 

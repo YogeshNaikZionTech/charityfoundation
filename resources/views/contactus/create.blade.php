@@ -71,7 +71,7 @@
                 <form class="form-horizontal col-lg-6 col-md-6 col-sm-12 col-xs-12" name="contact" action="{{url('contact')}}" method="post" >
                     <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12 contact pull-right">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12  " >
-                            <input  name="name" required type="text" class="form-control " pattern= "/^[a-zA-Z]+$/" placeholder="Name *" />
+                            <input  name="name" required type="text" class="form-control " minlength="3" placeholder="Name *" />
                         </div>
 
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 ">

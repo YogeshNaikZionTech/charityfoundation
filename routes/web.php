@@ -13,7 +13,7 @@
 
 
 Route::get('/', 'WelcomeController@show');
-
+Route::get('/welcome', 'WelcomeController@show');
 Route::resource('events', 'EventController');
 
 Route:: resource('education', 'EducationController');
@@ -104,6 +104,9 @@ Route::get('events/status/future', 'EventController@getFutureEvents');
 Route::post('events/page/future', 'EventController@paginateUpcomingEvents'); //Get pagination for future events
 Route::post('events/page/completed', 'EventController@paginateCompletedEvents'); //Get pagination for current events
 Route::get('/events/get/titles', 'EventController@getAllETitles');
+Route::get('/history/contact/all', 'AdminController@getContactData');
+Route::get('/history/suggest/all', 'AdminController@getSuggestData');
+Route::post('/suggestion', 'ContactController@storeSuggestion');
 /**
  * json url project
  */
