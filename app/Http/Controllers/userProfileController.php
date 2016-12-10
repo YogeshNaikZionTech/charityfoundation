@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 
+use App\AAMnotiff;
+use App\PVNotiff;
+use App\Receipt;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -102,12 +106,44 @@ class userProfileController extends Controller {
 
         $default_avatar = 'default.png';
         $curr_user = Auth::user();
-        @unlink(public_path('images/avatar/s'.$curr_user->avatar));
+
+        @unlink(public_path('images/avatars/'.$curr_user->avatar));
         $curr_user->avatar = $default_avatar;
         $curr_user->save();
     }
 
 
+    /**
+     * @param Request $request
+     * check box = true or false
+     * Recipt_num
+     * @return view
+     *
+     */
+    public function unSubscribemonthlyPayment(Request $request){
+
+        $this->validate($request, array(
 
 
+            'check' => 'required',
+            'recipt_num' => 'required',
+        ));
+        $num = $request->receipt_num;
+
+        //find receipt id
+        $receipt_id = Receipt::where('receipt_num', $num)->value('id');
+
+        //find donate details
+        $donation_id = DB::table('receipt_donate')->where('receipt_id', $receipt_id)->value('pdonate_id');
+
+        //Remove record with the donation id in pm_notify table which will remove notification for that particular pid
+
+        $unsub = PVNotiff::where('pdonate_id',$donation_id)->first();
+        $user->delete();
+
+        \Session::flash('unsub_Success',',succefully.');
+        return view('history/history');
+
+
+    }
 }

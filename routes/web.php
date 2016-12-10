@@ -52,6 +52,7 @@ Route::get('showevents', 'EventController@showEventPage');
 Route::get('showprojects', 'ProjectController@showProjectPage');
 Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
 Route::post('userprofile/preset', 'userProfileController@updatePassword');
+Route::post('/unsubscribe/payment/monthly', 'userProfileController@unSubscribemonthlyPayment');
 
 
 /**
