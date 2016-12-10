@@ -286,11 +286,9 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                            </div>
-                        </form>
-                        <div class="form-group">
                                 <button class="btn btn-danger del-project">Delete</button>
                             </div>
+                        </form>
                     </div>
                     <!--  Form to Modify an Event -->
                     <div class="event program">
@@ -332,11 +330,11 @@
                                         </select>
                                     </div>
                                 </div>
-                            </div>
 
-                        <div class="row">
-                            
-                            <div class="form-group col-md-4">
+                        <div class="col-md-6">
+                            <div class="row">
+                                
+                            <div class="form-group col-md-6 col-md-offset-1">
                                 <label>Date</label>
                                 <div class="input-group date" id='datetimepicker2'>
                                     
@@ -346,7 +344,10 @@
                                     </span>   
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            </div>
+                            <div class="row">
+                                
+                            <div class="form-group col-md-6 col-md-offset-1">
                                 <label>Start Time</label>
                                 <div class="input-group date" id='datetimepicker3'>
                                     <input type="text" id="estarttime" name="estarttime" placeholder="Start Time" class="form-control">
@@ -355,7 +356,10 @@
                                     </span> 
                                 </div>
                             </div>
-                            <div class="form-group col-md-4">
+                            </div>
+                            <div class="row">
+                                
+                            <div class="form-group col-md-6 col-md-offset-1">
                                 <label>End Time</label>
                                 <div class="input-group date" id='datetimepicker4'>
                                     <input type="text" id="eendtime" name="eendtime"  placeholder="End Time" class="form-control">
@@ -364,22 +368,28 @@
                                     </span> 
                                 </div>
                             </div>
-                        </div>
-
+                            </div>
                         <div class="row">
                             
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-6 col-md-offset-1">
                                 <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                                <input id="files" style="visibility:hidden;" type="file" name="eimage" accept="image/*">
+                                <input id="files" style="display:none;" type="file" name="eimage" accept="image/*">
                             </div>
-
-                            <div class="form-group col-md-1">
+                        </div> 
+                        <div class="row">
+                            
+                            <div class="form-group col-md-3 col-md-offset-1">
                                 <input type="submit" class="btn btn-primary">
                             </div>
-                            <div class="form-group col-md-1">
+                            <div class="form-group col-md-3">
                                 <button class="btn btn-danger del-event">Delete</button>
                             </div>
-                        </div>        
+                        </div>
+                        </div>
+
+                            </div>
+
+       
                         </form>
                             
                     </div>
@@ -458,7 +468,7 @@
                         response = JSON.parse(response);
                         console.log(response);
                         $.each(response, function (index,val) {
-                            output += "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.user_name+"</td><td>volunteer</td><td>"+val.event_name+"</td><td>"+val.dod+"</td><td>N/A</td></tr>"
+                            output += "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.firstname+" "+val.lastname+"</td><td>volunteer</td><td>"+val.event_name+"</td><td>"+val.dov+"</td><td>N/A</td></tr>"
                             count = count + 1;
                         });
                         $(".doutput").append(output);

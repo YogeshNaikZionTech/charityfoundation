@@ -17,6 +17,7 @@
                     <th>Date of Donation</th>
                     <th>Donation Amount</th>
                     <th>Receipt No</th>
+                    <th>Payment Mode</th>
                 </tr>
             </thead>
             <tbody class="hdata">
@@ -45,12 +46,13 @@
             var output = " ";                   
                 response = JSON.parse(response);
                 $(".hdata").empty();
+                console.log(response);
                 $.each(response, function (index,val) {
                     count = index+1;
                     var hdate = val.dod;
                     hdate = hdate.split(" ");
 
-                    output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.project+"</td><td>"+val.donation_type+"</td><td>"+hdate[0]+"</td><td>$"+val.amount+"</td><td>"+val.receipt_id+"</td></tr>"
+                    output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.project+"</td><td>"+val.donation_type+"</td><td>"+hdate[0]+"</td><td>$"+val.amount+"</td><td>"+val.receipt_id+"</td><td>"+val.type+"</td></tr>"
                 });
                 count = response.length;
                 $(".hdata").append(output);
@@ -64,11 +66,12 @@
                 datatype:'JSON',
                 success: function(response){
                 // $(".hdata").empty();
+                console.log(response);
                 var output = " ";                   
                     response = JSON.parse(response);
                     console.log(response);
                     $.each(response, function (index,val) {
-                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.event_name+"</td><td>volunteer</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>"
+                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.event_name+"</td><td>volunteer</td><td>N/A</td><td>N/A</td><td>N/A</td><td>N/A</td></tr>"
                         count = count + 1;
                     });
                     $(".hdata").append(output);
@@ -90,7 +93,7 @@
                     $.each(response, function (index,val) {
                         var hdate = val.dod;
                         hdate = hdate.split(" ");
-                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+hdate[0]+"</td><td>$"+val.amount+"</td><td>"+val.receipt_num+"</td></tr>"
+                        output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+hdate[0]+"</td><td>$"+val.amount+"</td><td>"+val.receipt_num+"</td><td>"+val.dtype+"</td></tr>"
                         count = count + 1;
                     });
                     $(".hdata").append(output);
