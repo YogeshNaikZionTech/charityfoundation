@@ -39,7 +39,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
 
-
+        dd($request);
 		$cname = $request->input('name');
 	    $email = $request->input('email');
 	    $msg = $request->input('message');
