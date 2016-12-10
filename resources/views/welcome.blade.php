@@ -210,7 +210,7 @@
                     <form class="form-horizontal col-md-12 col-lg-10 col-xs-11 col-sm-12" id="suggestform" action="{{url('contact')}} method="post">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-right: 10px;">
-                        <input class="form-control name " name="username"  placeholder="Name :*" >  </div>
+                        <input class="form-control name " name="username" minlength="3"  placeholder="Name :*" >  </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <input class="form-control email  " name="email" type="email"  placeholder="Email :*"></div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">

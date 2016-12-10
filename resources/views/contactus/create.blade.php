@@ -74,7 +74,7 @@
                     <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12 contact pull-right">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12  " >
-                            <input  name="name" required type="text" class="form-control username" placeholder="Name *" />
+                            <input  name="name" required type="text" class="form-control username" minlength="3"  placeholder="Name *" />
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
                             <input  name="email" required type="email" class="form-control email" placeholder="Email *" />
