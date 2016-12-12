@@ -82,7 +82,7 @@
                     </textarea>
                         </div>
                     </div>
-                    <div class="submit-form col-lg-offset-2  col-xs-offset-1 col-lg-6 col-xs-7 col-sm-11 col-md-6">
+                    <div class=" col-lg-offset-2  col-xs-offset-1 col-lg-6 col-xs-7 col-sm-11 col-md-6">
                         <input type="hidden" name="_token" value="{{csrf_token()}}">
 
                         <button class="btn btn-success btn-lg text-center" type="submit">Submit</button>
