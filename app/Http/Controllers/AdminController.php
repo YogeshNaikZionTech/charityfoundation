@@ -401,38 +401,43 @@ class  AdminController extends Controller
 
         //just changed the name yet to impleted all the functionalty
     public function searchdonationTable($var){
-        Log::info('Admin eachring user');
+        Log::info('Admin seachring user in donation');
         $user_l = User::has('ucard')->get();
         $response_arr = array();
         $response_check = array();
+        $user_name ="";
         foreach($user_l as $user){
-            $user_name = $user->firstname.$user->lastname;
+            $user_name = $user->firstname." ".$user->lastname;
             $card_count = $user->ucard->all();
-            if($card_count>0){
-                //get the list of card of loged in user
-                $card_list = $user->Ucard->all();
-                foreach($card_list as $card) {
-                    $receipt_count = $card->receipt->count();
-                    //get list of receipts paid by the particular card
-                    $receipt_list = $card->receipt;
-                    if ($receipt_count > 0) {
-                        foreach ($receipt_list as $rlist) {
-                            $rlist->receipt_num;
-                            //pdonate_reeipt and donate pvoit extraction
-                            $pdonate = DB::table('receipt_donate')->where('receipt_id', $rlist->id)->first();
-                            if(!$pdonate==null){
-                                //donate type and project id extraction
-                                $donate_id = DB::table('donate_project')->where('id', $pdonate->pdonate_id)->first();
-                                //project title extraction
-                                $project = Project::find($donate_id->project_id);
-                                $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at,"type"=>$rlist->type,"amount" => $rlist->amount_cents);
-                                array_push($response_arr, $response_check);
+
+                if ($card_count > 0) {
+                    if (stripos($user_name, $var) !== false) {
+                    //get the list of card of loged in user
+                    $card_list = $user->Ucard->all();
+                    foreach ($card_list as $card) {
+                        $receipt_count = $card->receipt->count();
+                        //get list of receipts paid by the particular card
+                        $receipt_list = $card->receipt;
+                        if ($receipt_count > 0) {
+                            foreach ($receipt_list as $rlist) {
+                                $rlist->receipt_num;
+                                //pdonate_reeipt and donate pvoit extraction
+                                $pdonate = DB::table('receipt_donate')->where('receipt_id', $rlist->id)->first();
+                                if (!$pdonate == null) {
+                                    //donate type and project id extraction
+                                    $donate_id = DB::table('donate_project')->where('id', $pdonate->pdonate_id)->first();
+                                    //project title extraction
+                                    $project = Project::find($donate_id->project_id);
+                                    $response_check = array("name" => $user_name, "donation_type" => $donate_id->donation_type, "project" => $project->project_Title, "dod" => $donate_id->updated_at, "type" => $rlist->type, "amount" => $rlist->amount_cents);
+                                    array_push($response_arr, $response_check);
+                                }
                             }
                         }
                     }
                 }
             }
         }
+
         Log::info('Histoty is sent ');
         return json_encode($response_arr);
 

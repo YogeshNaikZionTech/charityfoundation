@@ -64,6 +64,7 @@ Route::get('/history/aaf/user', 'HistoryController@getAAFHistory'); //history of
 Route::get('/history/project/all','AdminController@donationTable');//this will give you the donation view json. use ajax to get this.
 Route::get('/history/aaf/all','AdminController@getAllAFFHistory');//get all AAf donation for all the users
 Route::get('/history/voulnteer/all','AdminController@getAllVhistory');
+Route::post('/donation/serach/','AdminController@searchdonationTable');
 
 /*
  * Resource for About us
