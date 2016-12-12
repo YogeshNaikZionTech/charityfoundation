@@ -139,8 +139,9 @@ class Donate extends Controller
             $curr_donation=$aff->id;
 
             Log::info('mailing user about the donation');
-            $d = ['name' => $user->lastname];
-            Mail::send('email.donateProject', $d, function ($message) use ($user) {
+            $d = ['name' => $user->lastname, "type"=>$aff->donation_type,'amount'=>$d_amount,"type"=> $receipt->type,"card_end"=>$card->card_num];
+
+            Mail::send('email.aafmnotify', $d, function ($message) use ($user) {
                 $message->to($user->email, $user->lastname)->subject('Donation Receipt');
                 $message->from('noreplyaafoundation@gmail.com', 'AAF');
             });

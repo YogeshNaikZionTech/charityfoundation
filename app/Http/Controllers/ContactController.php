@@ -47,8 +47,7 @@ class ContactController extends Controller
 	    $contactuser->name = $cname;
 	    $contactuser->email = $email;
 	    $contactuser->message = $msg;
-		$contactuser->tstamp = \Carbon\Carbon::now();
-
+        $contactuser->from = 'contact';
 	    $contactuser->save();
 
 	    \Session::flash('contact_Success',',we will soon get in touch with you.');
@@ -98,5 +97,22 @@ class ContactController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function storeSuggestion(Request $request){
+
+
+        $cname = $request->input('username');
+        $email = $request->input('email');
+        $msg = $request->input('suggestarea');
+        $contactuser = new contactus();
+        $contactuser->name = $cname;
+        $contactuser->email = $email;
+        $contactuser->message = $msg;
+        $contactuser->from = 'suggestion';
+        $contactuser->save();
+
+        \Session::flash('suggest_Success',',we will soon get in touch with you.');
+        return redirect('/welcome');
     }
 }

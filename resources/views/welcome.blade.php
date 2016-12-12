@@ -7,7 +7,11 @@
 @endsection
 @section('content')
     <div id="content">
-
+        @if(\Session::has('suggest_Success'))
+            <div class="alert alert-success" role="alert">
+                <strong>Thank you, {{\Session::get('suggest_Success')}}</strong>
+            </div>
+        @endif
         <div id="myCarousel" class="carousel slide" data-ride="carousel" >
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -207,16 +211,17 @@
 
                 <div class="suggest1 col-lg-offset-3 col-md-offset-3 col-sm-offset-2 col-md-7 col-lg-7 col-xs-12 col-sm-7">
                     <h2>Suggest Here</h2>
-                    <form class="form-horizontal col-md-12 col-lg-10 col-xs-11 col-sm-12" id="suggestform">
+                    <form class="form-horizontal col-md-12 col-lg-10 col-xs-11 col-sm-12" id="suggestform" action="{{url('/suggestion')}}" method="post">
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12" style="margin-right: 10px;">
-                        <input class="form-control name " name="username"  placeholder="Name :*" >  </div>
+                        <input class="form-control name " name="username" minlength="3"  placeholder="Name :*" >  </div>
                         <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <input class="form-control email  " name="email" type="email"  placeholder="Email :*"></div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <textarea rows="5" cols="30" class="form-control suggestarea" name="suggestarea"   placeholder="Suggestion :*"> </textarea>
+                            <input type="hidden" name="_token" value="{{csrf_token()}}">
                         </div>
                         <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                            <button class="btn btn2 col-lg-offset-12 btn-md">Suggest</button></div>
+                            <button class="btn btn2 col-lg-offset-12 btn-md" type="submit">Suggest</button></div>
                     </form>
                 </div>
 
