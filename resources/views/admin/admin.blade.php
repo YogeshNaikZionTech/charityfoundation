@@ -53,8 +53,8 @@
                         </li>
                         <li id="volitem">
                             <a href="" data-target-id="volunteer">
-                                <span><i class="fa fa-user"></i></span>
-                                <span>Volunteers</span>
+                                <span><i class="fa fa-envelope"></i></span>
+                                <span>Messages</span>
                             </a>
                         </li>
                     </ul>
@@ -817,40 +817,40 @@ $('.del-event').click(function(){
 {{--Volunteer Menu--}}
     <script type="text/javascript">
     $(document).ready(function() {
-    $("#volitem").click(function() {
-    $.ajax(
-    {
-    url: "/history/suggest/all",
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-    var trHTML = '';
-    $.each(data, function (i, item) {
-    trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.messgae + '</td></tr>';
-    });
-
-    $('.voloutput').html(trHTML);
-    }
-    });
-    });
+        $("#volitem").click(function() {
+            $.ajax(
+                {
+                    url: "/history/suggest/all",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                         trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
+                    });
+                        $('.voloutput').html(trHTML);
+                    }
+                }
+            );
+        });
     });
     $(document).ready(function() {
-    $("#volitem").click(function() {
-    $.ajax(
-    {
-    url: "/history/contact/all",
-    type: "GET",
-    dataType: "json",
-    success: function (data) {
-    var trHTML = '';
-    $.each(data, function (i, item) {
-    trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
-    });
-
-    $('.conoutput').html(trHTML);
-    }
-    });
-    });
+        $("#volitem").click(function() {
+            $.ajax(
+                 {
+                    url: "/history/contact/all",
+                     type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                     var trHTML = '';
+                     $.each(data, function (i, item) {
+                         trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
+                     });
+                        $('.conoutput').html(trHTML);
+                    }
+                 }
+            );
+        });
     });
     </script>
     {{--Date Picker--}}
