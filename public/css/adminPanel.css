@@ -117,7 +117,7 @@ input[type="text"]{ min-height: 28px;}
     position: relative;
 
 }
-#history, #users{
+#history, #users, #volunteer{
     overflow: scroll;
 }
 
