@@ -81,7 +81,8 @@ class  AdminController extends Controller
 
                         }
                     }
-                    $user_since= ($user->created_at)->format('Y-m-d');
+                    $user_time = $user->created_at;
+                    $user_since= $user_time->format('Y-m-d');
                     Log::info($user_since);
                     $user_check = array("firstname"=>$user->firstname, "lastname" => $user->lastname, "email" => $user->email, "phonenum" => $user->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
                     array_push($user_response, $user_check);
