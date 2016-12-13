@@ -28,7 +28,233 @@ h3{
     min-height: 50px;}
 
 /*-------------------------------------------------Media Queries for responsiveness Changes starts form here------------------------------------------------*/
-@media (max-width: 200px) {
+@media (min-width: 210px)  {
+    .description{
+
+        overflow: hidden;
+        text-overflow: clip;
+        display: -webkit-box;
+        line-height: 0.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+        line-height: 0.5em ;
+        font-size: 12px;
+    }
+    .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 0.5em;     /* fallback */
+        max-height: 20px;      /* fallback */
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+        font-size: 16px;
+    }
+    .img-responsive {min-height: 100px;max-height:100px;}
+    .carousel {
+        min-height: 140px;
+        max-height: 400px;
+        margin-bottom: 40px;
+    }
+
+    .carousel-caption {
+        text-align: left;
+        top: 5%;
+        left: 10%;}
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        max-height: 400px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        max-height: 400px;
+    }
+    .donate_carousel{
+        height:150px;
+        /*margin-top: 80%;*/
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+        /*padding: 20px 10px;*/
+    }
+    .donate_carousel >.btn{
+        width:85px;
+        font-size: 16px;
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 18px;}
+    h1 {
+        font-size: 25px;
+    }
+    .carousel-caption p{font-size: 19px;}
+    .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 28px;
+        height: 28px;
+        margin-left: -22px;
+        border: 2px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 48%;
+        left: 50%;
+        content: '';
+        width: 10px;
+        height: 10px;
+        margin: -7px 0 0 -5px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 26px;
+        height: 26px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 30px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    /*---------------------------------------------------------explore more button hover effects----------------------------------------*/
+    .btn
+    {
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 16px;
+        padding: 5px;
+        width: 85px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -10px;
+        transition: 0.5s;
+    }
+
+    .btn:hover span {
+        padding-right: 5px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+        color:white;
+    }
+    .btn:hover span:after , .btn
+    {
+        background-color: #2aabd2;
+        color:white;
+    }
+}
+
+@media  (max-width: 220px) {
+    .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev
+    {
+        margin-left: -5px;
+    }
+    .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+        margin-right: -5px;
+    }
+    .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        font-size: 10px;
+    }
+
+    .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+        right: 6%;
+        margin-right: -10px;
+        font-size: 10px;
+    }
+    .carousel-control .glyphicon-chevron-left, .carousel-control .icon-next {
+        left:6%;
+        margin-right: -10px;
+        font-size: 10px;
+    }
+
+    .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+        width: 20px;
+        height: 20px;
+        margin-top: -10px;
+        font-size: 15px;
+    }
+
+    .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+        position: absolute;
+        top: 50%;
+        z-index: 5;
+        display: inline-block;
+        margin-top: -10px;
+    }
     .description{
 
         overflow: hidden;
@@ -51,10 +277,11 @@ h3{
         -webkit-box-orient: vertical;
         font-size: 18px;
     }
-    .img-responsive {min-height: 50px;max-height:50px;}
+    .img-responsive {min-height: 50px;max-height:400px;}
     .carousel {
-        min-height: 140px;
-        margin-bottom: 60px;
+        /*min-height: 140px;*/
+        max-height: 350px;
+        margin-bottom: 40px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
@@ -65,6 +292,7 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
+        max-height: 350px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -72,15 +300,16 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
+        max-height: 350px;
         min-height: 140px;
     }
     .donate_carousel{
-        height:200px;
+        height:150px;
         margin-top: 80%;
-        font-size: 16px;
+        font-size: 14px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
-        padding: 20px 10px;
+        /*padding: 20px 10px;*/
     }
     .donate_carousel >.btn{
         width:85px;
@@ -239,21 +468,21 @@ h3{
     }
     .carousel {
         min-height: 140px;
-        height: 400px;
+        max-height: 400px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
         z-index: 10;
         top:15%;
-        height: 400px;
+        max-height: 400px;
     }
     .image{min-height: 100px;width:100%;max-height: 100px;}
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
-        height: 400px;
+        max-height: 400px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -262,11 +491,11 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
-        height: 400px;
+        max-height: 400px;
     }
     .donate_carousel{
-        height:500px;
-        margin-top: 50%;
+        height:150px;
+        margin-top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -282,7 +511,7 @@ h3{
     h1 {
         font-size: 25px;
     }
-    .carousel-caption p{font-size: 19px;}
+    .carousel-caption p{font-size: 18px;}
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
     #section03 a {
         padding-top: 60px;
@@ -413,8 +642,8 @@ h3{
     }
     .donate_carousel{
         position: relative;
-        height: 250px;
-        top: 50%;
+        height: 150px;
+        top: 30%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -578,15 +807,18 @@ h3{
     .image{min-height: 100px;width:100%;max-height: 100px;}
     .carousel {
         min-height: 140px;
+        max-height:450px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
+        top:10%;
         z-index: 10;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
+        max-height:450px;
         min-height: 140px;
         background-color: #777;
     }
@@ -595,12 +827,13 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
+        max-height:450px;
         min-height: 140px;
     }
     .donate_carousel{
         position: relative;
         height: 250px;
-        top: 30%;
+        top: 25%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -616,7 +849,7 @@ h3{
     h1 {
         font-size: 25px;
     }
-    .carousel-caption p{font-size: 19px;}
+    .carousel-caption p{font-size: 18px;}
     .carousel-caption > .btn-lg{ width:95px; font-size: 16px;}
     #section03 a {
         padding-top: 60px;
@@ -766,16 +999,19 @@ h3{
     .image{min-height: 250px;width:100%;max-height: 250px;}
 
     .carousel {
+        max-height: 500px;
         min-height: 140px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
+        top:20%;
         z-index: 10;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
+        max-height: 500px;
         min-height: 140px;
         background-color: #777;
     }
@@ -784,11 +1020,12 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
+        max-height: 500px;
         min-height: 140px;
     }
     .donate_carousel{
         height:150px;
-        margin-top: 35%;
+        margin-top: 20%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -804,7 +1041,7 @@ h3{
     h1 {
         font-size: 30px;
     }
-    .carousel-caption p{font-size: 22px;}
+    .carousel-caption p{font-size: 18px;}
     .carousel-caption > .btn-lg{ width:105px; font-size: 18px;}
     #section03 a {
         padding-top: 60px;
@@ -884,7 +1121,7 @@ h3{
     }
 
 }
-@media  (max-width: 520px){
+@media screen and (max-width: 520px){
     .btn
     {
         display: inline-block;
@@ -951,12 +1188,12 @@ h3{
     }
     .image{width:100%;max-height: 250px;}
     .carousel {
-        height: 500px;
+        max-height: 600px;
         border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
 
     }
     .carousel .item {
-        height: 500px;
+        max-height: 600px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -964,7 +1201,7 @@ h3{
         top: 0;
         left: 0;
         width: 100%;
-        height: 500px;
+        max-height: 600px;
     }
     .carousel-caption {
         text-align: left;
@@ -973,7 +1210,7 @@ h3{
     }
     .donate_carousel{
         height:150px;
-        top: 60%;
+        top: 40%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -1005,7 +1242,8 @@ h3{
 
 }
 /*-------------------------------------------------For medium screens-------------------------------------------------------------------------*/
-@media screen and (min-width: 768px )  {
+@media screen and (min-width: 768px ) {
+
     .btn
     {
         display: inline-block;
@@ -1050,32 +1288,32 @@ h3{
     }
     .carousel-control .glyphicon-chevron-left, .carousel-control .icon-prev
     {
-        margin-left: -10px;
+        margin-left: -5px;
     }
     .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
-        margin-right: -10px;
+        margin-right: -5px;
     }
     .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         margin-top: -10px;
+        font-size: 10px;
+    }
+
+    .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
+        right: 10%;
+        margin-right: -10px;
+        font-size: 15px;
+    }
+    .carousel-control .glyphicon-chevron-left, .carousel-control .icon-next {
+        left: 10%;
+        margin-right: -10px;
         font-size: 15px;
     }
 
-    .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next {
-        right: 15%;
-        margin-right: -10px;
-        font-size: 20px;
-    }
-    .carousel-control .glyphicon-chevron-left, .carousel-control .icon-next {
-        left: 15%;
-        margin-right: -10px;
-        font-size: 20px;
-    }
-
     .carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
-        width: 30px;
-        height: 30px;
+        width: 20px;
+        height: 20px;
         margin-top: -10px;
         font-size: 20px;
     }
@@ -1087,9 +1325,34 @@ h3{
         display: inline-block;
         margin-top: -10px;
     }
+    .carousel {
+        min-height: 140px;
+        max-height:650px;
+        margin-bottom: 60px;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        top:30%;
+        z-index: 10;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        min-height: 140px;
+        max-height:650px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-height: 650px;
+        min-width: 100%;
+        min-height: 140px;
+    }
     .donate_carousel{
         height:150px;
-        top: 40%;
+        top: 30%;
         font-size: 18px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -1308,7 +1571,7 @@ h3{
     }
 }
 /*--------------------------------------------------for Large screens----------------------------------------------------------------------*/
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and (max-width: 992px) {
     .btn
     {
         display: inline-block;
@@ -1376,23 +1639,26 @@ h3{
     .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 140px;
-        height:666px;
+        max-height:666px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
+        top:30%;
         z-index: 10;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
+        max-height:666px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
         position: absolute;
         top: 0;
         left: 0;
+        max-height: 666px;
         min-width: 100%;
         min-height: 140px;
     }
@@ -1480,7 +1746,7 @@ h3{
 
     .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
-        height: 666px;
+        height: 700px;
         min-height: 200px;
         margin-bottom: 60px;
     }
@@ -1492,7 +1758,7 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
-        height:666px;
+        height:700px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -1501,7 +1767,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
-        height:666px;
+        height:700px;
     }
     .donate_carousel{
         height:150px;
@@ -1640,6 +1906,10 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
+    .carousel-caption {
+        top: 30%;
+        z-index: 10;
+    }
     .description{
 
         overflow: hidden;
@@ -1663,7 +1933,7 @@ h3{
     .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 400px;
-        height: 666px;
+        max-height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -1674,7 +1944,9 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
+        max-height: 1000px;
         background-color: #777;
+
     }
     .carousel-inner > .item > img {
         position: absolute;
@@ -1682,6 +1954,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
+        max-height: 1000px;
     }
     .donate_carousel{
         height:150px;
@@ -1842,17 +2115,19 @@ h3{
 
     .image{min-height:250px;width:100%;max-height: 250px;}
     .carousel {
-        min-height: 400px;
-        height: 666px;
+        min-height: 666px;
+        max-height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
         z-index: 10;
+        top:30%;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
+        max-height: 1000px;
         min-height: 140px;
         background-color: #777;
     }
@@ -1861,7 +2136,8 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
-        min-height: 140px;
+        max-height: 1000px;
+        min-height: 666px;
 
     }
     .donate_carousel{
@@ -2024,7 +2300,7 @@ h3{
 
     .carousel {
         min-height: 666px;
-        height: 1000px;
+        max-height: 1100px;
         margin-bottom: 60px;
     }
     .carousel-caption {
@@ -2038,7 +2314,7 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 666px;
-       max-height: 1000px;
+       max-height: 1100px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -2047,16 +2323,14 @@ h3{
         left: 0;
         width: 100%;
         min-height: 666px;
-        max-height: 1000px;
+        max-height: 1100px;
     }
     .carousel-inner1 > .item > img {
         position: relative;
         top: 0;
         left: 0;}
     /* Since positioning the image, we need to help out the caption */
-    .carousel-caption {
-        z-index: 10;
-    }
+
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
@@ -2166,37 +2440,6 @@ h3{
 }
 
 
-.carousel {
-    height: 660px;
-    border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
-
-}
-.image{width:100%;max-height: 250px;}
-/* Since positioning the image, we need to help out the caption */
-.carousel-caption {
-
-    text-align: left;
-    top:30%;
-    left:10%;
-
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-    height: 660px;
-    background-color: #777;
-}
-.carousel-inner > .item > img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 660px;
-}
-.carousel-inner1 > .item > img {
-    position: relative;
-    top: 0;
-    left: 0;}
 .first > a , .first > p, .first >h1{ color:black ;}
 .second > a , .second > h1 , .second >p { color :black; }
 .second > a{border-color:rgba(3, 56, 69, 0.76) }
