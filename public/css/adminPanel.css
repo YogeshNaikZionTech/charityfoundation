@@ -367,3 +367,20 @@ body{min-height:100%;}
     padding: auto;
     margin:0 auto;
 }
+
+#voltable tr td:nth-child(1) , #contable tr td:nth-child(1) {
+    word-wrap: break-word;
+    max-width: 20px;
+}
+#voltable tr td:nth-child(2) , #contable tr td:nth-child(2) {
+    word-wrap: break-word;
+    max-width: 20px;
+}
+#voltable tr td:nth-child(3) , #contable tr td:nth-child(3) {
+    word-wrap: break-word;
+    max-width:50px;
+}
+#voltable, #contable{
+    table-layout: fixed;
+    width:100%;
+}
