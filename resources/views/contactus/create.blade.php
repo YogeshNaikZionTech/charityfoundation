@@ -102,4 +102,64 @@
 @endsection
 @section('scripts')
     <script src="{{URL::asset('/js/nav.js')}}"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            //Bootstrap form  validation stats from here  for Suggest form
+            $("#suggestform").bootstrapValidator({
+                feedbackIcons:{
+
+                    valid:'glyphicon glyphicon-ok',
+                    invalid:'glyphicon glyphicon-remove',
+                    validating:'glyphicon glyphicon-refresh'
+                },
+                fields:{
+                    suggestarea:{
+                        validators:{
+                            notEmpty:{
+                                message: 'cannot submit empty suggestions'
+                            },
+
+                            stringLength:{
+                                max: 500,
+                                message: 'Suggestions should be less than 500 characters'
+                            },
+
+                            regexp:{
+                                regexp: /^[A-Za-z0-9\s]+$/i,
+                                message: 'Only alphanumeric characters.'
+                            }
+                        }
+                    },
+                    username:{
+                        validators:{
+
+                            notEmpty:{
+                                message: 'Please enter your name'
+                            },
+                            regexp:{
+                                regexp:/^[A-Za-z\s]+$/,
+                                message: 'Name can have only alphabets'
+                            }
+                        }
+                    },
+                    email:{
+                        validators:{
+                            emailAddress: {
+                                message: 'The value is not a valid email address'
+                            },
+
+                            notEmpty:{
+                                message:'Email ID is required'
+                            }
+                        }
+                    }
+
+                }
+
+            });
+
+        });
+
+    </script>
     @endsection
