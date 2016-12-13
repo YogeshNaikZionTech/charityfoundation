@@ -13,7 +13,7 @@
 
 
 Route::get('/', 'WelcomeController@show');
-
+Route::get('/welcome', 'WelcomeController@show');
 Route::resource('events', 'EventController');
 
 Route:: resource('education', 'EducationController');
@@ -52,6 +52,7 @@ Route::get('showevents', 'EventController@showEventPage');
 Route::get('showprojects', 'ProjectController@showProjectPage');
 Route::get('userprofile/preset', 'userProfileController@showupdatePassword');
 Route::post('userprofile/preset', 'userProfileController@updatePassword');
+Route::post('/unsubscribe/payment/monthly', 'userProfileController@unSubscribemonthlyPayment');
 
 
 /**
@@ -63,6 +64,7 @@ Route::get('/history/aaf/user', 'HistoryController@getAAFHistory'); //history of
 Route::get('/history/project/all','AdminController@donationTable');//this will give you the donation view json. use ajax to get this.
 Route::get('/history/aaf/all','AdminController@getAllAFFHistory');//get all AAf donation for all the users
 Route::get('/history/voulnteer/all','AdminController@getAllVhistory');
+Route::post('/donation/serach/','AdminController@searchdonationTable');
 
 /*
  * Resource for About us
@@ -104,6 +106,9 @@ Route::get('events/status/future', 'EventController@getFutureEvents');
 Route::post('events/page/future', 'EventController@paginateUpcomingEvents'); //Get pagination for future events
 Route::post('events/page/completed', 'EventController@paginateCompletedEvents'); //Get pagination for current events
 Route::get('/events/get/titles', 'EventController@getAllETitles');
+Route::get('/history/contact/all', 'AdminController@getContactData');
+Route::get('/history/suggest/all', 'AdminController@getSuggestData');
+Route::post('/suggestion', 'ContactController@storeSuggestion');
 /**
  * json url project
  */

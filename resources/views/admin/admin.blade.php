@@ -51,6 +51,12 @@
                                 <span>Modify</span>
                             </a>
                         </li>
+                        <li id="volitem">
+                            <a href="" data-target-id="volunteer">
+                                <span><i class="fa fa-envelope"></i></span>
+                                <span>Messages</span>
+                            </a>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -395,7 +401,31 @@
                     </div>
 
                 </div>
+                <div class="admin-content" id="volunteer">
+                    <h3>Suggestions</h3>
+                    <table id="voltable" class="display table table-striped table-hover table-bordered table-success bg-success table-responsive text-primary d-inline" align="center">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Suggestion</th>
+                        </tr>
+                        </thead>
+                        <tbody class="voloutput"></tbody>
+                    </table>
+                    <h3>Contact Requests</h3>
+                    <table id="contable" class="display table table-striped table-hover table-bordered bg-success table-responsive text-primary d-inline" align="center">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody class="conoutput"></tbody>
+                    </table>
 
+                </div>
             </div>
         </div>
         <div class="push"></div>
@@ -430,10 +460,9 @@
             });
 
         });
+       </script>
 
-    </script>
-
-
+    {{--Donate Menu--}}
     <script>
         function FocusOnInput() {
             document.forms['donate_search_form'].elements['input'].focus();
@@ -566,6 +595,7 @@
 
         });
     </script>
+    {{--Search Users Menu--}}
     <script>
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();
@@ -784,7 +814,45 @@ $('.del-event').click(function(){
         });
 
     </script>
-
+{{--Volunteer Menu--}}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#volitem").click(function() {
+            $.ajax(
+                {
+                    url: "/history/suggest/all",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                         trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
+                    });
+                        $('.voloutput').html(trHTML);
+                    }
+                }
+            );
+        });
+    });
+    $(document).ready(function() {
+        $("#volitem").click(function() {
+            $.ajax(
+                 {
+                    url: "/history/contact/all",
+                     type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                     var trHTML = '';
+                     $.each(data, function (i, item) {
+                         trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
+                     });
+                        $('.conoutput').html(trHTML);
+                    }
+                 }
+            );
+        });
+    });
+    </script>
     {{--Date Picker--}}
     <script type="text/javascript">
             $(function () {

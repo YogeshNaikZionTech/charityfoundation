@@ -117,7 +117,7 @@ input[type="text"]{ min-height: 28px;}
     position: relative;
 
 }
-#history, #users{
+#history, #users, #volunteer{
     overflow: scroll;
 }
 
@@ -364,6 +364,23 @@ body{min-height:100%;}
     height: 100%;
 }
 .display tr td{
-    padding: 0 auto;
+    padding: auto;
     margin:0 auto;
+}
+
+#voltable tr td:nth-child(1) , #contable tr td:nth-child(1) {
+    word-wrap: break-word;
+    max-width: 20px;
+}
+#voltable tr td:nth-child(2) , #contable tr td:nth-child(2) {
+    word-wrap: break-word;
+    max-width: 20px;
+}
+#voltable tr td:nth-child(3) , #contable tr td:nth-child(3) {
+    word-wrap: break-word;
+    max-width:50px;
+}
+#voltable, #contable{
+    table-layout: fixed;
+    width:100%;
 }

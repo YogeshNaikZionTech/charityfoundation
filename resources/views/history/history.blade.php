@@ -6,6 +6,11 @@
 @endsection
 @section('content')
 <div class="container">
+    @if(\Session::has('unsub_Success'))
+        <div class="alert alert-success" role="alert">
+            <strong>Hey {{Auth::user()->lastname}}, We have unscubscribed from the monthly payments {{\Session::get('unsub_Success')}}</strong>
+        </div>
+    @endif
     <h1 class="page-header" style="color: #d9534f;">History</h1>
     <div>
         <table class="display table table-striped table-hover table-bordered table-info text-primary bg-danger d-inline" align="center">

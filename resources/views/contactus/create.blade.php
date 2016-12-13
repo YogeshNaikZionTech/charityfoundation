@@ -3,7 +3,6 @@
 @section('title', '|Contact Us')
 @section('stylesheets')
     <link href="{{URL::asset('/css/contactus.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 @endsection
 @section('content')
     <div class=" container media1 content">
@@ -69,30 +68,29 @@
         </div>
         <div class="container " >
             <div class="form-data row" >
-                <form class="form-horizontal col-lg-6 col-md-6 col-sm-12 col-xs-12" id="suggestform" name="contact" action="{{url('contact')}}" method="post" >
-
+                <form class="form-horizontal col-lg-6 col-md-6 col-sm-12 col-xs-12" name="contact" action="{{url('contact')}}" method="post" >
                     <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12 contact pull-right">
-                        <input type="hidden" name="_token" value="{{csrf_token()}}">
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12  " >
-                            <input  name="name" required type="text" class="form-control username" minlength="3"  placeholder="Name *" />
+                            <input  name="name" required type="text" class="form-control " minlength="3" placeholder="Name *" />
                         </div>
+
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
-                            <input  name="email" required type="email" class="form-control email" placeholder="Email *" />
+                            <input  name="email" required type="email" class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Email *" />
                         </div>
                         <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12 " >
-                        <textarea  name="message"  class="form-control suggestarea" placeholder="We Need your Suggestions" style="height:180px;">
-                        </textarea>
+                    <textarea  name="message"  class="form-control col-lg-12 col-md-12 col-sm-12 col-xs-12" placeholder="We Need your Suggestions" style="height:180px;">
+                    </textarea>
                         </div>
-                        {{--<div class="col-lg-offset-2  col-xs-offset-1 col-lg-6 col-xs-7 col-sm-11 col-md-6">--}}
-                            {{--<button class="btn btn-success btn-lg text-center" type="submit">Submit</button>--}}
-                        {{--</div>--}}
-                        <div class=" form-group col-lg-4 col-md-4 col-sm-4 col-xs-6">
-                            <button class="btn btn-success btn2 col-lg-offset-12 btn-md" type="submit">Suggest</button></div>
                     </div>
+                    <div class=" col-lg-offset-2  col-xs-offset-1 col-lg-6 col-xs-7 col-sm-11 col-md-6">
+                        <input type="hidden" name="_token" value="{{csrf_token()}}">
 
+                        <button class="btn btn-success btn-lg text-center" type="submit">Submit</button>
+                    </div>
                 </form>
                 <div class="container maps col-lg-6 col-md-6 col-sm-12 col-xs-12 ">
                     <iframe class=" col-lg-11 col-md-12 col-sm-12 col-xs-12"   src="http://www.maps.ie/create-google-map/map.php?width=100%&amp;height=400&amp;hl=en&amp;coord=37.3876633,-121.93013960000002&amp;q=2665%20N%20First%20street+(Charity%20Foundation)&amp;ie=UTF8&amp;t=&amp;z=15&amp;iwloc=A&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0">
+
                     </iframe>
                 </div><br />
 
