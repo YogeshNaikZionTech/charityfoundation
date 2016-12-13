@@ -68,6 +68,14 @@
                             <p>We rise by "LIFTING OTHERS"</p>
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
+                        <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
+
+                            <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
+                                <p>Together we can make difference .&nbsp;'Join with US'</p>
+
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,7 +112,7 @@
         <div class="container-fluid header_projects" id="projects">
             <h1>Our Projects</h1>
             <div class="container-fluid div2">
-                <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" >
                     <div id="createProject" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <!-- Modal content-->
@@ -151,7 +159,7 @@
         <div class=" container-fluid header_Events" >
             <h1>Our Events </h1>
             <div class="container-fluid div2">
-                <div class="col-lg-11 col-md-11 col-xs-12 col-sm-11">
+                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
                     <div id="eventDetails" class="modal fade" role="dialog">
                         <div class="modal-dialog">
                             <div class="modal-content">
