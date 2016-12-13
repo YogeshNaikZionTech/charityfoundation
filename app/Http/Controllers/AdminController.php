@@ -325,7 +325,7 @@ class  AdminController extends Controller
         foreach($donation_list as $dl){
             $creceipt = $dl->cardreceipt_id;
             $pdonate=DB::table('projectd_receipt')->where('id',$creceipt)->first();
-            $response_check =array("donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dod"=>$pdonate->updated_at);
+            $response_check =array("firstname">$user->firstname,"donation"=>"AAF","type"=>$dl->donation_type,"amount"=>$pdonate->amount_cents,"receipt_num"=>$pdonate->receipt_num,"dod"=>$pdonate->updated_at);
             array_push($response_arr, $response_check);
         }
         echo json_encode($response_arr);

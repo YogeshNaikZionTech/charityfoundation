@@ -97,6 +97,7 @@ Route::Post('/volunteer', 'Donate@manageVoulnteer');
 
 Route::get('admin/users/search/all', 'AdminController@getAllUsers');
 Route::get('admin/export/users', 'AdminController@exportUsers');
+    Route::get('admin/donation/all', 'AdminController@donationTable');
 
 Route::get('events/lists/all', 'EventController@allEvents');
 Route::post('events/page/get/', 'EventController@paginateEvents');
