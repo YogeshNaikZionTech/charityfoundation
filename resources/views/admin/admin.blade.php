@@ -3,8 +3,7 @@
 @section('title', '| Admin Panel')
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
-    <link src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/css/bootstrapValidator.min.css" rel="stylesheet" type="text/css" />
+
 @endsection
 @section('content')
     <div id="content">
@@ -50,6 +49,12 @@
                             <a href="" data-target-id="update">
                                 <span><i class="fa fa-pencil-square-o"></i></span>
                                 <span>Modify</span>
+                            </a>
+                        </li>
+                        <li id="volitem">
+                            <a href="" data-target-id="volunteer">
+                                <span><i class="fa fa-envelope"></i></span>
+                                <span>Messages</span>
                             </a>
                         </li>
                     </ul>
@@ -153,17 +158,17 @@
 
                                     <div class="form-group">
                                         <label for="pdate"  class="control-label">Date :</label>
-                                        <input  id="pdate" type="date" name="pdate"  class="form-control" style="height:28px;">
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label for="pstime" class="control-label">Start Time :</label>
-                                        <div id="pstarttime" class="input-append">
-                                            <input class="form-control" id="pstime" name="pstime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
-                                            <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
+                                        <div class="input-group date" id="datetimepicker5">
+                                            <input  id="pdate" type="text" name="pdate"  class="form-control" style="height:28px;">
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
                                         </div>
                                     </div>
+
+
+                                            <input class="form-control" id="pstime" name="pstime"   type="hidden"  style="height:28px;" value="00:00:00" />
+
                                     <div class="form-group">
                                         <label for="pdescription" class="control-label">Project Description :</label>
                                             <textarea name="pdescription" id="pdescription" placeholder="Description of the project" class="form-control"></textarea>
@@ -194,23 +199,30 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="dateeve"  class="control-label">Date :</label>
-                                        <input  id="dateeve" type="date" name="edate"  class="form-control" style="height:28px;">
+                                        <div class="input-group date" id="datetimepicker1">   
+                                            <input  id="dateeve" type="text" name="edate"  class="form-control" style="height:28px;">
+                                            <span class="input-group-addon" style="height:28px;">
+                                                <span class="glyphicon glyphicon-calendar"></span>
+                                            </span>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <label for="stime" class="control-label">Start Time :</label>
-                                        <div id="starttime" class="input-append" >
-                                            <input class="form-control" id="stime" name="stime"  data-format="hh:mm:ss" type="text"  style="height:28px;"/>
-                                            <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar "> </i></span>
+                                        <div id="starttime" class="input-group date" >
+                                            <input class="form-control" id="stime" name="stime" type="text"  style="height:28px;"/>
+                                            <span class="input-group-addon" style="height:28px;">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
                                         </div>
                                     </div>
 
                                     <div class="form-group">
                                         <label for="etime" class="control-label">End Time :</label>
-                                        <div id="endtime" class="input-append" >
-                                            <input class="form-control" id="etime" name="etime"  data-format="hh:mm:ss" type="text" style="height:28px;" />
-                                            <span class="add-on" style=" height: 28px;">
-                                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"> </i></span>
+                                        <div id="endtime" class="input-group date" >
+                                            <input class="form-control" id="etime" name="etime" type="text" style="height:28px;" />
+                                            <span class="input-group-addon" style="height:28px;">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
                                         </div>
                                     </div>
 
@@ -280,86 +292,140 @@
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
-                            </div>
-                        </form>
-                        <div class="form-group">
                                 <button class="btn btn-danger del-project">Delete</button>
                             </div>
+                        </form>
                     </div>
                     <!--  Form to Modify an Event -->
                     <div class="event program">
-                        <form class="form-group col-md-6"  action="{{url('/putevents')}}" method="POST">
+                        <form class="form-group col-md-12"  action="{{url('/putevents')}}" method="POST">
                             <!-- <input name="_method" type="hidden" value="PUT"> -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
 
-                            <div class="form-group">
-                                <fieldset id="Group2" name="Group2">
+                            <div class="row">
+                                <div class="col-md-6">
 
-                                    <select id="Select2" name="Select2" class="form-control">
-                                        <option>Select</option>
-                                    </select>
-                                </fieldset>
-                            </div>
-                            <input type="hidden" id="event_id" name="id">
+                                    <div class="form-group">
+                                        <fieldset id="Group2" name="Group2">
 
-                            <div class="form-group">
-                                <input class="form-control" id="updateename" name="ename" placeholder="Event Name" type="text" style="height:28px;">
-                            </div>
-                            <div class="form-group">
-                                <textarea class="form-control" id="eve_description" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <input class="form-control" id="updatevenue" name="location" placeholder="Venue" type="text" style="height:28px;">
-                            </div>
-                            <div class="form-group">
-                                <select class="form-control" id="estatus" name="estatus">
-                                    <option>Event Status</option>
-                                    <option value="current">Current</option>
-                                    <option value="future">Future</option>
-                                    <option value="completed">Completed</option>
-
-
-
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div>
-                                    <div>
-                                        <label>Date</label>
-                                        <input type="date" id="edate" name="edate">
-
+                                            <select id="Select2" name="Select2" class="form-control">
+                                                <option>Select</option>
+                                            </select>
+                                        </fieldset>
                                     </div>
-                                    <div class="datetimepicker1 input-append date">
-                                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="estarttime" name="estarttime" placeholder="Start Time">
-                                        <span class="add-on" style="height:28px;">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                </span>
-                                    </div>
-                                    <div class="datetimepicker1 input-append date">
-                                        <input data-format="dd/MM/yyyy hh:mm:ss" type="text" id="eendtime" name="eendtime"  placeholder="End Time">
-                                        <span class="add-on" style="height:28px;">
-                                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                                </span>
-                                    </div>
+                                    <input type="hidden" id="event_id" name="id">
 
+                                    <div class="form-group">
+                                        <input class="form-control" id="updateename" name="ename" placeholder="Event Name" type="text" style="height:28px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control" id="eve_description" name="edescription" placeholder="Event Description" type="text" rows="5"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" id="updatevenue" name="location" placeholder="Venue" type="text" style="height:28px;">
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" id="estatus" name="estatus">
+                                            <option>Event Status</option>
+                                            <option value="current">Current</option>
+                                            <option value="future">Future</option>
+                                            <option value="completed">Completed</option>
+
+
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+                                
+                            <div class="form-group col-md-6 col-md-offset-1">
+                                <label>Date</label>
+                                <div class="input-group date" id='datetimepicker2'>
+                                    
+                                    <input type="text" id="edate" name="edate" class="form-control">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>   
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                                <input id="files" style="visibility:hidden;" type="file" name="eimage" accept="image/*">
                             </div>
-
-                            <div class="form-group">
+                            <div class="row">
+                                
+                            <div class="form-group col-md-6 col-md-offset-1">
+                                <label>Start Time</label>
+                                <div class="input-group date" id='datetimepicker3'>
+                                    <input type="text" id="estarttime" name="estarttime" placeholder="Start Time" class="form-control">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span> 
+                                </div>
+                            </div>
+                            </div>
+                            <div class="row">
+                                
+                            <div class="form-group col-md-6 col-md-offset-1">
+                                <label>End Time</label>
+                                <div class="input-group date" id='datetimepicker4'>
+                                    <input type="text" id="eendtime" name="eendtime"  placeholder="End Time" class="form-control">
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span> 
+                                </div>
+                            </div>
+                            </div>
+                        <div class="row">
+                            
+                            <div class="form-group col-md-6 col-md-offset-1">
+                                <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
+                                <input id="files" style="display:none;" type="file" name="eimage" accept="image/*">
+                            </div>
+                        </div> 
+                        <div class="row">
+                            
+                            <div class="form-group col-md-3 col-md-offset-1">
                                 <input type="submit" class="btn btn-primary">
                             </div>
-                        </form>
-                            <div class="form-group">
+                            <div class="form-group col-md-3">
                                 <button class="btn btn-danger del-event">Delete</button>
                             </div>
+                        </div>
+                        </div>
+
+                            </div>
+
+       
+                        </form>
+                            
                     </div>
 
                 </div>
+                <div class="admin-content" id="volunteer">
+                    <h3>Suggestions</h3>
+                    <table id="voltable" class="display table table-striped table-hover table-bordered table-success bg-success table-responsive text-primary d-inline" align="center">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Suggestion</th>
+                        </tr>
+                        </thead>
+                        <tbody class="voloutput"></tbody>
+                    </table>
+                    <h3>Contact Requests</h3>
+                    <table id="contable" class="display table table-striped table-hover table-bordered bg-success table-responsive text-primary d-inline" align="center">
+                        <thead class="thead-inverse">
+                        <tr>
+                            <th>Full Name</th>
+                            <th>Email</th>
+                            <th>Message</th>
+                        </tr>
+                        </thead>
+                        <tbody class="conoutput"></tbody>
+                    </table>
 
+                </div>
             </div>
         </div>
         <div class="push"></div>
@@ -394,14 +460,70 @@
             });
 
         });
+       </script>
 
-    </script>
-
-
+    {{--Donate Menu--}}
     <script>
         function FocusOnInput() {
             document.forms['donate_search_form'].elements['input'].focus();
         }
+        $(document).ready(function(){
+            var count=0;
+            $.ajax({
+                url: '/history/project/all',
+                type:'GET',
+                datatype:'JSON',
+                success: function(response){
+                    $(".doutput").empty();
+                    var output = " ";
+                    response = JSON.parse(response);
+                    $(".doutput").empty();
+                    $.each(response, function (index,val) {
+                        count = index+1;
+                        output +=  "<tr><th scope='row'>"+count+"</th><td>"+val.name+"</td><td>"+val.donation_type+"</td><td>"+val.project+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td></tr>"
+                    });
+                    count = response.length;
+                    $(".doutput").append(output);
+                    callvolh();
+                }
+            });
+            function callvolh(){
+                $.ajax({
+                    url: '/history/voulnteer/all',
+                    type:'GET',
+                    datatype:'JSON',
+                    success: function(response){
+                        var output = " ";
+                        response = JSON.parse(response);
+                        console.log(response);
+                        $.each(response, function (index,val) {
+                            output += "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.firstname+" "+val.lastname+"</td><td>volunteer</td><td>"+val.event_name+"</td><td>"+val.dov+"</td><td>N/A</td></tr>"
+                            count = count + 1;
+                        });
+                        $(".doutput").append(output);
+                        callaafh();
+                    }
+                });
+            }
+
+            function callaafh(){
+                $.ajax({
+                    url: '/history/aaf/all',
+                    type:'GET',
+                    datatype:'JSON',
+                    success: function(response){
+                        var output = " ";
+                        response = JSON.parse(response);
+                        console.log(response);
+                        $.each(response, function (index,val) {
+                            output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+val.donation+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td></tr>"
+                            count = count + 1;
+                        });
+                        $(".doutput").append(output);
+                    }
+                });
+            }
+        });
         $(document).ready(function() {
             if ($("#dinput").val().length == 0) {
                 $.ajax(
@@ -473,6 +595,7 @@
 
         });
     </script>
+    {{--Search Users Menu--}}
     <script>
         function FocusOnInput() {
             document.forms['search_form'].elements['input'].focus();
@@ -481,13 +604,13 @@
             if ($("#input").val().length == 0) {
                 $.ajax(
                         {
-                            url: "/admin/users/search",
+                            url: "/admin/users/search/all",
                             type: "GET",
                             dataType: "json",
                             success: function (data) {
                                 var trHTML = '';
                                 $.each(data, function (i, item) {
-                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.total_donation + '</td></tr>';
+                                    trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.user_since + '</td><td>' + item.total_donation + '</td></tr>';
                                 });
 
                                 $('.output').html(trHTML);
@@ -514,7 +637,7 @@
                                 var output = '';
                                 response = JSON.parse(response);
                                 $.each(response, function (key, val) {
-                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.usersince + '</td><td>' + val.total_donation + '</td></tr>';
+                                    output += '<tr><td>' + val.firstname + '</td><td>' + val.lastname + '</td><td>' + val.email + '</td><td>' + val.phonenum + '</td><td>' + val.user_since + '</td><td>' + val.total_donation + '</td></tr>';
                                 });
                                 $(".output").html(output);
                             }
@@ -531,7 +654,7 @@
 
                                             $.each(data, function (i, item) {
 
-                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.usersince + '</td><td>' + item.total_donation + '</td></tr>';
+                                                trHTML += '<tr><td>' + item.firstname + '</td><td>' + item.lastname + '</td><td>' + item.email + '</td><td>' + item.phonenum + '</td><td>' + item.user_since + '</td><td>' + item.total_donation + '</td></tr>';
                                             });
 
                                             $('.output').html(trHTML);
@@ -642,8 +765,15 @@
                         $('#eve_description').val(response[0].event_Description);
                         $('#updatevenue').val(response[0].event_Location);
                         $('#estatus>option[value='+response[0].event_Status +']').attr('selected', true);
-                        $('#estarttime').val( response[0].event_StartTime);
-                        $('#eendtime').val(response[0].event_EndTime);
+                        var stime = response[0].event_StartTime;
+                        var etime = response[0].event_EndTime;
+
+                        stime = stime.split(" ");
+                        etime = etime.split(" ");
+
+                        $('#estarttime').val(stime[1]);
+                        $('#eendtime').val(etime[1]);
+
                         $('#event_id').val(response[0].id);
                         $('.del-event').attr('value', response[0].id);
 
@@ -684,33 +814,68 @@ $('.del-event').click(function(){
         });
 
     </script>
-
+{{--Volunteer Menu--}}
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $("#volitem").click(function() {
+            $.ajax(
+                {
+                    url: "/history/suggest/all",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                    var trHTML = '';
+                    $.each(data, function (i, item) {
+                         trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
+                    });
+                        $('.voloutput').html(trHTML);
+                    }
+                }
+            );
+        });
+    });
+    $(document).ready(function() {
+        $("#volitem").click(function() {
+            $.ajax(
+                 {
+                    url: "/history/contact/all",
+                     type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                     var trHTML = '';
+                     $.each(data, function (i, item) {
+                         trHTML += '<tr><td>' + item.name + '</td><td>' + item.email + '</td><td>' + item.message + '</td></tr>';
+                     });
+                        $('.conoutput').html(trHTML);
+                    }
+                 }
+            );
+        });
+    });
+    </script>
     {{--Date Picker--}}
     <script type="text/javascript">
-        $(function() {
-            $('#starttime').datetimepicker({
-                pickDate: false ,
-                pick12HourFormat: true
+            $(function () {
+                $('#datetimepicker3,#datetimepicker4,#starttime,#endtime').datetimepicker({
+                    
+                    format:'HH:mm:ss'
+                });
+
+                $('#pstarttime').datetimepicker({
+                    format:'HH:mm:ss'
+
+                });
+
+                $('#datetimepicker2,#datetimepicker1,#datetimepicker5').datetimepicker({
+                    
+                    format:'YYYY-MM-DD'
+                });
+
+
             });
-        });
-        $(function() {
-            $('#endtime').datetimepicker({
-                pickDate: false,
-                pick12HourFormat: true
-            });
-        });
-        $(function() {
-            $('#pstarttime').datetimepicker({
-                pickDate: false ,
-                pick12HourFormat: true
-            });
-        });
+
     </script>
     {{--Create Projects and Events--}}
-    <script type="text/javascript"
-            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.5.3/js/bootstrapValidator.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#createvent')
@@ -878,9 +1043,6 @@ $('.del-event').click(function(){
     </script>
 
     <script type="text/javascript">
-        $(function () {
-            $('.datetimepicker1').datetimepicker();
-        });
         function submitForm() {
             document.create.submit();
             document.create.reset();

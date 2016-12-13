@@ -67,7 +67,7 @@ a#userp{
     border:none; 
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size:16px;
-    min-width: 0px;
+    min-width: 105px;
     text-align: center;
     background: rgb(238,238,238); /* Old browsers */
     background: -moz-linear-gradient(left,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6-15 */

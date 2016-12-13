@@ -45,7 +45,7 @@ class User extends Authenticatable
 
     public function AAFdonate(){
 
-        return $this->hasMany('App\AFFdonate');
+        return $this->hasMany('App\AAFdonate');
     }
 
 
