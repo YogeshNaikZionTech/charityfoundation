@@ -1327,7 +1327,7 @@ h3{
     }
     .carousel {
         min-height: 140px;
-        max-height:650px;
+        max-height:666px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -1339,14 +1339,14 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
-        max-height:650px;
+        max-height:666px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
         position: absolute;
         top: 0;
         left: 0;
-        max-height: 650px;
+        max-height: 666px;
         min-width: 100%;
         min-height: 140px;
     }
@@ -1639,7 +1639,7 @@ h3{
     .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 140px;
-        max-height:666px;
+        max-height:670px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -1651,14 +1651,14 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
-        max-height:666px;
+        max-height:670px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
         position: absolute;
         top: 0;
         left: 0;
-        max-height: 666px;
+        max-height: 670px;
         min-width: 100%;
         min-height: 140px;
     }
@@ -1682,6 +1682,10 @@ h3{
 
 }
 @media screen and (min-width: 1192px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
     .btn
     {
         display: inline-block;
@@ -1746,19 +1750,20 @@ h3{
 
     .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
-        height: 700px;
+        height: 1000px;
         min-height: 200px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
+        top:30%;
         z-index: 10;
     }
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
-        height:700px;
+        height:1000px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -1767,7 +1772,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
-        height:700px;
+        height:1000px;
     }
     .donate_carousel{
         height:150px;
@@ -1864,6 +1869,10 @@ h3{
 
 }
 @media screen and (min-width: 1292px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
     .btn
     {
         display: inline-block;
@@ -1933,7 +1942,7 @@ h3{
     .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 400px;
-        max-height: 1000px;
+        height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -1944,7 +1953,7 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 140px;
-        max-height: 1000px;
+        height: 1000px;
         background-color: #777;
 
     }
@@ -1954,7 +1963,7 @@ h3{
         left: 0;
         min-width: 100%;
         min-height: 140px;
-        max-height: 1000px;
+        height: 1000px;
     }
     .donate_carousel{
         height:150px;
@@ -2051,6 +2060,10 @@ h3{
 }
 /*--------------------------------------------------for more than larger width 1220px-----------------------------------------------------*/
 @media screen and (min-width: 1392px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
     .btn
     {
         display: inline-block;
@@ -2116,7 +2129,7 @@ h3{
     .image{min-height:250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 666px;
-        max-height: 1000px;
+        height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -2127,7 +2140,7 @@ h3{
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
-        max-height: 1000px;
+        height: 1000px;
         min-height: 140px;
         background-color: #777;
     }
@@ -2136,7 +2149,7 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
-        max-height: 1000px;
+        height: 1000px;
         min-height: 666px;
 
     }
@@ -2235,6 +2248,10 @@ h3{
 
 }
 @media screen and (min-width: 1920px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
     .btn
     {
         display: inline-block;
@@ -2300,7 +2317,7 @@ h3{
 
     .carousel {
         min-height: 666px;
-        max-height: 1100px;
+        max-height: 1000px;
         margin-bottom: 60px;
     }
     .carousel-caption {
@@ -2314,7 +2331,7 @@ h3{
     /* Declare heights because of positioning of img element */
     .carousel .item {
         min-height: 666px;
-       max-height: 1100px;
+       max-height: 1000px;
         background-color: #777;
     }
     .carousel-inner > .item > img {
@@ -2323,7 +2340,7 @@ h3{
         left: 0;
         width: 100%;
         min-height: 666px;
-        max-height: 1100px;
+        max-height: 1000px;
     }
     .carousel-inner1 > .item > img {
         position: relative;
