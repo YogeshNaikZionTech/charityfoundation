@@ -128,7 +128,8 @@ class  AdminController extends Controller
                         }
 
                     }
-                $user_since= ($user_slug->created_at)->format('Y-m-d');
+                $user_time = $user->created_at;
+                $user_since= $user_time->format('Y-m-d');
 
                 $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
                 array_push($user_response, $user_check);
@@ -151,7 +152,9 @@ class  AdminController extends Controller
         //$users = User::select('id', 'firstname', 'lastname','email','phonenum', 'street','aptNo','state','country','zipcode','created_at')->get();
         $users = User::all();
         foreach($users as $user){
-            $user_since= ($user->created_at)->format('Y-m-d');
+            $user_time = $user->created_at;
+            $user_since= $user_time->format('Y-m-d');
+
             $user_check = array('id'=>$user->id, 'firstname'=>$user->firstname, 'lastname'=>$user->lastname,'email'=>$user->email,'phonenum'=>$user->phonenum, 'street'=>$user->street,'aptNo'=>$user->street,'state'=>$user->state,'country'=>$user->country,'zipcode'=>$user->zipcode,'user_since'=>$user_since);
             array_push($user_response,$user_check);
         }
@@ -207,7 +210,8 @@ class  AdminController extends Controller
                             }
                         }
                     }
-                    $user_since= ($user_slug->created_at)->format('Y-m-d');
+                    $user_time = $user_slug->created_at;
+                    $user_since= $user_time->format('Y-m-d');
 
                     $user_check = array("firstname" => $user_slug->firstname, "lastname" => $user_slug->lastname, "email" => $user_slug->email, "phonenum" => $user_slug->phonenum, "user_since" => $user_since, "total_donation" => $tsum);
                     array_push($user_response, $user_check);
