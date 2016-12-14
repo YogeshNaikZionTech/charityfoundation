@@ -78,7 +78,7 @@ protected $email='';
         $d=['name'=>$data['lastname']];
         Mail::send('email.welcome', $d, function($message) use ($data){
             $message->to($data['email'],$data['lastname'])->subject('Welcome to AA Foundation');
-            $message->from('noreplyaafoundation@gmail.com','AAF');
+            $message->from('admin@anumandlafoundation.org','AAF');
         });
 
 
