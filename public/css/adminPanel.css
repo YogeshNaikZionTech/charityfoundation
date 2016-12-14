@@ -10,7 +10,7 @@ body {
     text-align: start;
 
 }
-label, input, h3, button{
+label, input, button{
     color:black;
     }
 .header {
@@ -135,6 +135,12 @@ input[type="text"]{ min-height: 28px;}
     font-weight: 700;
     color: #333;
     font-size: 18px;
+}
+.admin-content h3{
+    font-weight: bold;
+    color: #2a4763;
+    text-shadow: 2px 2px 2px lightgrey, 0 0 20px white;
+
 }
 /* set element styles to fit tablet and higher(desktop) */
 @media screen and (min-width: 600px) {
@@ -367,7 +373,9 @@ body{min-height:100%;}
     padding: auto;
     margin:0 auto;
 }
-
+.display th{
+    color: #0000b3;
+}
 #voltable tr td:nth-child(1) , #contable tr td:nth-child(1) {
     word-wrap: break-word;
     max-width: 20px;
@@ -383,4 +391,12 @@ body{min-height:100%;}
 #voltable, #contable{
     table-layout: fixed;
     width:100%;
+}
+.wrapper .search_form, .wrapper .donate_search_form{
+   display: table;
+    margin:auto;
+
+}
+.display, .table{
+    margin-top:3%;
 }
