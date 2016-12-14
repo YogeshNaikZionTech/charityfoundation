@@ -51,7 +51,7 @@ h3{
         -webkit-box-orient: vertical;
         font-size: 16px;
     }
-    .img-responsive {min-height: 100px;max-height:100px;}
+    .img-responsive {min-height: 250px;max-height:250px;}
     .carousel {
         min-height: 140px;
         max-height: 400px;
@@ -277,7 +277,7 @@ h3{
         -webkit-box-orient: vertical;
         font-size: 18px;
     }
-    .img-responsive {min-height: 50px;max-height:400px;}
+    .img-responsive {min-height: 200px; max-height:200px;}
     .carousel {
         /*min-height: 140px;*/
         max-height: 350px;
@@ -477,7 +477,7 @@ h3{
         top:15%;
         max-height: 400px;
     }
-    .image{min-height: 100px;width:100%;max-height: 100px;}
+    .image{min-height: 250px;width:100%;max-height: 250px;}
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
@@ -614,7 +614,7 @@ h3{
         font-size: 18px;
     }
 
-    .image{min-height: 100px;width:100%;max-height: 100px;}
+    .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 140px;
         height: 400px;
@@ -804,7 +804,7 @@ h3{
         -webkit-box-orient: vertical;
         font-size: 18px;
     }
-    .image{min-height: 100px;width:100%;max-height: 100px;}
+    .image{min-height: 250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 140px;
         max-height:450px;
@@ -1186,7 +1186,7 @@ h3{
         -webkit-box-orient: vertical;
         font-size: 20px;
     }
-    .image{width:100%;max-height: 250px;}
+    .image{width:100%;max-height: 250px;min-height: 250px;}
     .carousel {
         max-height: 600px;
         border-color: #0f0f0f; box-shadow:0 0 10px #fff;;
@@ -1572,6 +1572,7 @@ h3{
 }
 /*--------------------------------------------------for Large screens----------------------------------------------------------------------*/
 @media screen and (min-width: 992px) and (max-width: 992px) {
+
     .btn
     {
         display: inline-block;
@@ -1682,6 +1683,7 @@ h3{
 
 }
 @media screen and (min-width: 1192px) {
+    .exploremore{padding-right:35px;}
     .div2{
         padding-left: 40px;
         padding-right: 40px;
@@ -1926,7 +1928,7 @@ h3{
         display: -webkit-box;
         line-height: 1.5em;     /* fallback */
         /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-line-clamp: 2.5; /* number of lines to show */
         -webkit-box-orient: vertical;
     }
     .title{
@@ -2113,6 +2115,382 @@ h3{
         display: -webkit-box;
         line-height: 1.5em;     /* fallback */
         /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .image{min-height:250px;width:100%;max-height: 250px;}
+    .carousel {
+        min-height: 666px;
+        height: 1000px;
+        margin-bottom: 60px;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        z-index: 10;
+        top:30%;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        height: 1000px;
+        min-height: 140px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 1000px;
+        min-height: 666px;
+
+    }
+    .donate_carousel{
+        height:150px;
+        margin-top: 40%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 25px;}
+    h1 {
+        font-size: 40px;
+    }
+    .carousel-caption p{font-size: 25px;}
+    .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+}
+@media screen and (min-width: 1492px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .btn
+    {
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        width: 150px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .btn:hover span {
+        padding-right: 10px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+        color:white;
+    }
+    .btn:hover span:after , .btn
+    {
+        background-color: #2aabd2;
+        color:white;
+    }
+    .description{
+
+        overflow: hidden;
+        text-overflow: clip;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 2; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .image{min-height:250px;width:100%;max-height: 250px;}
+    .carousel {
+        min-height: 666px;
+        height: 1000px;
+        margin-bottom: 60px;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        z-index: 10;
+        top:30%;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        height: 1000px;
+        min-height: 140px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 1000px;
+        min-height: 666px;
+
+    }
+    .donate_carousel{
+        height:150px;
+        margin-top: 40%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 25px;}
+    h1 {
+        font-size: 40px;
+    }
+    .carousel-caption p{font-size: 25px;}
+    .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+}
+@media screen and (min-width: 1592px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .btn
+    {
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        width: 150px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .btn:hover span {
+        padding-right: 10px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+        color:white;
+    }
+    .btn:hover span:after , .btn
+    {
+        background-color: #2aabd2;
+        color:white;
+    }
+    .description{
+
+        overflow: hidden;
+        text-overflow: clip;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 3; /* number of lines to show */
         -webkit-box-orient: vertical;
     }
@@ -2155,7 +2533,571 @@ h3{
     }
     .donate_carousel{
         height:150px;
-        margin-top: 30%;
+        margin-top: 45%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 25px;}
+    h1 {
+        font-size: 40px;
+    }
+    .carousel-caption p{font-size: 25px;}
+    .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+}
+@media screen and (min-width: 1692px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .btn
+    {
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        width: 150px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .btn:hover span {
+        padding-right: 10px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+        color:white;
+    }
+    .btn:hover span:after , .btn
+    {
+        background-color: #2aabd2;
+        color:white;
+    }
+    .description{
+
+        overflow: hidden;
+        text-overflow: clip;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .image{min-height:250px;width:100%;max-height: 250px;}
+    .carousel {
+        min-height: 666px;
+        height: 1000px;
+        margin-bottom: 60px;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        z-index: 10;
+        top:30%;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        height: 1000px;
+        min-height: 140px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 1000px;
+        min-height: 666px;
+
+    }
+    .donate_carousel{
+        height:150px;
+        margin-top: 45%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 25px;}
+    h1 {
+        font-size: 40px;
+    }
+    .carousel-caption p{font-size: 25px;}
+    .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+}
+@media screen and (min-width: 1892px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .btn
+    {
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        width: 150px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .btn:hover span {
+        padding-right: 10px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+        color:white;
+    }
+    .btn:hover span:after , .btn
+    {
+        background-color: #2aabd2;
+        color:white;
+    }
+    .description{
+
+        overflow: hidden;
+        text-overflow: clip;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .image{min-height:250px;width:100%;max-height: 250px;}
+    .carousel {
+        min-height: 666px;
+        height: 1000px;
+        margin-bottom: 60px;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        z-index: 10;
+        top:30%;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        height: 1000px;
+        min-height: 140px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 1000px;
+        min-height: 666px;
+
+    }
+    .donate_carousel{
+        height:150px;
+        margin-top: 50%;
+        font-size: 16px;
+        background: rgba(17, 0, 8, 0.46);
+        border-radius: 20px;
+
+    }
+    .donate_carousel >.donors1 > p {
+        font-size: 25px;}
+    h1 {
+        font-size: 40px;
+    }
+    .carousel-caption p{font-size: 25px;}
+    .carousel-caption > .btn-lg{ width:125px; font-size: 20px;}
+    #section03 a {
+        padding-top: 60px;
+    }
+
+    #section03 a span {
+        z-index:9999;
+        background-color: rgba(63, 200, 180, 0.16);
+        position: absolute;
+        bottom:4%;
+        right:12%;
+        width: 46px;
+        height: 46px;
+        margin-left: -24px;
+        border: 3px solid #fff;
+        border-radius: 100%;
+        box-sizing: border-box;
+    }
+    #section03 a span::after {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        content: '';
+        width: 16px;
+        height: 16px;
+        margin: -12px 0 0 -8px;
+        border-left: 3px solid #fff;
+        border-bottom: 3px solid #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        box-sizing: border-box;
+    }
+    #section03 a span::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        content: '';
+        width: 40px;
+        height: 40px;
+        box-shadow: 0 0 0 0 rgba(20, 58, 69, 0.47);
+        border-radius: 100%;
+        opacity: 0;
+        -webkit-animation: sdb03 3s infinite;
+        animation: sdb03 3s infinite;
+        box-sizing: border-box;
+    }
+    @-webkit-keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    @keyframes sdb03 {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1;
+        }
+        60% {
+            box-shadow: 0 0 0 60px rgba(20, 58, 69, 0.47);
+            opacity: 1;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+
+}
+@media screen and (min-width: 1792px) {
+    .div2{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .btn
+    {
+        display: inline-block;
+        border-radius: 5px;
+        text-align: center;
+        font-size: 20px;
+        padding: 5px;
+        width: 150px;
+        transition: all 0.5s;
+        cursor: pointer;
+        margin: 5px;
+    }
+    .btn span {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        transition: 0.5s;
+    }
+
+    .btn span:after {
+        content: '»';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+
+    .btn:hover span {
+        padding-right: 10px;
+    }
+
+    .btn:hover span:after {
+        opacity: 1;
+        right: 0;
+        color:white;
+    }
+    .btn:hover span:after , .btn
+    {
+        background-color: #2aabd2;
+        color:white;
+    }
+    .description{
+
+        overflow: hidden;
+        text-overflow: clip;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+    .title{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-height: 1.5em;     /* fallback */
+        /*max-height: 60px;      !* fallback *!*/
+        -webkit-line-clamp: 1; /* number of lines to show */
+        -webkit-box-orient: vertical;
+    }
+
+    .image{min-height:250px;width:100%;max-height: 250px;}
+    .carousel {
+        min-height: 666px;
+        height: 1000px;
+        margin-bottom: 60px;
+    }
+    /* Since positioning the image, we need to help out the caption */
+    .carousel-caption {
+        z-index: 10;
+        top:40%;
+    }
+
+    /* Declare heights because of positioning of img element */
+    .carousel .item {
+        height: 1000px;
+        min-height: 140px;
+        background-color: #777;
+    }
+    .carousel-inner > .item > img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        height: 1000px;
+        min-height: 666px;
+
+    }
+    .donate_carousel{
+        height:150px;
+        margin-top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -2350,20 +3292,10 @@ h3{
 
 
     /* Declare heights because of positioning of img element */
-    .carousel .item {
-        min-height: 140px;
-        background-color: #777;
-    }
-    .carousel-inner > .item > img {
-        position: absolute;
-        top: 0;
-        left: 0;
-        min-width: 100%;
-        min-height: 140px;
-    }
+
     .donate_carousel{
         height:150px;
-        margin-top: 30%;
+        margin-top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -2504,7 +3436,8 @@ h3{
 
 .homeprojects:hover{  border-color:rgba(3, 56, 69, 0.76) ; box-shadow:2px 0 20px black;}
 .homeprojects > .head {
-    position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
+    position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:35%;
+    background-color:#ddd; ;padding-left:20px;padding-right: 20px;
 }
 .homeEvents{
     padding:3px;
@@ -2515,7 +3448,8 @@ h3{
 .homeEvents > .description_event { padding-left:10px;padding-right:10px; }
 .homeEvents:hover{  border-color:rgba(3, 56, 69, 0.76) ; box-shadow:2px 0 20px black;}
 .homeEvents > .head {
-    position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:40%;
+    position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:35%;
+    background-color:#ddd; ;padding-left:20px;padding-right: 20px;
 }
 .donate_carousel > .btn-lg ,.carousel-caption > .btn-lg{ color: white;border: 2px white solid;}
 .donors1{padding-bottom: 30px;}
