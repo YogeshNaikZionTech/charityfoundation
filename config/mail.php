@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'noreplyaafoundation@gmail.com',
+        'address' => 'admin@anumandlafoundation.org',
         'name' => 'Charity Foundation',
     ],
 
@@ -110,6 +110,6 @@ return [
     |
     */
 
-    'sendmail' => '/usr/sbin/sendmail -bs',
+    'sendmail' => '/usr/sbin/sendmail -t',
 
 ];
