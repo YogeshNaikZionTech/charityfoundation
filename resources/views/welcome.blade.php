@@ -130,7 +130,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="modal-location"></div>
-                                    <input type="button" class="btn btn2 btn-success" data-dismiss="modal" value="Donate Now">
+                                    <input type="button" class="btn btn2 btn-success" data-dismiss="modal" value="Donate Now" projId=''>
                                 </div>
                                 <!-- </form> -->
                             </div>
@@ -145,14 +145,14 @@
                                     <img class="image" src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="" alt="Image" ></div>
                                 <div><h3 class="title">{{$cproject->project_Title}}</h3></div>
                                 <div><p class="description">{{$cproject->project_Description}}</p></div>
-                                <div><a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a></div>
+                                <a   class="btn btn2 btn-lg seemore" name="{{$cproject->id}}" style="right:30%">See more </a>
                             </div>
                         </div>
                     @endforeach
                 </div>
             </div>
 
-            <div class=" pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
+            <div class=" exploremore pull-right"><a  href="{{url('projects')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
 
         </div>
 
@@ -208,7 +208,7 @@
             </div>
 
 
-            <div class="pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
+            <div class="exploremore pull-right"><a  href="{{url('events')}}"><button  class=" btn"><span>Explore more</span></button></a></div>
 
 
 
