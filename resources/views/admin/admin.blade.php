@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <br/>
-                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-danger d-inline"  id="historytable" align="center">
+                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center">
                         <thead class="thead-inverse table-primary">
                         <tr>
                             <th>#</th>
@@ -463,7 +463,7 @@
        </script>
 
     {{--Donate Menu--}}
-    <script>
+    <script type="text/javascript">
         $(document).ready(function(){
             function FocusOnInput() {
                 document.forms['donate_search_form'].elements['input'].focus();
@@ -531,78 +531,29 @@
             }
         });
         $(document).ready(function() {
-            if ($("#dinput").val().length == 0) {
-                $.ajax(
-                        {
-                            url: "",
-                            type: "GET",
-                            dataType: "json",
-                            success: function (data) {
-                                var trHTML = '';
-                                $.each(data, function (i, item) {
-                                    trHTML += '<tr><td>' + item.fullname + '</td><td>' + item.donationtype + '</td><td>' + item.projectoreventname + '</td><td>' + item.dateofdonation + '</td><td>' + item.donatedamount  + '</td></tr>';
-                                });
+            $("#dinput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
 
-                                $('.doutput').html(trHTML);
-                            }
-                        })
-            }
-            else ($("#dinput").val().length > 0)
-            {
-                $("#dsearchitem").click(function () {
-                    $("#dinput").keyup(function () {
-                        $.ajaxSetup({
-                            headers: {
-                                'X-CSRF-Token': $('input[name="_token"]').val()
-                            }
-                        });
-                        var sval = $("#dinput").val();
-                        $.ajax({
-                            url: "",
-                            type: "POST",
-                            data: {'search_var': sval},
-                            datatype: "json",
-                            success: function (response, status, request) {
-                                console.log(response);
-                                var output = '';
-                                response = JSON.parse(response);
-                                $.each(response, function (key, val) {
-                                    output += '<tr><td>' + item.fullname + '</td><td>' + item.donationtype + '</td><td>' + item.projectoreventname + '</td><td>' + item.dateofdonation + '</td><td>' + item.donatedamount  + '</td></tr>';
-                                });
-                                $(".doutput").html(output);
-                            }
-                        });
-                        if ($("#dinput").val().length == 0) {
-                            $.ajax(
-                                    {
-                                        url: "",
-                                        type: "GET",
-                                        dataType: "json",
-                                        success: function (data) {
+                $("table tr").each(function(index) {
+                    if (index !== 0) {
 
-                                            var trHTML = '';
+                        $row = $(this);
 
-                                            $.each(data, function (i, item) {
+                        var id = $row.find("td").text().toLowerCase();
 
-                                                trHTML += '<tr><td>' + item.fullname + '</td><td>' + item.donationtype + '</td><td>' + item.projectoreventname + '</td><td>' + item.dateofdonation + '</td><td>' + item.donatedamount  + '</td></tr>';
-                                            });
-
-                                            $('.doutput').html(trHTML);
-
-                                        }
-
-                                    })
+                        if (id.indexOf(value) !== 0) {
+                            $row.hide();
                         }
-
-                    });
-
+                        else {
+                            $row.show();
+                        }
+                    }
                 });
-            }
-
+            });
         });
     </script>
     {{--Search Users Menu--}}
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
             function FocusOnInput() {
                 document.forms['search_form'].elements['input'].focus();
@@ -684,7 +635,7 @@
 
     </script>
     {{--Modify Menu--}}
-    <script>
+    <script type="text/javascript">
         $(document).ready(function(){
             $(".event").hide();
             $('input[type="radio"]').change(function(){
