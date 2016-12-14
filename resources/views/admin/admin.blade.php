@@ -64,9 +64,9 @@
                 {{--History content starts here--}}
                 <div class="admin-content" id="history">
                     <h3>Donation History<a class="btn btn-warning btn-md export">Export All</a></h3>
-                    <div class="col-xs-6" >
+                    <div class="col-xs-12" >
                         <div class="wrapper">
-                            <form name="donate_search_form">
+                            <form name="donate_search_form" class="donate_search_form">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input class="input" name="input" id= "dinput" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                                 <span class="underline"></span>
@@ -75,7 +75,7 @@
                     </div>
                     <br/>
                     <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-danger d-inline"  id="historytable" align="center">
-                        <thead class="thead-inverse">
+                        <thead class="thead-inverse table-primary">
                         <tr>
                             <th>#</th>
                             <th>Full Name</th>
@@ -93,9 +93,9 @@
                 {{--Users content starts here--}}
                 <div class="admin-content" id="users">
                     <h3>Users<a class="btn btn-warning btn-md export" href="/admin/export/users" >Export All</a></h3>
-                    <div class="col-xs-6" >
+                    <div class="col-xs-12" >
                         <div class="wrapper">
-                            <form name="search_form">
+                            <form name="search_form" class="search_form">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
                                 <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                                 <span class="underline"></span>
@@ -104,7 +104,7 @@
                     </div>
                     <br/>
 
-                    <table id="example" class="display table table-striped table-bordered table-hover table-success text-primary bg-info d-inline" align="center">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-info text-primary  bg-info d-inline" align="center">
                         <thead class="thead-inverse">
                         <tr>
                             <th>First Name</th>
@@ -403,7 +403,7 @@
                 </div>
                 <div class="admin-content" id="volunteer">
                     <h3>Suggestions</h3>
-                    <table id="voltable" class="display table table-striped table-hover table-bordered table-success bg-success table-responsive text-primary d-inline" align="center">
+                    <table id="voltable" class="display table table-striped table-hover table-bordered table-success bg-info table-responsive text-primary d-inline" align="center">
                         <thead class="thead-inverse">
                         <tr>
                             <th>Full Name</th>
@@ -414,7 +414,7 @@
                         <tbody class="voloutput"></tbody>
                     </table>
                     <h3>Contact Requests</h3>
-                    <table id="contable" class="display table table-striped table-hover table-bordered bg-success table-responsive text-primary d-inline" align="center">
+                    <table id="contable" class="display table table-striped table-hover table-bordered bg-info table-responsive text-primary d-inline" align="center">
                         <thead class="thead-inverse">
                         <tr>
                             <th>Full Name</th>
@@ -464,9 +464,15 @@
 
     {{--Donate Menu--}}
     <script>
-        function FocusOnInput() {
-            document.forms['donate_search_form'].elements['input'].focus();
-        }
+        $(document).ready(function(){
+            function FocusOnInput() {
+                document.forms['donate_search_form'].elements['input'].focus();
+            }
+            $('#dsearchitem').click(function(){
+                document.forms['donate_search_form'].elements['input'].focus();
+            })
+
+        });
         $(document).ready(function(){
             var count=0;
             $.ajax({
@@ -597,9 +603,14 @@
     </script>
     {{--Search Users Menu--}}
     <script>
-        function FocusOnInput() {
-            document.forms['search_form'].elements['input'].focus();
-        }
+        $(document).ready(function() {
+            function FocusOnInput() {
+                document.forms['search_form'].elements['input'].focus();
+            }
+            $('#searchitem').click(function() {
+                document.forms['search_form'].elements['input'].focus();
+            });
+        });
         $(document).ready(function() {
             if ($("#input").val().length == 0) {
                 $.ajax(
