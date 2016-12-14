@@ -522,7 +522,7 @@
                         response = JSON.parse(response);
                         console.log(response);
                         $.each(response, function (index,val) {
-                            output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.donation+"</td><td>"+val.type+"</td><td>"+val.donation+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td></tr>"
+                            output +=  "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.firstname+" "+val.lastname+"</td><td>"+val.type+"</td><td>"+val.donation+"</td><td>"+val.dod+"</td><td>$"+val.amount+"</td></tr>"
                             count = count + 1;
                         });
                         $(".doutput").append(output);
@@ -530,6 +530,7 @@
                 });
             }
         });
+        {{--Search Donations--}}
         $(document).ready(function() {
             $("#dinput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
