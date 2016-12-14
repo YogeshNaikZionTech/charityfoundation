@@ -25,7 +25,7 @@
                     <div class="container">
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>Project1: Education Programs</h1>
-                            <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
+                            <p>The foundation of every state is the education of its youth.</p>
                             <a class="btn btn-lg btn2" href="{{url('projects')}}" role="button">Read More</a>
 
                         </div>
@@ -65,13 +65,13 @@
                     <div class="container">
                         <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
                             <h1>Project3:Green school initiative</h1>
-                            <p>We rise by "LIFTING OTHERS"</p>
+                            <p>Solar energy, clean energy for a better tomorrow</p>
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
 
                             <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
-                                <p>Together we can make difference .&nbsp;'Join with US'</p>
+                                <p>Together we can make difference,&nbsp;'Join with US'</p>
 
                             </div>
 
@@ -113,26 +113,23 @@
             <h1>Our Projects</h1>
             <div class="container-fluid div2">
                 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12" >
-                    <div id="createProject" class="modal fade" role="dialog">
+                    <div id="projectDetails" class="modal fade" role="dialog">
                         <div class="modal-dialog">
-                            <!-- Modal content-->
                             <div class="modal-content">
-                                <div class="modal-header create">
-                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                    <h4 class="modal-title"></h4>
-                                </div>
-                                {{--<form class="form-group" action="{{url('/projects')}}" action="POST"> --}}
                                 <div class="modal-body">
-                                    <p class="des"><p>
-                                    <h2 style="color: green">Location: <span class="loc"></span> </h2>
-                                    <h3 style="color: green">Project Start Date: <span class="std"></span> </h3>
+                                    <div class="modal-header create" style=";background-color: rgba(0,0,0,0.5)">
+                                        <button type="button" class="btn pull-right close" data-dismiss="modal" >&times;</button>
+                                        <h4 class="modal-title mTitle"></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p class="des"></p>
+                                        <h2 style="color: green">Location: <span class="loc"></span> </h2>
 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <input type="button" id="donateBtn" style="display: none" class="btn btn-success" data-dismiss="modal" value="Donate Now" projId=''>
+                                    </div>
                                 </div>
-                                <div class="modal-footer">
-                                    <div class="modal-location"></div>
-                                    <input type="button" class="btn btn2 btn-success" data-dismiss="modal" value="Donate Now" projId=''>
-                                </div>
-                                <!-- </form> -->
                             </div>
                         </div>
                     </div>
@@ -342,13 +339,15 @@
                     datatype: 'JSON',
                     success: function(response){
                         response = JSON.parse(response);
-                        $('.modal-title').html(response.project_Title);
-                        $('.des').html(response.project_Description) ;
-                        $('.loc').html(response.project_Location);
-                        $('.std').html(response.project_Date);
+
+                        $('.mTitle').html(response[0].project_Title);
+                        $('.des').html(response[0].project_Description) ;
+                        $('.loc').html(response[0].project_Location);
+                        $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+
                     }
                 });
-                $('#createProject').modal('show');
+                $('#projectDetails').modal('show');
             });
         });
         $(document).ready(function(){
@@ -369,7 +368,7 @@
                     success: function(response){
                         console.log(response);
                         response = JSON.parse(response);
-                        var eDate = new Date(response[0].event_Date);
+                        var eDate = new Date(response[0].event_Date + 'PST');
                         eDate1 = eDate.getDate();
                         eDate2 = eDate.toLocaleDateString("en-us",{month: "long"});
                         eDate3 = eDate.getFullYear();
