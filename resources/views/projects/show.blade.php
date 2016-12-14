@@ -20,7 +20,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-body">
-            <div class="modal-header create" style="background-image: url('/images/moutain.jpg') ;background-color: rgba(0,0,0,0.5)">
+            <div class="modal-header create" style="background-image: {{URL::asset('/images/mountain.jpg')}};background-color: rgba(0,0,0,0.5)">
               <button type="button" class="btn pull-right close" data-dismiss="modal" >&times;</button>
               <h4 class="modal-title mTitle"></h4>
             </div>
@@ -50,7 +50,7 @@
           <div class="row">
             <div class="col-md-12 page" >
               <ul class="pagination" id="cuPages">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
               </ul>
             </div>
           </div> 
@@ -61,7 +61,7 @@
           <div class="row">
             <div class="col-md-12 page">
               <ul class="pagination" id="fuPages">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
               </ul>
             </div>
           </div>
@@ -72,7 +72,7 @@
           <div class="row">
             <div class="col-md-12 page">
               <ul class="pagination" id="comPages">
-                <input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
               </ul>
             </div>
           </div>
@@ -171,7 +171,7 @@ success: function(response){
           type: 'GET',
           datatype: 'JSON',
           success: function (response) {
-            console.log(response);
+//            console.log(response);
               var time =0 ;
               response = JSON.parse(response);
                   $.each(response, function (key,val) {
@@ -362,7 +362,7 @@ $('body').on('click', '.comPageClick', function(){
                     $('.loc').html(response[0].project_Location);
                     $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                     $('.create').attr('style' , imageSrc);
-                 $('#donateBtn').attr('projId', response[0].id)
+                 $('#donateBtn').attr('projId', response[0].id);
                     if(response[0].project_Status == 'Current'){
                       $('#donateBtn').fadeIn("7000");
                     }
@@ -427,7 +427,7 @@ $('body').on('click', '.comPageClick', function(){
             $('.loc').html(response[0].project_Location);
             $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
             $('.modal-header').attr('style' , imageSrc);
-         $('#donateBtn').attr('projId', response[0].id)
+         $('#donateBtn').attr('projId', response[0].id);
             if(response[0].project_Status == 'Current'){
               $('#donateBtn').fadeIn("7000");
             }

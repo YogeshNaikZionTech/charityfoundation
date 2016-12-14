@@ -1928,7 +1928,7 @@ h3{
         display: -webkit-box;
         line-height: 1.5em;     /* fallback */
         /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 2.5; /* number of lines to show */
+        -webkit-line-clamp: 2; /* number of lines to show */
         -webkit-box-orient: vertical;
     }
     .title{
@@ -2495,7 +2495,7 @@ h3{
         display: -webkit-box;
         line-height: 1.5em;     /* fallback */
         /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
+        -webkit-line-clamp: 2; /* number of lines to show */
         -webkit-box-orient: vertical;
     }
     .title{
@@ -2699,8 +2699,8 @@ h3{
 
     .image{min-height:250px;width:100%;max-height: 250px;}
     .carousel {
-        min-height: 666px;
-        height: 1000px;
+        /*min-height: 666px;*/
+        max-height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -2711,7 +2711,7 @@ h3{
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
-        height: 1000px;
+        max-height: 1000px;
         min-height: 140px;
         background-color: #777;
     }
@@ -2720,8 +2720,8 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
-        height: 1000px;
-        min-height: 666px;
+        max-height: 1000px;
+
 
     }
     .donate_carousel{
@@ -2889,7 +2889,7 @@ h3{
     .image{min-height:250px;width:100%;max-height: 250px;}
     .carousel {
         min-height: 666px;
-        height: 1000px;
+        max-height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -2900,7 +2900,7 @@ h3{
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
-        height: 1000px;
+        max-height: 1000px;
         min-height: 140px;
         background-color: #777;
     }
@@ -2914,7 +2914,7 @@ h3{
 
     }
     .donate_carousel{
-        height:150px;
+        max-height:150px;
         margin-top: 50%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
@@ -3077,8 +3077,8 @@ h3{
 
     .image{min-height:250px;width:100%;max-height: 250px;}
     .carousel {
-        min-height: 666px;
-        height: 1000px;
+        /*min-height: 666px;*/
+        max-height: 1000px;
         margin-bottom: 60px;
     }
     /* Since positioning the image, we need to help out the caption */
@@ -3089,7 +3089,7 @@ h3{
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
-        height: 1000px;
+        max-height: 1000px;
         min-height: 140px;
         background-color: #777;
     }
@@ -3098,7 +3098,7 @@ h3{
         top: 0;
         left: 0;
         min-width: 100%;
-        height: 1000px;
+        max-height: 1000px;
         min-height: 666px;
 
     }
@@ -3244,7 +3244,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .image{min-height: 250px;width:100%;max-height: 350px;}
+    .image{min-height: 250px;width:100%;max-height: 250px;}
     .description{
 
         overflow: hidden;
@@ -3266,7 +3266,7 @@ h3{
     }
 
     .carousel {
-        min-height: 666px;
+        /*min-height: 666px;*/
         max-height: 1000px;
         margin-bottom: 60px;
     }
@@ -3280,7 +3280,7 @@ h3{
 
     /* Declare heights because of positioning of img element */
     .carousel .item {
-        min-height: 666px;
+        /*min-height: 666px;*/
        max-height: 1000px;
         background-color: #777;
     }
@@ -3289,7 +3289,7 @@ h3{
         top: 0;
         left: 0;
         width: 100%;
-        min-height: 666px;
+        /*min-height: 666px;*/
         max-height: 1000px;
     }
     .carousel-inner1 > .item > img {
@@ -3403,9 +3403,6 @@ h3{
 .second > a{border-color:rgba(3, 56, 69, 0.76) }
 .third > a{ color :white;}
 
-
-
-
 .header_projects
 {
     margin-top: 10px;
@@ -3423,26 +3420,6 @@ h3{
     color:black;
     border-color: #0f0f0f; box-shadow:2px 0 20px rgba(3, 56, 69, 0.76) ;
     }
-.description{
-
-    overflow: hidden;
-    text-overflow: clip;
-    display: -webkit-box;
-    line-height: 1.5em;     /* fallback */
-    /*max-height: 60px;      !* fallback *!*/
-    -webkit-line-clamp: 3; /* number of lines to show */
-    -webkit-box-orient: vertical;
-}
-.title{
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    line-height: 1.5em;     /* fallback */
-    /*max-height: 60px;      !* fallback *!*/
-    -webkit-line-clamp: 1; /* number of lines to show */
-    -webkit-box-orient: vertical;
-}
-
 .homeprojects:hover{  border-color:rgba(3, 56, 69, 0.76) ; box-shadow:2px 0 20px black;}
 .homeprojects > .head {
     position: absolute; color:black;font-family: Constantia,cursive;font-weight: 600;font-size:20px;left:35%;

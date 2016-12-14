@@ -156,7 +156,7 @@
     $.ajax({
       url: 'events/page/future/',
       type: 'POST',
-      data: {'id': 1},
+//     data: {'id': 1},
       datatype: 'JSON',
       success: function (response) {
         var output ="";
@@ -175,7 +175,7 @@
         $('#upPages').children('li:first').addClass('active');
       }
     });
-  }; //End of loadupcomingevents function
+  } //End of loadupcomingevents function
 
 
  
@@ -193,7 +193,7 @@ return monthArray[d-1];
     $.ajax({
       url: 'events/page/completed/',
       type: 'POST',
-      data: {'id': 1},
+//      data: {'id': 1},
       datatype: 'JSON',
       success: function(response) {
         var output ="";
@@ -305,7 +305,7 @@ return monthArray[d-1];
           $('.dat').html(eDate2 + ' ' +eDate1 + ' ' + eDate3);
           $('.tim1').html(start.toLocaleTimeString());
           $('.tim2').html(end.toLocaleTimeString());
-          $('.volunt').attr('name', response[0].id)
+          $('.volunt').attr('name', response[0].id);
           if(response[0].event_Status == 'future'){
             $('.volunt').fadeIn("7000");
           }
@@ -342,7 +342,7 @@ return monthArray[d-1];
           $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
           $('.tim1').html(start.toLocaleTimeString());
           $('.tim2').html(end.toLocaleTimeString());
-          $('.volunt').attr('name', response[0].id)
+          $('.volunt').attr('name', response[0].id);
           if(response[0].event_Status == 'future'){
             $('.volunt').fadeIn("7000");
           }

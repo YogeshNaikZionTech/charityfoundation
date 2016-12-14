@@ -127,7 +127,7 @@
 
                                     </div>
                                     <div class="modal-footer">
-                                        <input type="button" id="donateBtn" style="display: none" class="btn btn-success" data-dismiss="modal" value="Donate Now" projId=''>
+                                        <input type="button" id="donateBtn" class="btn btn-success" data-dismiss="modal" value="Donate Now" projId=''>
                                     </div>
                                 </div>
                             </div>
@@ -173,13 +173,10 @@
                                         <h4 class="col-lg-8 col-md-8 col-xs-12 col-sm-8" style="color: green">To: <span class="tim2"></span></h4>
 
                                     </div>
-
                                     <p class="des col-lg-12 col-md-12 col-xs-12 col-sm-12"><p>
-
-
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn2 btn-success" value="Volunteer"></a>
+                                    <a href="{{url('/donates/create')}}"> <input type="button" class="btn btn-success volunt" value="Volunteer"></a>
                                 </div>
                             </div>
                         </div>
@@ -343,7 +340,8 @@
                         $('.mTitle').html(response[0].project_Title);
                         $('.des').html(response[0].project_Description) ;
                         $('.loc').html(response[0].project_Location);
-                        $('.std').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
+                        $('#donateBtn').attr('projId', response[0].id);
+
 
                     }
                 });
@@ -381,6 +379,7 @@
                         $('.des').html(response[0].event_Description) ;
                         $('.loc').html(response[0].event_Location);
                         // $('.dat').html(response[0].event_Date);
+                        $('.volunt').attr('name', response[0].id);
                         $('.dat').html(eDate1 + ' ' +eDate2 + ' ' + eDate3);
                         $('.tim1').html(start.toLocaleTimeString());
                         $('.tim2').html(end.toLocaleTimeString());
@@ -389,6 +388,22 @@
                 $('#eventDetails').modal('show');
             });
         });
+//        redirection to donate page with the selected project id.
+        $('body').on('click','#donateBtn', function(){
+            var projectValue = $(this).attr('projId');
+            sessionStorage.setItem('project', projectValue);
+            window.location.href = "{{url('donates/create')}}";
+
+        });
+//redirecting to volunteer form with the selected events name.
+        $('.volunt').on('click', function(){
+            sessionStorage.clear();
+            var eventValue = $(this).attr('name');
+            sessionStorage.setItem('event', eventValue);
+            sessionStorage.setItem('volunteer' , 'true');
+        });
+
+
     </script>
 
 
