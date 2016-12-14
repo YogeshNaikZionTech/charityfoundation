@@ -25,7 +25,7 @@
                     <div class="container">
                         <div class="carousel-caption first col-md-7  col-lg-7 col-sm-6 col-xs-6" >
                             <h1>Project1: Education Programs</h1>
-                            <p>"Well-educated citizens are better-equipped for significant economic production. "</p>
+                            <p>The foundation of every state is the education of its youth.</p>
                             <a class="btn btn-lg btn2" href="{{url('projects')}}" role="button">Read More</a>
 
                         </div>
@@ -65,7 +65,7 @@
                     <div class="container">
                         <div class="carousel-caption third col-md-7 col-lg-7 col-sm-6 col-xs-6">
                             <h1>Project3:Green school initiative</h1>
-                            <p>We rise by "LIFTING OTHERS"</p>
+                            <p>Solar energy, clean energy for a better tomorrow</p>
                             <a class="btn btn2 btn-lg" href="{{url('projects')}}" role="button">Read More</a>
                         </div>
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
