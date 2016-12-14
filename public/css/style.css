@@ -3,7 +3,7 @@ body{
     overflow-x: hidden;
     color: black;
     text-align: center;
-    font-family:Constantia,cursive;
+    font-family:Constantia,sans-serif;
     background-color: rgba(69, 62, 14, 0.08);
 
 }
@@ -1758,7 +1758,7 @@ h3{
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
-        top:30%;
+        top:35%;
         z-index: 10;
     }
 
@@ -1778,7 +1778,7 @@ h3{
     }
     .donate_carousel{
         height:150px;
-        margin-top: 30%;
+        margin-top: 35%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -1918,7 +1918,7 @@ h3{
         color:white;
     }
     .carousel-caption {
-        top: 30%;
+        top: 35%;
         z-index: 10;
     }
     .description{
@@ -1949,6 +1949,7 @@ h3{
     }
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
+
         z-index: 10;
     }
 
@@ -1969,7 +1970,7 @@ h3{
     }
     .donate_carousel{
         height:150px;
-        margin-top: 30%;
+        margin-top: 35%;
         font-size: 16px;
         background: rgba(17, 0, 8, 0.46);
         border-radius: 20px;
@@ -2137,7 +2138,7 @@ h3{
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
         z-index: 10;
-        top:30%;
+        top:40%;
     }
 
     /* Declare heights because of positioning of img element */
@@ -2325,7 +2326,7 @@ h3{
     /* Since positioning the image, we need to help out the caption */
     .carousel-caption {
         z-index: 10;
-        top:30%;
+        top:40%;
     }
 
     /* Declare heights because of positioning of img element */
