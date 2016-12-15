@@ -26,7 +26,7 @@ class StatusDBUpdate extends Command
     /**
      * Create a new command instance.
      *
-     * @return void
+     * @return
      */
     public function __construct()
     {
@@ -43,6 +43,7 @@ class StatusDBUpdate extends Command
         $event_all = Event::all();
         $project_all  = Project::all();
         foreach($event_all as $event){
+            Log::info('DB Status update trigged');
             if($event->event_Date < date("Y,m,d")){
 
                 $event->event_Status = 'completed';
