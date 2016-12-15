@@ -402,6 +402,22 @@
             sessionStorage.setItem('event', eventValue);
             sessionStorage.setItem('volunteer' , 'true');
         });
+$(document).ready(function(){
+    var showChar = 100;
+    var ellipsestext = ".....";
+    $('.description').each(function () {
+        var content = $(this).html();
+        if (content.length > showChar) {
+            var show_content = content.substr(0, showChar);
+            var hide_content = content.substr(showChar, content.length - showChar);
+            var html = show_content + '<span class="moreelipses">' + ellipsestext + '</span><span class="remaining-content"><span>' + hide_content + '</span>&nbsp;&nbsp;</span>';
+            $(this).html(html);
+        }
+    });
+
+});
+
+
 
 
     </script>

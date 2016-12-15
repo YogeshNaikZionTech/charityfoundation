@@ -30,15 +30,6 @@ h3{
 /*-------------------------------------------------Media Queries for responsiveness Changes starts form here------------------------------------------------*/
 @media (min-width: 210px)  {
     .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 0.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 0.5em ;
         font-size: 12px;
     }
     .title{
@@ -255,15 +246,6 @@ h3{
         margin-top: -10px;
     }
     .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 0.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 0.5em ;
         font-size: 14px;
     }
     .title{
@@ -274,7 +256,7 @@ h3{
         max-height: 20px;      /* fallback */
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
-        font-size: 18px;
+        font-size: 16px;
     }
     .img-responsive {min-height: 200px; max-height:200px;}
     .carousel {
@@ -446,14 +428,6 @@ h3{
 @media (min-width: 310px) {
     .description{
 
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 0.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 0.5em ;
         font-size: 14px;
     }
     .title{
@@ -464,7 +438,7 @@ h3{
         max-height: 20px;      /* fallback */
         -webkit-line-clamp: 3; /* number of lines to show */
         -webkit-box-orient: vertical;
-        font-size: 18px;
+        font-size: 16px;
     }
     .carousel {
         min-height: 140px;
@@ -592,15 +566,6 @@ h3{
 }
 @media screen and (min-width: 310px) {
     .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 0.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 1em ;
         font-size: 16px;
     }
     .title{
@@ -787,15 +752,6 @@ h3{
         color:white;
     }
     .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 1em ;
         font-size: 16px;
     }
     .title{
@@ -977,16 +933,7 @@ h3{
         color:white;
     }
     .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 1em ;
-        font-size: 18px;
+                font-size: 16px;
     }
     .title{
         overflow: hidden;
@@ -1170,15 +1117,7 @@ h3{
     }
     .description{
 
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-
-        font-size: 18px;
+        font-size: 16px;
     }
     .title{
         overflow: hidden;
@@ -1615,14 +1554,6 @@ h3{
     }
     .description{
 
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-        line-height: 1em ;
         font-size: 18px;
     }
     .title{
@@ -1729,16 +1660,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -1921,17 +1843,9 @@ h3{
         top: 35%;
         z-index: 10;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 2; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
@@ -1939,6 +1853,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 20px;
     }
 
     .image{min-height: 250px;width:100%;max-height: 250px;}
@@ -2110,16 +2025,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 2; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2128,6 +2034,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 20px;
     }
 
     .image{min-height:250px;width:100%;max-height: 250px;}
@@ -2299,16 +2206,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 2; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2317,6 +2215,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 20px;
     }
 
     .image{min-height:250px;width:100%;max-height: 250px;}
@@ -2488,16 +2387,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 2; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2506,6 +2396,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size:20px;
     }
 
     .image{min-height:250px;width:100%;max-height: 250px;}
@@ -2677,16 +2568,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2695,6 +2577,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 20px;
     }
 
     .image{min-height:250px;width:100%;max-height: 250px;}
@@ -2866,16 +2749,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -2884,6 +2758,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 20px;
     }
 
     .image{min-height:250px;width:100%;max-height: 250px;}
@@ -3055,16 +2930,7 @@ h3{
         background-color: #2aabd2;
         color:white;
     }
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -3073,6 +2939,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 18px;
     }
 
     .image{min-height:250px;width:100%;max-height: 250px;}
@@ -3245,16 +3112,7 @@ h3{
         color:white;
     }
     .image{min-height: 250px;width:100%;max-height: 250px;}
-    .description{
-
-        overflow: hidden;
-        text-overflow: clip;
-        display: -webkit-box;
-        line-height: 1.5em;     /* fallback */
-        /*max-height: 60px;      !* fallback *!*/
-        -webkit-line-clamp: 3; /* number of lines to show */
-        -webkit-box-orient: vertical;
-    }
+    .description{font-size: 18px;}
     .title{
         overflow: hidden;
         text-overflow: ellipsis;
@@ -3263,6 +3121,7 @@ h3{
         /*max-height: 60px;      !* fallback *!*/
         -webkit-line-clamp: 1; /* number of lines to show */
         -webkit-box-orient: vertical;
+        font-size: 20px;
     }
 
     .carousel {
@@ -3493,4 +3352,6 @@ iframe{height:450px;border-radius: 10px; padding-top: 20px;}
     background-color: #2aabd2;
     color:white;
 }
-
+.remaining-content span {
+    display:none;
+}
