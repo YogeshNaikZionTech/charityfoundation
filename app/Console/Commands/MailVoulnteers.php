@@ -46,12 +46,24 @@ class MailVoulnteers extends Command
         foreach ($vouln_list as $vl){
             $user = User::find($vl->user_id);
             $event = Event::find($vl->event_id);
-             $d = ['name' => $user->lastname, 'event_name'=>$event->event_Title, 'time'=>$event->event_StartTime];
-                Mail::send('email.evnotify', $d, function ($message) use ($user) {
-                    $message->to($user->email, $user->lastname)->subject('Vooulnteer Reminder');
-                    $message->from('adminaafoundation@gmail.com', 'AAF');
-                    Log::info('Voulnteer E-mail notification sent to the user-id:'. $user->id);
-                });
+            $user_date = $vl->created_at;
+            $event_date = $event->event_StatTime;
+            $end = ($event_date)->format('Y-m-d');
+            $format_date = ($user_date)->format('Y-m-d');
+            $length = $format_date->diffInDays($end);
+            if($length ==2){    
+            $d = ['name' => $user->lastname, 'event_name'=>$event->event_Title, 'time'=>$event->event_StartTime];
+            Mail::send('email.evnotify', $d, function ($message) use ($user) {
+                $message->to($user->email, $user->lastname)->subject('Vooulnteer Reminder');
+                $message->from('adminaafoundation@gmail.com', 'AAF');
+                Log::info('Voulnteer E-mail notification sent to the user-id:'. $user->id);
+            });
+            $vl->send_status=true;
+            $vl->save();
+
+        }
+
+
         }
     }
 }

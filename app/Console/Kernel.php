@@ -31,6 +31,7 @@ class Kernel extends ConsoleKernel
 
         $schedule->command('mail:mpnotify')->daily();
         $schedule->command('mail:aafmnotify')->daily();
+        $schedule->command('mail:voulnteers')->daily();
     }
 
     /**
