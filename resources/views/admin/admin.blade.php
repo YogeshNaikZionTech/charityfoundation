@@ -68,7 +68,7 @@
                         <div class="wrapper">
                             <form name="donate_search_form" class="donate_search_form">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input class="input" name="input" id= "dinput" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
+                                <input class="input" name="input" id= "dinput" placeholder="Search By Name" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                                 <span class="underline"></span>
                             </form>
                         </div>
@@ -80,14 +80,36 @@
                             <th>#</th>
                             <th>Full Name</th>
                             <th>Donation Type</th>
-                            <th>Project/Event Name</th>
+                            <th>Project/AAF</th>
                             <th>Date of Donation</th>
                             <th>Donation Amount</th>
                         </tr>
                         </thead>
                         <tbody class="doutput"></tbody>
                     </table>
+                    <h3>Event Volunteers<a class="btn btn-warning btn-md export">Export All</a></h3>
+                    <div class="col-xs-12" >
+                        <div class="wrapper">
+                            <form name="eve_search_form" class="eve_search_form">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                                <input class="input" name="input" id= "einput" placeholder="Search By Name" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
+                                <span class="underline"></span>
+                            </form>
+                        </div>
+                    </div>
+                    <br/>
+                    <table id="etable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center">
+                        <thead class="thead-inverse table-primary">
+                        <tr>
+                            <th>#</th>
+                            <th>Full Name</th>
+                            <th>Event Name</th>
+                            <th>Date of Donation</th>
 
+                        </tr>
+                        </thead>
+                        <tbody class="eoutput"></tbody>
+                    </table>
                 </div>
                 {{--History content ends here--}}
                 {{--Users content starts here--}}
@@ -97,7 +119,7 @@
                         <div class="wrapper">
                             <form name="search_form" class="search_form">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                                <input class="input" name="input" id= "input" placeholder="Search Here" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
+                                <input class="input" name="input" id= "input" placeholder="Search User Name" autofocus type="text" style="border: none; box-shadow: none; height: 28px;">
                                 <span class="underline"></span>
                             </form>
                         </div>
@@ -490,27 +512,9 @@
                     });
                     count = response.length;
                     $(".doutput").append(output);
-                    callvolh();
+                    callaafh();
                 }
             });
-            function callvolh(){
-                $.ajax({
-                    url: '/history/voulnteer/all',
-                    type:'GET',
-                    datatype:'JSON',
-                    success: function(response){
-                        var output = " ";
-                        response = JSON.parse(response);
-                        console.log(response);
-                        $.each(response, function (index,val) {
-                            output += "<tr><th scope='row'>"+(count+1)+"</th><td>"+val.firstname+" "+val.lastname+"</td><td>volunteer</td><td>"+val.event_name+"</td><td>"+val.dov+"</td><td>N/A</td></tr>"
-                            count = count + 1;
-                        });
-                        $(".doutput").append(output);
-                        callaafh();
-                    }
-                });
-            }
 
             function callaafh(){
                 $.ajax({
@@ -530,17 +534,58 @@
                 });
             }
         });
+        $(document).ready(function() {
+            var count = 0;
+            $.ajax({
+                url: '/history/voulnteer/all',
+                type: 'GET',
+                datatype: 'JSON',
+                success: function (response) {
+                    var output = " ";
+                    response = JSON.parse(response);
+                    console.log(response);
+                    $.each(response, function (index, val) {
+                        count = index + 1;
+                        output += "<tr><th scope='row'>" + count + "</th><td>" + val.firstname + " " + val.lastname + "</td><td>" + val.event_name + "</td><td>" + val.dov + "</td></tr>"
+                        count = response.length;
+                    });
+                    $(".eoutput").append(output);
+
+                }
+            });
+        });
         {{--Search Donations--}}
         $(document).ready(function() {
             $("#dinput").on("keyup", function() {
                 var value = $(this).val().toLowerCase();
 
-                $("table tr").each(function(index) {
+                $("table#dtable tr").each(function(index) {
                     if (index !== 0) {
 
                         $row = $(this);
 
-                        var id = $row.find("td").text().toLowerCase();
+                        var id = $row.find("td:first").text().toLowerCase();
+
+                        if (id.indexOf(value) !== 0) {
+                          $row.hide();
+                        }
+                        else {
+                            $row.show();
+                        }
+                    }
+                });
+            });
+        });
+        $(document).ready(function() {
+            $("#einput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+
+                $("table#etable tr").each(function(index) {
+                    if (index !== 0) {
+
+                        $row = $(this);
+
+                        var id = $row.find("td:first").text().toLowerCase();
 
                         if (id.indexOf(value) !== 0) {
                             $row.hide();
