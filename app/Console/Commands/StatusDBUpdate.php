@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Event;
 use App\Project;
 use Illuminate\Console\Command;
-use Symfony\Component\Translation\Dumper\PoFileDumper;
+use Illuminate\Support\Facades\Log;
 
 class StatusDBUpdate extends Command
 {
@@ -26,7 +26,7 @@ class StatusDBUpdate extends Command
     /**
      * Create a new command instance.
      *
-     * @return
+     *
      */
     public function __construct()
     {
@@ -40,26 +40,22 @@ class StatusDBUpdate extends Command
      */
     public function handle()
     {
+        Log::info('DB Status update trigged');
         $event_all = Event::all();
         $project_all  = Project::all();
         foreach($event_all as $event){
-            Log::info('DB Status update trigged');
-            if($event->event_Date < date("Y,m,d")){
-
+            if($event->event_Date < date("Y-m-d")){
                 $event->event_Status = 'completed';
                 $event->save();
+                Log::info('event id:'. $event->id.' status changed to completed');
             }
          }
          foreach($project_all as $project){
-
-             if($project->project_Date < date("Y,m,d")){
-
+             if($project->project_Date < date("Y-m-d")){
                  $project->project_Status ='completed';
                  $project->save();
+                 Log::info('project id:'. $project->id.' status changed completed');
              }
-
-
          }
-
     }
 }

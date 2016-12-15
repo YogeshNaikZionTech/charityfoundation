@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\contact;
 use App\Http\Requests;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
@@ -39,7 +40,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
 
-
+        Log::info('Conact us: message Received');
 		$cname = $request->input('name');
 	    $email = $request->input('email');
 	    $msg = $request->input('message');
@@ -101,7 +102,7 @@ class ContactController extends Controller
 
     public function storeSuggestion(Request $request){
 
-
+        Log::info('Suggestion: message Received');
         $cname = $request->input('username');
         $email = $request->input('email');
         $msg = $request->input('suggestarea');

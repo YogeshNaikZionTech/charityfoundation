@@ -81,6 +81,8 @@ protected $email='';
             $message->from('admin@anumandlafoundation.org','AAF');
         });
 
+        Log::info('***********USER LOGED IN :'.$user->id."****************");
+
 
         return $user;
 

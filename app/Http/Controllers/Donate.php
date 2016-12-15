@@ -72,7 +72,7 @@ class Donate extends Controller
     {
 
 
-        Log::info('Request for the donation is recevied');
+        Log::info('Request for donation  recevied');
         $this->validate($request, array(
             'otheramt' => 'required|min:1|max:255',
             'CreditCardNumber' => 'required|max:20',
@@ -85,15 +85,13 @@ class Donate extends Controller
             'SecurityCode' => 'required',
         ));
         $u_cardExpiry = $request->input('ExpiryDate');
-        Log::info('all values are present: storing the values.');
+        Log::info('All values checked, storing the values.');
         $d_amount = $request->input('otheramt');
         $u_month = substr($u_cardExpiry, 0, 2);
         $u_year = substr($u_cardExpiry, 3, 4);
         $uExpiry = $u_month . $u_year;
-        Log::info($uExpiry);
         //get the current user
         $user = Auth::user();
-        Log::info('get the logedin user' . $user->lastname);
         $user_id = $user->id;
 
         //make a card model;

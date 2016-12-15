@@ -52,7 +52,6 @@ class  AdminController extends Controller
         $user_response = array();
 
         foreach ($user_list as $user_slug) {
-            Log::info($user_slug->firstname);
             $user_name = $user_slug->firstname . $user_slug->lastname;
             if (stripos($user_name, $search_var) !== false) {
                 $tsum = 0;
@@ -99,7 +98,7 @@ class  AdminController extends Controller
 
     public  function getAllUsers(){
 
-        Log::info('sending all user for AD');
+        Log::info('sending all user for AP');
         if(Auth::check()&& Auth::user()->isAdmin){
 
             $user_list = User::all();
@@ -185,7 +184,7 @@ class  AdminController extends Controller
         $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
         $user_list = User::take($perpage)->skip($start)->get();
         if(Auth::check()&& Auth::user()->isAdmin){
-            Log::info('this is userpagination');
+            Log::info('userpagination request received');
             $user_check = array();
             $user_response = array();
             foreach ($user_list as $user_slug) {
@@ -323,7 +322,7 @@ class  AdminController extends Controller
     public function getAllAFFHistory(){
         $response_arr = array();
         $response_check = array();
-        Log::info('getting AAF history');
+        Log::info('Gett AAF history to Admin');
         $user_list = User::all();
         foreach($user_list as $user) {
             $donation_list = $user->AAFdonate->all();
