@@ -3,13 +3,14 @@
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     }
+.btn-link:hover {text-decoration: none;}
 
 body {
     /*background: url('../images/Helping-Hand.jpg');*/
     background-image: linear-gradient(rgba(255,255,255,0.3),rgba(255,255,255,0.3)), url("../images/Helping-Hand.jpg");
     background-size:cover;
     background-color: rgba(0, 0, 0, 0.6);
-    font-family: Constantia, cursive;
+    font-family:Constantia,sans-serif;
     font-style: normal;
     overflow-x:hidden;
 
@@ -31,7 +32,7 @@ h1 {
 
 }
 label{
-    color:	navy;
+    color:	#337ab7;
 }
 .panelbody{
     text-align: center;
@@ -55,8 +56,8 @@ label{
     border-radius: 4px;
 }
 .form-control:focus, .form-control:focus + .fa {
-    border-color: navy;
-    color: navy;
+    border-color: #337ab7;
+    color:#337ab7;
 }
 .formspacing{
     padding:3px;
@@ -69,9 +70,9 @@ label{
     color: #999;
 }
 .log-btn {
-    background: #0AC986;
+    background: #337ab7;
     display: inline-block;
-    width: 35%;
+    width: 30%;
     font-size: 16px;
     height: 50px;
     color: #fff;
@@ -101,4 +102,8 @@ label{
     h1{
         margin-top:15%;
     }
+}
+.loginregister{
+    color:#fb6000;
+
 }
