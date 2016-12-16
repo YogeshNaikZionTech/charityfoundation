@@ -154,10 +154,10 @@
       // Load the upcoming events on load
   function loadupcomingevents(){
     $.ajax({
-      url: 'events/page/future/',
-      type: 'POST',
+      url: 'events/upcomming/'+1,
+      type: 'GET',
     //data: {'id': 1},
-      //datatype: 'JSON',
+      datatype: 'JSON',
       success: function (response) {
         var time = 0;
         //var output ="";
@@ -182,11 +182,6 @@
       }
     });
   } //End of loadupcomingevents function
-
-
- 
-
-  
 
 //Reading the date as a string
 function getMonth(d){
