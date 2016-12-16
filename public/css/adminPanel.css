@@ -139,7 +139,7 @@ input[type="text"]{ min-height: 28px;}
 .admin-content h3{
     font-weight: bold;
     color: #2a4763;
-    text-shadow: 2px 2px 2px lightgrey, 0 0 20px white;
+    /*text-shadow: 2px 2px 2px lightgrey, 0 0 20px white;*/
 
 }
 /* set element styles to fit tablet and higher(desktop) */
@@ -202,9 +202,9 @@ input[type="text"]{ min-height: 28px;}
 }
 
 @media screen and (max-width: 600px){
-    .flexbox .side-nav{
-        display:none;
-    }
+    /*.flexbox .side-nav{*/
+        /*display:none;*/
+    /*}*/
     .header {
         background-color: #35475e;
 
@@ -399,4 +399,24 @@ body{min-height:100%;}
 }
 .display, .table{
     margin-top:3%;
+}
+.scrollcontent {
+    height: 100px !important;
+    overflow-y: scroll;
+}
+.admin-content h3.export{
+    text-shadow: none;
+
+}
+table#dtable {
+    margin:0 auto;
+    width:100%;
+}
+tbody.doutput{
+    margin:0 auto;
+    width:100%;
+}
+div.dataTables_scrollHead{
+    margin: 0 auto;
+    padding:0;
 }

@@ -3,7 +3,7 @@
 @section('title', '| Admin Panel')
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
-
+    <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css"/>
 @endsection
 @section('content')
     <div id="content">
@@ -483,7 +483,20 @@
 
         });
        </script>
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dtable').DataTable( {
+                "scrollY": "200px",
+                "scrollCollapse": true,
+                "ordering": false,
+                "bInfo" : false,
+                "filter": false,
+                "paging": false
+            } );
+        } );
+    </script>
     {{--Donate Menu--}}
     <script type="text/javascript">
         $(document).ready(function(){
