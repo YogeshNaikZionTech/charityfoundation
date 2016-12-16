@@ -110,6 +110,7 @@ Route::get('/events/get/titles', 'EventController@getAllETitles');
 Route::get('/history/contact/all', 'AdminController@getContactData');
 Route::get('/history/suggest/all', 'AdminController@getSuggestData');
 Route::post('/suggestion', 'ContactController@storeSuggestion');
+Route::get('events/upcomming/{id}', 'EventController@sendUpcommingevents');
 /**
  * json url project
  */
