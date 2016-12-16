@@ -269,4 +269,16 @@ public function showEventPage(){
 
     return view ('/events/show');
 }
+
+/*
+ * @param $id
+ */
+public function  sendUpcommingevents($id){
+
+
+    $perpage =8;
+    $start = ($id>=1) ? ($id*$perpage) - $perpage:0;
+    $upcoming_list = Event::where("event_Status","=","future")->take($perpage)->skip($start)->get();
+    echo json_encode($upcoming_list);
+}
 }
