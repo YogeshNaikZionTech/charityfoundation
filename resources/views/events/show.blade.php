@@ -156,12 +156,14 @@
     $.ajax({
       url: 'events/page/future/',
       type: 'POST',
-//     data: {'id': 1},
-      datatype: 'JSON',
+    //data: {'id': 1},
+      //datatype: 'JSON',
       success: function (response) {
-        var output ="";
+        var time = 0;
+        //var output ="";
         response = JSON.parse(response);
         $.each(response, function (key,val) {
+          setTimeout(function(){
           var dateArray = val.event_Date.split('-');
           eDate1 = getMonth(dateArray[1]);
           eDate2 = dateArray[2];
@@ -169,9 +171,13 @@
           var start = new Date(val.event_StartTime);
           var end = new Date(val.event_EndTime);
           var title = val.event_Title;
-          output += "<div class='col-md-4 col-sm-6 col-xs-12'> <div class='thumbnail'>  <div  class='image'> <img class='img-click' name='"+val.id+"' src='/images/events/"+ val.event_Image+"'> <a href='{{url('donates/create')}}' id='vol' role='button'>  <button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button>   </a>      </div>    <div class='caption1 col-md-12 col-sm-12 col-xs-12'>           <div class='date col-md-2 col-sm-2 col-xs-2'>    <div class='month col-xs-12 col-sm-12 col-md-12 col-lg-12'>  <h3>"+eDate1+"</h3> </div>  <div class='day col-xs-12 col-sm-12 col-md-12 col-lg-12'> <h3>"+eDate2+"</h3> </div> <div class='year col-xs-12 col-sm-12 col-md-12 col-lg-12'> <h3>"+eDate3+"</h3> </div>      </div>          <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <div class='title col-md-12 col-sm-12 col-xs-12'>              <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a> </div> <div class='location col-md-12 col-lg-12 col-sm-12 col-xs-12'> <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6> </div>  <div class='time col-md-12 col-lg-12 col-sm-12 col-xs-12'>   <h6><span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+" - "+end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+" "+"IST</h6>   </div>  </div> </div>  </div></div>"
+         var output = "<div class='col-md-4 col-sm-6 col-xs-12'> <div class='thumbnail'>  <div  class='image'> <img class='img-click' name='"+val.id+"' src='/images/events/"+ val.event_Image+"'> <a href='{{url("donates/create")}}' id='vol' role='button'>  <button type='button' class='btn btn-warning volBtn' name='"+val.id+"'>Volunteer</button>   </a>      </div>    <div class='caption1 col-md-12 col-sm-12 col-xs-12'>           <div class='date col-md-2 col-sm-2 col-xs-2'>    <div class='month col-xs-12 col-sm-12 col-md-12 col-lg-12'>  <h3>"+eDate1+"</h3> </div>  <div class='day col-xs-12 col-sm-12 col-md-12 col-lg-12'> <h3>"+eDate2+"</h3> </div> <div class='year col-xs-12 col-sm-12 col-md-12 col-lg-12'> <h3>"+eDate3+"</h3> </div>      </div>          <div class='details col-md-10 col-sm-10 col-xs-10' style='margin:0px'> <div class='title col-md-12 col-sm-12 col-xs-12'>              <a><h3 class='eName' name='"+val.id+"'>"+title+"</h3></a> </div> <div class='location col-md-12 col-lg-12 col-sm-12 col-xs-12'> <h6><span class='glyphicon glyphicon-map-marker'></span>"+val.event_Location+"</h6> </div>  <div class='time col-md-12 col-lg-12 col-sm-12 col-xs-12'>   <h6><span class='glyphicon glyphicon-time'></span>"+start.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+" - "+end.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})+" "+"IST</h6>   </div>  </div> </div>  </div></div>"
+         var k = $('<div>'+output+'</div>').hide();
+          $('.upcomingContent').append(k);
+          k.fadeIn();
+        },time);
+          time+= 175;
         });
-        $('.upcomingContent').html(output);
         $('#upPages').children('li:first').addClass('active');
       }
     });
