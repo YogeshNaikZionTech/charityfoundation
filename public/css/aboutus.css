@@ -18,7 +18,7 @@ section#banner{
         }
         ul, ul li{
             list-style-type: square;
-            font-family: Constantia, cursive;
+            font-family:Constantia,sans-serif;
         }
         ul{
             margin-left: 30px;
@@ -31,7 +31,7 @@ section#banner{
     section#about p{
         font-size: 18px;
         /*font-style: oblique;*/
-   font-family: Constantia, cursive;
+        font-family:Constantia,sans-serif;
           text-align: justify;
     }
     section#about{
