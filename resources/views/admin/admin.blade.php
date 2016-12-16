@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <br/>
-                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center">
+                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center" cellspacing="0">
                         <thead class="thead-inverse table-primary">
                         <tr>
                             <th>#</th>
