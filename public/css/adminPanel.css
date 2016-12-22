@@ -150,7 +150,7 @@ input[type="text"]{ min-height: 28px;}
         display: none;
     }
     .flexbox .side-nav {
-        display: block;
+        /*display: block;*/
         width: 70px;
         z-index: 2;
     }
@@ -201,9 +201,9 @@ input[type="text"]{ min-height: 28px;}
         background-color: #35475e;
 
     }
-    .nav-trigger {
-        display: none;
-    }
+    /*.nav-trigger {*/
+        /*display: none;*/
+    /*}*/
     .nav-trigger span, .nav-trigger span:before, span:after {
         background-color: #fff;
     }
@@ -400,16 +400,22 @@ body{min-height:100%;}
     text-shadow: none;
 
 }
-table#dtable {
+table#dtable, table#etable, table#example,table#voltable, table#contable{
     margin:0 auto;
-    width:100%;
+    max-width:100%;
 
 }
-tbody.doutput{
+tbody.doutput, tbody.eoutput, tbody.output, tbody.voloutput, tbody.conoutput{
     margin:0 auto;
     width:100%;
 }
 div.dataTables_scrollHead{
     margin: 0 auto;
     padding:0;
+    height:75px;
+    width:100%;
+}
+div.dataTables_wrapper {
+    width: 100%;
+    margin: 0 auto;
 }

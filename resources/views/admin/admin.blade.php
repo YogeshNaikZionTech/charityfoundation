@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <br/>
-                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center" cellspacing="0">
+                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center">
                         <thead class="thead-inverse table-primary">
                         <tr>
                             <th>#</th>
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <br/>
-                    <table id="etable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center">
+                    <table id="etable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  align="center">
                         <thead class="thead-inverse table-primary">
                         <tr>
                             <th>#</th>
@@ -126,7 +126,7 @@
                     </div>
                     <br/>
 
-                    <table id="example" class="display table table-striped table-bordered table-hover table-info text-primary  bg-info d-inline" align="center">
+                    <table id="example" class="display scroll table table-striped table-bordered table-hover table-info text-primary bg-info d-inline" align="center">
                         <thead class="thead-inverse">
                         <tr>
                             <th>First Name</th>
@@ -466,8 +466,6 @@
             var navListItems = $('.admin-menu li');
             var allWells = $('.admin-content');
             var allWellsExceptFirst = $('.admin-content:not(:first)');
-            console.log('allWellsExceptFirst');
-
             allWellsExceptFirst.hide();
             navItems.click(function(e)
             {
@@ -485,15 +483,17 @@
        </script>
     <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
+    <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
     <script>
         $(document).ready(function() {
-            $('#dtable').DataTable( {
+            $('.display').DataTable( {
                 "scrollY": "200px",
                 "scrollCollapse": true,
                 "ordering": false,
                 "bInfo" : false,
                 "filter": false,
                 "paging": false
+
             } );
         } );
     </script>
