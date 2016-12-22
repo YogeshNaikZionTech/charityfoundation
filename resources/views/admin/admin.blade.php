@@ -309,8 +309,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                                <input id="files" style="visibility:hidden;" type="file" Name="pimage" accept="image/*">
+                                <input id="pimage"  type="file" Name="pimage" accept="image/*">
                             </div>
                             <div class="form-group">
                                 <input type="submit" class="btn btn-primary">
@@ -321,9 +320,7 @@
                     <!--  Form to Modify an Event -->
                     <div class="event program">
                         <form class="form-group col-md-12"  action="{{url('/putevents')}}" method="POST">
-                            <!-- <input name="_method" type="hidden" value="PUT"> -->
                             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-
                             <div class="row">
                                 <div class="col-md-6">
 
@@ -400,8 +397,7 @@
                         <div class="row">
                             
                             <div class="form-group col-md-6 col-md-offset-1">
-                                <label for="files" class="btn" style="background-color: white"><i class="fa fa-upload" aria-hidden="true"></i> Select Image</label>
-                                <input id="files" style="display:none;" type="file" name="eimage" accept="image/*">
+                                <input id="eimage" type="file" name="eimage" accept="image/*">
                             </div>
                         </div> 
                         <div class="row">
