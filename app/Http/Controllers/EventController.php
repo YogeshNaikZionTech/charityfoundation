@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use Intervention\Image\Facades\Image;
 
 use App\Event;
 class EventController extends Controller
@@ -207,7 +208,6 @@ class EventController extends Controller
 
     public function updateEvent(Request $request)
     {
-
 
         $id = $request->input('id');
         $event = Event::where("id","=", $id)->first();
