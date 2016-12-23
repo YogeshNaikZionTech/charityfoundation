@@ -17,7 +17,7 @@ class AdminSeeder extends Seeder
 		    'lastname'=> 'great',
 		    'email' => 'kai@great.com',
 		    'password' => Hash::make('password'),
-			'avatar' => '1473652512.png',
+			'avatar' => '1482535204.png',
 		    'phonenum'=> 1234566,
 		    'street' => 'heaven',
 		    'aptNo' => 888,
