@@ -49,7 +49,8 @@ class ProjectController extends Controller
     {
 Log::info('Request to store'.$request->pname);
         $filename= 'event.png';
-        if ( $request->hasFile('pimage') ) {
+
+        if ($request->hasFile('pimage') ) {
             $project_image = $request->file('pimage');
             Log::info($project_image->getClientOriginalExtension());
             $filename = time() . '.' . $project_image->getClientOriginalExtension();
@@ -69,8 +70,7 @@ Log::info('Request to store'.$request->pname);
         $project->project_Image =$project_image;
         $project->project_Location = $request->input('plocation');
         $pdate = $request->input('pdate');
-
-        
+        Log::info($pdate);
         if($pdate == date("Y,m,d")){
 
             $project->project_Status = 'current';

@@ -66,10 +66,12 @@ class EventController extends Controller
         $event->event_StartTime = $start_time;
         $event->event_EndTime = $end_time;
         $event->event_Image = $filename;
-        if($event_Date == date("Y,m,d")){
+        $check_date = date("Y-m-d");
+        if($event_Date == $check_date){
 
             $event->event_Status = 'current';
-        }elseif ($event_Date > date("Y,m,d")){
+
+        }elseif ($event_Date > $check_date){
 
             $event->event_Status = 'future';
         }
