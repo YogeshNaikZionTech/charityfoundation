@@ -4,6 +4,7 @@
 @section('stylesheets')
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
 @endsection
 @section('content')
     <div id="content">
@@ -871,10 +872,12 @@ $('.del-event').click(function(){
     });
     </script>
     {{--Date Picker--}}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript">
             $(function () {
                 $('#datetimepicker3,#datetimepicker4,#starttime,#endtime').datetimepicker({
-                    
+
                     format:'HH:mm:ss'
                 });
 
@@ -884,7 +887,7 @@ $('.del-event').click(function(){
                 });
 
                 $('#datetimepicker2,#datetimepicker1,#datetimepicker5').datetimepicker({
-                    
+
                     format:'YYYY-MM-DD'
                 });
 
