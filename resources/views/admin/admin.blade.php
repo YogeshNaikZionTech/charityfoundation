@@ -5,6 +5,8 @@
     <link href="{{URL::asset('/css/adminPanel.css')}}" rel="stylesheet" type="text/css"/>
     <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.css"/>
+    <!---- AnyOther custom stylesheets ---->
 @endsection
 @section('content')
     <div id="content">
@@ -27,15 +29,14 @@
                 </div>
                 <nav>
                     <ul class="admin-menu">
-                        <li class="active" ONCLICK="FocusOnInput()" id="dsearchitem">
+                        <li class="active" id="dsearchitem">
                             <a href="#" data-target-id="history">
                                 <span><i class="fa fa-table"></i></span>
                                 <span>Donations</span>
                             </a>
                         </li>
-                        <li ONCLICK="FocusOnInput()" id="searchitem">
+                        <li id="searchitem">
                             <a href="" data-target-id="users">
-
                                 <span><i class="fa fa-search"></i></span>
                                 <span>Users</span>
                             </a>
@@ -497,9 +498,6 @@
     {{--Donate Menu--}}
     <script type="text/javascript">
         $(document).ready(function(){
-            function FocusOnInput() {
-                document.forms['donate_search_form'].elements['input'].focus();
-            }
             $('#dsearchitem').click(function(){
                 document.forms['donate_search_form'].elements['input'].focus();
             })
@@ -611,9 +609,7 @@
     {{--Search Users Menu--}}
     <script type="text/javascript">
         $(document).ready(function() {
-            function FocusOnInput() {
-                document.forms['search_form'].elements['input'].focus();
-            }
+
             $('#searchitem').click(function() {
                 document.forms['search_form'].elements['input'].focus();
             });
@@ -896,6 +892,7 @@ $('.del-event').click(function(){
 
     </script>
     {{--Create Projects and Events--}}
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
             $('#createvent')
