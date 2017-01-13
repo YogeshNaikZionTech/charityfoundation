@@ -94,15 +94,14 @@
         </div>
 
         <div class=" container-fluid header_education" id="header_education">
-            <h1> Educate yourself</h1>
+            <h1> Education is Self Empowerment</h1>
             <div>
 
-                <iframe class="col-lg-8 col-xs-12 col-sm-8 col-md-8" src="https://www.youtube.com/embed/6Q5Ndz0RQa4" frameborder="0" allowfullscreen></iframe>
+                <iframe class="col-lg-6 col-lg-offset-0  col-xs-offset-0 col-xs-12 col-sm-offset-1 col-sm-10 col-md-offset-1 col-md-10" src="https://www.youtube.com/embed/6Q5Ndz0RQa4" frameborder="0" allowfullscreen></iframe>
 
             </div>
-            <div class="col-lg-4 col-xs-12 col-md-10 col-sm-4 pull-left">
-                <h2>Video title</h2>
-                <p>Some description  about video ,Main theme of the video</p>
+            <div class="col-lg-6 col-lg-offset-0 col-xs-12 col-xs-offset-0 col-md-10 col-sm-offset-1 col-sm-10 col-md-offset-1  pull-left">
+                <p>Receiving a good education helps empower you, thus making you strong enough to look after yourself in any given situation. It keeps you aware of your given surrounding as well as the rules and regulations of the society you're living in. It's only through knowledge that you can be able to question authority for its negligence or discrepancies. It is only then that you can avail your rights as a citizen and seek improvement in the structural functioning of governance and economy. It's only when a citizen is aware about the policies of its government can he be able to support or protest the change. As a whole, people can bring about development only when they know where improvement is necessary for the greater good of mankind. Education helps you understand yourself better, it helps you realize your potential and qualities as a human being. It helps you to tap into latent talent, so that you may be able to sharpen your skills. </p>
 
                 <a href="{{url('/education')}}" class="btn btn-lg">Explore more</a>
 
