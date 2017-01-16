@@ -136,7 +136,7 @@
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                             <div class="homeprojects" >
 
-                                <div class="head">{{$cproject->project_Status}}</div>
+                                {{--<div class="head">{{$cproject->project_Status}}</div>--}}
                                 <div class="project_image ">
                                     <img class="image" src="images/projects/{{$cproject->project_Image}}" class="img-responsive" style="" alt="Image" ></div>
                                 <div><h3 class="title">{{$cproject->project_Title}}</h3></div>
@@ -184,7 +184,7 @@
                     @foreach($events_c as $cevent)
                         <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                             <div class="homeEvents">
-                                <div class="head">{{$cevent->event_Status}}</div>
+                                {{--<div class="head">{{$cevent->event_Status}}</div>--}}
                                 <div class="project_image image"><img src="images/events/{{$cevent->event_Image}}" class="img-responsive" style="width:100%;max-height: 250px;" alt="Image"></div>
 
                                 <div class="description_event">
