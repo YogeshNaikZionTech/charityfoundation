@@ -6,7 +6,6 @@
     @endsection
 @section('content')
 <div class="main container-fluid" id="content">
-
     <div class="row">
         <div class="board col-md-4 col-lg-4 col-sm-12 col-xs-12"> 
             <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
@@ -39,7 +38,8 @@
                                 </ul>
                             </div>
                         </div>
-                        <div id="note" class= "animated pulse" style="color: black; display: none;font-size: medium">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.</div>
+                        <div id="note" class= "animated pulse" style="color: black; display: none;font-size: medium">Your donation will be made today and on the <span id="day"></span> of each following month. You may cancel or change this amount at any time.
+                        </div>
                     </div>
                 </div><!--End of Donation Content-->
             </div><!--End of Donation-->
@@ -192,7 +192,7 @@
                     <span class="align-middle">DONATE</span></label>
                 </div>
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12 appre">
-                    <p>Thank you for your contribution</p>   
+                    <p>Thank you for your contribution.</p>   
                 </div> 
             </div>
             <div class="right review2" style="display: none">
