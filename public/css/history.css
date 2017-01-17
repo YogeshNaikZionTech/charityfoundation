@@ -1,3 +1,13 @@
 .container{
 	margin-top:55px;
 }
+
+.history_data{
+	margin-bottom: 10px;
+	text-align: center;
+	
+}
+
+#tablehead th,.hdata,.txtalign{
+	text-align: center;
+}

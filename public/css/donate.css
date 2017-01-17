@@ -276,9 +276,9 @@ margin: 20px auto;
   border-left: 1px dotted black;
 }
 
-.details{
+/*.details{
   margin-top: 2%;
-}
+}*/
 
 .appre{
   font-family: 'Playball', cursive;
@@ -291,4 +291,28 @@ margin: 20px auto;
 .sum1,.sum2,.sum3,.volnotvalidname,.volnotvalidemail,.volnotvalidphone{
   margin-bottom: 2%;
   display: none;
+}
+
+@media (max-width: 434px){
+  .board > h4{
+    margin-top: 35px;
+
+  }
+/*  .div2 ul li:hover .check {
+    border: 4px solid #777;
+  }
+
+  .div2 input[type=radio]:checked ~ .check {
+    border: 4px solid #ff944d;
+  }*/
+
+  .div2 ul li .check::before{
+    top: 3px;
+    left: 3px;
+    
+  }
+
+  .reset2{
+    font-size: small;
+  }
 }
