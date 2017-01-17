@@ -224,7 +224,7 @@ $.ajax({
               var output ="<div class='row'>";
            response = JSON.parse(response);
            $.each(response, function (key,val) {
-             output += "<div class='col-lg-4 col-md-4 col-sm-6 col-xs-6'>  <div class='thumbnail'> <div class='image'><img class='img-click img-responsive' name='"+val.id+"' src='/images/projects/"+ val.project_Image+"'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
+             output += "<div class='col-lg-4 col-md-4 col-sm-6'>  <div class='thumbnail'> <div class='image'><img class='img-click img-responsive' name='"+val.id+"' src='/images/projects/"+ val.project_Image+"'> <a href='#'><div class='title' name='"+val.id+"'>"+val.project_Title+"</div></a> <a><button name='"+val.id+"' type='button' class='btn btn-warning readMore'>Read More</button></a> </div></div></div>";
            });
            output+="</div>";
             $('.completedContent').html(output);

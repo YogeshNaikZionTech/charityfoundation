@@ -16,7 +16,7 @@ label, input, h3, button{
 .header {
     position: absolute;
     width: 100%;
-    z-index: 2;
+    transform: translateZ(2px);
     height: 44px;
     background-color: #fff;
     border-bottom: 3px solid #2d3d51;
@@ -40,7 +40,7 @@ input[type="text"]{ min-height: 28px;}
 }
 .header .logo {
     height: 44px;
-    z-index: 1;
+    transform: translateZ(1px);
     padding: 10px;
     font-weight: 700;
     color: #233245;
@@ -58,7 +58,7 @@ input[type="text"]{ min-height: 28px;}
     width: 100px;
     height: 100vh;
     background-color: #35475e;
-    z-index: 2;
+    transform: translateZ(2px);
     overflow:hidden;
     display: inline-block;
 }
