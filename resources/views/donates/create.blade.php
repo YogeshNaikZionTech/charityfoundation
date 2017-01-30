@@ -8,7 +8,7 @@
 <div class="main container-fluid" id="content">
     <div class="row">
         <div class="board col-md-4 col-lg-4 col-sm-12 col-xs-12"> 
-            <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation</h4>        
+            <h4 class="text-center highlight animated fadeInDown"><span class="glyphicon glyphicon-heart-empty"></span> Donation Type</h4>        
             <div class="left">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <div class="div4">
