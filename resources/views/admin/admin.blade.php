@@ -6,6 +6,7 @@
     <link href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css" type="text/css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" />
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.css"/>
+
     <!---- AnyOther custom stylesheets ---->
 @endsection
 @section('content')
@@ -76,8 +77,8 @@
                         </div>
                     </div>
                     <br/>
-                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  id="historytable" align="center">
-                        <thead class="thead-inverse table-primary">
+                    <table id="dtable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  align="center">
+                        <thead class="table-primary">
                         <tr>
                             <th>#</th>
                             <th>Full Name</th>
@@ -101,7 +102,7 @@
                     </div>
                     <br/>
                     <table id="etable" class="display table table-striped table-hover table-bordered table-info table-responsive text-primary bg-info d-inline"  align="center">
-                        <thead class="thead-inverse table-primary">
+                        <thead class="table-primary">
                         <tr>
                             <th>#</th>
                             <th>Full Name</th>
@@ -128,8 +129,8 @@
                     </div>
                     <br/>
 
-                    <table id="example" class="display scroll table table-striped table-bordered table-hover table-info text-primary bg-info d-inline" align="center">
-                        <thead class="thead-inverse">
+                    <table id="example" class="display table table-striped table-bordered table-hover table-info table-responsive text-primary bg-info" align="center" cellspaing="0" style="width:1135px;">
+                        <thead class="table-primary">
                         <tr>
                             <th>First Name</th>
                             <th>Last Name</th>
@@ -423,8 +424,8 @@
                 </div>
                 <div class="admin-content" id="volunteer">
                     <h3>Suggestions</h3>
-                    <table id="voltable" class="display table table-striped table-hover table-bordered table-success bg-info table-responsive text-primary d-inline" align="center">
-                        <thead class="thead-inverse">
+                    <table id="voltable" class="display table table-striped table-hover table-bordered table-success bg-info table-responsive text-primary" align="center">
+                        <thead class="thead-primary">
                         <tr>
                             <th>Full Name</th>
                             <th>Email</th>
@@ -435,7 +436,7 @@
                     </table>
                     <h3>Contact Requests</h3>
                     <table id="contable" class="display table table-striped table-hover table-bordered bg-info table-responsive text-primary d-inline" align="center">
-                        <thead class="thead-inverse">
+                        <thead class="thead-primary">
                         <tr>
                             <th>Full Name</th>
                             <th>Email</th>
@@ -482,19 +483,54 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
-    <script>
-        $(document).ready(function() {
-            $('.display').DataTable( {
-                "scrollY": "200px",
-                "scrollCollapse": true,
-                "ordering": false,
-                "bInfo" : false,
-                "filter": false,
-                "paging": false
+    {{--<script>--}}
+        {{--$(document).ready(function() {--}}
+            {{--$('#dtable').DataTable( {--}}
+                {{--"scrollY": "200px",--}}
+                {{--"scrollX": true,--}}
+                {{--"scrollCollapse": true,--}}
+                {{--"ordering": false,--}}
+                {{--"bInfo" : false,--}}
+                {{--"filter": false,--}}
+                {{--"language": true,--}}
+                {{--"paging": false--}}
+            {{--});--}}
+            {{--$('#example').DataTable( {--}}
+                {{--"scrollY": "500px",--}}
+                {{--"scrollX": true,--}}
+                {{--"scrollCollapse": true,--}}
+                {{--"ordering": false,--}}
+                {{--"bInfo" : false,--}}
+                {{--"filter": false,--}}
+                {{--"paging": false--}}
+            {{--});--}}
+            {{--$('#etable').DataTable( {--}}
+                {{--"scrollY": "200px",--}}
+                {{--"scrollCollapse": true,--}}
+                {{--"ordering": false,--}}
+                {{--"bInfo" : false,--}}
+                {{--"filter": false,--}}
+                {{--"paging": false--}}
+            {{--});--}}
+            {{--$('#voltable').DataTable( {--}}
+                {{--"scrollY": "100px",--}}
+                {{--"scrollCollapse": true,--}}
+                {{--"ordering": false,--}}
+                {{--"bInfo" : false,--}}
+                {{--"filter": false,--}}
+                {{--"paging": false--}}
+            {{--});--}}
+            {{--$('#contable').DataTable( {--}}
+                {{--"scrollY": "100px",--}}
+                {{--"scrollCollapse": true,--}}
+                {{--"ordering": false,--}}
+                {{--"bInfo" : false,--}}
+                {{--"filter": false,--}}
+                {{--"paging": false--}}
+            {{--});--}}
 
-            } );
-        } );
-    </script>
+        {{--} );--}}
+    {{--</script>--}}
     {{--Donate Menu--}}
     <script type="text/javascript">
         $(document).ready(function(){
