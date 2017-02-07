@@ -315,10 +315,6 @@ input[type="text"]{ min-height: 28px;}
 input[type="text"]{
     height: 28px;
 }
-/*.datetimepicker1{
-    display:inline;
-    padding:2px;
-}*/
 .radiosel{
     font-weight: bold;
 }
@@ -387,7 +383,6 @@ body{min-height:100%;}
 .wrapper .search_form, .wrapper .donate_search_form, .wrapper .eve_search_form{
    display: table;
     margin:auto;
-
 }
 .display, .table{
     margin-top:3%;
@@ -402,20 +397,43 @@ body{min-height:100%;}
 }
 table#dtable, table#etable, table#example,table#voltable, table#contable{
     margin:0 auto;
-    max-width:100%;
-
+    min-width:100%;
+    /*width:1135px;*/
 }
 tbody.doutput, tbody.eoutput, tbody.output, tbody.voloutput, tbody.conoutput{
-    margin:0 auto;
-    width:100%;
+    margin:0;
+    /*width:100%;*/
 }
-div.dataTables_scrollHead{
-    margin: 0 auto;
-    padding:0;
-    height:75px;
-    width:100%;
-}
-div.dataTables_wrapper {
-    width: 100%;
-    margin: 0 auto;
-}
+/*div.dataTables_scrollHead{*/
+    /*margin: 0;*/
+    /*padding:0;*/
+    /*height:75px;*/
+    /*!*width:100%;*!*/
+/*}*/
+/*div.dataTables_wrapper {*/
+    /*!*width: 100%;*!*/
+    /*margin: 0 ;*/
+/*}*/
+/*table.ex{*/
+    /*overflow-x:auto;*/
+/*}*/
+/*!*.display::-webkit-scrollbar*!*/
+/*!*{*!*/
+    /*!*-webkit-appearance: none;*!*/
+    /*!*width: 14px;*!*/
+
+    /*!*height: 14px;*!*/
+/*!*}*!*/
+
+/*.display::-webkit-scrollbar-thumb*/
+/*{*/
+    /*border-radius: 8px;*/
+    /*border: 3px solid #fff;*/
+    /*background-color: rgba(0, 0, 0, .3);*/
+/*}*/
+/*!*@media screen and (max-width: 600px) {*!*/
+    /*!*table.display{*!*/
+        /*!*display:block;*!*/
+        /*!*overflow: auto;*!*/
+    /*!*}*!*/
+/*!*}*!*/
