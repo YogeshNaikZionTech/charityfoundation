@@ -52,7 +52,7 @@
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
 
                             <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
-                                <p>Founder take care of all the administrative cost</p>
+                                <p>Founder takes care of all the administrative costs.</p>
 
                             </div>
 
@@ -71,7 +71,7 @@
                         <div class="donate_carousel col-md-4  col-lg-4 col-sm-4 col-xs-5 pull-right" >
 
                             <div class="donors1 col-md-10 col-lg-10 col-xs-12 col-sm-10">
-                                <p>Together we can make difference,&nbsp;'Join with US'</p>
+                                <p>Together we can make difference,&nbsp;'Join US now'</p>
 
                             </div>
 
@@ -101,7 +101,7 @@
 
             </div>
             <div class="col-lg-6 col-lg-offset-0 col-xs-12 col-xs-offset-0 col-md-10 col-sm-offset-1 col-sm-10 col-md-offset-1  pull-left">
-                <p>Receiving a good education helps empower you, thus making you strong enough to look after yourself in any given situation. It keeps you aware of your given surrounding as well as the rules and regulations of the society you're living in. It's only through knowledge that you can be able to question authority for its negligence or discrepancies. It is only then that you can avail your rights as a citizen and seek improvement in the structural functioning of governance and economy. It's only when a citizen is aware about the policies of its government can he be able to support or protest the change. As a whole, people can bring about development only when they know where improvement is necessary for the greater good of mankind. Education helps you understand yourself better, it helps you realize your potential and qualities as a human being. It helps you to tap into latent talent, so that you may be able to sharpen your skills. </p>
+                <p>Receiving good education helps empower you, thus making you strong enough to look after yourself in any given situation. It keeps you aware of your given surrounding as well as the rules and regulations of the society you're living in. It's only through knowledge that you can be able to question authority for its negligence or discrepancies. It is only then that you can avail your rights as a citizen and seek improvement in the structural functioning of governance and economy. It's only when a citizen is aware about the policies of its government can he be able to support or protest the change. As a whole, people can bring about development only when they know where improvement is necessary for the greater good of mankind. Education helps you understand yourself better, it helps you realize your potential and qualities as a human being. It helps you to tap into latent talent, so that you may be able to sharpen your skills. </p>
 
                 <a href="{{url('/education')}}" class="btn btn-lg">Explore more</a>
 
