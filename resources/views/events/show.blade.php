@@ -269,12 +269,12 @@ return monthArray[d-1];
 <script type="text/javascript">
   $(document).ready(function(){
         //Pop up for Event Description Details
-   $.ajaxSetup({
-    headers:
-    {
-        'X-CSRF-Token': $('input[name="_token"]').val()
-    }
-  });
+  //  $.ajaxSetup({
+  //   headers:
+  //   {
+  //       'X-CSRF-Token': $('input[name="_token"]').val()
+  //   }
+  // });
    function getFullMonth(d){
 var monthArray = ['January', 'February','March','April','May', 'June', 'July', 'August', 'September', 'October','November', 'December'];
 return monthArray[d-1];
@@ -282,6 +282,12 @@ return monthArray[d-1];
 
             //Call to get the description details based on event id (opens modal when click on name)
  $('body').on('click','.eName', function(){
+  $(document).ajaxStart(function() {
+  /* Stuff to do when an AJAX call is started and no other AJAX calls are in progress */
+  $('.eimg').attr('src', "'/images/events/pageloader.gif' width='25px' height='25px'");
+  $('.mTitle,.des,.loc').html("<img src='/images/events/pageloader.gif' width='25px' height='25px'");
+  $('.dat,.time1,.tim2').empty();
+});
    $('.volunt').hide();
     var id = $(this).attr('name');
     $.ajax({
@@ -317,9 +323,15 @@ return monthArray[d-1];
     });
   $('#eventDetails').modal('show');
 });
-            //Call to get the description details based on event id (opens modal when click on image)
+            //Call to get the description details based on event id (opens modal when clicked on image)
  $('body').on('click','.img-click', function(){
-   $('.volunt').hide();
+  $(document).ajaxStart(function() {
+  /* Stuff to do when an AJAX call is started and no other AJAX calls are in progress */
+  $('.eimg').attr('src', "'/images/events/pageloader.gif' width='25px' height='25px'");
+  $('.mTitle,.des,.loc').html("<img src='/images/events/pageloader.gif' width='25px' height='25px'");
+  $('.dat,.time1,.tim2').empty();
+});
+     $('.volunt').hide();
     var id = $(this).attr('name');
     $.ajax({
         url: 'events/'+id,
@@ -358,6 +370,12 @@ return monthArray[d-1];
 
     //Call to get description when 'Read More is clicked' (opens modal)
 $('body').on('click','.readMore', function(){
+  $(document).ajaxStart(function() {
+  /* Stuff to do when an AJAX call is started and no other AJAX calls are in progress */
+  $('.eimg').attr('src', "'/images/events/pageloader.gif' width='25px' height='25px'");
+  $('.mTitle,.des,.loc').html("<img src='/images/events/pageloader.gif' width='25px' height='25px'");
+  $('.dat,.time1,.tim2').empty();
+});
  $('.volunt').hide();
      
   var id = $(this).attr('name');
